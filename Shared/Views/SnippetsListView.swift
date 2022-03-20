@@ -25,8 +25,12 @@ struct SnippetsListView: View {
                 }
             } else {
                 ForEach(gists, id: \.id) { gist in
-                    GistRow(data: gist)
-                        .padding()
+                    NavigationLink {
+                        CodeView(url: gist.files.first?.value.rawURL)
+                    } label: {
+                        GistRow(data: gist)
+                            .padding()
+                    }
                 }
             }
         }
@@ -44,7 +48,9 @@ struct SnippetsListView: View {
                         Octokit(config).myGists { response in
                             switch response {
                             case let .success(gists):
-                                self.gists = gists
+                                self.gists = gists.filter({ gist in
+                                    gist.files.first?.value.filename?.contains(".swift") ?? false
+                                })
                             case let .failure(error):
                                 print(error)
                             }

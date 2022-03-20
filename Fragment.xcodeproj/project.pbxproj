@@ -12,6 +12,9 @@
 		522915B327E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915B627E77D380087530C /* Encodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B527E77D380087530C /* Encodable+JSON.swift */; };
 		522915B727E77D380087530C /* Encodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B527E77D380087530C /* Encodable+JSON.swift */; };
+		522915BA27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
+		522915BB27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
+		522915BE27E7857C0087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BD27E7857C0087530C /* Splash */; };
 		525D85E227E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E327E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E827E760A60066B147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
@@ -43,6 +46,7 @@
 /* Begin PBXFileReference section */
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
 		522915B527E77D380087530C /* Encodable+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+JSON.swift"; sourceTree = "<group>"; };
+		522915B927E785690087530C /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
 		525D85BA27E760A60066B147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525D85BF27E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,7 @@
 			files = (
 				522915A527E767880087530C /* DHSourcelessKeyValueStore in Frameworks */,
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
+				522915BE27E7857C0087530C /* Splash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,14 @@
 				522915B527E77D380087530C /* Encodable+JSON.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		522915B827E7855E0087530C /* CodeViews */ = {
+			isa = PBXGroup;
+			children = (
+				522915B927E785690087530C /* CodeView.swift */,
+			);
+			path = CodeViews;
 			sourceTree = "<group>";
 		};
 		525D85AF27E760A40066B147 = {
@@ -154,6 +167,7 @@
 		525D860127E762140066B147 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				522915B827E7855E0087530C /* CodeViews */,
 				522915B027E7781E0087530C /* GistViews */,
 				525D860227E7621D0066B147 /* MainView.swift */,
 				525D860427E762610066B147 /* SnippetsListView.swift */,
@@ -180,6 +194,7 @@
 			packageProductDependencies = (
 				525D860727E762B40066B147 /* OctoKit */,
 				522915A427E767880087530C /* DHSourcelessKeyValueStore */,
+				522915BD27E7857C0087530C /* Splash */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -278,6 +293,7 @@
 			packageReferences = (
 				525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */,
 				522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */,
+				522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -332,6 +348,7 @@
 				525D860527E762610066B147 /* SnippetsListView.swift in Sources */,
 				525D85E227E760A60066B147 /* FragmentApp.swift in Sources */,
 				522915B627E77D380087530C /* Encodable+JSON.swift in Sources */,
+				522915BA27E785690087530C /* CodeView.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				522915B227E778300087530C /* GistRow.swift in Sources */,
 			);
@@ -344,6 +361,7 @@
 				525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */,
 				525D85E327E760A60066B147 /* FragmentApp.swift in Sources */,
 				522915B727E77D380087530C /* Encodable+JSON.swift in Sources */,
+				522915BB27E785690087530C /* CodeView.swift in Sources */,
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 			);
@@ -743,6 +761,14 @@
 				kind = branch;
 			};
 		};
+		522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Splash";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nerdishbynature/octokit.swift";
@@ -758,6 +784,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */;
 			productName = DHSourcelessKeyValueStore;
+		};
+		522915BD27E7857C0087530C /* Splash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
+			productName = Splash;
 		};
 		525D860727E762B40066B147 /* OctoKit */ = {
 			isa = XCSwiftPackageProductDependency;
