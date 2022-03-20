@@ -1,0 +1,40 @@
+# See: https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+
+--swiftversion 5.0
+
+# format options
+--indent 4
+--wraparguments after-first
+--wrapparameters after-first
+--wrapcollections before-first
+--funcattributes same-line
+--typeattributes same-line
+--groupedextension MARK: - %c
+--categorymark MARK: - %c
+--lineaftermarks false
+
+# opt-in
+--enable \
+    modifierorder, \
+    acronyms, \
+    andOperator, \
+    blankLinesBetweenImports, \
+    blockComments, \
+    isEmpty, \
+    markTypes, \
+    organizeDeclarations, \
+    sortedSwitchCases, \
+    wrapConditionalBodies, \
+    wrapEnumCases, \
+    wrapSwitchCases
+
+# rules
+--disable \
+    blankLinesAroundMark, \
+    emptyBraces, \
+    linebreakAtEndOfFile, \
+    unusedArguments, \
+    wrapMultilineStatementBraces
+    
+# See: https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+

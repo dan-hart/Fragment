@@ -5,12 +5,12 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import SwiftUI
 import OctoKit
+import SwiftUI
 
 struct GistRow: View {
     @State var data: Gist?
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(data?.files.first?.key ?? "Unknown")

@@ -5,16 +5,16 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import SwiftUI
 import DHSourcelessKeyValueStore
 import OctoKit
+import SwiftUI
 
 struct SnippetsListView: View {
     @State var isShowingKeyEntryView = false
     @State var token: String? = DHSourcelessKeyValueStore.shared.getValue(fromKey: "GITHUB_TOKEN")
     @State var connectedUsername: String?
     @State var gists: [Gist] = []
-    
+
     var body: some View {
         List {
             if connectedUsername == nil {
@@ -40,22 +40,22 @@ struct SnippetsListView: View {
                 token = DHSourcelessKeyValueStore.shared.getValue(fromKey: "GITHUB_TOKEN")
             } else {
                 let config = TokenConfiguration(token)
-                Octokit(config).me() { response in
+                Octokit(config).me { response in
                     switch response {
-                    case .success(let user):
+                    case let .success(user):
                         connectedUsername = user.login
-                        
+
                         Octokit(config).myGists { response in
                             switch response {
                             case let .success(gists):
-                                self.gists = gists.filter({ gist in
+                                self.gists = gists.filter { gist in
                                     gist.files.first?.value.filename?.contains(".swift") ?? false
-                                })
+                                }
                             case let .failure(error):
                                 print(error)
                             }
                         }
-                    case .failure(let error):
+                    case let .failure(error):
                         print(error)
                     }
                 }
@@ -64,7 +64,7 @@ struct SnippetsListView: View {
         .sheet(isPresented: $isShowingKeyEntryView) {
             SourcelessEntryView()
         }
-        
+
         .navigationTitle("Snippets")
     }
 }

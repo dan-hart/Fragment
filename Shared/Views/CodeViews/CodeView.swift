@@ -11,24 +11,24 @@ import SwiftUI
 
 struct CodeView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
+    var url: URL?
+
+    // MARK: - Computed Properties
+
     var font: Splash.Font {
+        // TODO: Preference, or dynamic size
         return Splash.Font(size: 18)
     }
-    
+
     var theme: Splash.Theme {
         colorScheme == .dark ? .midnight(withFont: font) : .presentation(withFont: font)
     }
-    
+
     var highlighter: Splash.SyntaxHighlighter<AttributedStringOutputFormat> {
         SyntaxHighlighter(format: AttributedStringOutputFormat(theme: theme))
     }
-    
-    var htmlHighlighter: Splash.SyntaxHighlighter<HTMLOutputFormat> {
-        SyntaxHighlighter(format: HTMLOutputFormat())
-    }
-    
-    var url: URL?
+
     var text: String {
         if let url = url, let text = try? String(contentsOf: url) {
             return text
@@ -36,31 +36,34 @@ struct CodeView: View {
             return ""
         }
     }
+
     var lines: [String] {
         text.components(separatedBy: "\n")
     }
-    
+
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
             ForEach(lines.indices, id: \.self) { index in
                 HStack {
                     Text("\(index)")
                         .font(.system(.body, design: .monospaced))
-#if canImport(UIKit)
-                    NSASLabel { label in
-                        label.attributedText = highlighter.highlight(lines[index])
-                    }
-#else
-                    NSASLabel { label in
-                        label.attributedStringValue = highlighter.highlight(lines[index])
-                        label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
-                        label.backgroundColor = .clear
-                        label.isBezeled = false
-                        label.isEditable = false
-                        label.sizeToFit()
-                    }
-                    .frame(minWidth: 1000)
-#endif
+                    #if canImport(UIKit)
+                        UIKitNSAttributedStringWrapper { label in
+                            label.attributedText = highlighter.highlight(lines[index])
+                        }
+                    #endif
+
+                    #if canImport(AppKit)
+                        AppKitNSAttributedStringWrapper { label in
+                            label.attributedStringValue = highlighter.highlight(lines[index])
+                            label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
+                            label.backgroundColor = .clear
+                            label.isBezeled = false
+                            label.isEditable = false
+                            label.sizeToFit()
+                        }
+                        .frame(minWidth: 1000)
+                    #endif
                 }
             }
             .frame(maxWidth: .infinity)
@@ -73,44 +76,50 @@ struct CodeView: View {
                     guard let url = url else {
                         return
                     }
-#if canImport(UIKit)
-                    UIPasteboard.general.string = try? String(contentsOf: url)
-#else
-                    let pasteBoard = NSPasteboard.general
-                    pasteBoard.clearContents()
-                    let string = try? NSString(contentsOf: url, encoding: String.Encoding.utf8.rawValue)
-                    pasteBoard.writeObjects([(string ?? "") as NSString])
-#endif
+                    #if canImport(UIKit)
+                        UIPasteboard.general.string = try? String(contentsOf: url)
+                    #else
+                        let pasteBoard = NSPasteboard.general
+                        pasteBoard.clearContents()
+                        let string = try? NSString(contentsOf: url, encoding: String.Encoding.utf8.rawValue)
+                        pasteBoard.writeObjects([(string ?? "") as NSString])
+                    #endif
                 } label: {
                     Text("Copy")
                 }
-                
             }
         }
     }
 }
 
-#if canImport(UIKit)
-import UIKit
+// MARK: - UIKit Wrapper
 
-struct NSASLabel: UIViewRepresentable {
-    typealias TheUIView = UILabel
-    fileprivate var configuration = { (view: TheUIView) in }
-    
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> TheUIView { TheUIView() }
-    func updateUIView(_ uiView: TheUIView, context: UIViewRepresentableContext<Self>) {
-        configuration(uiView)
+#if canImport(UIKit)
+    import UIKit
+
+    struct UIKitNSAttributedStringWrapper: UIViewRepresentable {
+        typealias TheUIView = UILabel
+        fileprivate var configuration = { (_: TheUIView) in }
+
+        func makeUIView(context _: UIViewRepresentableContext<Self>) -> TheUIView { TheUIView() }
+        func updateUIView(_ uiView: TheUIView, context _: UIViewRepresentableContext<Self>) {
+            configuration(uiView)
+        }
     }
-}
-#else
-import AppKit
-struct NSASLabel: NSViewRepresentable {
-    typealias NSViewType = NSTextField
-    fileprivate var configuration = { (view: NSViewType) in }
-    
-    func makeNSView(context: NSViewRepresentableContext<Self>) -> NSViewType { NSViewType() }
-    func updateNSView(_ nsView: NSViewType, context: NSViewRepresentableContext<Self>) {
-        configuration(nsView)
+#endif
+
+// MARK: - AppKit Wrapper
+
+#if canImport(AppKit)
+    import AppKit
+
+    struct AppKitNSAttributedStringWrapper: NSViewRepresentable {
+        typealias NSViewType = NSTextField
+        fileprivate var configuration = { (_: NSViewType) in }
+
+        func makeNSView(context _: NSViewRepresentableContext<Self>) -> NSViewType { NSViewType() }
+        func updateNSView(_ nsView: NSViewType, context _: NSViewRepresentableContext<Self>) {
+            configuration(nsView)
+        }
     }
-}
 #endif
