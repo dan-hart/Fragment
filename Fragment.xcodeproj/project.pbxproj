@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		522915A527E767880087530C /* DHSourcelessKeyValueStore in Frameworks */ = {isa = PBXBuildFile; productRef = 522915A427E767880087530C /* DHSourcelessKeyValueStore */; };
-		525D85D127E760A60066B147 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85D027E760A60066B147 /* Tests_iOS.swift */; };
-		525D85D327E760A60066B147 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85D227E760A60066B147 /* Tests_iOSLaunchTests.swift */; };
-		525D85DD27E760A60066B147 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85DC27E760A60066B147 /* Tests_macOS.swift */; };
-		525D85DF27E760A60066B147 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85DE27E760A60066B147 /* Tests_macOSLaunchTests.swift */; };
+		522915B227E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
+		522915B327E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
+		522915B627E77D380087530C /* Encodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B527E77D380087530C /* Encodable+JSON.swift */; };
+		522915B727E77D380087530C /* Encodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B527E77D380087530C /* Encodable+JSON.swift */; };
 		525D85E227E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E327E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E827E760A60066B147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
@@ -41,17 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
+		522915B527E77D380087530C /* Encodable+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+JSON.swift"; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
 		525D85BA27E760A60066B147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525D85BF27E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525D85C527E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525D85C727E760A60066B147 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		525D85CC27E760A60066B147 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		525D85D027E760A60066B147 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
-		525D85D227E760A60066B147 /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
 		525D85D827E760A60066B147 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		525D85DC27E760A60066B147 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		525D85DE27E760A60066B147 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		525D860227E7621D0066B147 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		525D860427E762610066B147 /* SnippetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,13 +88,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522915B027E7781E0087530C /* GistViews */ = {
+			isa = PBXGroup;
+			children = (
+				522915B127E778300087530C /* GistRow.swift */,
+			);
+			path = GistViews;
+			sourceTree = "<group>";
+		};
+		522915B427E77D290087530C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				522915B527E77D380087530C /* Encodable+JSON.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		525D85AF27E760A40066B147 = {
 			isa = PBXGroup;
 			children = (
 				525D85B427E760A40066B147 /* Shared */,
 				525D85C627E760A60066B147 /* macOS */,
-				525D85CF27E760A60066B147 /* Tests iOS */,
-				525D85DB27E760A60066B147 /* Tests macOS */,
 				525D85C027E760A60066B147 /* Products */,
 				525D85FE27E761CB0066B147 /* Frameworks */,
 			);
@@ -105,6 +117,7 @@
 		525D85B427E760A40066B147 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				522915B427E77D290087530C /* Extensions */,
 				525D860127E762140066B147 /* Views */,
 				525D85B727E760A40066B147 /* FragmentApp.swift */,
 				525D85BA27E760A60066B147 /* Assets.xcassets */,
@@ -131,24 +144,6 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
-		525D85CF27E760A60066B147 /* Tests iOS */ = {
-			isa = PBXGroup;
-			children = (
-				525D85D027E760A60066B147 /* Tests_iOS.swift */,
-				525D85D227E760A60066B147 /* Tests_iOSLaunchTests.swift */,
-			);
-			path = "Tests iOS";
-			sourceTree = "<group>";
-		};
-		525D85DB27E760A60066B147 /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				525D85DC27E760A60066B147 /* Tests_macOS.swift */,
-				525D85DE27E760A60066B147 /* Tests_macOSLaunchTests.swift */,
-			);
-			path = "Tests macOS";
-			sourceTree = "<group>";
-		};
 		525D85FE27E761CB0066B147 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +154,7 @@
 		525D860127E762140066B147 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				522915B027E7781E0087530C /* GistViews */,
 				525D860227E7621D0066B147 /* MainView.swift */,
 				525D860427E762610066B147 /* SnippetsListView.swift */,
 			);
@@ -335,7 +331,9 @@
 			files = (
 				525D860527E762610066B147 /* SnippetsListView.swift in Sources */,
 				525D85E227E760A60066B147 /* FragmentApp.swift in Sources */,
+				522915B627E77D380087530C /* Encodable+JSON.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
+				522915B227E778300087530C /* GistRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +343,9 @@
 			files = (
 				525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */,
 				525D85E327E760A60066B147 /* FragmentApp.swift in Sources */,
+				522915B727E77D380087530C /* Encodable+JSON.swift in Sources */,
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
+				522915B327E778300087530C /* GistRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,8 +353,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525D85D327E760A60066B147 /* Tests_iOSLaunchTests.swift in Sources */,
-				525D85D127E760A60066B147 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +360,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525D85DF27E760A60066B147 /* Tests_macOSLaunchTests.swift in Sources */,
-				525D85DD27E760A60066B147 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
