@@ -25,17 +25,21 @@
 		525D860827E762B40066B147 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 525D860727E762B40066B147 /* OctoKit */; };
 		525D860927E763B50066B147 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860227E7621D0066B147 /* MainView.swift */; };
 		525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* SnippetsListView.swift */; };
+		52BABB2927E7DCF300999F01 /* Fragment_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB2827E7DCF300999F01 /* Fragment_iOS_Tests.swift */; };
+		52BABB3627E7DD5500999F01 /* Fragment_macOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */; };
+		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
+		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		525D85CD27E760A60066B147 /* PBXContainerItemProxy */ = {
+		52BABB2A27E7DCF300999F01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 525D85B027E760A40066B147 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 525D85BE27E760A60066B147;
 			remoteInfo = "Fragment (iOS)";
 		};
-		525D85D927E760A60066B147 /* PBXContainerItemProxy */ = {
+		52BABB3727E7DD5500999F01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 525D85B027E760A40066B147 /* Project object */;
 			proxyType = 1;
@@ -54,12 +58,15 @@
 		525D85BF27E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525D85C527E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525D85C727E760A60066B147 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		525D85CC27E760A60066B147 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		525D85D827E760A60066B147 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		525D860227E7621D0066B147 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		525D860427E762610066B147 /* SnippetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsListView.swift; sourceTree = "<group>"; };
 		52BABB1C27E7D79E00999F01 /* .swiftformat.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftformat.yml; sourceTree = "<group>"; };
 		52BABB1D27E7D79E00999F01 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		52BABB2627E7DCF300999F01 /* Fragment-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fragment-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52BABB2827E7DCF300999F01 /* Fragment_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragment_iOS_Tests.swift; sourceTree = "<group>"; };
+		52BABB3327E7DD5500999F01 /* Fragment-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fragment-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragment_macOS_Tests.swift; sourceTree = "<group>"; };
+		52BABB3D27E7DDB200999F01 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +90,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		525D85C927E760A60066B147 /* Frameworks */ = {
+		52BABB2327E7DCF300999F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		525D85D527E760A60066B147 /* Frameworks */ = {
+		52BABB3027E7DD5500999F01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -132,6 +139,9 @@
 				522915C827E79CF40087530C /* Fragment--macOS--Info.plist */,
 				525D85B427E760A40066B147 /* Shared */,
 				525D85C627E760A60066B147 /* macOS */,
+				52BABB3C27E7DD8B00999F01 /* FragmentSharedTests */,
+				52BABB2727E7DCF300999F01 /* Fragment-iOS-Tests */,
+				52BABB3427E7DD5500999F01 /* Fragment-macOS-Tests */,
 				525D85C027E760A60066B147 /* Products */,
 				525D85FE27E761CB0066B147 /* Frameworks */,
 			);
@@ -153,8 +163,8 @@
 			children = (
 				525D85BF27E760A60066B147 /* Fragment.app */,
 				525D85C527E760A60066B147 /* Fragment.app */,
-				525D85CC27E760A60066B147 /* Tests iOS.xctest */,
-				525D85D827E760A60066B147 /* Tests macOS.xctest */,
+				52BABB2627E7DCF300999F01 /* Fragment-iOS-Tests.xctest */,
+				52BABB3327E7DD5500999F01 /* Fragment-macOS-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,6 +193,30 @@
 				525D860427E762610066B147 /* SnippetsListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		52BABB2727E7DCF300999F01 /* Fragment-iOS-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				52BABB2827E7DCF300999F01 /* Fragment_iOS_Tests.swift */,
+			);
+			path = "Fragment-iOS-Tests";
+			sourceTree = "<group>";
+		};
+		52BABB3427E7DD5500999F01 /* Fragment-macOS-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */,
+			);
+			path = "Fragment-macOS-Tests";
+			sourceTree = "<group>";
+		};
+		52BABB3C27E7DD8B00999F01 /* FragmentSharedTests */ = {
+			isa = PBXGroup;
+			children = (
+				52BABB3D27E7DDB200999F01 /* TestApp.swift */,
+			);
+			path = FragmentSharedTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,41 +270,41 @@
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
 			productType = "com.apple.product-type.application";
 		};
-		525D85CB27E760A60066B147 /* Tests iOS */ = {
+		52BABB2527E7DCF300999F01 /* Fragment-iOS-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 525D85F227E760A60066B147 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildConfigurationList = 52BABB2C27E7DCF300999F01 /* Build configuration list for PBXNativeTarget "Fragment-iOS-Tests" */;
 			buildPhases = (
-				525D85C827E760A60066B147 /* Sources */,
-				525D85C927E760A60066B147 /* Frameworks */,
-				525D85CA27E760A60066B147 /* Resources */,
+				52BABB2227E7DCF300999F01 /* Sources */,
+				52BABB2327E7DCF300999F01 /* Frameworks */,
+				52BABB2427E7DCF300999F01 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				525D85CE27E760A60066B147 /* PBXTargetDependency */,
+				52BABB2B27E7DCF300999F01 /* PBXTargetDependency */,
 			);
-			name = "Tests iOS";
-			productName = "Tests iOS";
-			productReference = 525D85CC27E760A60066B147 /* Tests iOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = "Fragment-iOS-Tests";
+			productName = "Fragment-iOS-Tests";
+			productReference = 52BABB2627E7DCF300999F01 /* Fragment-iOS-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		525D85D727E760A60066B147 /* Tests macOS */ = {
+		52BABB3227E7DD5500999F01 /* Fragment-macOS-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 525D85F527E760A60066B147 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildConfigurationList = 52BABB3927E7DD5500999F01 /* Build configuration list for PBXNativeTarget "Fragment-macOS-Tests" */;
 			buildPhases = (
-				525D85D427E760A60066B147 /* Sources */,
-				525D85D527E760A60066B147 /* Frameworks */,
-				525D85D627E760A60066B147 /* Resources */,
+				52BABB2F27E7DD5500999F01 /* Sources */,
+				52BABB3027E7DD5500999F01 /* Frameworks */,
+				52BABB3127E7DD5500999F01 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				525D85DA27E760A60066B147 /* PBXTargetDependency */,
+				52BABB3827E7DD5500999F01 /* PBXTargetDependency */,
 			);
-			name = "Tests macOS";
-			productName = "Tests macOS";
-			productReference = 525D85D827E760A60066B147 /* Tests macOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = "Fragment-macOS-Tests";
+			productName = "Fragment-macOS-Tests";
+			productReference = 52BABB3327E7DD5500999F01 /* Fragment-macOS-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -288,11 +322,11 @@
 					525D85C427E760A60066B147 = {
 						CreatedOnToolsVersion = 13.3;
 					};
-					525D85CB27E760A60066B147 = {
+					52BABB2527E7DCF300999F01 = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = 525D85BE27E760A60066B147;
 					};
-					525D85D727E760A60066B147 = {
+					52BABB3227E7DD5500999F01 = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = 525D85C427E760A60066B147;
 					};
@@ -318,8 +352,8 @@
 			targets = (
 				525D85BE27E760A60066B147 /* Fragment (iOS) */,
 				525D85C427E760A60066B147 /* Fragment (macOS) */,
-				525D85CB27E760A60066B147 /* Tests iOS */,
-				525D85D727E760A60066B147 /* Tests macOS */,
+				52BABB2527E7DCF300999F01 /* Fragment-iOS-Tests */,
+				52BABB3227E7DD5500999F01 /* Fragment-macOS-Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,14 +375,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		525D85CA27E760A60066B147 /* Resources */ = {
+		52BABB2427E7DCF300999F01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		525D85D627E760A60066B147 /* Resources */ = {
+		52BABB3127E7DD5500999F01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -457,32 +491,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		525D85C827E760A60066B147 /* Sources */ = {
+		52BABB2227E7DCF300999F01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BABB2927E7DCF300999F01 /* Fragment_iOS_Tests.swift in Sources */,
+				52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		525D85D427E760A60066B147 /* Sources */ = {
+		52BABB2F27E7DD5500999F01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BABB3627E7DD5500999F01 /* Fragment_macOS_Tests.swift in Sources */,
+				52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		525D85CE27E760A60066B147 /* PBXTargetDependency */ = {
+		52BABB2B27E7DCF300999F01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 525D85BE27E760A60066B147 /* Fragment (iOS) */;
-			targetProxy = 525D85CD27E760A60066B147 /* PBXContainerItemProxy */;
+			targetProxy = 52BABB2A27E7DCF300999F01 /* PBXContainerItemProxy */;
 		};
-		525D85DA27E760A60066B147 /* PBXTargetDependency */ = {
+		52BABB3827E7DD5500999F01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 525D85C427E760A60066B147 /* Fragment (macOS) */;
-			targetProxy = 525D85D927E760A60066B147 /* PBXContainerItemProxy */;
+			targetProxy = 52BABB3727E7DD5500999F01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -719,82 +757,82 @@
 			};
 			name = Release;
 		};
-		525D85F327E760A60066B147 /* Debug */ = {
+		52BABB2D27E7DCF300999F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Tests-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Fragment (iOS)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Fragment";
 			};
 			name = Debug;
 		};
-		525D85F427E760A60066B147 /* Release */ = {
+		52BABB2E27E7DCF300999F01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Tests-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Fragment (iOS)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Fragment";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		525D85F627E760A60066B147 /* Debug */ = {
+		52BABB3A27E7DD5500999F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Tests-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Fragment (macOS)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Contents/MacOS/Fragment";
 			};
 			name = Debug;
 		};
-		525D85F727E760A60066B147 /* Release */ = {
+		52BABB3B27E7DD5500999F01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Tests-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Fragment (macOS)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Contents/MacOS/Fragment";
 			};
 			name = Release;
 		};
@@ -828,20 +866,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		525D85F227E760A60066B147 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+		52BABB2C27E7DCF300999F01 /* Build configuration list for PBXNativeTarget "Fragment-iOS-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				525D85F327E760A60066B147 /* Debug */,
-				525D85F427E760A60066B147 /* Release */,
+				52BABB2D27E7DCF300999F01 /* Debug */,
+				52BABB2E27E7DCF300999F01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		525D85F527E760A60066B147 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+		52BABB3927E7DD5500999F01 /* Build configuration list for PBXNativeTarget "Fragment-macOS-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				525D85F627E760A60066B147 /* Debug */,
-				525D85F727E760A60066B147 /* Release */,
+				52BABB3A27E7DD5500999F01 /* Debug */,
+				52BABB3B27E7DD5500999F01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

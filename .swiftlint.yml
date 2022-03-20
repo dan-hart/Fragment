@@ -42,6 +42,7 @@ disabled_rules:
 - reduce_boolean
 - multiple_closures_with_trailing_closure
 - no_space_in_method_call
+- type_name
 
 # https://realm.github.io/SwiftLint/rule-directory.html
 
