@@ -150,10 +150,10 @@
 		525D85B427E760A40066B147 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				525D85BA27E760A60066B147 /* Assets.xcassets */,
+				525D85B727E760A40066B147 /* FragmentApp.swift */,
 				522915B427E77D290087530C /* Extensions */,
 				525D860127E762140066B147 /* Views */,
-				525D85B727E760A40066B147 /* FragmentApp.swift */,
-				525D85BA27E760A60066B147 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -655,7 +655,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
@@ -686,7 +686,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
@@ -718,7 +718,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
@@ -748,7 +748,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
