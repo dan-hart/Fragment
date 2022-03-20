@@ -1,0 +1,21 @@
+name: ios tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run ios tests
+      run: xcodebuild test -destination 'name=iPhone 13' -scheme 'iOS' -enableCodeCoverage YES
+    - name: Upload coverage to Codecov
+      run: bash <(curl -s https://codecov.io/bash) -J 'Fragment'
+    - uses: sarisia/actions-status-discord@v1
+      if: always()
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        title: "iOS tests"
+        description: "Run all iOS tests"
+        username: Github
+        avatar_url: ${{ secrets.AVATAR_URL }}
