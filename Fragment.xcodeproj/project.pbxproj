@@ -15,6 +15,9 @@
 		522915BA27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
 		522915BB27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
 		522915BE27E7857C0087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BD27E7857C0087530C /* Splash */; };
+		522915C027E789E20087530C /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BF27E789E20087530C /* OctoKit */; };
+		522915C227E789E20087530C /* DHSourcelessKeyValueStore in Frameworks */ = {isa = PBXBuildFile; productRef = 522915C127E789E20087530C /* DHSourcelessKeyValueStore */; };
+		522915C427E789E20087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915C327E789E20087530C /* Splash */; };
 		525D85E227E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E327E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E827E760A60066B147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
@@ -73,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522915C227E789E20087530C /* DHSourcelessKeyValueStore in Frameworks */,
+				522915C027E789E20087530C /* OctoKit in Frameworks */,
+				522915C427E789E20087530C /* Splash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +220,9 @@
 			);
 			name = "Fragment (macOS)";
 			packageProductDependencies = (
+				522915BF27E789E20087530C /* OctoKit */,
+				522915C127E789E20087530C /* DHSourcelessKeyValueStore */,
+				522915C327E789E20087530C /* Splash */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -786,6 +795,21 @@
 			productName = DHSourcelessKeyValueStore;
 		};
 		522915BD27E7857C0087530C /* Splash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
+			productName = Splash;
+		};
+		522915BF27E789E20087530C /* OctoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */;
+			productName = OctoKit;
+		};
+		522915C127E789E20087530C /* DHSourcelessKeyValueStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */;
+			productName = DHSourcelessKeyValueStore;
+		};
+		522915C327E789E20087530C /* Splash */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
 			productName = Splash;

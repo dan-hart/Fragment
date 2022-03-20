@@ -24,13 +24,20 @@ struct CodeView: View {
         SyntaxHighlighter(format: AttributedStringOutputFormat(theme: theme))
     }
     
+    var htmlHighlighter: Splash.SyntaxHighlighter<HTMLOutputFormat> {
+        SyntaxHighlighter(format: HTMLOutputFormat())
+    }
+    
     var url: URL?
-    var lines: [String] {
+    var text: String {
         if let url = url, let text = try? String(contentsOf: url) {
-            return text.components(separatedBy: "\n")
+            return text
         } else {
-            return []
+            return ""
         }
+    }
+    var lines: [String] {
+        text.components(separatedBy: "\n")
     }
     
     var body: some View {
@@ -39,12 +46,31 @@ struct CodeView: View {
                     HStack {
                         Text("\(index)")
                             .font(.system(size: 18, design: .monospaced))
+                        #if canImport(UIKit)
                         NSASLabel { label in
                             label.attributedText = highlighter.highlight(lines[index])
                         }
+                        #else
+                        NSASLabel { label in
+                            label.attributedStringValue = highlighter.highlight(lines[index])
+                            label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
+                            label.backgroundColor = .clear
+                            label.isBezeled = false
+                            label.isEditable = false
+                            label.sizeToFit()
+                        }
+                        .frame(minWidth: 1000)
+                        #endif
                     }
                 }
                 .frame(maxWidth: .infinity)
+    
+//            VStack {
+//            // non-uikit code
+//                WebView(html: .constant(htmlHighlighter.highlight(text)))
+//                    .frame(width: 500, height: 500)
+//            }
+        
             Spacer()
         }
         .padding()
@@ -54,7 +80,14 @@ struct CodeView: View {
                     guard let url = url else {
                         return
                     }
+                    #if canImport(UIKit)
                     UIPasteboard.general.string = try? String(contentsOf: url)
+                    #else
+                    let pasteBoard = NSPasteboard.general
+                    pasteBoard.clearContents()
+                    let string = try? NSString(contentsOf: url, encoding: String.Encoding.utf8.rawValue)
+                    pasteBoard.writeObjects([(string ?? "") as NSString])
+                    #endif
                 } label: {
                     Text("Copy")
                 }
@@ -63,6 +96,9 @@ struct CodeView: View {
         }
     }
 }
+
+#if canImport(UIKit)
+import UIKit
 
 struct NSASLabel: UIViewRepresentable {
     typealias TheUIView = UILabel
@@ -73,3 +109,37 @@ struct NSASLabel: UIViewRepresentable {
         configuration(uiView)
     }
 }
+#else
+import AppKit
+struct NSASLabel: NSViewRepresentable {
+    typealias NSViewType = NSTextField
+    fileprivate var configuration = { (view: NSViewType) in }
+    
+    func makeNSView(context: NSViewRepresentableContext<Self>) -> NSViewType { NSViewType() }
+    func updateNSView(_ nsView: NSViewType, context: NSViewRepresentableContext<Self>) {
+        configuration(nsView)
+    }
+}
+
+import WebKit
+
+struct WebView: View {
+    @Binding var html: String
+    
+    var body: some View {
+        WebViewWrapper(html: html)
+    }
+}
+
+struct WebViewWrapper: NSViewRepresentable {
+    let html: String
+    
+    func makeNSView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+    
+    func updateNSView(_ nsView: WKWebView, context: Context) {
+        nsView.loadHTMLString(html, baseURL: nil)
+    }
+}
+#endif
