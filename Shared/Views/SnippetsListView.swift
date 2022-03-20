@@ -6,11 +6,24 @@
 //
 
 import SwiftUI
+import DHSourcelessKeyValueStore
 
 struct SnippetsListView: View {
+    @State var isShowingKeyEntryView = false
+    @State var token = DHSourcelessKeyValueStore.shared.getValue(fromKey: "GITHUB_TOKEN")
+    
     var body: some View {
         List {
-            EmptyView()
+            Text(token ?? "No Value")
+                .onAppear {
+                    if token == nil {
+                        isShowingKeyEntryView = true
+                        token = DHSourcelessKeyValueStore.shared.getValue(fromKey: "GITHUB_TOKEN")
+                    }
+                }
+        }
+        .sheet(isPresented: $isShowingKeyEntryView) {
+            SourcelessEntryView()
         }
         
         .navigationTitle("Snippets")
