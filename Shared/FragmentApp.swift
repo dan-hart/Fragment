@@ -11,7 +11,7 @@ import SwiftUI
 struct FragmentApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView().environmentObject(TokenHandler())
         }
     }
 }

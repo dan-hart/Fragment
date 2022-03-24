@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var tokenHandler: TokenHandler
+
     var body: some View {
         NavigationView {
-            SnippetsListView()
+            if tokenHandler.needsAuthentication {
+                AuthenticationView()
+            } else {
+                SnippetsListView()
+            }
         }
     }
 }

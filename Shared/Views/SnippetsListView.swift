@@ -5,62 +5,57 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
+import DHCryptography
 import OctoKit
 import SwiftUI
 
 struct SnippetsListView: View {
-    @State var isShowingKeyEntryView = false
-    @State var token: String? = ""
-    @State var connectedUsername: String?
+    @EnvironmentObject var tokenHandler: TokenHandler
+
     @State var gists: [Gist] = []
 
     var body: some View {
         List {
-            if connectedUsername == nil {
-                if token == nil || token?.isEmpty ?? true {
-                    Text("⚠️ Missing Token")
-                } else {
-                    Text("Loading...")
-                }
-            } else {
-                ForEach(gists, id: \.id) { gist in
-                    NavigationLink {
-                        CodeView(url: gist.files.first?.value.rawURL)
-                    } label: {
-                        GistRow(data: gist)
-                            .padding()
-                    }
+            ForEach(gists, id: \.id) { gist in
+                NavigationLink {
+                    CodeView(url: gist.files.first?.value.rawURL)
+                } label: {
+                    GistRow(data: gist)
+                        .padding()
                 }
             }
         }
         .onAppear {
-            if token == nil {
-                isShowingKeyEntryView = true
-                token = nil
-            } else {
-                let config = TokenConfiguration(token)
-                Octokit(config).me { response in
-                    switch response {
-                    case let .success(user):
-                        connectedUsername = user.login
-
-                        Octokit(config).myGists { response in
-                            switch response {
-                            case let .success(gists):
-                                self.gists = gists.filter { gist in
-                                    gist.files.first?.value.filename?.contains(".swift") ?? false
-                                }
-                            case let .failure(error):
-                                print(error)
+            let config = TokenConfiguration(tokenHandler.value ?? "")
+            Octokit(config).me { response in
+                switch response {
+                case let .success:
+                    Octokit(config).myGists { response in
+                        switch response {
+                        case let .success(gists):
+                            self.gists = gists.filter { gist in
+                                gist.files.first?.value.filename?.contains(".swift") ?? false
                             }
+                        case let .failure(error):
+                            print(error)
                         }
-                    case let .failure(error):
-                        print(error)
                     }
+                case let .failure(error):
+                    print(error)
                 }
             }
         }
-        .sheet(isPresented: $isShowingKeyEntryView) {}
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    _ = try? DHCryptography.shared.delete(key: TokenHandler.keyName)
+                    tokenHandler.checkNeedsAuthenticationStatus()
+                } label: {
+                    Text("Clear Token")
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
+        }
 
         .navigationTitle("Snippets")
     }
