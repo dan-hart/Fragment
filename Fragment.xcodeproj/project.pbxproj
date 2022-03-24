@@ -31,7 +31,8 @@
 		52BABB3627E7DD5500999F01 /* Fragment_macOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */; };
 		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
-		52E3A49527EC1B08008F6E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
+		52C9ECD927EC1D8500021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
+		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,6 @@
 /* Begin PBXFileReference section */
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
 		522915B927E785690087530C /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
-		522915C827E79CF40087530C /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
-		522915C927E79D040087530C /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
 		525D85BA27E760A60066B147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525D85BF27E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +71,8 @@
 		52BABB3327E7DD5500999F01 /* Fragment-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fragment-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragment_macOS_Tests.swift; sourceTree = "<group>"; };
 		52BABB3D27E7DDB200999F01 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
+		52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
+		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,10 +139,10 @@
 		525D85AF27E760A40066B147 = {
 			isa = PBXGroup;
 			children = (
+				52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */,
+				52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */,
 				52BABB1C27E7D79E00999F01 /* .swiftformat.yml */,
 				52BABB1D27E7D79E00999F01 /* .swiftlint.yml */,
-				522915C927E79D040087530C /* Fragment--iOS--Info.plist */,
-				522915C827E79CF40087530C /* Fragment--macOS--Info.plist */,
 				525D85B427E760A40066B147 /* Shared */,
 				525D85C627E760A60066B147 /* macOS */,
 				52BABB3C27E7DD8B00999F01 /* FragmentSharedTests */,
@@ -378,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C9ECD927EC1D8500021911 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52E3A49527EC1B08008F6E96 /* Assets.xcassets in Resources */,
+				52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
