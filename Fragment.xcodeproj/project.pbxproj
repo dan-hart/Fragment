@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		522915A527E767880087530C /* DHSourcelessKeyValueStore in Frameworks */ = {isa = PBXBuildFile; productRef = 522915A427E767880087530C /* DHSourcelessKeyValueStore */; };
 		522915B227E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915B327E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915BA27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
 		522915BB27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
 		522915BE27E7857C0087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BD27E7857C0087530C /* Splash */; };
 		522915C027E789E20087530C /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BF27E789E20087530C /* OctoKit */; };
-		522915C227E789E20087530C /* DHSourcelessKeyValueStore in Frameworks */ = {isa = PBXBuildFile; productRef = 522915C127E789E20087530C /* DHSourcelessKeyValueStore */; };
 		522915C427E789E20087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915C327E789E20087530C /* Splash */; };
 		525D85E227E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E327E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
@@ -25,6 +23,8 @@
 		525D860827E762B40066B147 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 525D860727E762B40066B147 /* OctoKit */; };
 		525D860927E763B50066B147 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860227E7621D0066B147 /* MainView.swift */; };
 		525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* SnippetsListView.swift */; };
+		527D766227EBECBE00494647 /* DHCrypt in Frameworks */ = {isa = PBXBuildFile; productRef = 527D766127EBECBE00494647 /* DHCrypt */; };
+		527D766427EBECC900494647 /* DHCrypt in Frameworks */ = {isa = PBXBuildFile; productRef = 527D766327EBECC900494647 /* DHCrypt */; };
 		52BABB2927E7DCF300999F01 /* Fragment_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB2827E7DCF300999F01 /* Fragment_iOS_Tests.swift */; };
 		52BABB3627E7DD5500999F01 /* Fragment_macOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */; };
 		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522915A527E767880087530C /* DHSourcelessKeyValueStore in Frameworks */,
+				527D766227EBECBE00494647 /* DHCrypt in Frameworks */,
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
 				522915BE27E7857C0087530C /* Splash in Frameworks */,
 			);
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522915C227E789E20087530C /* DHSourcelessKeyValueStore in Frameworks */,
+				527D766427EBECC900494647 /* DHCrypt in Frameworks */,
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
 				522915C427E789E20087530C /* Splash in Frameworks */,
 			);
@@ -239,8 +239,8 @@
 			name = "Fragment (iOS)";
 			packageProductDependencies = (
 				525D860727E762B40066B147 /* OctoKit */,
-				522915A427E767880087530C /* DHSourcelessKeyValueStore */,
 				522915BD27E7857C0087530C /* Splash */,
+				527D766127EBECBE00494647 /* DHCrypt */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -263,8 +263,8 @@
 			name = "Fragment (macOS)";
 			packageProductDependencies = (
 				522915BF27E789E20087530C /* OctoKit */,
-				522915C127E789E20087530C /* DHSourcelessKeyValueStore */,
 				522915C327E789E20087530C /* Splash */,
+				527D766327EBECC900494647 /* DHCrypt */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -343,8 +343,8 @@
 			mainGroup = 525D85AF27E760A40066B147;
 			packageReferences = (
 				525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */,
-				522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */,
 				522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */,
+				527D766027EBECBE00494647 /* XCRemoteSwiftPackageReference "DHCrypt" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -887,14 +887,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dan-hart/DHSourcelessKeyValueStore";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JohnSundell/Splash";
@@ -911,14 +903,17 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		527D766027EBECBE00494647 /* XCRemoteSwiftPackageReference "DHCrypt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dan-hart/DHCrypt";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		522915A427E767880087530C /* DHSourcelessKeyValueStore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */;
-			productName = DHSourcelessKeyValueStore;
-		};
 		522915BD27E7857C0087530C /* Splash */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
@@ -929,11 +924,6 @@
 			package = 525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */;
 			productName = OctoKit;
 		};
-		522915C127E789E20087530C /* DHSourcelessKeyValueStore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 522915A327E767880087530C /* XCRemoteSwiftPackageReference "DHSourcelessKeyValueStore" */;
-			productName = DHSourcelessKeyValueStore;
-		};
 		522915C327E789E20087530C /* Splash */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
@@ -943,6 +933,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */;
 			productName = OctoKit;
+		};
+		527D766127EBECBE00494647 /* DHCrypt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 527D766027EBECBE00494647 /* XCRemoteSwiftPackageReference "DHCrypt" */;
+			productName = DHCrypt;
+		};
+		527D766327EBECC900494647 /* DHCrypt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 527D766027EBECBE00494647 /* XCRemoteSwiftPackageReference "DHCrypt" */;
+			productName = DHCrypt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -5,13 +5,12 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import DHSourcelessKeyValueStore
 import OctoKit
 import SwiftUI
 
 struct SnippetsListView: View {
     @State var isShowingKeyEntryView = false
-    @State var token: String? = DHSourcelessKeyValueStore.shared.getValue(fromKey: "GITHUB_TOKEN")
+    @State var token: String? = ""
     @State var connectedUsername: String?
     @State var gists: [Gist] = []
 
@@ -37,7 +36,7 @@ struct SnippetsListView: View {
         .onAppear {
             if token == nil {
                 isShowingKeyEntryView = true
-                token = DHSourcelessKeyValueStore.shared.getValue(fromKey: "GITHUB_TOKEN")
+                token = nil
             } else {
                 let config = TokenConfiguration(token)
                 Octokit(config).me { response in
@@ -61,9 +60,7 @@ struct SnippetsListView: View {
                 }
             }
         }
-        .sheet(isPresented: $isShowingKeyEntryView) {
-            SourcelessEntryView()
-        }
+        .sheet(isPresented: $isShowingKeyEntryView) {}
 
         .navigationTitle("Snippets")
     }
