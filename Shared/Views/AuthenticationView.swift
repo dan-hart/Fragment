@@ -6,6 +6,7 @@
 //
 
 import DHCryptography
+import SFSafeSymbols
 import SwiftUI
 
 struct AuthenticationView: View {
@@ -13,11 +14,12 @@ struct AuthenticationView: View {
     @State var token: String = ""
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
+            Spacer()
             Text("Github Personal Access Token")
                 .font(.system(.body, design: .monospaced))
             SecureField(text: $token,
-                        prompt: Text("uZnVflqpqr2U1M9x").font(.system(.body, design: .monospaced))) {
+                        prompt: Text("uZnVflqpqr2U1M9x984h3985a48dn74n").font(.system(.body, design: .monospaced))) {
                 Text("Token")
                     .font(.system(.body, design: .monospaced))
             }
@@ -27,10 +29,21 @@ struct AuthenticationView: View {
                 tokenHandler.checkNeedsAuthenticationStatus()
             } label: {
                 HStack {
-                    Image(systemName: "lock")
+                    Image(systemSymbol: SFSymbol.lock)
                     Text("Encrypt")
                         .font(.system(.body, design: .monospaced))
                 }
+            }
+            Spacer()
+            if let url = URL(string: Constants.URL.githubHowToPersonalAccessToken.rawValue) {
+                Link(destination: url) {
+                    HStack {
+                        Image(systemSymbol: SFSymbol.questionmarkCircle)
+                        Text("How To")
+                            .font(.system(.body, design: .monospaced))
+                    }
+                }
+                Spacer()
             }
         }
         .padding()

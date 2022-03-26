@@ -6,6 +6,7 @@
 //
 
 import OctoKit
+import SFSafeSymbols
 import SwiftUI
 
 struct GistRow: View {
@@ -32,13 +33,13 @@ struct GistRow: View {
             HStack {
                 if data?.publicGist ?? false {
                     HStack {
-                        Image(systemName: "network")
+                        Image(systemSymbol: SFSymbol.network)
                         Text("public")
                             .font(.system(.subheadline, design: .monospaced))
                     }
                 } else {
                     HStack {
-                        Image(systemName: "lock")
+                        Image(systemSymbol: SFSymbol.lock)
                         Text("private")
                             .font(.system(.subheadline, design: .monospaced))
                     }

@@ -14,6 +14,10 @@
 		522915BE27E7857C0087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BD27E7857C0087530C /* Splash */; };
 		522915C027E789E20087530C /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BF27E789E20087530C /* OctoKit */; };
 		522915C427E789E20087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915C327E789E20087530C /* Splash */; };
+		5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 5254DDFE27EF8224005BAC56 /* SFSafeSymbols */; };
+		5254DE0127EF8331005BAC56 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254DE0027EF8331005BAC56 /* Constants.swift */; };
+		5254DE0227EF8331005BAC56 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254DE0027EF8331005BAC56 /* Constants.swift */; };
+		5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 5254DE0327EF837A005BAC56 /* SFSafeSymbols */; };
 		525D85E227E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E327E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D860327E7621D0066B147 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860227E7621D0066B147 /* MainView.swift */; };
@@ -55,6 +59,7 @@
 /* Begin PBXFileReference section */
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
 		522915B927E785690087530C /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		5254DE0027EF8331005BAC56 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
 		525D85BA27E760A60066B147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525D85BF27E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +87,7 @@
 			files = (
 				5283B2E627EC10E60018F19B /* DHCryptography in Frameworks */,
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
+				5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */,
 				522915BE27E7857C0087530C /* Splash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +98,7 @@
 			files = (
 				5283B2DD27EC09D60018F19B /* DHCryptography in Frameworks */,
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
+				5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */,
 				522915C427E789E20087530C /* Splash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +168,7 @@
 				5283B2DE27EC0A1B0018F19B /* Models */,
 				522915B427E77D290087530C /* Extensions */,
 				525D860127E762140066B147 /* Views */,
+				5254DE0027EF8331005BAC56 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 				525D860727E762B40066B147 /* OctoKit */,
 				522915BD27E7857C0087530C /* Splash */,
 				5283B2E527EC10E60018F19B /* DHCryptography */,
+				5254DDFE27EF8224005BAC56 /* SFSafeSymbols */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -281,6 +290,7 @@
 				522915BF27E789E20087530C /* OctoKit */,
 				522915C327E789E20087530C /* Splash */,
 				5283B2DC27EC09D60018F19B /* DHCryptography */,
+				5254DE0327EF837A005BAC56 /* SFSafeSymbols */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -361,6 +371,7 @@
 				525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */,
 				522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */,
 				5283B2D927EC09C60018F19B /* XCRemoteSwiftPackageReference "DHCryptography" */,
+				5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -494,6 +505,7 @@
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				522915B227E778300087530C /* GistRow.swift in Sources */,
+				5254DE0127EF8331005BAC56 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +520,7 @@
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				522915B327E778300087530C /* GistRow.swift in Sources */,
+				5254DE0227EF8331005BAC56 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +930,14 @@
 				kind = branch;
 			};
 		};
+		5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nerdishbynature/octokit.swift";
@@ -950,6 +971,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
 			productName = Splash;
+		};
+		5254DDFE27EF8224005BAC56 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+		5254DE0327EF837A005BAC56 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
 		};
 		525D860727E762B40066B147 /* OctoKit */ = {
 			isa = XCSwiftPackageProductDependency;

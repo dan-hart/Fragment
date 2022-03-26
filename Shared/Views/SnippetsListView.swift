@@ -29,13 +29,11 @@ struct SnippetsListView: View {
             let config = TokenConfiguration(tokenHandler.value ?? "")
             Octokit(config).me { response in
                 switch response {
-                case let .success:
+                case .success:
                     Octokit(config).myGists { response in
                         switch response {
                         case let .success(gists):
-                            self.gists = gists.filter { gist in
-                                gist.files.first?.value.filename?.contains(".swift") ?? false
-                            }
+                            self.gists = gists
                         case let .failure(error):
                             print(error)
                         }
