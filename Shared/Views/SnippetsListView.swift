@@ -11,6 +11,7 @@ import SwiftUI
 
 struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
+    @EnvironmentObject var snippetHandler: SnippetHandler
 
     @State var gists: [Gist] = []
 
@@ -26,20 +27,11 @@ struct SnippetsListView: View {
             }
         }
         .onAppear {
-            let config = TokenConfiguration(tokenHandler.value ?? "")
-            Octokit(config).me { response in
-                switch response {
-                case .success:
-                    Octokit(config).myGists { response in
-                        switch response {
-                        case let .success(gists):
-                            self.gists = gists
-                        case let .failure(error):
-                            print(error)
-                        }
+            snippetHandler.authenticate(using: tokenHandler.value ?? "") { _ in
+                snippetHandler.gists { optionalGists in
+                    if let gists = optionalGists {
+                        self.gists = gists
                     }
-                case let .failure(error):
-                    print(error)
                 }
             }
         }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
+    @EnvironmentObject var snippetHandler: SnippetHandler
 
     var body: some View {
         NavigationView {
