@@ -18,7 +18,7 @@ struct SnippetsListView: View {
         List {
             ForEach(gists, id: \.id) { gist in
                 NavigationLink {
-                    // TODO: Code View
+                    CodeView(gist: .constant(gist))
                 } label: {
                     GistRow(data: gist)
                         .padding()
