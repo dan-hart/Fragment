@@ -779,7 +779,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
@@ -811,7 +811,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
@@ -843,7 +843,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
@@ -873,7 +873,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
