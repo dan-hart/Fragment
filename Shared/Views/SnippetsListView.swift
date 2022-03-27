@@ -18,7 +18,7 @@ struct SnippetsListView: View {
         List {
             ForEach(gists, id: \.id) { gist in
                 NavigationLink {
-                    CodeView(url: gist.files.first?.value.rawURL)
+                    // TODO: Code View
                 } label: {
                     GistRow(data: gist)
                         .padding()
@@ -46,7 +46,7 @@ struct SnippetsListView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                    _ = try? DHCryptography.shared.delete(key: TokenHandler.keyName)
+                    // TODO: Remove Token
                     tokenHandler.checkNeedsAuthenticationStatus()
                 } label: {
                     Text("Clear Token")

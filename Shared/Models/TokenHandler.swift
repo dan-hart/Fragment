@@ -5,7 +5,6 @@
 //  Created by Dan Hart on 3/23/22.
 //
 
-import DHCryptography
 import Foundation
 
 class TokenHandler: ObservableObject {
@@ -19,8 +18,9 @@ class TokenHandler: ObservableObject {
     }
 
     func checkNeedsAuthenticationStatus() {
-        if let token = try? DHCryptography.shared.decryptValue(fromKey: TokenHandler.keyName) {
-            value = token
+        // TODO: Get token here, set to value
+        if true {
+            value = nil
             needsAuthentication = false
         } else {
             needsAuthentication = true

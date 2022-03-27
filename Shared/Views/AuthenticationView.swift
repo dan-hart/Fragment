@@ -5,7 +5,6 @@
 //  Created by Dan Hart on 3/23/22.
 //
 
-import DHCryptography
 import SFSafeSymbols
 import SwiftUI
 
@@ -25,7 +24,7 @@ struct AuthenticationView: View {
             }
 
             Button {
-                _ = try? DHCryptography.shared.encrypt(stringDictionary: [TokenHandler.keyName: token])
+                // TODO: Save token here
                 tokenHandler.checkNeedsAuthenticationStatus()
             } label: {
                 HStack {

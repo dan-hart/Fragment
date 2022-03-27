@@ -1,30 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "cryptoswift",
+      "identity" : "keychainaccess",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzyzanowskim/CryptoSwift",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
       "state" : {
-        "revision" : "12f2389aca4a07e0dd54c86ec23d0721ed88b8db",
-        "version" : "1.4.3"
-      }
-    },
-    {
-      "identity" : "dhcryptography",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dan-hart/DHCryptography",
-      "state" : {
-        "branch" : "main",
-        "revision" : "9891cb8e47058a952a65906c4cf52b3665ddaba8"
-      }
-    },
-    {
-      "identity" : "filekit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nvzqz/FileKit",
-      "state" : {
-        "revision" : "826d9161b184509f80d85c28cd612d630646de98",
-        "version" : "6.0.0"
+        "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
+        "version" : "4.2.2"
       }
     },
     {
@@ -52,15 +34,6 @@
       "state" : {
         "revision" : "c61de7a6e9eb1520d32316b06d5932accd974e70",
         "version" : "2.1.3"
-      }
-    },
-    {
-      "identity" : "splash",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/JohnSundell/Splash",
-      "state" : {
-        "branch" : "master",
-        "revision" : "7f4df436eb78fe64fe2c32c58006e9949fa28ad8"
       }
     }
   ],

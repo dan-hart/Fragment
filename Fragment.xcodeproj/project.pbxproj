@@ -9,11 +9,7 @@
 /* Begin PBXBuildFile section */
 		522915B227E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915B327E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
-		522915BA27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
-		522915BB27E785690087530C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B927E785690087530C /* CodeView.swift */; };
-		522915BE27E7857C0087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BD27E7857C0087530C /* Splash */; };
 		522915C027E789E20087530C /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BF27E789E20087530C /* OctoKit */; };
-		522915C427E789E20087530C /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 522915C327E789E20087530C /* Splash */; };
 		5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 5254DDFE27EF8224005BAC56 /* SFSafeSymbols */; };
 		5254DE0127EF8331005BAC56 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254DE0027EF8331005BAC56 /* Constants.swift */; };
 		5254DE0227EF8331005BAC56 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254DE0027EF8331005BAC56 /* Constants.swift */; };
@@ -25,12 +21,12 @@
 		525D860827E762B40066B147 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 525D860727E762B40066B147 /* OctoKit */; };
 		525D860927E763B50066B147 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860227E7621D0066B147 /* MainView.swift */; };
 		525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* SnippetsListView.swift */; };
-		5283B2DD27EC09D60018F19B /* DHCryptography in Frameworks */ = {isa = PBXBuildFile; productRef = 5283B2DC27EC09D60018F19B /* DHCryptography */; };
+		526D97C327F0C25B00BD46CE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C227F0C25B00BD46CE /* KeychainAccess */; };
+		526D97C527F0C26600BD46CE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C427F0C26600BD46CE /* KeychainAccess */; };
 		5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */; };
 		5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */; };
 		5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2E227EC0C240018F19B /* AuthenticationView.swift */; };
 		5283B2E427EC0C240018F19B /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2E227EC0C240018F19B /* AuthenticationView.swift */; };
-		5283B2E627EC10E60018F19B /* DHCryptography in Frameworks */ = {isa = PBXBuildFile; productRef = 5283B2E527EC10E60018F19B /* DHCryptography */; };
 		52BABB2927E7DCF300999F01 /* Fragment_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB2827E7DCF300999F01 /* Fragment_iOS_Tests.swift */; };
 		52BABB3627E7DD5500999F01 /* Fragment_macOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3527E7DD5500999F01 /* Fragment_macOS_Tests.swift */; };
 		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
@@ -58,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
-		522915B927E785690087530C /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		5254DE0027EF8331005BAC56 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
 		525D85BA27E760A60066B147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,10 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5283B2E627EC10E60018F19B /* DHCryptography in Frameworks */,
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
 				5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */,
-				522915BE27E7857C0087530C /* Splash in Frameworks */,
+				526D97C327F0C25B00BD46CE /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,10 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5283B2DD27EC09D60018F19B /* DHCryptography in Frameworks */,
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
 				5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */,
-				522915C427E789E20087530C /* Splash in Frameworks */,
+				526D97C527F0C26600BD46CE /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +131,6 @@
 		522915B827E7855E0087530C /* CodeViews */ = {
 			isa = PBXGroup;
 			children = (
-				522915B927E785690087530C /* CodeView.swift */,
 			);
 			path = CodeViews;
 			sourceTree = "<group>";
@@ -263,9 +255,8 @@
 			name = "Fragment (iOS)";
 			packageProductDependencies = (
 				525D860727E762B40066B147 /* OctoKit */,
-				522915BD27E7857C0087530C /* Splash */,
-				5283B2E527EC10E60018F19B /* DHCryptography */,
 				5254DDFE27EF8224005BAC56 /* SFSafeSymbols */,
+				526D97C227F0C25B00BD46CE /* KeychainAccess */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -288,9 +279,8 @@
 			name = "Fragment (macOS)";
 			packageProductDependencies = (
 				522915BF27E789E20087530C /* OctoKit */,
-				522915C327E789E20087530C /* Splash */,
-				5283B2DC27EC09D60018F19B /* DHCryptography */,
 				5254DE0327EF837A005BAC56 /* SFSafeSymbols */,
+				526D97C427F0C26600BD46CE /* KeychainAccess */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -369,9 +359,8 @@
 			mainGroup = 525D85AF27E760A40066B147;
 			packageReferences = (
 				525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */,
-				522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */,
-				5283B2D927EC09C60018F19B /* XCRemoteSwiftPackageReference "DHCryptography" */,
 				5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+				526D97C127F0C25B00BD46CE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -500,7 +489,6 @@
 			files = (
 				525D860527E762610066B147 /* SnippetsListView.swift in Sources */,
 				525D85E227E760A60066B147 /* FragmentApp.swift in Sources */,
-				522915BA27E785690087530C /* CodeView.swift in Sources */,
 				5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */,
@@ -515,7 +503,6 @@
 			files = (
 				525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */,
 				525D85E327E760A60066B147 /* FragmentApp.swift in Sources */,
-				522915BB27E785690087530C /* CodeView.swift in Sources */,
 				5283B2E427EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
@@ -922,14 +909,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JohnSundell/Splash";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
@@ -946,31 +925,21 @@
 				minimumVersion = 0.9.0;
 			};
 		};
-		5283B2D927EC09C60018F19B /* XCRemoteSwiftPackageReference "DHCryptography" */ = {
+		526D97C127F0C25B00BD46CE /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dan-hart/DHCryptography";
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		522915BD27E7857C0087530C /* Splash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
-			productName = Splash;
-		};
 		522915BF27E789E20087530C /* OctoKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */;
 			productName = OctoKit;
-		};
-		522915C327E789E20087530C /* Splash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 522915BC27E7857C0087530C /* XCRemoteSwiftPackageReference "Splash" */;
-			productName = Splash;
 		};
 		5254DDFE27EF8224005BAC56 /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -987,15 +956,15 @@
 			package = 525D860627E762B40066B147 /* XCRemoteSwiftPackageReference "octokit" */;
 			productName = OctoKit;
 		};
-		5283B2DC27EC09D60018F19B /* DHCryptography */ = {
+		526D97C227F0C25B00BD46CE /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5283B2D927EC09C60018F19B /* XCRemoteSwiftPackageReference "DHCryptography" */;
-			productName = DHCryptography;
+			package = 526D97C127F0C25B00BD46CE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
-		5283B2E527EC10E60018F19B /* DHCryptography */ = {
+		526D97C427F0C26600BD46CE /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5283B2D927EC09C60018F19B /* XCRemoteSwiftPackageReference "DHCryptography" */;
-			productName = DHCryptography;
+			package = 526D97C127F0C25B00BD46CE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
