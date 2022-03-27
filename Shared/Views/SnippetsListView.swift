@@ -15,6 +15,7 @@ struct SnippetsListView: View {
 
     @State var cachedGists: [CachedGist] = []
     @State var isLoading = false
+    @State var isShowingAddEditModal = false
 
     var body: some View {
         List {
@@ -27,6 +28,11 @@ struct SnippetsListView: View {
                 }
             }
         }
+        .sheet(isPresented: $isShowingAddEditModal, content: {
+            NavigationView {
+                EditGistView(filename: "", description: "", visibility: .public, content: "")
+            }
+        })
         .redacted(reason: isLoading ? .placeholder : [])
         .onAppear {
             snippetHandler.authenticate(using: tokenHandler.value ?? "") { _ in
@@ -37,13 +43,24 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                if snippetHandler.isAuthenticated {
-                    Button {
-                        Task {
-                            await fetchGists()
+                HStack {
+                    if snippetHandler.isAuthenticated {
+                        Button {
+                            isShowingAddEditModal.toggle()
+                        } label: {
+                            Label {
+                                Text("Add")
+                            } icon: {
+                                Image(systemSymbol: SFSymbol.plusSquareFillOnSquareFill)
+                            }
                         }
-                    } label: {
-                        Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
+                        Button {
+                            Task {
+                                await fetchGists()
+                            }
+                        } label: {
+                            Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
+                        }
                     }
                 }
             }

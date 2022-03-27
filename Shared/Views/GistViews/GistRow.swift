@@ -29,19 +29,7 @@ struct GistRow: View {
             }
             Spacer()
             HStack {
-                if data?.publicGist ?? false {
-                    HStack {
-                        Image(systemSymbol: SFSymbol.network)
-                        Text("public")
-                            .font(.system(.footnote, design: .monospaced))
-                    }
-                } else {
-                    HStack {
-                        Image(systemSymbol: SFSymbol.lock)
-                        Text("private")
-                            .font(.system(.footnote, design: .monospaced))
-                    }
-                }
+                Visibility(isPublic: data?.publicGist).body
             }
         }
     }

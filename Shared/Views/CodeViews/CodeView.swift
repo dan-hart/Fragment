@@ -8,6 +8,7 @@
 import Foundation
 import Highlightr
 import OctoKit
+import SFSafeSymbols
 import SwiftUI
 
 struct CodeView: View {
@@ -79,16 +80,34 @@ struct CodeView: View {
         .padding()
         .toolbar {
             ToolbarItem {
-                Button {
-                    #if canImport(UIKit)
-                        UIPasteboard.general.string = cachedGist.parent.text
-                    #else
-                        let pasteBoard = NSPasteboard.general
-                        pasteBoard.clearContents()
-                        pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
-                    #endif
-                } label: {
-                    Text("Copy")
+                HStack {
+                    Button {
+                        #if canImport(UIKit)
+                            UIPasteboard.general.string = cachedGist.parent.text
+                        #else
+                            let pasteBoard = NSPasteboard.general
+                            pasteBoard.clearContents()
+                            pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
+                        #endif
+                    } label: {
+                        Label {
+                            Text("Copy")
+                        } icon: {
+                            Image(systemSymbol: SFSymbol.docOnDocFill)
+                        }
+                    }
+
+                    if let url = cachedGist.parent.htmlURL {
+                        Button {
+                            WebLauncher.go(to: url)
+                        } label: {
+                            Label {
+                                Text("Web")
+                            } icon: {
+                                Image(systemSymbol: SFSymbol.docPlaintextFill)
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -14,6 +14,35 @@ class SnippetHandler: ObservableObject {
 
     init() {}
 
+    // MARK: - Add Data
+
+    func create(
+        gistFrom filename: String,
+        description: String,
+        content: String,
+        visibility: Visibility,
+        then: @escaping (Gist?) -> Void
+    ) {
+        guard let configuration = configuration else {
+            return then(nil)
+        }
+
+        Octokit(configuration).postGistFile(
+            description: description,
+            filename: filename,
+            fileContent: content,
+            publicAccess: visibility == .public ? true : false
+        ) { response in
+            switch response {
+            case let .success(gist):
+                then(gist)
+            case let .failure(error):
+                print(error)
+                then(nil)
+            }
+        }
+    }
+
     // MARK: - Get Data
 
     func gists(then: @escaping ([Gist]?) -> Void) {
