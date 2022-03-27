@@ -30,7 +30,14 @@ struct SnippetsListView: View {
         }
         .sheet(isPresented: $isShowingAddEditModal, content: {
             NavigationView {
+                #if os(macOS)
+                    EmptyView()
+                        .frame(width: 0, height: 0, alignment: .leading)
+                #endif
                 EditGistView(filename: "", description: "", visibility: .public, content: "")
+                #if os(macOS)
+                    .padding()
+                #endif
             }
         })
         .redacted(reason: isLoading ? .placeholder : [])

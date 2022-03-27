@@ -21,10 +21,10 @@ class SnippetHandler: ObservableObject {
         description: String,
         content: String,
         visibility: Visibility,
-        then: @escaping (Gist?) -> Void
+        then: @escaping (Gist?, Error?) -> Void
     ) {
         guard let configuration = configuration else {
-            return then(nil)
+            return then(nil, nil)
         }
 
         Octokit(configuration).postGistFile(
@@ -35,10 +35,10 @@ class SnippetHandler: ObservableObject {
         ) { response in
             switch response {
             case let .success(gist):
-                then(gist)
+                then(gist, nil)
             case let .failure(error):
                 print(error)
-                then(nil)
+                then(nil, error)
             }
         }
     }

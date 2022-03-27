@@ -22,6 +22,7 @@ struct EditGistView: View {
     @State var content: String
 
     @State var isAddingData = true
+    @State var error: String?
 
     var body: some View {
         Form {
@@ -37,7 +38,8 @@ struct EditGistView: View {
             .font(.system(.caption, design: .monospaced))
 
             Section(header: Text("Content").font(.system(.caption, design: .monospaced))) {
-                TextField("Code", text: $content)
+                TextEditor(text: $content)
+                    .font(.system(.caption, design: .monospaced))
             }
 
             Button {
@@ -45,15 +47,23 @@ struct EditGistView: View {
                                       description: description,
                                       content: content,
                                       visibility: visibility)
-                { optionalGist in
+                { optionalGist, optionalError in
                     if optionalGist != nil {
-                        print("Created Gist")
+                        presentationMode.wrappedValue.dismiss()
+                    } else {
+                        error = optionalError?.localizedDescription
                     }
                 }
-                presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Save")
                     .font(.system(.body, design: .monospaced))
+            }
+
+            if error != nil {
+                Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
+                    Text(error ?? "")
+                        .font(.system(.body, design: .monospaced))
+                }
             }
         }
 
