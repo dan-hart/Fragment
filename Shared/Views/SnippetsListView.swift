@@ -46,7 +46,7 @@ struct SnippetsListView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                    // TODO: Remove Token
+                    tokenHandler.delete()
                     tokenHandler.checkNeedsAuthenticationStatus()
                 } label: {
                     Text("Clear Token")

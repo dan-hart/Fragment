@@ -7,6 +7,11 @@
 
 import SFSafeSymbols
 import SwiftUI
+#if canImport(UIKit)
+    import UIKit
+#else
+    import AppKit
+#endif
 
 struct AuthenticationView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
@@ -24,7 +29,7 @@ struct AuthenticationView: View {
             }
 
             Button {
-                // TODO: Save token here
+                tokenHandler.save(token: token)
                 tokenHandler.checkNeedsAuthenticationStatus()
             } label: {
                 HStack {
@@ -35,7 +40,13 @@ struct AuthenticationView: View {
             }
             Spacer()
             if let url = URL(string: Constants.URL.githubHowToPersonalAccessToken.rawValue) {
-                Link(destination: url) {
+                Button {
+                    #if canImport(UIKit)
+                        UIApplication.shared.open(url)
+                    #else
+                        NSWorkspace.shared.open(url)
+                    #endif
+                } label: {
                     HStack {
                         Image(systemSymbol: SFSymbol.questionmarkCircle)
                         Text("How To")
