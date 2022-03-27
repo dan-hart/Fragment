@@ -13,66 +13,79 @@ import SwiftUI
 struct CodeView: View {
     @Environment(\.colorScheme) var colorScheme
 
-    @Binding var gist: Gist
+    @Binding var cachedGist: CachedGist
+    @Binding var isLoadingParent: Bool
 
-    var theme: Theme {
-        colorScheme == .dark ? .atelierSavannaDark : .atelierSavannaLight
-    }
-
-    var highlighter: Highlightr? {
-        let highlightr = Highlightr()
-        highlightr?.setTheme(to: Theme.atelierSavannaDark.rawValue)
-        return highlightr
-    }
+    @State var isLoadingLines = true
+    @State var formattedLines: [NSAttributedString] = []
+    @State var triggerLoad = false
 
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
-            ForEach(gist.lines.indices, id: \.self) { index in
-                HStack {
-                    Text("\(index)")
-                        .font(.system(.body, design: .monospaced))
-                    #if canImport(UIKit)
-                        UIKitNSAttributedStringWrapper { label in
-                            let lineOfCode = gist.lines[index]
-                            if let language = gist.language {
-                                label.attributedText = highlighter?.highlight(lineOfCode, as: language.rawValue)
-                            } else {
-                                label.attributedText = highlighter?.highlight(lineOfCode)
-                            }
+            if isLoadingParent || isLoadingLines {
+                VStack(alignment: .leading) {
+                    Text("Loading...")
+                        .font(.system(.caption, design: .monospaced))
+                        .unredacted()
+                    Spacer()
+                    ForEach(cachedGist.parent.lines, id: \.self) { line in
+                        HStack {
+                            Text("0")
+                                .font(.system(.caption, design: .monospaced))
+                            Text(line)
+                                .font(.system(.caption, design: .monospaced))
                         }
-                    #endif
-
-                    #if canImport(AppKit)
-                        AppKitNSAttributedStringWrapper { label in
-                            let lineOfCode = gist.lines[index]
-                            if let language = gist.language {
-                                label.attributedStringValue = highlighter?.highlight(lineOfCode, as: language.rawValue) ?? NSAttributedString()
-                            } else {
-                                label.attributedStringValue = highlighter?.highlight(lineOfCode) ?? NSAttributedString()
-                            }
-                            label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
-                            label.backgroundColor = .clear
-                            label.isBezeled = false
-                            label.isEditable = false
-                            label.sizeToFit()
-                        }
-                        .frame(minWidth: 1000)
-                    #endif
+                    }
                 }
+                .onAppear {
+                    triggerLoad.toggle()
+                }
+            } else {
+                ForEach(formattedLines.indices, id: \.self) { index in
+                    HStack {
+                        Text("\(index)")
+                            .font(.system(.caption, design: .monospaced))
+                        #if canImport(UIKit)
+                            UIKitNSAttributedStringWrapper { label in
+                                label.attributedText = formattedLines[index]
+                            }
+                        #endif
+
+                        #if canImport(AppKit)
+                            AppKitNSAttributedStringWrapper { label in
+                                label.attributedStringValue = formattedLines[index]
+                                label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
+                                label.backgroundColor = .clear
+                                label.isBezeled = false
+                                label.isEditable = false
+                                label.sizeToFit()
+                            }
+                            .frame(minWidth: 1000)
+                        #endif
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                Spacer()
             }
-            .frame(maxWidth: .infinity)
-            Spacer()
         }
+        .onChange(of: $triggerLoad.wrappedValue, perform: { _ in
+            isLoadingLines = true
+            Task {
+                formattedLines = await cachedGist.loadAttributedLines()
+                isLoadingLines = false
+            }
+        })
+        .redacted(reason: isLoadingParent || isLoadingLines ? .placeholder : [])
         .padding()
         .toolbar {
             ToolbarItem {
                 Button {
                     #if canImport(UIKit)
-                        UIPasteboard.general.string = gist.text
+                        UIPasteboard.general.string = cachedGist.parent.text
                     #else
                         let pasteBoard = NSPasteboard.general
                         pasteBoard.clearContents()
-                        pasteBoard.writeObjects([(gist.text) as NSString])
+                        pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
                     #endif
                 } label: {
                     Text("Copy")

@@ -14,6 +14,8 @@ class SnippetHandler: ObservableObject {
 
     init() {}
 
+    // MARK: - Get Data
+
     func gists(then: @escaping ([Gist]?) -> Void) {
         guard let configuration = configuration else {
             return then(nil)
@@ -28,6 +30,8 @@ class SnippetHandler: ObservableObject {
             }
         }
     }
+
+    // MARK: - Authentication
 
     func authenticate(using token: String, then: @escaping (Bool) -> Void) {
         configuration = TokenConfiguration(token)

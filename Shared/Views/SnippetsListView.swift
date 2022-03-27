@@ -5,38 +5,50 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import DHCryptography
 import OctoKit
+import SFSafeSymbols
 import SwiftUI
 
 struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var snippetHandler: SnippetHandler
 
-    @State var gists: [Gist] = []
+    @State var cachedGists: [CachedGist] = []
+    @State var isLoading = false
 
     var body: some View {
         List {
-            ForEach(gists, id: \.id) { gist in
+            ForEach(cachedGists, id: \.id) { cachedGist in
                 NavigationLink {
-                    CodeView(gist: .constant(gist))
+                    CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)
                 } label: {
-                    GistRow(data: gist)
+                    GistRow(data: cachedGist.parent)
                         .padding()
                 }
             }
         }
+        .redacted(reason: isLoading ? .placeholder : [])
         .onAppear {
             snippetHandler.authenticate(using: tokenHandler.value ?? "") { _ in
-                snippetHandler.gists { optionalGists in
-                    if let gists = optionalGists {
-                        self.gists = gists
-                    }
+                Task {
+                    await fetchGists()
                 }
             }
         }
         .toolbar {
-            ToolbarItem {
+            ToolbarItem(placement: .primaryAction) {
+                if snippetHandler.isAuthenticated {
+                    Button {
+                        Task {
+                            await fetchGists()
+                        }
+                    } label: {
+                        Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
+                    }
+                }
+            }
+
+            ToolbarItem(placement: .navigation) {
                 Button {
                     tokenHandler.delete()
                     tokenHandler.checkNeedsAuthenticationStatus()
@@ -48,6 +60,18 @@ struct SnippetsListView: View {
         }
 
         .navigationTitle("Snippets")
+    }
+
+    func fetchGists() async {
+        isLoading = true
+        snippetHandler.gists { optionalGists in
+            if let gists = optionalGists {
+                self.cachedGists = gists.map { gist in
+                    gist.cached
+                }
+            }
+            isLoading = false
+        }
     }
 }
 

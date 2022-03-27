@@ -15,19 +15,17 @@ struct GistRow: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(data?.files.first?.key ?? "Unknown")
-                .font(.system(.title3, design: .monospaced))
+                .font(.system(.headline, design: .monospaced))
             Spacer()
-            HStack {
-                if let created = data?.createdAt {
-                    Text("Created \(created.formatted(date: .abbreviated, time: .standard))")
-                        .font(.system(.caption, design: .monospaced))
-                }
-                Spacer()
-                if let updated = data?.updatedAt {
-                    Text("Updated \(updated.formatted(date: .abbreviated, time: .standard))")
-                        .font(.system(.caption, design: .monospaced))
-                        .multilineTextAlignment(.trailing)
-                }
+            if let description = data?.description {
+                Text("\(description)")
+                    .font(.system(.caption, design: .monospaced))
+            }
+            Spacer()
+            if let updated = data?.updatedAt {
+                Text("Updated \(updated.formatted(date: .abbreviated, time: .standard))")
+                    .font(.system(.caption2, design: .monospaced))
+                    .multilineTextAlignment(.trailing)
             }
             Spacer()
             HStack {
@@ -35,18 +33,15 @@ struct GistRow: View {
                     HStack {
                         Image(systemSymbol: SFSymbol.network)
                         Text("public")
-                            .font(.system(.subheadline, design: .monospaced))
+                            .font(.system(.footnote, design: .monospaced))
                     }
                 } else {
                     HStack {
                         Image(systemSymbol: SFSymbol.lock)
                         Text("private")
-                            .font(.system(.subheadline, design: .monospaced))
+                            .font(.system(.footnote, design: .monospaced))
                     }
                 }
-                Spacer()
-                Text(data?.owner?.login ?? "")
-                    .font(.system(size: 16, design: .monospaced))
             }
         }
     }
