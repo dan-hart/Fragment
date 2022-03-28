@@ -198,8 +198,6 @@ extension Cache where Key: Codable & Hashable, Value: Codable {
             print(error)
             return nil
         }
-
-        return nil
     }
 
     @discardableResult

@@ -29,7 +29,7 @@ struct AuthenticationView: View {
             } label: {
                 HStack {
                     Image(systemSymbol: SFSymbol.lock)
-                    Text("Encrypt")
+                    Text("Validate")
                         .font(.system(.body, design: .monospaced))
                 }
             }

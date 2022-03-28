@@ -16,7 +16,7 @@ struct SnippetsListView: View {
     @State var cachedGists: [CachedGist] = []
     @State var isLoading = false
     @State var isShowingAddEditModal = false
-    @AppStorage("searchText") var searchText = ""
+    @State var searchText = ""
     @AppStorage("visibility") var visibility: Visibility = .public
 
     var filteredGists: [CachedGist] {
@@ -49,6 +49,10 @@ struct SnippetsListView: View {
                 Text("No Gists")
                     .font(.system(.body, design: .monospaced))
             } else {
+                if !searchText.isEmpty {
+                    Text("Results")
+                        .font(.system(.body, design: .monospaced))
+                }
                 ForEach(filteredGists, id: \.id) { cachedGist in
                     NavigationLink {
                         CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)

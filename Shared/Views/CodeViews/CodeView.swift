@@ -52,7 +52,8 @@ struct CodeView: View {
                             .font(.system(.caption, design: .monospaced))
                         #if canImport(UIKit)
                             UIKitCodableAttributedStringWrapper { label in
-                                label.attributedText = formattedLines[index]
+                                label.attributedText = formattedLines[ifExistsAt: index]?.value
+                                    ?? NSAttributedString()
                             }
                         #endif
 
