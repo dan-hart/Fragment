@@ -22,12 +22,12 @@ struct GistRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(filenameNoExtension ?? "Unknown")
+            Text(filenameNoExtension ?? (data?.files.first?.key ?? "Unknown"))
                 .font(.system(.headline, design: .monospaced))
                 .lineLimit(1)
                 .truncationMode(.middle)
             Spacer()
-            if let description = data?.description {
+            if let description = data?.description, !description.isEmpty {
                 Text("\(description)")
                     .font(.system(.caption, design: .monospaced))
                     .lineLimit(2)
@@ -44,16 +44,18 @@ struct GistRow: View {
             HStack {
                 Visibility(isPublic: data?.publicGist).body
                 Spacer()
-                Text(fileExtension ?? "")
-                    .font(.system(.footnote, design: .monospaced))
-                    .lineLimit(1)
-                    .truncationMode(.middle)
-                    .padding(5)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder()
-                            .foregroundColor(.gray)
-                    )
+                if let `extension` = fileExtension, !`extension`.isEmpty {
+                    Text(`extension`)
+                        .font(.system(.footnote, design: .monospaced))
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                        .padding(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder()
+                                .foregroundColor(.gray)
+                        )
+                }
             }
         }
     }

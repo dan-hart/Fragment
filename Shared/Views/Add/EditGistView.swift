@@ -5,6 +5,7 @@
 //  Created by Dan Hart on 3/27/22.
 //
 
+import OctoKit
 import SwiftUI
 
 struct EditGistView: View {
@@ -18,11 +19,13 @@ struct EditGistView: View {
 
     @State var filename: String
     @State var description: String
-    @State var visibility: Visibility
+    @AppStorage("addingGistDefaultVisibility") var visibility: Visibility = .public
     @State var content: String
 
     @State var isAddingData = true
     @State var error: String?
+
+    var didAdd: (Gist) -> Void
 
     var body: some View {
         Form {
@@ -48,7 +51,8 @@ struct EditGistView: View {
                                       content: content,
                                       visibility: visibility)
                 { optionalGist, optionalError in
-                    if optionalGist != nil {
+                    if let gist = optionalGist {
+                        didAdd(gist)
                         presentationMode.wrappedValue.dismiss()
                     } else {
                         error = optionalError?.localizedDescription
@@ -78,6 +82,7 @@ struct EditGistView_Previews: PreviewProvider {
             description: "",
             visibility: .public,
             content: ""
-        )
+        ) { _ in
+        }
     }
 }

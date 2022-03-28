@@ -59,6 +59,11 @@ struct SnippetsListView: View {
                 }
             }
         }
+        .refreshable {
+            Task {
+                await fetchGists()
+            }
+        }
         .searchable(text: $searchText)
         .sheet(isPresented: $isShowingAddEditModal, content: {
             NavigationView {
@@ -66,9 +71,11 @@ struct SnippetsListView: View {
                     EmptyView()
                         .frame(width: 0, height: 0, alignment: .leading)
                 #endif
-                EditGistView(filename: "", description: "", visibility: .public, content: "")
+                EditGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
+                    cachedGists.insert(newGist.cached, at: 0)
+                }
                 #if os(macOS)
-                    .padding()
+                .padding()
                 #endif
             }
         })
@@ -93,13 +100,15 @@ struct SnippetsListView: View {
                                 Image(systemSymbol: SFSymbol.plusSquareFillOnSquareFill)
                             }
                         }
-                        Button {
-                            Task {
-                                await fetchGists()
+                        #if os(macOS)
+                            Button {
+                                Task {
+                                    await fetchGists()
+                                }
+                            } label: {
+                                Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
                             }
-                        } label: {
-                            Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
-                        }
+                        #endif
                     }
                 }
             }
