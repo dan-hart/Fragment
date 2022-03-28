@@ -16,13 +16,19 @@ struct SnippetsListView: View {
     @State var cachedGists: [CachedGist] = []
     @State var isLoading = false
     @State var isShowingAddEditModal = false
-    @State var searchText = ""
+    @AppStorage("searchText") var searchText = ""
+    @AppStorage("visibility") var visibility: Visibility = .public
 
     var filteredGists: [CachedGist] {
+        let withVisibility = cachedGists.filter { gist in
+            let gistVisibility = Visibility(isPublic: gist.parent.publicGist)
+            return gistVisibility == visibility
+        }
+
         if searchText.isEmpty {
-            return cachedGists
+            return withVisibility
         } else {
-            return cachedGists.filter { gist in
+            return withVisibility.filter { gist in
                 gist.meetsSearchCriteria(text: searchText)
             }
         }
@@ -30,12 +36,26 @@ struct SnippetsListView: View {
 
     var body: some View {
         List {
-            ForEach(filteredGists, id: \.id) { cachedGist in
-                NavigationLink {
-                    CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)
-                } label: {
-                    GistRow(data: cachedGist.parent)
-                        .padding()
+            Picker("Visibility", selection: $visibility) {
+                ForEach(Visibility.allCases, id: \.self) { access in
+                    Text(access.rawValue)
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
+            .pickerStyle(.segmented)
+            .labelsHidden()
+
+            if filteredGists.isEmpty {
+                Text("No Gists")
+                    .font(.system(.body, design: .monospaced))
+            } else {
+                ForEach(filteredGists, id: \.id) { cachedGist in
+                    NavigationLink {
+                        CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)
+                    } label: {
+                        GistRow(data: cachedGist.parent)
+                            .padding()
+                    }
                 }
             }
         }

@@ -26,9 +26,9 @@ class CachedGist {
     // MARK: - Functions
 
     func meetsSearchCriteria(text: String) -> Bool {
-        if parent.description?.contains(text) ?? false
-            || parent.text.contains(text)
-            || parent.files.first?.value.filename?.contains(text) ?? false
+        if parent.description?.lowercased().contains(text.lowercased()) ?? false
+            // || parent.text.contains(text)
+            || parent.files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
         {
             return true
         } else {
