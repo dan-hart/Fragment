@@ -23,6 +23,19 @@ class CachedGist {
         self.parent = parent
     }
 
+    // MARK: - Functions
+
+    func meetsSearchCriteria(text: String) -> Bool {
+        if parent.description?.contains(text) ?? false
+            || parent.text.contains(text)
+            || parent.files.first?.value.filename?.contains(text) ?? false
+        {
+            return true
+        } else {
+            return false
+        }
+    }
+
     // MARK: - Syntax highlighting
 
     func loadAttributedLines() async -> [NSAttributedString] {

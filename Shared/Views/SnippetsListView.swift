@@ -16,10 +16,21 @@ struct SnippetsListView: View {
     @State var cachedGists: [CachedGist] = []
     @State var isLoading = false
     @State var isShowingAddEditModal = false
+    @State var searchText = ""
+
+    var filteredGists: [CachedGist] {
+        if searchText.isEmpty {
+            return cachedGists
+        } else {
+            return cachedGists.filter { gist in
+                gist.meetsSearchCriteria(text: searchText)
+            }
+        }
+    }
 
     var body: some View {
         List {
-            ForEach(cachedGists, id: \.id) { cachedGist in
+            ForEach(filteredGists, id: \.id) { cachedGist in
                 NavigationLink {
                     CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)
                 } label: {
@@ -28,6 +39,7 @@ struct SnippetsListView: View {
                 }
             }
         }
+        .searchable(text: $searchText)
         .sheet(isPresented: $isShowingAddEditModal, content: {
             NavigationView {
                 #if os(macOS)
