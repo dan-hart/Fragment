@@ -12,7 +12,7 @@ import Foundation
     import AppKit
 #endif
 
-class WebLauncher {
+enum WebLauncher {
     static func go(to url: URL?) {
         guard let url = url else {
             return

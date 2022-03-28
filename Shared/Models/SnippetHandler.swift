@@ -17,10 +17,10 @@ class SnippetHandler: ObservableObject {
     // MARK: - Add Data
 
     func create(
-        gistFrom filename: String,
-        description: String,
-        content: String,
-        visibility: Visibility,
+        gist filename: String,
+        _ description: String,
+        _ content: String,
+        _ visibility: Visibility,
         then: @escaping (Gist?, Error?) -> Void
     ) {
         guard let configuration = configuration else {

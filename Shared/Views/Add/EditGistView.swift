@@ -46,11 +46,7 @@ struct EditGistView: View {
             }
 
             Button {
-                snippetHandler.create(gistFrom: filename,
-                                      description: description,
-                                      content: content,
-                                      visibility: visibility)
-                { optionalGist, optionalError in
+                snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
                     if let gist = optionalGist {
                         didAdd(gist)
                         presentationMode.wrappedValue.dismiss()

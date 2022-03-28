@@ -14,6 +14,10 @@ import SwiftUI
 struct CodeView: View {
     @Environment(\.colorScheme) var colorScheme
 
+    var theme: Theme {
+        colorScheme == .dark ? Theme.atelierSavannaDark : Theme.atelierSavannaLight
+    }
+
     @Binding var cachedGist: CachedGist
     @Binding var isLoadingParent: Bool
 
@@ -34,7 +38,7 @@ struct CodeView: View {
                             Text("0")
                                 .font(.system(.caption, design: .monospaced))
                             Text(line)
-                                .font(.system(.caption, design: .monospaced))
+                                .font(.system(.body, design: .monospaced))
                         }
                     }
                 }
@@ -72,7 +76,7 @@ struct CodeView: View {
         .onChange(of: $triggerLoad.wrappedValue, perform: { _ in
             isLoadingLines = true
             Task {
-                formattedLines = await cachedGist.loadAttributedLines()
+                formattedLines = await cachedGist.loadAttributedLines(using: theme)
                 isLoadingLines = false
             }
         })

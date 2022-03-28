@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10427F21DF100D5FF2C /* LinesGenerator.swift */; };
+		5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10427F21DF100D5FF2C /* LinesGenerator.swift */; };
 		522915B227E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915B327E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915C027E789E20087530C /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BF27E789E20087530C /* OctoKit */; };
@@ -79,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5219A10427F21DF100D5FF2C /* LinesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesGenerator.swift; sourceTree = "<group>"; };
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
 		5254DE0027EF8331005BAC56 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 				5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */,
 				52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */,
 				52769DFF27F0EEE400F5D4E0 /* Visibility.swift */,
+				5219A10427F21DF100D5FF2C /* LinesGenerator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -575,6 +579,7 @@
 				5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				52769DF627F0DCCE00F5D4E0 /* CachedGist.swift in Sources */,
+				5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
 				52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */,
 				5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */,
@@ -601,6 +606,7 @@
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				52769DF727F0DCCE00F5D4E0 /* CachedGist.swift in Sources */,
+				5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 				52769E0127F0EEE400F5D4E0 /* Visibility.swift in Sources */,
 				526D97D527F0C82D00BD46CE /* Theme.swift in Sources */,

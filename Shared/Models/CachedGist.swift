@@ -26,10 +26,10 @@ class CachedGist {
     // MARK: - Functions
 
     func meetsSearchCriteria(text: String) -> Bool {
-        if parent.description?.lowercased().contains(text.lowercased()) ?? false
-            // || parent.text.contains(text)
-            || parent.files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
-        {
+        let descriptionContainsText = parent.description?.lowercased().contains(text.lowercased()) ?? false
+        let filenameContainsText = parent.files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
+
+        if descriptionContainsText || filenameContainsText {
             return true
         } else {
             return false
@@ -38,8 +38,8 @@ class CachedGist {
 
     // MARK: - Syntax highlighting
 
-    func loadAttributedLines() async -> [NSAttributedString] {
-        var linesGenerator = parent.getLinesGenerator()
+    func loadAttributedLines(using theme: Theme) async -> [NSAttributedString] {
+        var linesGenerator = parent.getLinesGenerator(using: theme)
         var formattedLines = [NSAttributedString](repeating: NSAttributedString(), count: linesGenerator.lineCount())
 
         for await(line, index) in linesGenerator {
