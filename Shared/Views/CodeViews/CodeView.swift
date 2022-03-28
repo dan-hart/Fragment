@@ -22,7 +22,7 @@ struct CodeView: View {
     @Binding var isLoadingParent: Bool
 
     @State var isLoadingLines = true
-    @State var formattedLines: [NSAttributedString] = []
+    @State var formattedLines: [CodableAttributedString] = []
     @State var triggerLoad = false
 
     var body: some View {
@@ -51,14 +51,15 @@ struct CodeView: View {
                         Text("\(index)")
                             .font(.system(.caption, design: .monospaced))
                         #if canImport(UIKit)
-                            UIKitNSAttributedStringWrapper { label in
+                            UIKitCodableAttributedStringWrapper { label in
                                 label.attributedText = formattedLines[index]
                             }
                         #endif
 
                         #if canImport(AppKit)
-                            AppKitNSAttributedStringWrapper { label in
-                                label.attributedStringValue = formattedLines[index]
+                            AppKitCodableAttributedStringWrapper { label in
+                                label.attributedStringValue = formattedLines[ifExistsAt: index]?.value
+                                    ?? NSAttributedString()
                                 label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
                                 label.backgroundColor = .clear
                                 label.isBezeled = false
@@ -123,7 +124,7 @@ struct CodeView: View {
 #if canImport(UIKit)
     import UIKit
 
-    struct UIKitNSAttributedStringWrapper: UIViewRepresentable {
+    struct UIKitCodableAttributedStringWrapper: UIViewRepresentable {
         typealias TheUIView = UILabel
         fileprivate var configuration = { (_: TheUIView) in }
 
@@ -139,7 +140,7 @@ struct CodeView: View {
 #if canImport(AppKit)
     import AppKit
 
-    struct AppKitNSAttributedStringWrapper: NSViewRepresentable {
+    struct AppKitCodableAttributedStringWrapper: NSViewRepresentable {
         typealias NSViewType = NSTextField
         fileprivate var configuration = { (_: NSViewType) in }
 

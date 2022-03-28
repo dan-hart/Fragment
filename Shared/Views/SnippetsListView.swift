@@ -115,6 +115,11 @@ struct SnippetsListView: View {
 
             ToolbarItem(placement: .navigation) {
                 Button {
+                    if CacheHelper.clearAllCaches() {
+                        print("Cleared Cache")
+                    } else {
+                        print("Failed to clear Cache")
+                    }
                     tokenHandler.delete()
                     tokenHandler.checkNeedsAuthenticationStatus()
                 } label: {

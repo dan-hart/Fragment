@@ -9,7 +9,7 @@ import Foundation
 import Highlightr
 
 public struct LinesGenerator: AsyncSequence, AsyncIteratorProtocol {
-    public typealias Element = (NSAttributedString, Int)
+    public typealias Element = (CodableAttributedString, Int)
     var text: String
     var theme: Theme
     var language: Language?
@@ -34,13 +34,12 @@ public struct LinesGenerator: AsyncSequence, AsyncIteratorProtocol {
         guard let line = lines[ifExistsAt: index] else {
             return nil
         }
-        var attributedString = NSAttributedString()
+        var attributedString = CodableAttributedString(value: NSAttributedString())
         if let language = language {
-            attributedString = highlighter?.highlight(line, as: language.rawValue)
-                ?? NSAttributedString()
+            attributedString = CodableAttributedString(value: highlighter?.highlight(line, as: language.rawValue)
+                ?? NSAttributedString())
         } else {
-            attributedString = highlighter?.highlight(line)
-                ?? NSAttributedString()
+            attributedString = CodableAttributedString(value: highlighter?.highlight(line) ?? NSAttributedString())
         }
 
         let element = (attributedString, index)
