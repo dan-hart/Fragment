@@ -7,6 +7,7 @@
 
 import OctoKit
 import SwiftUI
+import CodeEditor
 
 struct EditGistView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
@@ -41,7 +42,7 @@ struct EditGistView: View {
             .font(.system(.caption, design: .monospaced))
 
             Section(header: Text("Content").font(.system(.caption, design: .monospaced))) {
-                TextEditor(text: $content)
+                CodeEditor(source: $content)
                     .font(.system(.caption, design: .monospaced))
             }
 
@@ -62,6 +63,16 @@ struct EditGistView: View {
             if error != nil {
                 Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
                     Text(error ?? "")
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Cancel")
                         .font(.system(.body, design: .monospaced))
                 }
             }

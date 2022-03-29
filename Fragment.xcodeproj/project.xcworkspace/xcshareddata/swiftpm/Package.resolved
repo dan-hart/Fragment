@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "codeeditor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZeeZide/CodeEditor",
+      "state" : {
+        "revision" : "5856fac22b0a2174dbdea212784567c8c9cd1129",
+        "version" : "1.2.0"
+      }
+    },
+    {
       "identity" : "dhcachekit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dan-hart/DHCacheKit",

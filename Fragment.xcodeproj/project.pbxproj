@@ -63,6 +63,8 @@
 		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52C9ECD927EC1D8500021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
+		5A4C7E5627F3B600006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5527F3B600006B3A4A /* CodeEditor */; };
+		5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5727F3BE78006B3A4A /* CodeEditor */; };
 		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
 		5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF427F3AC87003C2C61 /* DHCacheKit */; };
 /* End PBXBuildFile section */
@@ -130,6 +132,7 @@
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
 				5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */,
 				526D97C327F0C25B00BD46CE /* KeychainAccess in Frameworks */,
+				5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */,
 				5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +145,7 @@
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
 				5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */,
 				526D97C527F0C26600BD46CE /* KeychainAccess in Frameworks */,
+				5A4C7E5627F3B600006B3A4A /* CodeEditor in Frameworks */,
 				5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +351,7 @@
 				526D97C227F0C25B00BD46CE /* KeychainAccess */,
 				526D97C727F0C5BE00BD46CE /* Highlightr */,
 				5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */,
+				5A4C7E5727F3BE78006B3A4A /* CodeEditor */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -373,6 +378,7 @@
 				526D97C427F0C26600BD46CE /* KeychainAccess */,
 				526D97C927F0C5C500BD46CE /* Highlightr */,
 				5AD4DFF427F3AC87003C2C61 /* DHCacheKit */,
+				5A4C7E5527F3B600006B3A4A /* CodeEditor */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -455,6 +461,7 @@
 				526D97C127F0C25B00BD46CE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */,
 				5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */,
+				5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -1063,6 +1070,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZeeZide/CodeEditor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dan-hart/DHCacheKit";
@@ -1113,6 +1128,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */;
 			productName = Highlightr;
+		};
+		5A4C7E5527F3B600006B3A4A /* CodeEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */;
+			productName = CodeEditor;
+		};
+		5A4C7E5727F3BE78006B3A4A /* CodeEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */;
+			productName = CodeEditor;
 		};
 		5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */ = {
 			isa = XCSwiftPackageProductDependency;
