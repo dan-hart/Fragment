@@ -8,6 +8,7 @@
 import OctoKit
 import SFSafeSymbols
 import SwiftUI
+import DHCacheKit
 
 struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
@@ -119,7 +120,7 @@ struct SnippetsListView: View {
 
             ToolbarItem(placement: .navigation) {
                 Button {
-                    if CacheHelper.clearAllCaches() {
+                    if CacheHelper.deleteAllOnDisk() {
                         print("Cleared Cache")
                     } else {
                         print("Failed to clear Cache")

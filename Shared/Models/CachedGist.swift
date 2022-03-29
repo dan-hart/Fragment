@@ -8,13 +8,13 @@
 import Foundation
 import Highlightr
 import OctoKit
+import DHCacheKit
 
 class CachedGist {
     var parent: Gist
-    var cache = Cache<String, [CodableAttributedString]>()
+    var cache = Cache<String, [CodableAttributedString]>(useLocalDisk: true)
     private var _attributedLines: [CodableAttributedString]?
 
-    // swiftlint:disable identifier_name
     var id: String? {
         parent.id
     }
@@ -31,11 +31,6 @@ class CachedGist {
     }
 
     // MARK: - Functions
-
-    func clearCache() {
-        cache.removeValue(forKey: id ?? UUID().uuidString)
-        _ = try? cache.deleteFromDisk(with: cacheKey)
-    }
 
     func meetsSearchCriteria(text: String) -> Bool {
         let descriptionContainsText = parent.description?.lowercased().contains(text.lowercased()) ?? false

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10427F21DF100D5FF2C /* LinesGenerator.swift */; };
 		5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10427F21DF100D5FF2C /* LinesGenerator.swift */; };
-		5219A10827F2221B00D5FF2C /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10727F2221B00D5FF2C /* Cache.swift */; };
-		5219A10927F2221B00D5FF2C /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10727F2221B00D5FF2C /* Cache.swift */; };
 		5219A10B27F224E200D5FF2C /* CodableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */; };
 		5219A10C27F224E200D5FF2C /* CodableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */; };
 		522915B227E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
@@ -65,6 +63,8 @@
 		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52C9ECD927EC1D8500021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
+		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
+		5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF427F3AC87003C2C61 /* DHCacheKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +86,6 @@
 
 /* Begin PBXFileReference section */
 		5219A10427F21DF100D5FF2C /* LinesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesGenerator.swift; sourceTree = "<group>"; };
-		5219A10727F2221B00D5FF2C /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableAttributedString.swift; sourceTree = "<group>"; };
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
 		5254DE0027EF8331005BAC56 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -131,6 +130,7 @@
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
 				5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */,
 				526D97C327F0C25B00BD46CE /* KeychainAccess in Frameworks */,
+				5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +142,7 @@
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
 				5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */,
 				526D97C527F0C26600BD46CE /* KeychainAccess in Frameworks */,
+				5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +294,6 @@
 				52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */,
 				52769DFF27F0EEE400F5D4E0 /* Visibility.swift */,
 				5219A10427F21DF100D5FF2C /* LinesGenerator.swift */,
-				5219A10727F2221B00D5FF2C /* Cache.swift */,
 				5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */,
 			);
 			path = Models;
@@ -346,6 +346,7 @@
 				5254DDFE27EF8224005BAC56 /* SFSafeSymbols */,
 				526D97C227F0C25B00BD46CE /* KeychainAccess */,
 				526D97C727F0C5BE00BD46CE /* Highlightr */,
+				5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -371,6 +372,7 @@
 				5254DE0327EF837A005BAC56 /* SFSafeSymbols */,
 				526D97C427F0C26600BD46CE /* KeychainAccess */,
 				526D97C927F0C5C500BD46CE /* Highlightr */,
+				5AD4DFF427F3AC87003C2C61 /* DHCacheKit */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -452,6 +454,7 @@
 				5254DDFD27EF8224005BAC56 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				526D97C127F0C25B00BD46CE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */,
+				5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -585,7 +588,6 @@
 				525D85E227E760A60066B147 /* FragmentApp.swift in Sources */,
 				52769DFC27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */,
 				5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */,
-				5219A10827F2221B00D5FF2C /* Cache.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				52769DF627F0DCCE00F5D4E0 /* CachedGist.swift in Sources */,
 				5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
@@ -614,7 +616,6 @@
 				5283B2E427EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				52769DFD27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */,
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
-				5219A10927F2221B00D5FF2C /* Cache.swift in Sources */,
 				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				52769DF727F0DCCE00F5D4E0 /* CachedGist.swift in Sources */,
 				5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
@@ -849,7 +850,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WRJ8J85K4Q;
+				DEVELOPMENT_TEAM = 8N5252PDS7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -879,7 +880,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WRJ8J85K4Q;
+				DEVELOPMENT_TEAM = 8N5252PDS7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1062,6 +1063,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dan-hart/DHCacheKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1104,6 +1113,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */;
 			productName = Highlightr;
+		};
+		5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */;
+			productName = DHCacheKit;
+		};
+		5AD4DFF427F3AC87003C2C61 /* DHCacheKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */;
+			productName = DHCacheKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

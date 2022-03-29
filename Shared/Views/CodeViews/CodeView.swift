@@ -61,11 +61,9 @@ struct CodeView: View {
                             AppKitCodableAttributedStringWrapper { label in
                                 label.attributedStringValue = formattedLines[ifExistsAt: index]?.value
                                     ?? NSAttributedString()
-                                label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
-                                label.backgroundColor = .clear
                                 label.isBezeled = false
                                 label.isEditable = false
-                                label.sizeToFit()
+                                label.drawsBackground = false
                             }
                             .frame(minWidth: 1000)
                         #endif

@@ -1,6 +1,24 @@
 {
   "pins" : [
     {
+      "identity" : "dhcachekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dan-hart/DHCacheKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ebdfd11ddcf9046dcae6ea1e23c0beca54ed6e44"
+      }
+    },
+    {
+      "identity" : "filekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nvzqz/FileKit",
+      "state" : {
+        "revision" : "826d9161b184509f80d85c28cd612d630646de98",
+        "version" : "6.0.0"
+      }
+    },
+    {
       "identity" : "highlightr",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/raspu/Highlightr",
@@ -43,6 +61,15 @@
       "state" : {
         "revision" : "c61de7a6e9eb1520d32316b06d5932accd974e70",
         "version" : "2.1.3"
+      }
+    },
+    {
+      "identity" : "swifterswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwifterSwift/SwifterSwift",
+      "state" : {
+        "revision" : "dc813f3aa92f904a009fe543b99d5649dce7c134",
+        "version" : "5.2.0"
       }
     }
   ],
