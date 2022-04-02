@@ -110,11 +110,6 @@ struct SnippetsListView: View {
                                 Image(systemSymbol: SFSymbol.plusSquareFillOnSquareFill)
                                 Text("Add")
                             }
-                            Label {
-                                
-                            } icon: {
-                                
-                            }
                         }
                         #if os(macOS)
                             Button {
