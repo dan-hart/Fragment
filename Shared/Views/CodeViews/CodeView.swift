@@ -78,7 +78,7 @@ struct CodeView: View {
                             .frame(maxWidth: 500)
                         }
                     }
-                    
+
                     Menu {
                         // Menu Content
                         Button {
