@@ -106,6 +106,7 @@ struct SnippetsListView: View {
                             HStack {
                                 Image(systemSymbol: .plusCircle)
                                 Text("Add Gist")
+                                    .font(.system(.body, design: .monospaced))
                             }
                         }
 
@@ -118,6 +119,7 @@ struct SnippetsListView: View {
                                 HStack {
                                     Image(systemSymbol: .arrowDownCircle)
                                     Text("Pull")
+                                        .font(.system(.body, design: .monospaced))
                                 }
                             }
                         #endif
