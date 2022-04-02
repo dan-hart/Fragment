@@ -139,11 +139,12 @@ struct SnippetsListView: View {
             #endif
 
             #if os(iOS)
-            if snippetHandler.isAuthenticated {
+
                 ToolbarItem(placement: .navigationBarLeading) {
-                    menu
+                    if snippetHandler.isAuthenticated {
+                        menu
+                    }
                 }
-            }
             #endif
 
             ToolbarItem(placement: .primaryAction) {
