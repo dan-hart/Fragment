@@ -63,22 +63,24 @@ struct CodeView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
+                        
+                        if let url = cachedGist.parent.htmlURL {
+                            Button {
+                                WebLauncher.go(to: url)
+                            } label: {
+                                HStack {
+                                    
+                                }
+                                Label {
+                                    Text("Web")
+                                } icon: {
+                                    Image(systemSymbol: SFSymbol.docPlaintextFill)
+                                }
+                            }
+                        }
                         // End Menu Content
                     } label: {
                         Image(systemSymbol: .ellipsisCircle)
-                    }
-                    
-
-                    if let url = cachedGist.parent.htmlURL {
-                        Button {
-                            WebLauncher.go(to: url)
-                        } label: {
-                            Label {
-                                Text("Web")
-                            } icon: {
-                                Image(systemSymbol: SFSymbol.docPlaintextFill)
-                            }
-                        }
                     }
                 }
             }
