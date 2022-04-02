@@ -50,9 +50,10 @@ struct CodeView: View {
             if loadedSourceCode != sourceCode {
                 guard let id = cachedGist.parent.id,
                       let description = cachedGist.parent.description,
-                      let filename = cachedGist.parent.files.first?.key else {
-                          return
-                      }
+                      let filename = cachedGist.parent.files.first?.key
+                else {
+                    return
+                }
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
                     if let gist = optionalGist {
                         cachedGist = gist.cached
