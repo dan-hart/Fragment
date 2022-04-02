@@ -13,7 +13,7 @@ struct AddGistView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
-    @State var language: Language
+    @State var language: Language = .swift
     @State var filename: String
     @State var description: String
     @AppStorage("addingGistDefaultVisibility") var visibility: Visibility = .public
