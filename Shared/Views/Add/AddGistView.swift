@@ -41,7 +41,6 @@ struct AddGistView: View {
             }
         } label: {
             HStack {
-                Image(systemSymbol: .squareAndArrowDown)
                 Text("Save")
                     .font(.system(.body, design: .monospaced))
             }
@@ -81,7 +80,7 @@ struct AddGistView: View {
                     .frame(minHeight: 200)
             }
 
-            getSaveButton()
+             // getSaveButton()
 
             if error != nil {
                 Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
