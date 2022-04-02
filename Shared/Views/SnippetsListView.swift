@@ -97,16 +97,17 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    isShowingAddModal.toggle()
-                } label: {
-                    HStack {
-                        Image(systemSymbol: .plusCircle)
-                        Text("Add Gist")
-                            .font(.system(.body, design: .monospaced))
-                    }
-                }
                 if snippetHandler.isAuthenticated {
+                    Button {
+                        isShowingAddModal.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .plusCircle)
+                            Text("Add Gist")
+                                .font(.system(.body, design: .monospaced))
+                        }
+                    }
+                    
                     Menu {
                         // Menu Content
                         #if os(macOS)
