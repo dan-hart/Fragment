@@ -77,7 +77,7 @@ struct CodeView: View {
                             }
                         }
                         #if os(macOS)
-                        .frame(maxWidth: 1000)
+                        .frame(minWidth: 1000)
                         #endif
                     }
                     Menu {
