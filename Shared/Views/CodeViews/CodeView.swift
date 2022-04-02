@@ -80,13 +80,7 @@ struct CodeView: View {
                     Menu {
                         // Menu Content
                         Button {
-                            #if canImport(UIKit)
-                                UIPasteboard.general.string = gist.text
-                            #else
-                                let pasteBoard = NSPasteboard.general
-                                pasteBoard.clearContents()
-                                pasteBoard.writeObjects([(gist.text) as NSString])
-                            #endif
+                            ClipboardHelper.set(text: gist.text)
                         } label: {
                             HStack {
                                 Image(systemSymbol: SFSymbol.docOnDoc)
