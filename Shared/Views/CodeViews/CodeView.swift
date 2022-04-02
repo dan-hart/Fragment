@@ -75,10 +75,10 @@ struct CodeView: View {
                         
                     } label: {
                         HStack {
-                            Image(systemSymbol: .)
+                            Image(systemSymbol: .squareAndArrowDown)
+                            Text("Save")
+                                .font(.system(.body, design: .monospaced))
                         }
-                        Text("Save")
-                            .font(.system(.body, design: .monospaced))
                     }
                     Menu {
                         // Menu Content
