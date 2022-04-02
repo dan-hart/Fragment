@@ -69,6 +69,8 @@ struct CodeView: View {
                         }
                     }
                 }
+            } else {
+                assignCodeOnAppear = true
             }
         }
         .toolbar {
