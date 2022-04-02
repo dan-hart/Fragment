@@ -24,6 +24,8 @@ struct AddGistView: View {
 
     var didAdd: (Gist) -> Void
 
+    let clipboard = ClipboardHelper.getText()
+
     @ViewBuilder
     func getSaveButton() -> some View {
         Button {
@@ -78,7 +80,7 @@ struct AddGistView: View {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 100)
-                if ClipboardHelper.getText() != nil, !content.isEmpty {
+                if clipboard != nil, !content.isEmpty {
                     Button {
                         content = ""
                     } label: {
@@ -88,7 +90,7 @@ struct AddGistView: View {
                 }
             }
             .onAppear {
-                if let clipboardText = ClipboardHelper.getText() {
+                if let clipboardText = clipboard {
                     content = clipboardText
                 }
             }
