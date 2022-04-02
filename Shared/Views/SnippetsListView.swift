@@ -14,14 +14,14 @@ struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var snippetHandler: SnippetHandler
 
-    @State var cachedGists: [CachedGist] = []
+    @State var Gists: [Gist] = []
     @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
     @AppStorage("visibility") var visibility: Visibility = .public
 
-    var filteredGists: [CachedGist] {
-        let withVisibility = cachedGists.filter { gist in
+    var filteredGists: [Gist] {
+        let withVisibility = Gists.filter { gist in
             let gistVisibility = Visibility(isPublic: gist.parent.publicGist)
             return gistVisibility == visibility
         }
@@ -54,14 +54,14 @@ struct SnippetsListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(filteredGists, id: \.id) { cachedGist in
+                ForEach(filteredGists, id: \.id) { Gist in
                     NavigationLink {
-                        CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)
+                        CodeView(Gist: .constant(Gist), isLoadingParent: $isLoading)
                         #if os(macOS)
                             .frame(minWidth: 1000, alignment: .center)
                         #endif
                     } label: {
-                        GistRow(data: cachedGist.parent)
+                        GistRow(data: Gist.parent)
                             .padding()
                     }
                 }
@@ -80,7 +80,7 @@ struct SnippetsListView: View {
                         .frame(width: 0, height: 0, alignment: .leading)
                 #endif
                 AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
-                    cachedGists.insert(newGist.cached, at: 0)
+                    Gists.insert(newGist.cached, at: 0)
                 }
                 #if os(macOS)
                 .padding()
@@ -163,10 +163,10 @@ struct SnippetsListView: View {
 
     func fetchGists() async {
         isLoading = true
-        cachedGists = []
+        Gists = []
         snippetHandler.gists { optionalGists in
             if let gists = optionalGists {
-                self.cachedGists = gists.map { gist in
+                self.Gists = gists.map { gist in
                     gist.cached
                 }
             }

@@ -9,7 +9,7 @@ import Foundation
 import OctoKit
 
 extension Gist {
-    var cached: CachedGist {
-        CachedGist(parent: self)
+    var cached: Gist {
+        Gist(parent: self)
     }
 }

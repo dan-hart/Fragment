@@ -20,7 +20,7 @@ struct CodeView: View {
         colorScheme == .dark ? .atelierSavannaDark : .atelierSavannaLight
     }
 
-    @Binding var cachedGist: CachedGist
+    @Binding var Gist: Gist
     @Binding var isLoadingParent: Bool
 
     @State var loadedSourceCode = ""
@@ -31,7 +31,7 @@ struct CodeView: View {
         ScrollView([.horizontal, .vertical]) {
             ScrollViewReader { reader in
                 // swiftlint:disable all
-                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: cachedGist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
+                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: Gist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
                 #if canImport(AppKit)
                     .frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.75, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
                 #endif
@@ -45,15 +45,15 @@ struct CodeView: View {
         .content.offset(x: 0, y: 0)
         .onAppear {
             if assignCodeOnAppear {
-                loadedSourceCode = cachedGist.parent.text
-                sourceCode = cachedGist.parent.text
+                loadedSourceCode = Gist.parent.text
+                sourceCode = Gist.parent.text
             }
         }
         .onDisappear {
             if loadedSourceCode != sourceCode {
-                guard let id = cachedGist.parent.id,
-                      let description = cachedGist.parent.description,
-                      let filename = cachedGist.parent.files.first?.key
+                guard let id = Gist.parent.id,
+                      let description = Gist.parent.description,
+                      let filename = Gist.parent.files.first?.key
                 else {
                     return
                 }
@@ -61,9 +61,9 @@ struct CodeView: View {
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
                     DispatchQueue.main.async {
                         if let gist = optionalGist {
-                            cachedGist = gist.cached
-                            sourceCode = cachedGist.parent.text
-                            loadedSourceCode = cachedGist.parent.text
+                            Gist = gist.cached
+                            sourceCode = Gist.parent.text
+                            loadedSourceCode = Gist.parent.text
                         } else {
                             print(optionalError?.localizedDescription ?? "")
                         }
@@ -80,11 +80,11 @@ struct CodeView: View {
                         // Menu Content
                         Button {
                             #if canImport(UIKit)
-                                UIPasteboard.general.string = cachedGist.parent.text
+                                UIPasteboard.general.string = Gist.parent.text
                             #else
                                 let pasteBoard = NSPasteboard.general
                                 pasteBoard.clearContents()
-                                pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
+                                pasteBoard.writeObjects([(Gist.parent.text) as NSString])
                             #endif
                         } label: {
                             HStack {
@@ -94,7 +94,7 @@ struct CodeView: View {
                             }
                         }
 
-                        if let url = cachedGist.parent.htmlURL {
+                        if let url = Gist.parent.htmlURL {
                             Button {
                                 WebLauncher.go(to: url)
                             } label: {
