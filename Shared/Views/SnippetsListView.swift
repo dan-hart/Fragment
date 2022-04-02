@@ -123,27 +123,27 @@ struct SnippetsListView: View {
                                 }
                             }
                         #endif
+                        
+                        Divider()
+                        
+                        Button {
+                            if CacheHelper.deleteAllOnDisk() {
+                                print("Cleared Cache")
+                            } else {
+                                print("Failed to clear Cache")
+                            }
+                            tokenHandler.delete()
+                            tokenHandler.checkNeedsAuthenticationStatus()
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .xmarkCircle)
+                            Text("Clear Token")
+                                .font(.system(.body, design: .monospaced))
+                            }
+                        }
                         // End Menu Content
                     } label: {
                         Image(systemSymbol: .ellipsisCircle)
-                    }
-                    
-                    Divider()
-                    
-                    Button {
-                        if CacheHelper.deleteAllOnDisk() {
-                            print("Cleared Cache")
-                        } else {
-                            print("Failed to clear Cache")
-                        }
-                        tokenHandler.delete()
-                        tokenHandler.checkNeedsAuthenticationStatus()
-                    } label: {
-                        HStack {
-                            Image(systemSymbol: .arrowDownCircle)
-                        Text("Clear Token")
-                            .font(.system(.body, design: .monospaced))
-                        }
                     }
                 }
             }
