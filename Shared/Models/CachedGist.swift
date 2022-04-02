@@ -23,7 +23,7 @@ class CachedGist {
     
     var ext: String {
         let filename: NSString = cacheKey
-        let pathExtention = filename.pathExtension
+        return filename.pathExtension
         let pathPrefix = filename.deletingPathExtension
     }
 
