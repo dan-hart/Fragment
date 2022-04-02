@@ -44,7 +44,7 @@ struct AddGistView: View {
             }
             .font(.system(.caption, design: .monospaced))
 
-            Section(header: Text("").font(.system(.caption, design: .monospaced))) {
+            Section(header: Text("Contents").font(.system(.caption, design: .monospaced))) {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 300)
