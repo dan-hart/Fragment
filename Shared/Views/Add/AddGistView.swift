@@ -14,16 +14,7 @@ struct AddGistView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
     @State var language: Language = .swift
-    @State var filename: String {
-        didSet {
-            let filename: NSString = filename as NSString
-            let pathExtention = filename.pathExtension
-            if let lang = Language(rawValue: pathExtention.removingPrefix(".")) {
-                language = lang
-            }
-        }
-    }
-
+    @State var filename: String
     @State var description: String
     @AppStorage("addingGistDefaultVisibility") var visibility: Visibility = .public
     @State var content: String
@@ -44,6 +35,13 @@ struct AddGistView: View {
                     }
                 }
                 TextField("File Name", text: $filename)
+                    .onChange(of: filename) { newValue in
+                        let filename: NSString = newValue as NSString
+                        let pathExtention = filename.pathExtension
+                        if let lang = Language(rawValue: pathExtention.removingPrefix(".")) {
+                            language = lang
+                        }
+                    }
                 TextField("Description", text: $description)
                 Picker("Visibility", selection: $visibility) {
                     ForEach(Visibility.allCases, id: \.self) { access in
