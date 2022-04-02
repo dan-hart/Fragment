@@ -51,6 +51,7 @@ struct CodeView: View {
                 HStack {
                     if loadedSourceCode != sourceCode {
                         Button {
+                            isLoadingParent = true
                             guard let id = gist.id,
                                   let description = gist.description,
                                   let filename = gist.files.first?.key
