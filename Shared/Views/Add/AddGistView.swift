@@ -26,6 +26,7 @@ struct AddGistView: View {
     
     @ViewBuilder
     func getSaveButton() -> some View {
+        Button {
         let ext = ".\(language.rawValue)"
         if !filename.ends(with: ext) {
             filename.append(ext)
