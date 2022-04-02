@@ -9,24 +9,17 @@ import Foundation
 import OctoKit
 
 extension Gist {
-    var id: String? {
-        parent.id
-    }
-
+    // swiftlint:disable identifier_name
     var cacheKey: String {
-        parent.files.first?.key ?? (id ?? UUID().uuidString)
+        files.first?.key ?? (id ?? UUID().uuidString)
     }
 
     var ext: String {
-        let filename: NSString = (parent.files.first?.key ?? "") as NSString
+        let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
     }
 
     // swiftlint:enable identifier_name
-
-    init(parent: Gist) {
-        self.parent = parent
-    }
 
     // MARK: - Functions
 
