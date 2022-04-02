@@ -41,8 +41,6 @@
 		52769DF127F0D0D200F5D4E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97D327F0C82D00BD46CE /* Theme.swift */; };
 		52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */; };
 		52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */; };
-		52769DF927F0DD6C00F5D4E0 /* Gist+cached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF827F0DD6C00F5D4E0 /* Gist+cached.swift */; };
-		52769DFA27F0DD6C00F5D4E0 /* Gist+cached.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF827F0DD6C00F5D4E0 /* Gist+cached.swift */; };
 		52769DFC27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */; };
 		52769DFD27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */; };
 		52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFF27F0EEE400F5D4E0 /* Visibility.swift */; };
@@ -104,7 +102,6 @@
 		526D97E027F0CBCC00BD46CE /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+language.swift"; sourceTree = "<group>"; };
 		52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetHandler.swift; sourceTree = "<group>"; };
-		52769DF827F0DD6C00F5D4E0 /* Gist+cached.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+cached.swift"; sourceTree = "<group>"; };
 		52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+ifExistsAt.swift"; sourceTree = "<group>"; };
 		52769DFF27F0EEE400F5D4E0 /* Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visibility.swift; sourceTree = "<group>"; };
 		52769E0227F0F06900F5D4E0 /* AddGistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGistView.swift; sourceTree = "<group>"; };
@@ -275,7 +272,6 @@
 			children = (
 				526D97DD27F0CA8600BD46CE /* Gist+text.swift */,
 				52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */,
-				52769DF827F0DD6C00F5D4E0 /* Gist+cached.swift */,
 				5ADC94A527F8E00200EFE347 /* Gist+other.swift */,
 			);
 			path = GistExtensions;
@@ -590,7 +586,6 @@
 			files = (
 				526D97E127F0CBCC00BD46CE /* CodeView.swift in Sources */,
 				525D860527E762610066B147 /* SnippetsListView.swift in Sources */,
-				52769DF927F0DD6C00F5D4E0 /* Gist+cached.swift in Sources */,
 				526D97DE27F0CA8600BD46CE /* Gist+text.swift in Sources */,
 				525D85E227E760A60066B147 /* FragmentApp.swift in Sources */,
 				52769DFC27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */,
@@ -618,7 +613,6 @@
 			files = (
 				525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */,
 				526D97DF27F0CA8600BD46CE /* Gist+text.swift in Sources */,
-				52769DFA27F0DD6C00F5D4E0 /* Gist+cached.swift in Sources */,
 				525D85E327E760A60066B147 /* FragmentApp.swift in Sources */,
 				5283B2E427EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				52769DFD27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */,
