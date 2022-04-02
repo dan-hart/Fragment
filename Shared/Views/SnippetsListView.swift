@@ -79,7 +79,7 @@ struct SnippetsListView: View {
                     EmptyView()
                         .frame(width: 0, height: 0, alignment: .leading)
                 #endif
-                EditGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
+                AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
                     cachedGists.insert(newGist.cached, at: 0)
                 }
                 #if os(macOS)

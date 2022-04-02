@@ -9,7 +9,7 @@ import CodeEditor
 import OctoKit
 import SwiftUI
 
-struct EditGistView: View {
+struct AddGistView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
@@ -84,7 +84,7 @@ struct EditGistView: View {
 
 struct EditGistView_Previews: PreviewProvider {
     static var previews: some View {
-        EditGistView(
+        AddGistView(
             filename: "",
             description: "",
             visibility: .public,
