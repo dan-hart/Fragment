@@ -59,6 +59,7 @@ struct CodeView: View {
                         if let gist = optionalGist {
                             cachedGist = gist.cached
                             sourceCode = cachedGist.parent.text
+                            loadedSourceCode = cachedGist.parent.text
                         } else {
                             print(optionalError?.localizedDescription ?? "")
                         }
