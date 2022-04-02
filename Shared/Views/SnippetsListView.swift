@@ -119,7 +119,7 @@ struct SnippetsListView: View {
                                 }
                             } label: {
                                 HStack {
-                                    Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
+                                    Image(systemSymbol: .arrowDownToLine)
                                     Text("Refresh")
                                 }
                             }
