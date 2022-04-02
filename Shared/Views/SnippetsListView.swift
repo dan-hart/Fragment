@@ -57,9 +57,9 @@ struct SnippetsListView: View {
                 ForEach(filteredGists, id: \.id) { cachedGist in
                     NavigationLink {
                         CodeView(cachedGist: .constant(cachedGist), isLoadingParent: $isLoading)
-#if os(macOS)
-    .frame(minWidth: 800, idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment:.center)
-#endif
+                        #if os(macOS)
+                            .frame(minWidth: 800, idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
+                        #endif
                     } label: {
                         GistRow(data: cachedGist.parent)
                             .padding()
