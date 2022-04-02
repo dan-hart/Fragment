@@ -108,6 +108,8 @@ struct SnippetsListView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
+                        
+                        Spacer()
 
                         Menu {
                             // Menu Content
