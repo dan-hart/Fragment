@@ -15,6 +15,9 @@ class SnippetHandler: ObservableObject {
     init() {}
 
     // MARK: - Add Data
+    func update() {
+        
+    }
 
     func create(
         gist filename: String,
