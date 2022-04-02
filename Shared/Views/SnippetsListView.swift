@@ -109,21 +109,21 @@ struct SnippetsListView: View {
                                         Text("Add Gist")
                                     }
                                 }
-                                
+                                    
+#if os(macOS)
+    Button {
+        Task {
+            await fetchGists()
+        }
+    } label: {
+        HStack {
+            Image(systemSymbol: .arrowDownCircle)
+            Text("Pull")
+        }
+    }
+#endif
                                 // End Context Menu
                             }
-                        #if os(macOS)
-                            Button {
-                                Task {
-                                    await fetchGists()
-                                }
-                            } label: {
-                                HStack {
-                                    Image(systemSymbol: .arrowDownCircle)
-                                    Text("Pull")
-                                }
-                            }
-                        #endif
                     }
                 }
             }
