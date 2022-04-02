@@ -59,6 +59,7 @@ struct CodeView: View {
                         } label: {
                             HStack {
                                 Text("Copy File Contents")
+                                    .font(.system(.body, design: .monospaced))
                             }
                             Label {
                                 Text("Copy")
