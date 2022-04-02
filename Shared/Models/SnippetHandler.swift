@@ -90,14 +90,14 @@ class SnippetHandler: ObservableObject {
         }
 
         Octokit(configuration).me { [self] response in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 switch response {
                 case .success:
                     self.isAuthenticated = true
                 case .failure:
                     self.isAuthenticated = false
                 }
-                self.then(isAuthenticated)
+                then(self.isAuthenticated)
             }
         }
     }
