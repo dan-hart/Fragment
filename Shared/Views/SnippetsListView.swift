@@ -123,9 +123,9 @@ struct SnippetsListView: View {
                                 }
                             }
                         #endif
-                        
+
                         Divider()
-                        
+
                         Button {
                             if CacheHelper.deleteAllOnDisk() {
                                 print("Cleared Cache")
@@ -137,8 +137,8 @@ struct SnippetsListView: View {
                         } label: {
                             HStack {
                                 Image(systemSymbol: .xmarkCircle)
-                            Text("Clear Token")
-                                .font(.system(.body, design: .monospaced))
+                                Text("Clear Token")
+                                    .font(.system(.body, design: .monospaced))
                             }
                         }
                         // End Menu Content
