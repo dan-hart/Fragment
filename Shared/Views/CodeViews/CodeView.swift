@@ -45,6 +45,9 @@ struct CodeView: View {
             loadedSourceCode = cachedGist.parent.text
             sourceCode = cachedGist.parent.text
         }
+        .onDisappear {
+            
+        }
         .toolbar {
             ToolbarItem {
                 HStack {
