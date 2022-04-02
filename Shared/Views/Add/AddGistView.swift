@@ -63,8 +63,11 @@ struct AddGistView: View {
                     }
                 }
             } label: {
-                Text("Save")
-                    .font(.system(.body, design: .monospaced))
+                HStack {
+                    Image(systemSymbol: .squareAndArrowDown)
+                    Text("Save")
+                        .font(.system(.body, design: .monospaced))
+                }
             }
 
             if error != nil {
