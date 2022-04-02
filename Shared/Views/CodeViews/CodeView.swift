@@ -49,39 +49,38 @@ struct CodeView: View {
         .toolbar {
             ToolbarItem {
                 HStack {
-                    if loadedSourceCode != sourceCode {
-                        Button {
-                            guard let id = gist.id,
-                                  let description = gist.description,
-                                  let filename = gist.files.first?.key
-                            else {
-                                return
-                            }
-
-                            snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
-                                DispatchQueue.main.async {
-                                    if let gist = optionalGist {
-                                        self.gist = gist
-                                        sourceCode = gist.text
-                                        loadedSourceCode = gist.text
-                                    } else {
-                                        print(optionalError?.localizedDescription ?? "")
-                                    }
-                                }
-                            }
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .squareAndArrowDown)
-                                Text("Save")
-                                    .font(.system(.body, design: .monospaced))
-                            }
-                        }
-                        #if os(macOS)
-                        .frame(minWidth: 1000)
-                        #endif
-                    }
+                    
                     Menu {
                         // Menu Content
+                        if loadedSourceCode != sourceCode {
+                            Button {
+                                guard let id = gist.id,
+                                      let description = gist.description,
+                                      let filename = gist.files.first?.key
+                                else {
+                                    return
+                                }
+
+                                snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
+                                    DispatchQueue.main.async {
+                                        if let gist = optionalGist {
+                                            self.gist = gist
+                                            sourceCode = gist.text
+                                            loadedSourceCode = gist.text
+                                        } else {
+                                            print(optionalError?.localizedDescription ?? "")
+                                        }
+                                    }
+                                }
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .squareAndArrowDown)
+                                    Text("Save")
+                                        .font(.system(.body, design: .monospaced))
+                                }
+                            }
+                        }
+                        
                         Button {
                             #if canImport(UIKit)
                                 UIPasteboard.general.string = gist.text
