@@ -43,13 +43,6 @@ struct CodeView: View {
         .onAppear {
             sourceCode = cachedGist.parent.text
         }
-        .onChange(of: $triggerLoad.wrappedValue, perform: { _ in
-            isLoadingLines = true
-            Task {
-                isLoadingLines = false
-            }
-        })
-        .redacted(reason: isLoadingParent || isLoadingLines ? .placeholder : [])
         .toolbar {
             ToolbarItem {
                 HStack {
