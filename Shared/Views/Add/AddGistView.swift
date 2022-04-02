@@ -27,13 +27,6 @@ struct AddGistView: View {
     var body: some View {
         Form {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
-                Picker("Language", selection: $language) {
-                    ForEach(Language.allCases, id: \.self) { language in
-                        Text(language.rawValue)
-                            .font(.system(.caption, design: .monospaced))
-                            .tag(language.rawValue)
-                    }
-                }
                 TextField("File Name", text: $filename)
                     .onChange(of: filename) { newValue in
                         let filename: NSString = newValue as NSString
@@ -42,6 +35,13 @@ struct AddGistView: View {
                             language = lang
                         }
                     }
+                Picker("Language", selection: $language) {
+                    ForEach(Language.allCases, id: \.self) { language in
+                        Text(language.rawValue)
+                            .font(.system(.caption, design: .monospaced))
+                            .tag(language.rawValue)
+                    }
+                }
                 TextField("Description", text: $description)
                 Picker("Visibility", selection: $visibility) {
                     ForEach(Visibility.allCases, id: \.self) { access in
