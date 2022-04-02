@@ -64,6 +64,8 @@
 		5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF427F3AC87003C2C61 /* DHCacheKit */; };
 		5ADC94A627F8E00200EFE347 /* Gist+other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC94A527F8E00200EFE347 /* Gist+other.swift */; };
 		5ADC94A727F8E00200EFE347 /* Gist+other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC94A527F8E00200EFE347 /* Gist+other.swift */; };
+		5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC94A827F8EB0600EFE347 /* ClipboardHelper.swift */; };
+		5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC94A827F8EB0600EFE347 /* ClipboardHelper.swift */; };
 		5AFEF54527F80C91003FA4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,7 @@
 		52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
 		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
 		5ADC94A527F8E00200EFE347 /* Gist+other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+other.swift"; sourceTree = "<group>"; };
+		5ADC94A827F8EB0600EFE347 /* ClipboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,7 @@
 				525D860127E762140066B147 /* Views */,
 				5254DE0027EF8331005BAC56 /* Constants.swift */,
 				52769E0527F0FE6A00F5D4E0 /* WebLauncher.swift */,
+				5ADC94A827F8EB0600EFE347 /* ClipboardHelper.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -599,6 +603,7 @@
 				522915B227E778300087530C /* GistRow.swift in Sources */,
 				52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
+				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				52769DF127F0D0D200F5D4E0 /* Theme.swift in Sources */,
 				52769E0327F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				5219A10B27F224E200D5FF2C /* CodableAttributedString.swift in Sources */,
@@ -626,6 +631,7 @@
 				5254DE0227EF8331005BAC56 /* Constants.swift in Sources */,
 				52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
 				52769E0727F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
+				5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				526D97D427F0C82D00BD46CE /* Language.swift in Sources */,
 				52769E0427F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				5219A10C27F224E200D5FF2C /* CodableAttributedString.swift in Sources */,
