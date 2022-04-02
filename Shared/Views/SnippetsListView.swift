@@ -97,8 +97,6 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                HStack {
-                    Spacer()
                     if snippetHandler.isAuthenticated {
                         Menu {
                             // Menu Content
@@ -129,7 +127,6 @@ struct SnippetsListView: View {
                         }
                     }
                 }
-            }
 
             ToolbarItem(placement: .navigation) {
                 Button {
