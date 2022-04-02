@@ -104,7 +104,7 @@ struct SnippetsListView: View {
                         } label: {
                             HStack {
                                 Image(systemSymbol: .plusCircle)
-                                Text("Add Gist")
+                                Text("Create")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
