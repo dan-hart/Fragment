@@ -49,7 +49,6 @@ struct CodeView: View {
         .toolbar {
             ToolbarItem {
                 HStack {
-                    
                     Menu {
                         // Menu Content
                         if loadedSourceCode != sourceCode {
@@ -80,7 +79,7 @@ struct CodeView: View {
                                 }
                             }
                         }
-                        
+
                         Button {
                             #if canImport(UIKit)
                                 UIPasteboard.general.string = gist.text
