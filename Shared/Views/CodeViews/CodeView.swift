@@ -43,8 +43,8 @@ struct CodeView: View {
         }
         .content.offset(x: 0, y: 0)
         .onAppear {
-                loadedSourceCode = gist.text
-                sourceCode = gist.text
+            loadedSourceCode = gist.text
+            sourceCode = gist.text
         }
         .toolbar {
             ToolbarItem {
@@ -57,7 +57,7 @@ struct CodeView: View {
                             else {
                                 return
                             }
-                            
+
                             snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
                                 DispatchQueue.main.async {
                                     if let gist = optionalGist {
