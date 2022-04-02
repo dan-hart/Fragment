@@ -55,7 +55,7 @@ struct CodeView: View {
                     return
                 }
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
-                    MainActor.run {
+                    DispatchQueue.main.async {
                     if let gist = optionalGist {
                         cachedGist = gist.cached
                         sourceCode = cachedGist.parent.text
