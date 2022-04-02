@@ -50,6 +50,10 @@ struct AddGistView: View {
             }
 
             Button {
+                let ext = ".\(language.rawValue)"
+                if !filename.ends(with: ext) {
+                    filename.append(ext)
+                }
                 print(language.rawValue)
                 print("filename")
                 _ = ""
