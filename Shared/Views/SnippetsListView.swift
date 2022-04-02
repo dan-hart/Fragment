@@ -96,6 +96,48 @@ struct SnippetsListView: View {
             }
         }
         .toolbar {
+            let menu = Menu {
+                // Menu Content
+                #if os(macOS)
+                    Button {
+                        Task {
+                            await fetchGists()
+                        }
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .arrowDownCircle)
+                            Text("Pull")
+                                .font(.system(.body, design: .monospaced))
+                        }
+                    }
+
+                #endif
+
+                Divider()
+
+                Button {
+                    if CacheHelper.deleteAllOnDisk() {
+                        print("Cleared Cache")
+                    } else {
+                        print("Failed to clear Cache")
+                    }
+                    tokenHandler.delete()
+                    tokenHandler.checkNeedsAuthenticationStatus()
+                } label: {
+                    HStack {
+                        Image(systemSymbol: .xmarkCircle)
+                        Text("Clear Token")
+                            .font(.system(.body, design: .monospaced))
+                    }
+                }
+                // End Menu Content
+            } label: {
+                Image(systemSymbol: .ellipsisCircle)
+            }
+            #if os(macOS)
+            .frame(maxWidth: 50)
+            #endif
+            
             ToolbarItem(placement: .primaryAction) {
                 HStack {
                     if snippetHandler.isAuthenticated {
@@ -112,46 +154,8 @@ struct SnippetsListView: View {
                         .frame(maxWidth: 200)
                         #endif
 
-                        Menu {
-                            // Menu Content
-                            #if os(macOS)
-                                Button {
-                                    Task {
-                                        await fetchGists()
-                                    }
-                                } label: {
-                                    HStack {
-                                        Image(systemSymbol: .arrowDownCircle)
-                                        Text("Pull")
-                                            .font(.system(.body, design: .monospaced))
-                                    }
-                                }
-
-                            #endif
-
-                            Divider()
-
-                            Button {
-                                if CacheHelper.deleteAllOnDisk() {
-                                    print("Cleared Cache")
-                                } else {
-                                    print("Failed to clear Cache")
-                                }
-                                tokenHandler.delete()
-                                tokenHandler.checkNeedsAuthenticationStatus()
-                            } label: {
-                                HStack {
-                                    Image(systemSymbol: .xmarkCircle)
-                                    Text("Clear Token")
-                                        .font(.system(.body, design: .monospaced))
-                                }
-                            }
-                            // End Menu Content
-                        } label: {
-                            Image(systemSymbol: .ellipsisCircle)
-                        }
                         #if os(macOS)
-                        .frame(maxWidth: 50)
+                        menu
                         #endif
                     }
                 }
