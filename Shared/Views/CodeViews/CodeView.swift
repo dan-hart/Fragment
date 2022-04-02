@@ -76,6 +76,9 @@ struct CodeView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
+                        #if os(macOS)
+                        .frame(maxWidth: 1000)
+                        #endif
                     }
                     Menu {
                         // Menu Content
