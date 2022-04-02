@@ -163,6 +163,7 @@ struct SnippetsListView: View {
 
     func fetchGists() async {
         isLoading = true
+        cachedGists = []
         snippetHandler.gists { optionalGists in
             if let gists = optionalGists {
                 self.cachedGists = gists.map { gist in
