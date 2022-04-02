@@ -80,11 +80,11 @@ struct CodeView: View {
                         // Menu Content
                         Button {
                             #if canImport(UIKit)
-                                UIPasteboard.general.string = Gist.parent.text
+                                UIPasteboard.general.string = gist.parent.text
                             #else
                                 let pasteBoard = NSPasteboard.general
                                 pasteBoard.clearContents()
-                                pasteBoard.writeObjects([(Gist.parent.text) as NSString])
+                                pasteBoard.writeObjects([(gist.text) as NSString])
                             #endif
                         } label: {
                             HStack {
