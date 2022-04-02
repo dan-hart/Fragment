@@ -125,21 +125,21 @@ struct SnippetsListView: View {
                     } label: {
                         Image(systemSymbol: .ellipsisCircle)
                     }
-                }
-            }
-
-            ToolbarItem(placement: .navigation) {
-                Button {
-                    if CacheHelper.deleteAllOnDisk() {
-                        print("Cleared Cache")
-                    } else {
-                        print("Failed to clear Cache")
+                    
+                    Divider()
+                    
+                    Button {
+                        if CacheHelper.deleteAllOnDisk() {
+                            print("Cleared Cache")
+                        } else {
+                            print("Failed to clear Cache")
+                        }
+                        tokenHandler.delete()
+                        tokenHandler.checkNeedsAuthenticationStatus()
+                    } label: {
+                        Text("Clear Token")
+                            .font(.system(.body, design: .monospaced))
                     }
-                    tokenHandler.delete()
-                    tokenHandler.checkNeedsAuthenticationStatus()
-                } label: {
-                    Text("Clear Token")
-                        .font(.system(.body, design: .monospaced))
                 }
             }
         }
