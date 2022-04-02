@@ -44,8 +44,10 @@ struct CodeView: View {
         }
         .content.offset(x: 0, y: 0)
         .onAppear {
-            loadedSourceCode = cachedGist.parent.text
-            sourceCode = cachedGist.parent.text
+            if assignCodeOnAppear {
+                loadedSourceCode = cachedGist.parent.text
+                sourceCode = cachedGist.parent.text
+            }
         }
         .onDisappear {
             if loadedSourceCode != sourceCode {
@@ -55,6 +57,7 @@ struct CodeView: View {
                 else {
                     return
                 }
+                assignCodeOnAppear = false
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
                     DispatchQueue.main.async {
                         if let gist = optionalGist {
