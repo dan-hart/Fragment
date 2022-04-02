@@ -49,37 +49,38 @@ struct CodeView: View {
         .toolbar {
             ToolbarItem {
                 HStack {
-                    Menu {
-                        // Menu Content
-                        if loadedSourceCode != sourceCode {
-                            Button {
-                                guard let id = gist.id,
-                                      let description = gist.description,
-                                      let filename = gist.files.first?.key
-                                else {
-                                    return
-                                }
+                    if loadedSourceCode != sourceCode {
+                        Button {
+                            guard let id = gist.id,
+                                  let description = gist.description,
+                                  let filename = gist.files.first?.key
+                            else {
+                                return
+                            }
 
-                                snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
-                                    DispatchQueue.main.async {
-                                        if let gist = optionalGist {
-                                            self.gist = gist
-                                            sourceCode = gist.text
-                                            loadedSourceCode = gist.text
-                                        } else {
-                                            print(optionalError?.localizedDescription ?? "")
-                                        }
+                            snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
+                                DispatchQueue.main.async {
+                                    if let gist = optionalGist {
+                                        self.gist = gist
+                                        sourceCode = gist.text
+                                        loadedSourceCode = gist.text
+                                    } else {
+                                        print(optionalError?.localizedDescription ?? "")
                                     }
                                 }
-                            } label: {
-                                HStack {
-                                    Image(systemSymbol: .squareAndArrowDown)
-                                    Text("Save")
-                                        .font(.system(.body, design: .monospaced))
-                                }
                             }
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .squareAndArrowDown)
+                                Text("Save")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                            .frame(maxWidth: 500)
                         }
-
+                    }
+                    
+                    Menu {
+                        // Menu Content
                         Button {
                             #if canImport(UIKit)
                                 UIPasteboard.general.string = gist.text
