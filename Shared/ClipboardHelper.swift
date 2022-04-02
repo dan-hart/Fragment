@@ -8,5 +8,7 @@
 import Foundation
 
 enum ClipboardHelper {
-    func getText() ->
+    func getText() -> String {
+        
+    }
 }
