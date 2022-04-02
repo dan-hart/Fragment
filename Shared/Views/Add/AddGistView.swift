@@ -23,6 +23,28 @@ struct AddGistView: View {
     @State var error: String?
 
     var didAdd: (Gist) -> Void
+    
+    
+    func getSaveButton() -> some Button {
+        let ext = ".\(language.rawValue)"
+        if !filename.ends(with: ext) {
+            filename.append(ext)
+        }
+        snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
+            if let gist = optionalGist {
+                didAdd(gist)
+                presentationMode.wrappedValue.dismiss()
+            } else {
+                error = optionalError?.localizedDescription
+            }
+        }
+    } label: {
+        HStack {
+            Image(systemSymbol: .squareAndArrowDown)
+            Text("Save")
+                .font(.system(.body, design: .monospaced))
+        }
+    }
 
     var body: some View {
         Form {
@@ -92,6 +114,29 @@ struct AddGistView: View {
                 } label: {
                     Text("Cancel")
                         .font(.system(.body, design: .monospaced))
+                }
+            }
+            
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    let ext = ".\(language.rawValue)"
+                    if !filename.ends(with: ext) {
+                        filename.append(ext)
+                    }
+                    snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
+                        if let gist = optionalGist {
+                            didAdd(gist)
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            error = optionalError?.localizedDescription
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Image(systemSymbol: .squareAndArrowDown)
+                        Text("Save")
+                            .font(.system(.body, design: .monospaced))
+                    }
                 }
             }
         }
