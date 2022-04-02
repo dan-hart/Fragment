@@ -123,7 +123,7 @@ struct SnippetsListView: View {
                                             .font(.system(.body, design: .monospaced))
                                     }
                                 }
-                                .frame(maxWidth: 20)
+                                
                             #endif
 
                             Divider()
@@ -147,6 +147,9 @@ struct SnippetsListView: View {
                         } label: {
                             Image(systemSymbol: .ellipsisCircle)
                         }
+                        #if os(macOS)
+                        .frame(maxWidth: 20)
+                        #endif
                     }
                 }
             }
