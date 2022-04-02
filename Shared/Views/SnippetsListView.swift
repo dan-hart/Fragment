@@ -99,36 +99,36 @@ struct SnippetsListView: View {
             ToolbarItem(placement: .primaryAction) {
                 HStack {
                     Spacer()
-                if snippetHandler.isAuthenticated {
-                    Menu {
-                        // Menu Content
-                        Button {
-                            isShowingAddModal.toggle()
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .plusCircle)
-                                Text("Add Gist")
-                            }
-                        }
-
-                        #if os(macOS)
+                    if snippetHandler.isAuthenticated {
+                        Menu {
+                            // Menu Content
                             Button {
-                                Task {
-                                    await fetchGists()
-                                }
+                                isShowingAddModal.toggle()
                             } label: {
                                 HStack {
-                                    Image(systemSymbol: .arrowDownCircle)
-                                    Text("Pull")
+                                    Image(systemSymbol: .plusCircle)
+                                    Text("Add Gist")
                                 }
                             }
-                        #endif
-                        // End Menu Content
-                    } label: {
-                        Image(systemSymbol: .ellipsisCircle)
+
+                            #if os(macOS)
+                                Button {
+                                    Task {
+                                        await fetchGists()
+                                    }
+                                } label: {
+                                    HStack {
+                                        Image(systemSymbol: .arrowDownCircle)
+                                        Text("Pull")
+                                    }
+                                }
+                            #endif
+                            // End Menu Content
+                        } label: {
+                            Image(systemSymbol: .ellipsisCircle)
+                        }
                     }
                 }
-            }
             }
 
             ToolbarItem(placement: .navigation) {
