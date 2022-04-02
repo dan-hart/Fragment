@@ -137,6 +137,7 @@ struct SnippetsListView: View {
                         tokenHandler.delete()
                         tokenHandler.checkNeedsAuthenticationStatus()
                     } label: {
+                        HStack {
                         Text("Clear Token")
                             .font(.system(.body, design: .monospaced))
                     }
