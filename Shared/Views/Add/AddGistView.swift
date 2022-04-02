@@ -29,7 +29,7 @@ struct AddGistView: View {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
                 Picker("Language", selection: $language) {
                     ForEach(Language.allCases, id: \.self) { language in
-                        Text(language)
+                        Text(language.rawValue)
                             .font(.system(.caption, design: .monospaced))
                             .tag(language.rawValue)
                     }
