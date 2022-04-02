@@ -18,9 +18,12 @@ struct AddGistView: View {
         didSet {
             let filename: NSString = filename as NSString
             let pathExtention = filename.pathExtension
-            language = Language(rawValue: pathExtention.removingPrefix("."))
+            if let lang = Language(rawValue: pathExtention.removingPrefix(".")) {
+                language = lang
+            }
         }
     }
+
     @State var description: String
     @AppStorage("addingGistDefaultVisibility") var visibility: Visibility = .public
     @State var content: String
