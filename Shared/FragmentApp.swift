@@ -8,6 +8,7 @@
 import SwiftUI
 
 // This is a test
+// Another
 
 @main
 struct FragmentApp: App {
