@@ -16,7 +16,7 @@ struct CodeView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
     @Environment(\.colorScheme) var colorScheme
 
-    var theme: CodeEditor.Theme {
+    var theme: CodeEditor.ThemeName {
         colorScheme == .dark ? Theme.atelierSavannaDark : Theme.atelierSavannaLight
     }
 
