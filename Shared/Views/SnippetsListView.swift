@@ -107,12 +107,13 @@ struct SnippetsListView: View {
                             isShowingAddModal.toggle()
                         } label: {
                             HStack {
-                                
+                                Image(systemSymbol: SFSymbol.plusSquareFillOnSquareFill)
+                                Text("Add")
                             }
                             Label {
-                                Text("Add")
+                                
                             } icon: {
-                                Image(systemSymbol: SFSymbol.plusSquareFillOnSquareFill)
+                                
                             }
                         }
                         #if os(macOS)
