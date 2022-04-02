@@ -148,7 +148,7 @@ struct SnippetsListView: View {
                             Image(systemSymbol: .ellipsisCircle)
                         }
                         #if os(macOS)
-                        .frame(maxWidth: 40)
+                        .frame(maxWidth: 80)
                         #endif
                     }
                 }
