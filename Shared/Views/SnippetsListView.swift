@@ -140,6 +140,7 @@ struct SnippetsListView: View {
                         tokenHandler.checkNeedsAuthenticationStatus()
                     } label: {
                         HStack {
+                            Image(systemSymbol: .arrowDownCircle)
                         Text("Clear Token")
                             .font(.system(.body, design: .monospaced))
                         }
