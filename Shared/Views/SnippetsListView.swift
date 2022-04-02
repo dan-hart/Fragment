@@ -137,13 +137,13 @@ struct SnippetsListView: View {
             #if os(macOS)
             .frame(maxWidth: 50)
             #endif
-            
+
             #if os(iOS)
-            ToolbarItem(placement: .navigationBarLeading) {
-                menu
-            }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    menu
+                }
             #endif
-            
+
             ToolbarItem(placement: .primaryAction) {
                 HStack {
                     if snippetHandler.isAuthenticated {
@@ -161,7 +161,7 @@ struct SnippetsListView: View {
                         #endif
 
                         #if os(macOS)
-                        menu
+                            menu
                         #endif
                     }
                 }
