@@ -97,7 +97,7 @@ class SnippetHandler: ObservableObject {
                 case .failure:
                     self.isAuthenticated = false
                 }
-                then(isAuthenticated)
+                self.then(isAuthenticated)
             }
         }
     }
