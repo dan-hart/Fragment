@@ -29,7 +29,7 @@ struct AddGistView: View {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
                 Picker("Language", selection: $language) {
                     ForEach(Language.allCases, id: \.self) { language in
-                        access.body.tag(access)
+                        language.tag(language.rawValue)
                     }
                 }
                 TextField("File Name", text: $filename)
