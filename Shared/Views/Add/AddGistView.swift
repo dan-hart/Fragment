@@ -28,7 +28,7 @@ struct AddGistView: View {
         Form {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
                 Picker("Language", selection: $language) {
-                    ForEach(Visibility.allCases, id: \.self) { access in
+                    ForEach(Language.allCases, id: \.self) { access in
                         access.body.tag(access)
                     }
                 }
