@@ -66,6 +66,8 @@
 		5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5727F3BE78006B3A4A /* CodeEditor */; };
 		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
 		5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF427F3AC87003C2C61 /* DHCacheKit */; };
+		5ADC94A627F8E00200EFE347 /* Gist+other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC94A527F8E00200EFE347 /* Gist+other.swift */; };
+		5ADC94A727F8E00200EFE347 /* Gist+other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC94A527F8E00200EFE347 /* Gist+other.swift */; };
 		5AFEF54527F80C91003FA4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +123,7 @@
 		52BABB3D27E7DDB200999F01 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
 		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
+		5ADC94A527F8E00200EFE347 /* Gist+other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+other.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,7 @@
 				526D97DD27F0CA8600BD46CE /* Gist+text.swift */,
 				52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */,
 				52769DF827F0DD6C00F5D4E0 /* Gist+cached.swift */,
+				5ADC94A527F8E00200EFE347 /* Gist+other.swift */,
 			);
 			path = GistExtensions;
 			sourceTree = "<group>";
@@ -597,6 +601,7 @@
 				5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				52769DF627F0DCCE00F5D4E0 /* CachedGist.swift in Sources */,
+				5ADC94A627F8E00200EFE347 /* Gist+other.swift in Sources */,
 				5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
 				52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */,
@@ -625,6 +630,7 @@
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				52769DF727F0DCCE00F5D4E0 /* CachedGist.swift in Sources */,
+				5ADC94A727F8E00200EFE347 /* Gist+other.swift in Sources */,
 				5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 				52769E0127F0EEE400F5D4E0 /* Visibility.swift in Sources */,
