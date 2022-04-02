@@ -23,29 +23,29 @@ struct AddGistView: View {
     @State var error: String?
 
     var didAdd: (Gist) -> Void
-    
+
     @ViewBuilder
     func getSaveButton() -> some View {
         Button {
-        let ext = ".\(language.rawValue)"
-        if !filename.ends(with: ext) {
-            filename.append(ext)
-        }
-        snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
-            if let gist = optionalGist {
-                didAdd(gist)
-                presentationMode.wrappedValue.dismiss()
-            } else {
-                error = optionalError?.localizedDescription
+            let ext = ".\(language.rawValue)"
+            if !filename.ends(with: ext) {
+                filename.append(ext)
+            }
+            snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
+                if let gist = optionalGist {
+                    didAdd(gist)
+                    presentationMode.wrappedValue.dismiss()
+                } else {
+                    error = optionalError?.localizedDescription
+                }
+            }
+        } label: {
+            HStack {
+                Image(systemSymbol: .squareAndArrowDown)
+                Text("Save")
+                    .font(.system(.body, design: .monospaced))
             }
         }
-    } label: {
-        HStack {
-            Image(systemSymbol: .squareAndArrowDown)
-            Text("Save")
-                .font(.system(.body, design: .monospaced))
-        }
-    }
     }
 
     var body: some View {
@@ -118,7 +118,7 @@ struct AddGistView: View {
                         .font(.system(.body, design: .monospaced))
                 }
             }
-            
+
             ToolbarItem(placement: .primaryAction) {
                 Button {
                     let ext = ".\(language.rawValue)"
