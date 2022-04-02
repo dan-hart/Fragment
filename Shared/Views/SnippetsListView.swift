@@ -97,6 +97,7 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
+                HStack {
                 if snippetHandler.isAuthenticated {
                     Button {
                         isShowingAddModal.toggle()
