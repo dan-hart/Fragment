@@ -118,6 +118,9 @@ struct SnippetsListView: View {
                                     await fetchGists()
                                 }
                             } label: {
+                                HStack {
+                                    
+                                }
                                 Image(systemSymbol: SFSymbol.squareAndArrowDownFill)
                             }
                         #endif
