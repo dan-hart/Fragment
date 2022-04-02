@@ -12,7 +12,8 @@ import OctoKit
 
 class CachedGist {
     var parent: Gist
-    var cache = Cache<String, NSAttributedString>(useLocalDisk: true)
+    var cache = Cache<String, CodableAttributedString>(useLocalDisk: true)
+    var _attributedText: CodableAttributedString?
 
     var id: String? {
         parent.id
@@ -44,18 +45,7 @@ class CachedGist {
     // MARK: - Syntax highlighting
 
     func loadAttributedLines(using theme: Theme) async -> [CodableAttributedString] {
-        if let existingAttributedLines = _attributedLines {
-            return existingAttributedLines
-        }
 
-        var linesGenerator = parent.getLinesGenerator(using: theme)
-        let empty = NSAttributedString()
-        let count = linesGenerator.lineCount()
-        var formattedLines = [CodableAttributedString](repeating: CodableAttributedString(value: empty), count: count)
-
-        for await(line, index) in linesGenerator {
-            formattedLines[index] = line
-        }
 
         cache.insert(formattedLines, forKey: cacheKey)
         _attributedLines = formattedLines
