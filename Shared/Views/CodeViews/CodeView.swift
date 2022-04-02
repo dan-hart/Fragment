@@ -22,10 +22,6 @@ struct CodeView: View {
     @Binding var cachedGist: CachedGist
     @Binding var isLoadingParent: Bool
 
-    @State var isLoadingLines = true
-    @State var formattedLines: [CodableAttributedString] = []
-    @State var triggerLoad = false
-
     @State var sourceCode = ""
 
     var body: some View {
