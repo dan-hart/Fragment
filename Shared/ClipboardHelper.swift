@@ -19,7 +19,7 @@ enum ClipboardHelper {
             return UIPasteboard.general.string
         #else
         var clipboardItems: [String] = []
-        for element in pasteboard.pasteboardItems! {
+        for element in NSPasteboard.general.pasteboardItems! {
             if let str = element.string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")) {
                 clipboardItems.append(str)
             }
