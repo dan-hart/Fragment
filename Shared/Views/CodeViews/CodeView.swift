@@ -55,11 +55,13 @@ struct CodeView: View {
                     return
                 }
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
+                    MainActor.run {
                     if let gist = optionalGist {
                         cachedGist = gist.cached
                         sourceCode = cachedGist.parent.text
                     } else {
                         print(optionalError?.localizedDescription ?? "")
+                    }
                     }
                 }
             }
