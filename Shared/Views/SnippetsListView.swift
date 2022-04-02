@@ -98,7 +98,12 @@ struct SnippetsListView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 if snippetHandler.isAuthenticated {
-                    Menu(
+                    Menu {
+                        // Content
+                    } label: {
+                        // Label
+                    }
+
                     Image(systemSymbol: .ellipsisCircle)
                         .contextMenu {
                             Button {
