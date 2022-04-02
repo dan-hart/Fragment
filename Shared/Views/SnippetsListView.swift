@@ -109,7 +109,7 @@ struct SnippetsListView: View {
                             }
                         }
                         #if os(macOS)
-                        .frame(minWidth: 10)
+                        .frame(maxWidth: 50)
                         #endif
 
                         Menu {
@@ -151,7 +151,7 @@ struct SnippetsListView: View {
                             Image(systemSymbol: .ellipsisCircle)
                         }
                         #if os(macOS)
-                        .frame(minWidth: 10)
+                        .frame(maxWidth: 50)
                         #endif
                     }
                 }
