@@ -68,6 +68,7 @@ struct CodeView: View {
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
                                     }
+                                    
                                     isLoadingParent = false
                                 }
                             }
