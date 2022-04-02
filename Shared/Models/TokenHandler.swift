@@ -20,7 +20,7 @@ class TokenHandler: ObservableObject {
     }
 
     @Published var value: String?
-    @Published var needsAuthentication: Bool = true
+    @Published var needsAuthentication = true
 
     init() {
         checkNeedsAuthenticationStatus()

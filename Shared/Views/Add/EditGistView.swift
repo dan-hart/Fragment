@@ -5,9 +5,9 @@
 //  Created by Dan Hart on 3/27/22.
 //
 
+import CodeEditor
 import OctoKit
 import SwiftUI
-import CodeEditor
 
 struct EditGistView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler

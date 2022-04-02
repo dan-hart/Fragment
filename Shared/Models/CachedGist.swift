@@ -5,10 +5,10 @@
 //  Created by Dan Hart on 3/27/22.
 //
 
+import DHCacheKit
 import Foundation
 import Highlightr
 import OctoKit
-import DHCacheKit
 
 class CachedGist {
     var parent: Gist

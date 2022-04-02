@@ -5,10 +5,10 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
+import DHCacheKit
 import OctoKit
 import SFSafeSymbols
 import SwiftUI
-import DHCacheKit
 
 struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
