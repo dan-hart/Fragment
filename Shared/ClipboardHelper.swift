@@ -9,6 +9,9 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 #endif
+#if canImport(AppKit)
+import AppKit
+#endif
 
 enum ClipboardHelper {
     func getText() -> String {
@@ -16,6 +19,16 @@ enum ClipboardHelper {
     return UIPasteboard.general.string
 #else
     return NSPasteboard.general
+#endif
+    }
+    
+    func set(text: String) {
+#if canImport(UIKit)
+    UIPasteboard.general.string = text
+#else
+    let pasteBoard = NSPasteboard.general
+    pasteBoard.clearContents()
+    pasteBoard.writeObjects([(text) as NSString])
 #endif
     }
 }
