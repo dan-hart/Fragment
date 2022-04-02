@@ -171,7 +171,7 @@ struct SnippetsListView: View {
             }
         }
 
-        .navigationTitle("Snippets")
+        .navigationTitle("Gist")
     }
 
     func fetchGists() async {
