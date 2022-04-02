@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// Test
-
 @main
 struct FragmentApp: App {
     var body: some Scene {
