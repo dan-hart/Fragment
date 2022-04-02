@@ -24,8 +24,8 @@ extension Gist {
     // MARK: - Functions
 
     func meetsSearchCriteria(text: String) -> Bool {
-        let descriptionContainsText = parent.description?.lowercased().contains(text.lowercased()) ?? false
-        let filenameContainsText = parent.files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
+        let descriptionContainsText = description?.lowercased().contains(text.lowercased()) ?? false
+        let filenameContainsText = files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
 
         if descriptionContainsText || filenameContainsText {
             return true
