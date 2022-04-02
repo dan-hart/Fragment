@@ -56,7 +56,7 @@ struct SnippetsListView: View {
                 }
                 ForEach(filteredGists, id: \.id) { gist in
                     NavigationLink {
-                        CodeView(Gist: .constant(Gist), isLoadingParent: $isLoading)
+                        CodeView(Gist: .constant(gist), isLoadingParent: $isLoading)
                         #if os(macOS)
                             .frame(minWidth: 1000, alignment: .center)
                         #endif
