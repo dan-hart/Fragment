@@ -58,13 +58,9 @@ struct CodeView: View {
                             #endif
                         } label: {
                             HStack {
+                                Image(systemSymbol: SFSymbol.docOnDocFill)
                                 Text("Copy File Contents")
                                     .font(.system(.body, design: .monospaced))
-                            }
-                            Label {
-                                Text("Copy")
-                            } icon: {
-                                Image(systemSymbol: SFSymbol.docOnDocFill)
                             }
                         }
                         // End Menu Content
