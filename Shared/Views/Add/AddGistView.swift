@@ -33,7 +33,6 @@ struct AddGistView: View {
                         Text(language.rawValue)
                             .font(.system(.caption, design: .monospaced))
                             .tag(language.rawValue)
-                            .searchable(text: $searchText)
                     }
                 }
                 TextField("File Name", text: $filename)
