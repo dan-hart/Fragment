@@ -81,26 +81,7 @@ struct AddGistView: View {
                     .frame(minHeight: 200)
             }
 
-            Button {
-                let ext = ".\(language.rawValue)"
-                if !filename.ends(with: ext) {
-                    filename.append(ext)
-                }
-                snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
-                    if let gist = optionalGist {
-                        didAdd(gist)
-                        presentationMode.wrappedValue.dismiss()
-                    } else {
-                        error = optionalError?.localizedDescription
-                    }
-                }
-            } label: {
-                HStack {
-                    Image(systemSymbol: .squareAndArrowDown)
-                    Text("Save")
-                        .font(.system(.body, design: .monospaced))
-                }
-            }
+           getSaveButton()
 
             if error != nil {
                 Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
@@ -120,26 +101,7 @@ struct AddGistView: View {
             }
 
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    let ext = ".\(language.rawValue)"
-                    if !filename.ends(with: ext) {
-                        filename.append(ext)
-                    }
-                    snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
-                        if let gist = optionalGist {
-                            didAdd(gist)
-                            presentationMode.wrappedValue.dismiss()
-                        } else {
-                            error = optionalError?.localizedDescription
-                        }
-                    }
-                } label: {
-                    HStack {
-                        Image(systemSymbol: .squareAndArrowDown)
-                        Text("Save")
-                            .font(.system(.body, design: .monospaced))
-                    }
-                }
+                getSaveButton()
             }
         }
 
