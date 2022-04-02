@@ -15,7 +15,11 @@ class SnippetHandler: ObservableObject {
     init() {}
 
     // MARK: - Add Data
-    func update(_ id: String, _ description: String, _ filename: String, _ content: String, then: @escaping (Gist?, Error?) -> Void) {
+    func update(_ id: String,
+                _ description: String,
+                _ filename: String,
+                _ content: String,
+                then: @escaping (Gist?, Error?) -> Void) {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
