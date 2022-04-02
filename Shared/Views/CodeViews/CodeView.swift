@@ -56,6 +56,8 @@ struct CodeView: View {
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
                     if let gist = optionalGist {
                         cachedGist = gist.cached
+                    } else {
+                        print(optionalError?.debugDescription ?? "")
                     }
                 }
             }
