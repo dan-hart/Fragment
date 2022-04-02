@@ -35,6 +35,7 @@ struct AddGistView: View {
                             .tag(language.rawValue)
                     }
                 }
+                .searchable(text: $searchText)
                 TextField("File Name", text: $filename)
                 TextField("Description", text: $description)
                 Picker("Visibility", selection: $visibility) {
