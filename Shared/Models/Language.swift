@@ -130,7 +130,7 @@ enum Language: String, CaseIterable {
     case pf
     case pgsql
     case php
-    case plaintext
+    case plaintext = "txt"
     case pony
     case powershell
     case processing
