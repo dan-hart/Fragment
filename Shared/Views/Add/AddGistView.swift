@@ -78,12 +78,13 @@ struct AddGistView: View {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 100)
-                Button {
-                    content = ""
-                } label: {
-                    <#code#>
+                if let clipboardText = ClipboardHelper.getText() {
+                    Button {
+                        content = ""
+                    } label: {
+                        Text("Clear")
+                    }
                 }
-
             }
             .onAppear {
                 if let clipboardText = ClipboardHelper.getText() {
