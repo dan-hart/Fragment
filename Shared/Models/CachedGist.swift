@@ -20,7 +20,7 @@ class CachedGist {
     var cacheKey: String {
         parent.files.first?.key ?? (id ?? UUID().uuidString)
     }
-    
+
     var ext: String {
         let filename: NSString = (parent.files.first?.key ?? "") as NSString
         return filename.pathExtension
