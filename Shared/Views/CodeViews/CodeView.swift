@@ -25,6 +25,7 @@ struct CodeView: View {
 
     @State var loadedSourceCode = ""
     @State var sourceCode = ""
+    @State var assignCodeOnAppear = true
 
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
