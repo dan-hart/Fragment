@@ -46,6 +46,7 @@ struct AddGistView: View {
                 .font(.system(.body, design: .monospaced))
         }
     }
+    }
 
     var body: some View {
         Form {
