@@ -106,6 +106,9 @@ struct SnippetsListView: View {
                         Button {
                             isShowingAddModal.toggle()
                         } label: {
+                            HStack {
+                                
+                            }
                             Label {
                                 Text("Add")
                             } icon: {
