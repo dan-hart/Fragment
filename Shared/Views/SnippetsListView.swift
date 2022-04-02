@@ -16,7 +16,7 @@ struct SnippetsListView: View {
 
     @State var cachedGists: [CachedGist] = []
     @State var isLoading = false
-    @State var isShowingAddEditModal = false
+    @State var isShowingAddModal = false
     @State var searchText = ""
     @AppStorage("visibility") var visibility: Visibility = .public
 
@@ -73,7 +73,7 @@ struct SnippetsListView: View {
             }
         }
         .searchable(text: $searchText)
-        .sheet(isPresented: $isShowingAddEditModal, content: {
+        .sheet(isPresented: $isShowingAddModal, content: {
             NavigationView {
                 #if os(macOS)
                     EmptyView()
@@ -104,7 +104,7 @@ struct SnippetsListView: View {
                                 
                             }
                         Button {
-                            isShowingAddEditModal.toggle()
+                            isShowingAddModal.toggle()
                         } label: {
                             Label {
                                 Text("Add")
