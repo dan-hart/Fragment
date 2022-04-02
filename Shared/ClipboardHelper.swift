@@ -22,7 +22,7 @@ enum ClipboardHelper {
 #endif
     }
     
-    func set(text: String) {
+    static func set(text: String) {
 #if canImport(UIKit)
     UIPasteboard.general.string = text
 #else
