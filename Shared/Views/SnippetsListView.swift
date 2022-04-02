@@ -109,7 +109,7 @@ struct SnippetsListView: View {
                             }
                         }
                         #if os(macOS)
-                        .frame(maxWidth: 50)
+                        .frame(maxWidth: 100)
                         #endif
 
                         Menu {
