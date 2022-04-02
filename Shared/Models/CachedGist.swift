@@ -41,15 +41,4 @@ class CachedGist {
             return false
         }
     }
-
-    // MARK: - Syntax highlighting
-
-    func loadAttributedLines(using theme: Theme) async -> [CodableAttributedString] {
-
-
-        cache.insert(formattedLines, forKey: cacheKey)
-        _attributedLines = formattedLines
-
-        return formattedLines
-    }
 }
