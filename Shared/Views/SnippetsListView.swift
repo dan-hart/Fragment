@@ -14,14 +14,14 @@ struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var snippetHandler: SnippetHandler
 
-    @State var Gists: [Gist] = []
+    @State var gists: [Gist] = []
     @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
     @AppStorage("visibility") var visibility: Visibility = .public
 
     var filteredGists: [Gist] {
-        let withVisibility = Gists.filter { gist in
+        let withVisibility = gists.filter { gist in
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
         }
@@ -163,10 +163,10 @@ struct SnippetsListView: View {
 
     func fetchGists() async {
         isLoading = true
-        Gists = []
+        gists = []
         snippetHandler.gists { optionalGists in
             if let gists = optionalGists {
-                self.Gists = gists.map { gist in
+                self.gists = gists.map { gist in
                     gist.cached
                 }
             }
