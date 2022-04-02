@@ -22,7 +22,7 @@ struct SnippetsListView: View {
 
     var filteredGists: [Gist] {
         let withVisibility = Gists.filter { gist in
-            let gistVisibility = Visibility(isPublic: gist.parent.publicGist)
+            let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
         }
 
@@ -61,7 +61,7 @@ struct SnippetsListView: View {
                             .frame(minWidth: 1000, alignment: .center)
                         #endif
                     } label: {
-                        GistRow(data: Gist.parent)
+                        GistRow(data: gist)
                             .padding()
                     }
                 }
