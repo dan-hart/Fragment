@@ -78,6 +78,9 @@ struct AddGistView: View {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 100)
+                    .onAppear {
+                        content = ClipboardHelper.getText()
+                    }
             }
 
             // getSaveButton()
