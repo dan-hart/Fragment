@@ -22,6 +22,7 @@ struct CodeView: View {
     @Binding var cachedGist: CachedGist
     @Binding var isLoadingParent: Bool
 
+    @State var loadedSourceCode = ""
     @State var sourceCode = ""
 
     var body: some View {
