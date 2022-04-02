@@ -86,7 +86,9 @@ struct AddGistView: View {
 
             }
             .onAppear {
-                content = ClipboardHelper.getText()
+                if let clipboardText = ClipboardHelper.getText() {
+                    content = clipboardText
+                }
             }
 
             // getSaveButton()
