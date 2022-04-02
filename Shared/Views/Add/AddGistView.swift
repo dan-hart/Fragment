@@ -13,11 +13,6 @@ struct AddGistView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
-//    @Binding var existingFilename: String?
-//    @Binding var existingDescription: String?
-//    @Binding var existingVisibility: Visibility?
-//    @Binding var existingContent: String?
-
     @State var filename: String
     @State var description: String
     @AppStorage("addingGistDefaultVisibility") var visibility: Visibility = .public
