@@ -75,7 +75,6 @@ struct CodeView: View {
                                 Text("Save")
                                     .font(.system(.body, design: .monospaced))
                             }
-                            .frame(maxWidth: 500)
                         }
                     }
 
