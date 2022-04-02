@@ -38,7 +38,7 @@ struct AddGistView: View {
                     .onChange(of: filename) { newValue in
                         let filename: NSString = newValue as NSString
                         let pathExtention = filename.pathExtension
-                        if let lang = Language(rawValue: pathExtention.removingPrefix(".")) {
+                        if let lang = Language(rawValue: pathExtention) {
                             language = lang
                         }
                     }
