@@ -137,7 +137,7 @@ struct SnippetsListView: View {
                         } label: {
                             HStack {
                                 Image(systemSymbol: .xmarkCircle)
-                                Text("Clear Token")
+                                Text("Clear Token / Logout")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
