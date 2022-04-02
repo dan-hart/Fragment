@@ -18,7 +18,7 @@ enum ClipboardHelper {
         #if canImport(UIKit)
             return UIPasteboard.general.string
         #else
-        return NSPasteboard.general.readObjects(forClasses: <#T##[AnyClass]#>)
+            return NSPasteboard.general
         #endif
     }
 
