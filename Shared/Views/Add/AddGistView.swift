@@ -27,6 +27,11 @@ struct AddGistView: View {
     var body: some View {
         Form {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
+                Picker("Language", selection: $language) {
+                    ForEach(Visibility.allCases, id: \.self) { access in
+                        access.body.tag(access)
+                    }
+                }
                 TextField("File Name", text: $filename)
                 TextField("Description", text: $description)
                 Picker("Visibility", selection: $visibility) {
