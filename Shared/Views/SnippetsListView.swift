@@ -97,33 +97,33 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                    if snippetHandler.isAuthenticated {
-                        Image(systemSymbol: .ellipsisCircle)
-                            .contextMenu {
+                if snippetHandler.isAuthenticated {
+                    Image(systemSymbol: .ellipsisCircle)
+                        .contextMenu {
+                            Button {
+                                isShowingAddModal.toggle()
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .plusCircle)
+                                    Text("Add Gist")
+                                }
+                            }
+
+                            #if os(macOS)
                                 Button {
-                                    isShowingAddModal.toggle()
+                                    Task {
+                                        await fetchGists()
+                                    }
                                 } label: {
                                     HStack {
-                                        Image(systemSymbol: .plusCircle)
-                                        Text("Add Gist")
+                                        Image(systemSymbol: .arrowDownCircle)
+                                        Text("Pull")
                                     }
                                 }
-
-                                #if os(macOS)
-                                    Button {
-                                        Task {
-                                            await fetchGists()
-                                        }
-                                    } label: {
-                                        HStack {
-                                            Image(systemSymbol: .arrowDownCircle)
-                                            Text("Pull")
-                                        }
-                                    }
-                                #endif
-                                // End Context Menu
-                            }
-                    }
+                            #endif
+                            // End Context Menu
+                        }
+                }
             }
 
             ToolbarItem(placement: .navigation) {
