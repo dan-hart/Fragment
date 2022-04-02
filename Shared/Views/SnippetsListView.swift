@@ -140,6 +140,7 @@ struct SnippetsListView: View {
                         HStack {
                         Text("Clear Token")
                             .font(.system(.body, design: .monospaced))
+                        }
                     }
                 }
             }
