@@ -147,6 +147,7 @@ struct SnippetsListView: View {
                         Image(systemSymbol: .ellipsisCircle)
                     }
                 }
+                }
             }
         }
 
