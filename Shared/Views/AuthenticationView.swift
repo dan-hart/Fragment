@@ -11,7 +11,7 @@ import SwiftUI
 struct AuthenticationView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @State var token: String = ""
-
+    
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -19,13 +19,13 @@ struct AuthenticationView: View {
                 .font(.system(.body, design: .monospaced))
             SecureField(text: $token,
                         prompt: Text("uZnVflqpqr2U1M9x984h3985a48dn74n").font(.system(.body, design: .monospaced))) {
-                .onSubmit {
-                                go()
-                            }
                 Text("Token")
                     .font(.system(.body, design: .monospaced))
             }
-
+                        .onSubmit {
+                            go()
+                        }
+            
             Button {
                 go()
             } label: {
@@ -50,7 +50,7 @@ struct AuthenticationView: View {
             }
         }
         .padding()
-
+        
         .navigationTitle("Authentication")
     }
     
