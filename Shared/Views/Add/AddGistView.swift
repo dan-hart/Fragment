@@ -83,6 +83,7 @@ struct AddGistView: View {
                         content = ""
                     } label: {
                         Text("Clear")
+                            .font(.system(.body, design: .monospaced))
                     }
                 }
             }
