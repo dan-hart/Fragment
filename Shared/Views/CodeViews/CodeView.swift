@@ -16,7 +16,7 @@ struct CodeView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
     @Environment(\.colorScheme) var colorScheme
 
-    var theme: Theme {
+    var theme: CodeEditor.Theme {
         colorScheme == .dark ? Theme.atelierSavannaDark : Theme.atelierSavannaLight
     }
 
@@ -30,7 +30,7 @@ struct CodeView: View {
         ScrollView([.horizontal, .vertical]) {
             ScrollViewReader { reader in
                 // swiftlint:disable all
-                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: cachedGist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
+                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: cachedGist.ext), theme: .atelierSavannaDark, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
                 #if canImport(AppKit)
                     .frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.75, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
                 #endif
