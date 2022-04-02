@@ -20,7 +20,7 @@ struct AuthenticationView: View {
             SecureField(text: $token,
                         prompt: Text("uZnVflqpqr2U1M9x984h3985a48dn74n").font(.system(.body, design: .monospaced))) {
                 .onSubmit {
-                                print("Authenticating…")
+                                go()
                             }
                 Text("Token")
                     .font(.system(.body, design: .monospaced))
