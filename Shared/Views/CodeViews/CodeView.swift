@@ -72,7 +72,6 @@ struct CodeView: View {
         .onChange(of: $triggerLoad.wrappedValue, perform: { _ in
             isLoadingLines = true
             Task {
-                formattedLines = await cachedGist.loadAttributedLines(using: theme)
                 isLoadingLines = false
             }
         })
