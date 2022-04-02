@@ -22,7 +22,7 @@ class CachedGist {
     }
     
     var ext: String {
-        let filename: NSString = parent.files.first?.key ?? "" as NSString
+        let filename: NSString = parent.files.first?.key
         return filename.pathExtension
     }
 
