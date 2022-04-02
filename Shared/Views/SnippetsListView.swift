@@ -138,6 +138,12 @@ struct SnippetsListView: View {
             .frame(maxWidth: 50)
             #endif
             
+            #if os(iOS)
+            ToolbarItem(placement: .navigationBarLeading) {
+                
+            }
+            #endif
+            
             ToolbarItem(placement: .primaryAction) {
                 HStack {
                     if snippetHandler.isAuthenticated {
