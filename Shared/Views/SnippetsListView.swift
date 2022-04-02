@@ -80,7 +80,7 @@ struct SnippetsListView: View {
                         .frame(width: 0, height: 0, alignment: .leading)
                 #endif
                 AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
-                    Gists.insert(newGist.cached, at: 0)
+                    gists.insert(newGist.cached, at: 0)
                 }
                 #if os(macOS)
                 .padding()
