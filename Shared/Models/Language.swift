@@ -156,7 +156,7 @@ enum Language: String, CaseIterable {
     case scheme
     case scilab
     case scss
-    case shell
+    case shell = "sh"
     case smali
     case smalltalk
     case sml
