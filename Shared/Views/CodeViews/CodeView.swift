@@ -70,11 +70,8 @@ struct CodeView: View {
                                 }
                             }
                         } label: {
-                            HStack {
-                                Image(systemSymbol: .squareAndArrowDown)
-                                Text("Save")
-                                    .font(.system(.body, design: .monospaced))
-                            }
+                            Text("Save")
+                                .font(.system(.body, design: .monospaced))
                         }
                     }
 
