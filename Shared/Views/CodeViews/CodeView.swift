@@ -48,7 +48,10 @@ struct CodeView: View {
         }
         .onDisappear {
             if loadedSourceCode != sourceCode {
-                
+                guard let id = cachedGist.parent.id,
+                      let description = cachedGist.parent.description,
+                      let filename = cachedGist.parent.files.first?.key
+                snippetHandler.update(cachedGist.parent.id, <#T##description: String##String#>, <#T##filename: String##String#>, <#T##content: String##String#>, then: <#T##(Gist?, Error?) -> Void#>)
             }
         }
         .toolbar {
