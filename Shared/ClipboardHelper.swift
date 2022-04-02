@@ -14,7 +14,7 @@ import AppKit
 #endif
 
 enum ClipboardHelper {
-    func getText() -> String {
+    static func getText() -> String {
 #if canImport(UIKit)
     return UIPasteboard.general.string
 #else
