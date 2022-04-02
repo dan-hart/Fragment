@@ -42,6 +42,7 @@ struct CodeView: View {
         }
         .content.offset(x: 0, y: 0)
         .onAppear {
+            loadedSourceCode = cachedGist.parent.text
             sourceCode = cachedGist.parent.text
         }
         .toolbar {
