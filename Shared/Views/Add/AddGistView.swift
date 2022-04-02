@@ -77,7 +77,7 @@ struct AddGistView: View {
             Section(header: Text("Code").font(.system(.caption, design: .monospaced))) {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
-                    .frame(minHeight: 200)
+                    .frame(minHeight: 100)
             }
 
             // getSaveButton()
