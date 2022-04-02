@@ -109,6 +109,8 @@ struct SnippetsListView: View {
                                         Text("Add Gist")
                                     }
                                 }
+                                
+                                // End Context Menu
                             }
                         #if os(macOS)
                             Button {
