@@ -21,6 +21,7 @@ struct AddGistView: View {
 
     @State var isAddingData = true
     @State var error: String?
+    @State private var searchText = ""
 
     var didAdd: (Gist) -> Void
 
@@ -44,7 +45,7 @@ struct AddGistView: View {
             }
             .font(.system(.caption, design: .monospaced))
 
-            Section(header: Text("Contents").font(.system(.caption, design: .monospaced))) {
+            Section(header: Text("Code").font(.system(.caption, design: .monospaced))) {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 200)
