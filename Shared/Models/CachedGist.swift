@@ -26,7 +26,6 @@ class CachedGist {
 
     init(parent: Gist) {
         self.parent = parent
-        _attributedLines = cache.value(forKey: cacheKey)
     }
 
     // MARK: - Functions
