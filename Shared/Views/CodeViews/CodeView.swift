@@ -69,12 +69,14 @@ struct CodeView: View {
                                 WebLauncher.go(to: url)
                             } label: {
                                 HStack {
-                                    
+                                    Image(systemSymbol: SFSymbol.docPlaintextFill)
+                                    Text("Open on Web")
+                                        .font(.system(.body, design: .monospaced))
                                 }
                                 Label {
-                                    Text("Web")
+                                    
                                 } icon: {
-                                    Image(systemSymbol: SFSymbol.docPlaintextFill)
+                                    
                                 }
                             }
                         }
