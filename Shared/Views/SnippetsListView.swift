@@ -164,6 +164,11 @@ struct SnippetsListView: View {
     func fetchGists() async {
         isLoading = true
         gists = []
+        if CacheHelper.deleteAllOnDisk() {
+            print("Cleared Cache")
+        } else {
+            print("Failed to clear Cache")
+        }
         snippetHandler.gists { optionalGists in
             if let gists = optionalGists {
                 self.gists = gists
