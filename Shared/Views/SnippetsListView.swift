@@ -101,10 +101,10 @@ struct SnippetsListView: View {
                     Menu {
                         // Content
                     } label: {
-                        // Label
+                        Image(systemSymbol: .ellipsisCircle)
                     }
 
-                    Image(systemSymbol: .ellipsisCircle)
+                    
                         .contextMenu {
                             Button {
                                 isShowingAddModal.toggle()
