@@ -99,36 +99,32 @@ struct SnippetsListView: View {
             ToolbarItem(placement: .primaryAction) {
                 if snippetHandler.isAuthenticated {
                     Menu {
-                        // Content
+                        // Menu Content
+                        Button {
+                            isShowingAddModal.toggle()
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .plusCircle)
+                                Text("Add Gist")
+                            }
+                        }
+
+                        #if os(macOS)
+                            Button {
+                                Task {
+                                    await fetchGists()
+                                }
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .arrowDownCircle)
+                                    Text("Pull")
+                                }
+                            }
+                        #endif
+                        // End Menu Content
                     } label: {
                         Image(systemSymbol: .ellipsisCircle)
                     }
-
-                    
-                        .contextMenu {
-                            Button {
-                                isShowingAddModal.toggle()
-                            } label: {
-                                HStack {
-                                    Image(systemSymbol: .plusCircle)
-                                    Text("Add Gist")
-                                }
-                            }
-
-                            #if os(macOS)
-                                Button {
-                                    Task {
-                                        await fetchGists()
-                                    }
-                                } label: {
-                                    HStack {
-                                        Image(systemSymbol: .arrowDownCircle)
-                                        Text("Pull")
-                                    }
-                                }
-                            #endif
-                            // End Context Menu
-                        }
                 }
             }
 
