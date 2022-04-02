@@ -66,6 +66,7 @@
 		5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5727F3BE78006B3A4A /* CodeEditor */; };
 		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
 		5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF427F3AC87003C2C61 /* DHCacheKit */; };
+		5AFEF54527F80C91003FA4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFEF54527F80C91003FA4EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
