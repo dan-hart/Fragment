@@ -12,8 +12,6 @@ import OctoKit
 
 class CachedGist {
     var parent: Gist
-    var cache = Cache<String, CodableAttributedString>(useLocalDisk: true)
-    var _attributedText: CodableAttributedString?
 
     var id: String? {
         parent.id
