@@ -109,8 +109,6 @@ struct SnippetsListView: View {
                             }
                         }
 
-                        Spacer()
-
                         Menu {
                             // Menu Content
                             #if os(macOS)
@@ -125,6 +123,7 @@ struct SnippetsListView: View {
                                             .font(.system(.body, design: .monospaced))
                                     }
                                 }
+                                .frame(maxWidth: 20)
                             #endif
 
                             Divider()
