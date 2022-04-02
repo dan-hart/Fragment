@@ -72,19 +72,11 @@ struct CodeView: View {
             ToolbarItem {
                 HStack {
                     Button {
-                        let ext = ".\(language.rawValue)"
-                        if !filename.ends(with: ext) {
-                            filename.append(ext)
-                        }
-                        snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
-                            if let gist = optionalGist {
-                                didAdd(gist)
-                                presentationMode.wrappedValue.dismiss()
-                            } else {
-                                error = optionalError?.localizedDescription
-                            }
-                        }
+                        
                     } label: {
+                        HStack {
+                            
+                        }
                         Text("Save")
                             .font(.system(.body, design: .monospaced))
                     }
