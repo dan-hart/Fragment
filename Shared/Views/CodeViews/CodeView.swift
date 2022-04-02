@@ -47,7 +47,7 @@ struct CodeView: View {
         }
         .onDisappear {
             if loadedSourceCode != sourceCode {
-                // Update
+                
             }
         }
         .toolbar {
