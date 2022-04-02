@@ -73,11 +73,6 @@ struct CodeView: View {
                                     Text("Open on Web")
                                         .font(.system(.body, design: .monospaced))
                                 }
-                                Label {
-                                    
-                                } icon: {
-                                    
-                                }
                             }
                         }
                         // End Menu Content
