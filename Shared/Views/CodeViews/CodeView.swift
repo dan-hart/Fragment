@@ -63,7 +63,7 @@ struct CodeView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        
+
                         if let url = cachedGist.parent.htmlURL {
                             Button {
                                 WebLauncher.go(to: url)
