@@ -18,15 +18,15 @@ enum ClipboardHelper {
         #if canImport(UIKit)
             return UIPasteboard.general.string
         #else
-        var clipboardItems: [String] = []
-        for element in NSPasteboard.general.pasteboardItems! {
-            if let str = element.string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")) {
-                clipboardItems.append(str)
+            var clipboardItems: [String] = []
+            for element in NSPasteboard.general.pasteboardItems! {
+                if let str = element.string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")) {
+                    clipboardItems.append(str)
+                }
             }
-        }
 
-        // Access the item in the clipboard
-        return clipboardItems[0]
+            // Access the item in the clipboard
+            return clipboardItems[0]
         #endif
     }
 
