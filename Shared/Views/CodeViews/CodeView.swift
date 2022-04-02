@@ -53,7 +53,11 @@ struct CodeView: View {
                       let filename = cachedGist.parent.files.first?.key else {
                           return
                       }
-                snippetHandler.update(cachedGist.parent.id, <#T##description: String##String#>, <#T##filename: String##String#>, <#T##content: String##String#>, then: <#T##(Gist?, Error?) -> Void#>)
+                snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
+                    if let gist = optionalGist {
+                        cachedGist = gist.cached
+                    }
+                }
             }
         }
         .toolbar {
