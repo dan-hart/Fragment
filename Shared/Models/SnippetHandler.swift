@@ -15,8 +15,12 @@ class SnippetHandler: ObservableObject {
     init() {}
 
     // MARK: - Add Data
-    func update() {
+    func update(_ id: String, _ description: String, _ filename: String, _ content: String, then: @escaping (Gist?, Error?) -> Void) {
+        guard let configuration = configuration else {
+            return then(nil, nil)
+        }
         
+        Octokit(configuration).patchGistFile(id: id, description: description, filename: filename, fileContent: content, completion: then)
     }
 
     func create(
