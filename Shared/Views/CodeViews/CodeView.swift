@@ -54,7 +54,7 @@ struct CodeView: View {
                 else {
                     return
                 }
-                assignCodeOnAppear = false
+                
                 snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
                     DispatchQueue.main.async {
                         if let gist = optionalGist {
