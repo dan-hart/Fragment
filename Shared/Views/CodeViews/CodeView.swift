@@ -46,7 +46,9 @@ struct CodeView: View {
             sourceCode = cachedGist.parent.text
         }
         .onDisappear {
-            
+            if loadedSourceCode != sourceCode {
+                
+            }
         }
         .toolbar {
             ToolbarItem {
