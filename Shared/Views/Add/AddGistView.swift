@@ -16,7 +16,8 @@ struct AddGistView: View {
     @State var language: Language = .swift
     @State var filename: String {
         didSet {
-            
+            let filename: NSString = filename
+            let pathExtention = filename.pathExtension
         }
     }
     @State var description: String
