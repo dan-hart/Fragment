@@ -139,9 +139,11 @@ struct SnippetsListView: View {
             #endif
 
             #if os(iOS)
+            if snippetHandler.isAuthenticated {
                 ToolbarItem(placement: .navigationBarLeading) {
                     menu
                 }
+            }
             #endif
 
             ToolbarItem(placement: .primaryAction) {
