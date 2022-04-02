@@ -14,25 +14,25 @@ import SwiftUI
 
 struct CodeView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+
     var theme: Theme {
         colorScheme == .dark ? Theme.atelierSavannaDark : Theme.atelierSavannaLight
     }
-    
+
     @Binding var cachedGist: CachedGist
     @Binding var isLoadingParent: Bool
-    
+
     @State var sourceCode = ""
-    
+
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
             ScrollViewReader { reader in
                 // swiftlint:disable all
                 CodeEditor(source: $sourceCode, language: .swift, theme: .atelierSavannaDark, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
-#if canImport(AppKit)
+                #if canImport(AppKit)
                     .frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.75, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
-#endif
-                
+                #endif
+
                     .onAppear {
                         reader.scrollTo(0, anchor: .topLeading)
                     }
@@ -47,13 +47,13 @@ struct CodeView: View {
             ToolbarItem {
                 HStack {
                     Button {
-#if canImport(UIKit)
-                        UIPasteboard.general.string = cachedGist.parent.text
-#else
-                        let pasteBoard = NSPasteboard.general
-                        pasteBoard.clearContents()
-                        pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
-#endif
+                        #if canImport(UIKit)
+                            UIPasteboard.general.string = cachedGist.parent.text
+                        #else
+                            let pasteBoard = NSPasteboard.general
+                            pasteBoard.clearContents()
+                            pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
+                        #endif
                     } label: {
                         Label {
                             Text("Copy")
@@ -61,7 +61,7 @@ struct CodeView: View {
                             Image(systemSymbol: SFSymbol.docOnDocFill)
                         }
                     }
-                    
+
                     if let url = cachedGist.parent.htmlURL {
                         Button {
                             WebLauncher.go(to: url)
