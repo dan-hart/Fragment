@@ -22,9 +22,8 @@ class CachedGist {
     }
     
     var ext: String {
-        let filename: NSString = cacheKey
+        let filename: NSString = parent.files.first?.key ?? ""
         return filename.pathExtension
-        let pathPrefix = filename.deletingPathExtension
     }
 
     // swiftlint:enable identifier_name
