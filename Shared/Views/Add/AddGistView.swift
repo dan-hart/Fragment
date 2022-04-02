@@ -21,7 +21,6 @@ struct AddGistView: View {
 
     @State var isAddingData = true
     @State var error: String?
-    @State private var searchText = ""
 
     var didAdd: (Gist) -> Void
 
