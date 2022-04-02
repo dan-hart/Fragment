@@ -107,7 +107,7 @@ struct SnippetsListView: View {
                                 .font(.system(.body, design: .monospaced))
                         }
                     }
-                    
+
                     Menu {
                         // Menu Content
                         #if os(macOS)
