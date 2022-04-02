@@ -101,16 +101,15 @@ struct SnippetsListView: View {
                     if snippetHandler.isAuthenticated {
                         Image(systemSymbol: .ellipsisCircle)
                             .contextMenu {
-                                
+                                Button {
+                                    isShowingAddModal.toggle()
+                                } label: {
+                                    HStack {
+                                        Image(systemSymbol: SFSymbol.plus)
+                                        Text("Add")
+                                    }
+                                }
                             }
-                        Button {
-                            isShowingAddModal.toggle()
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: SFSymbol.plusSquareFillOnSquareFill)
-                                Text("Add")
-                            }
-                        }
                         #if os(macOS)
                             Button {
                                 Task {
