@@ -44,10 +44,8 @@ struct CodeView: View {
         }
         .content.offset(x: 0, y: 0)
         .onAppear {
-            if assignCodeOnAppear {
                 loadedSourceCode = gist.text
                 sourceCode = gist.text
-            }
         }
         .onDisappear {
             if loadedSourceCode != sourceCode {
