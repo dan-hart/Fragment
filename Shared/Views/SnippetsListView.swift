@@ -99,6 +99,10 @@ struct SnippetsListView: View {
             ToolbarItem(placement: .primaryAction) {
                 HStack {
                     if snippetHandler.isAuthenticated {
+                        Image(systemSymbol: .ellipsisCircle)
+                            .contextMenu {
+                                
+                            }
                         Button {
                             isShowingAddEditModal.toggle()
                         } label: {
