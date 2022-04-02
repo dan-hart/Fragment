@@ -97,36 +97,36 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                    if snippetHandler.isAuthenticated {
-                        Menu {
-                            // Menu Content
+                if snippetHandler.isAuthenticated {
+                    Menu {
+                        // Menu Content
+                        Button {
+                            isShowingAddModal.toggle()
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .plusCircle)
+                                Text("Add Gist")
+                            }
+                        }
+
+                        #if os(macOS)
                             Button {
-                                isShowingAddModal.toggle()
+                                Task {
+                                    await fetchGists()
+                                }
                             } label: {
                                 HStack {
-                                    Image(systemSymbol: .plusCircle)
-                                    Text("Add Gist")
+                                    Image(systemSymbol: .arrowDownCircle)
+                                    Text("Pull")
                                 }
                             }
-
-                            #if os(macOS)
-                                Button {
-                                    Task {
-                                        await fetchGists()
-                                    }
-                                } label: {
-                                    HStack {
-                                        Image(systemSymbol: .arrowDownCircle)
-                                        Text("Pull")
-                                    }
-                                }
-                            #endif
-                            // End Menu Content
-                        } label: {
-                            Image(systemSymbol: .ellipsisCircle)
-                        }
+                        #endif
+                        // End Menu Content
+                    } label: {
+                        Image(systemSymbol: .ellipsisCircle)
                     }
                 }
+            }
 
             ToolbarItem(placement: .navigation) {
                 Button {
