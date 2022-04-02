@@ -140,7 +140,7 @@ struct SnippetsListView: View {
             
             #if os(iOS)
             ToolbarItem(placement: .navigationBarLeading) {
-                
+                menu
             }
             #endif
             
