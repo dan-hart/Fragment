@@ -46,21 +46,31 @@ struct CodeView: View {
         .toolbar {
             ToolbarItem {
                 HStack {
-                    Button {
-                        #if canImport(UIKit)
-                            UIPasteboard.general.string = cachedGist.parent.text
-                        #else
-                            let pasteBoard = NSPasteboard.general
-                            pasteBoard.clearContents()
-                            pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
-                        #endif
-                    } label: {
-                        Label {
-                            Text("Copy")
-                        } icon: {
-                            Image(systemSymbol: SFSymbol.docOnDocFill)
+                    Menu {
+                        // Menu Content
+                        Button {
+                            #if canImport(UIKit)
+                                UIPasteboard.general.string = cachedGist.parent.text
+                            #else
+                                let pasteBoard = NSPasteboard.general
+                                pasteBoard.clearContents()
+                                pasteBoard.writeObjects([(cachedGist.parent.text) as NSString])
+                            #endif
+                        } label: {
+                            HStack {
+                                Text("Copy File Contents")
+                            }
+                            Label {
+                                Text("Copy")
+                            } icon: {
+                                Image(systemSymbol: SFSymbol.docOnDocFill)
+                            }
                         }
+                        // End Menu Content
+                    } label: {
+                        Image(systemSymbol: .ellipsisCircle)
                     }
+                    
 
                     if let url = cachedGist.parent.htmlURL {
                         Button {
