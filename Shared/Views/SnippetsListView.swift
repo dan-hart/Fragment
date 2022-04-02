@@ -97,6 +97,8 @@ struct SnippetsListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
+                HStack {
+                    Spacer()
                 if snippetHandler.isAuthenticated {
                     Menu {
                         // Menu Content
@@ -126,6 +128,7 @@ struct SnippetsListView: View {
                         Image(systemSymbol: .ellipsisCircle)
                     }
                 }
+            }
             }
 
             ToolbarItem(placement: .navigation) {
