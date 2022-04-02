@@ -93,7 +93,7 @@ struct AddGistView: View {
                 }
             }
 
-            // getSaveButton()
+            getSaveButton()
 
             if error != nil {
                 Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
