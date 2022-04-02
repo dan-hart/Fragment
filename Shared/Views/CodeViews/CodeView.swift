@@ -57,7 +57,7 @@ struct CodeView: View {
                     if let gist = optionalGist {
                         cachedGist = gist.cached
                     } else {
-                        print(optionalError?.debugDescription ?? "")
+                        print(optionalError?.localizedDescription ?? "")
                     }
                 }
             }
