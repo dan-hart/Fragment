@@ -77,7 +77,6 @@ struct CodeView: View {
             }
         })
         .redacted(reason: isLoadingParent || isLoadingLines ? .placeholder : [])
-        .padding()
         .toolbar {
             ToolbarItem {
                 HStack {
