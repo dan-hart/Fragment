@@ -19,13 +19,15 @@ struct AuthenticationView: View {
                 .font(.system(.body, design: .monospaced))
             SecureField(text: $token,
                         prompt: Text("uZnVflqpqr2U1M9x984h3985a48dn74n").font(.system(.body, design: .monospaced))) {
+                .onSubmit {
+                                print("Authenticating…")
+                            }
                 Text("Token")
                     .font(.system(.body, design: .monospaced))
             }
 
             Button {
-                tokenHandler.save(token: token)
-                tokenHandler.checkNeedsAuthenticationStatus()
+                go()
             } label: {
                 HStack {
                     Image(systemSymbol: SFSymbol.lock)
@@ -50,6 +52,11 @@ struct AuthenticationView: View {
         .padding()
 
         .navigationTitle("Authentication")
+    }
+    
+    func go() {
+        tokenHandler.save(token: token)
+        tokenHandler.checkNeedsAuthenticationStatus()
     }
 }
 
