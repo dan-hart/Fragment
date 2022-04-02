@@ -58,7 +58,7 @@ struct CodeView: View {
                             #endif
                         } label: {
                             HStack {
-                                Image(systemSymbol: SFSymbol.docOnDocFill)
+                                Image(systemSymbol: SFSymbol.docOnDoc)
                                 Text("Copy File Contents")
                                     .font(.system(.body, design: .monospaced))
                             }
@@ -69,7 +69,7 @@ struct CodeView: View {
                                 WebLauncher.go(to: url)
                             } label: {
                                 HStack {
-                                    Image(systemSymbol: SFSymbol.docPlaintextFill)
+                                    Image(systemSymbol: SFSymbol.docRichtext)
                                     Text("Open on Web")
                                         .font(.system(.body, design: .monospaced))
                                 }
