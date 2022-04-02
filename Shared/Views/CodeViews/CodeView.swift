@@ -46,38 +46,35 @@ struct CodeView: View {
                 loadedSourceCode = gist.text
                 sourceCode = gist.text
         }
-        .onDisappear {
-            if loadedSourceCode != sourceCode {
-                guard let id = gist.id,
-                      let description = gist.description,
-                      let filename = gist.files.first?.key
-                else {
-                    return
-                }
-                
-                snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
-                    DispatchQueue.main.async {
-                        if let gist = optionalGist {
-                            self.gist = gist
-                            sourceCode = gist.text
-                            loadedSourceCode = gist.text
-                        } else {
-                            print(optionalError?.localizedDescription ?? "")
-                        }
-                    }
-                }
-            }
-        }
         .toolbar {
             ToolbarItem {
                 HStack {
-                    Button {
-                        
-                    } label: {
-                        HStack {
-                            Image(systemSymbol: .squareAndArrowDown)
-                            Text("Save")
-                                .font(.system(.body, design: .monospaced))
+                    if loadedSourceCode != sourceCode {
+                        Button {
+                            guard let id = gist.id,
+                                  let description = gist.description,
+                                  let filename = gist.files.first?.key
+                            else {
+                                return
+                            }
+                            
+                            snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
+                                DispatchQueue.main.async {
+                                    if let gist = optionalGist {
+                                        self.gist = gist
+                                        sourceCode = gist.text
+                                        loadedSourceCode = gist.text
+                                    } else {
+                                        print(optionalError?.localizedDescription ?? "")
+                                    }
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .squareAndArrowDown)
+                                Text("Save")
+                                    .font(.system(.body, design: .monospaced))
+                            }
                         }
                     }
                     Menu {
