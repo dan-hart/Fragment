@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// 4th time is the charm
-
 @main
 struct FragmentApp: App {
     var body: some Scene {
