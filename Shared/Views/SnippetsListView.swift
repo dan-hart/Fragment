@@ -106,7 +106,7 @@ struct SnippetsListView: View {
                                 } label: {
                                     HStack {
                                         Image(systemSymbol: .plusCircle)
-                                        Text("Add")
+                                        Text("Add Gist")
                                     }
                                 }
                             }
