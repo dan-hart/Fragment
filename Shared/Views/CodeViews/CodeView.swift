@@ -17,7 +17,7 @@ struct CodeView: View {
     @Environment(\.colorScheme) var colorScheme
 
     var theme: CodeEditor.ThemeName {
-        colorScheme == .dark ? Theme.atelierSavannaDark : Theme.atelierSavannaLight
+        colorScheme == .dark ? .atelierSavannaDark : .atelierSavannaLight
     }
 
     @Binding var cachedGist: CachedGist
