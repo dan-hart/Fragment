@@ -50,6 +50,9 @@ struct AddGistView: View {
             }
 
             Button {
+                print(language.rawValue)
+                print("filename")
+                _ = ""
                 snippetHandler.create(gist: filename, description, content, visibility) { optionalGist, optionalError in
                     if let gist = optionalGist {
                         didAdd(gist)
