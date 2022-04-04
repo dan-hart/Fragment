@@ -36,7 +36,6 @@ struct SettingsView: View {
             .task {
                 let authenticated = await tokenHandler.checkAuthenticationStatus()
                 if authenticated {
-                    await octoHandler.fetchMe(using: tokenHandler.configuration)
                     name = await octoHandler.me(using: tokenHandler.configuration).name
                 }
             }
