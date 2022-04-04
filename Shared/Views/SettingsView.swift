@@ -22,16 +22,21 @@ struct SettingsView: View {
                         Section("General") {
                             EmptyView()
                         }
-                        Button {
-                            sessionHandler.callTask {
-                                try await sessionHandler.refreshGists()
+                        
+                        Section {
+                            Button {
+                                sessionHandler.callTask {
+                                    try await sessionHandler.refreshGists()
+                                }
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .arrowDownCircle)
+                                    Text("Refresh")
+                                        .font(.system(.body, design: .monospaced))
+                                }
                             }
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .arrowDownCircle)
-                                Text("Refresh")
-                                    .font(.system(.body, design: .monospaced))
-                            }
+                        } footer: {
+                            Text("Get new Gists from Github")
                         }
                     }
                 }
