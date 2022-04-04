@@ -37,7 +37,18 @@ struct SnippetsListView: View {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
 
-                    RoundedRectangle()
+                    VStack {
+                        Text("If this is unexpected, try pulling.")
+                    }
+                        .font(.system(.footnote, design: .monospaced))
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                        .padding(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder()
+                                .foregroundColor(.gray)
+                        )
                     Button {
                         Task {
                             await fetchGists()
