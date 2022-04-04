@@ -24,6 +24,7 @@ enum Constants {
         return true
         #endif
         
+        #if canImport(UIKit)
         if UIDevice.current.userInterfaceIdiom == .pad {
             return true
         } else {
