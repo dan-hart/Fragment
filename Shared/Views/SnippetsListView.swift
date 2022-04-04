@@ -128,7 +128,7 @@ struct SnippetsListView: View {
             #endif
             #if os(macOS)
                 AddGistView(filename: "", description: "", content: "") { newGist in
-                    gists.insert(newGist, at: 0)
+                    octoHandler.gists.insert(newGist, at: 0)
                 }
                 .frame(minWidth: 800, minHeight: 800)
                 .padding()
