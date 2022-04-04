@@ -37,7 +37,7 @@ struct ListView: View {
                         .font(.system(.body, design: .monospaced))
 
                     HStack {
-                        if tokenHandler.isAuthenticated {
+                        if sessionHandler.isAuthenticated {
                             Button {
                                 isShowingAddModal.toggle()
                             } label: {
