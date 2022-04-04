@@ -51,7 +51,7 @@ class SessionHandler: ObservableObject {
     }
 
     // MARK: - Authentication
-    func authenticate(using token: String?) async throws -> TokenConfiguration? {
+    func authenticate(using token: String?) async throws -> TokenConfiguration {
         guard let token = token else {
             throw FragmentError.nilToken
         }
