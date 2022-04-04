@@ -51,6 +51,7 @@ class SessionHandler: ObservableObject {
 
     func startSession(with optionalToken: String? = nil) async throws {
         if let token = optionalToken {
+            // Continue existing session
             configuration = try await authenticate(using: token)
         } else {
             configuration = try await authenticate(using: getToken(expectingValue: false))
