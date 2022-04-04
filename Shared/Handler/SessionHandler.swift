@@ -105,8 +105,7 @@ class SessionHandler: ObservableObject {
         gist filename: String,
         _ description: String,
         _ content: String,
-        _ visibility: Visibility,
-        then: @escaping (Gist?, Error?) -> Void
+        _ visibility: Visibility
     ) {
         let response = await withCheckedContinuation { continuation in
         Octokit(configuration).postGistFile(
