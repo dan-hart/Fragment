@@ -24,11 +24,11 @@ struct MainView: View {
             } else {
                 NavigationView {
                     #if os(macOS)
-                    EmptyView()
+                        EmptyView()
                     #endif
-                AuthenticationView()
-                    .frame(minWidth: 800)
-                    .padding()
+                    AuthenticationView()
+                        .frame(minWidth: 800)
+                        .padding()
                 }
             }
         }
