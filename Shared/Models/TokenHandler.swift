@@ -26,7 +26,7 @@ class TokenHandler: ObservableObject {
     private var value: String?
 
     init() {
-        checkNeedsAuthenticationStatus()
+        checkNeedsAuthenticationStatus(attemptReauthentication: true)
     }
 
     // MARK: - Methods
