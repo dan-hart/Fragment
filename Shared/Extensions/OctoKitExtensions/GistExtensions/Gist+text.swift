@@ -21,8 +21,4 @@ extension Gist {
     var lines: [String] {
         text.components(separatedBy: "\n")
     }
-
-    func getLinesGenerator(using theme: Theme) -> LinesGenerator {
-        LinesGenerator(from: text, theme, language: language)
-    }
 }
