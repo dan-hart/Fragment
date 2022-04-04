@@ -109,8 +109,8 @@ class OctoHandler: ObservableObject {
         switch response {
         case let .success(gists):
             return gists
-        case .failure(error):
-            throw error
+        case .failure:
+            throw FragmentError
         }
     }
     
