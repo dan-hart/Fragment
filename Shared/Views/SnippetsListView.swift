@@ -48,7 +48,7 @@ struct SnippetsListView: View {
             .pickerStyle(.segmented)
             .labelsHidden()
 
-            if filteredGists.isEmpty {
+            if gists.isEmpty {
                 Text("No Gists")
                     .font(.system(.body, design: .monospaced))
             } else {
