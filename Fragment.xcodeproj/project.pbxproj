@@ -58,8 +58,6 @@
 		5A23880427FB3F2900480C20 /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880227FB3F2900480C20 /* CacheHandler.swift */; };
 		5A23880727FB47E300480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880627FB47E300480C20 /* SwifterSwift */; };
 		5A23880927FB47F200480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880827FB47F200480C20 /* SwifterSwift */; };
-		5A23880B27FB4C3A00480C20 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880A27FB4C3A00480C20 /* SettingsView.swift */; };
-		5A23880C27FB4C3A00480C20 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880A27FB4C3A00480C20 /* SettingsView.swift */; };
 		5A4C7E5627F3B600006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5527F3B600006B3A4A /* CodeEditor */; };
 		5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5727F3BE78006B3A4A /* CodeEditor */; };
 		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
@@ -120,7 +118,6 @@
 		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
 		5A2387FE27FB3B1900480C20 /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
 		5A23880227FB3F2900480C20 /* CacheHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheHandler.swift; sourceTree = "<group>"; };
-		5A23880A27FB4C3A00480C20 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5ADC94A527F8E00200EFE347 /* Gist+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+Custom.swift"; sourceTree = "<group>"; };
 		5ADC94A827F8EB0600EFE347 /* ClipboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,7 +261,6 @@
 				525D860427E762610066B147 /* SnippetsListView.swift */,
 				522915B827E7855E0087530C /* CodeViews */,
 				522915B027E7781E0087530C /* GistViews */,
-				5A23880A27FB4C3A00480C20 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -611,7 +607,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A23880B27FB4C3A00480C20 /* SettingsView.swift in Sources */,
 				526D97E127F0CBCC00BD46CE /* CodeView.swift in Sources */,
 				525D860527E762610066B147 /* SnippetsListView.swift in Sources */,
 				526D97DE27F0CA8600BD46CE /* Gist+text.swift in Sources */,
@@ -639,7 +634,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A23880C27FB4C3A00480C20 /* SettingsView.swift in Sources */,
 				525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */,
 				526D97DF27F0CA8600BD46CE /* Gist+text.swift in Sources */,
 				525D85E327E760A60066B147 /* FragmentApp.swift in Sources */,
