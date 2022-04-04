@@ -33,9 +33,8 @@ struct SettingsView: View {
             }
             .task {
                 if let authenticated = await tokenHandler.checkAuthenticationStatus() {
-                    
+                    await octoHandler.fetchMe(using: tokenHandler.configuration)
                 }
-                await octoHandler.fetchMe(using: tokenHandler.configuration)
             }
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle")
