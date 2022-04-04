@@ -15,10 +15,12 @@ struct FragmentApp: App {
     @State var isSettingsLoading = false
 
     init() {
+        Task {
         do {
             try await sessionHandler.startSession()
         } catch {
             print("Unable to start session")
+        }
         }
     }
 
