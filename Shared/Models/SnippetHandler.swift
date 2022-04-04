@@ -25,7 +25,11 @@ class SnippetHandler: ObservableObject {
             return then(nil, nil)
         }
 
-        Octokit(configuration).patchGistFile(id: id, description: description, filename: filename, fileContent: content) { response in
+        Octokit(configuration).patchGistFile(id: id,
+                                             description: description,
+                                             filename: filename,
+                                             fileContent: content)
+        { response in
             switch response {
             case let .success(gist):
                 then(gist, nil)
