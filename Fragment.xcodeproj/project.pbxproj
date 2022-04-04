@@ -255,6 +255,7 @@
 		525D860127E762140066B147 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A23880D27FB4C4300480C20 /* New Group */,
 				52769DFE27F0EED100F5D4E0 /* Add */,
 				525D860227E7621D0066B147 /* MainView.swift */,
 				5283B2E227EC0C240018F19B /* AuthenticationView.swift */,
@@ -341,6 +342,13 @@
 				5A23880227FB3F2900480C20 /* CacheHandler.swift */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		5A23880D27FB4C4300480C20 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
