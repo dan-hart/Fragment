@@ -36,9 +36,8 @@ struct CodeView: View {
                         reader.scrollTo(0, anchor: .topLeading)
                     }
                 #if os(macOS)
-                    //.frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.50, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
+                    // .frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.50, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
                 #endif
-
 
                 // swiftlint:enable all
             }
