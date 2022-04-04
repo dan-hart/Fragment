@@ -36,12 +36,12 @@ struct SettingsView: View {
             }
             .task {
                 isLoading = true
-                
+
                 let authenticated = await tokenHandler.checkAuthenticationStatus()
                 if authenticated {
                     name = await octoHandler.me(using: tokenHandler.configuration)?.name
                 }
-                
+
                 isLoading = false
             }
             .tabItem {
