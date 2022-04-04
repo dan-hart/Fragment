@@ -55,7 +55,7 @@ class SessionHandler: ObservableObject {
     // MARK: - Initialization
 
     init() {
-        cgFloatFontSize = fontSize
+        cgFloatFontSize = CGFloat(fontSize)
     }
 
     // MARK: - Methods
