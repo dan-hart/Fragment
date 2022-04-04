@@ -189,11 +189,12 @@ struct SnippetsListView: View {
     }
 
     func fetchGists() async {
+        isLoading = true
+        
         if !tokenHandler.isAuthenticated {
             tokenHandler.checkAuthenticationStatus()
         }
 
-        isLoading = true
         gists = []
         snippetHandler.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
