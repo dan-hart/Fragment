@@ -25,10 +25,10 @@ class TokenHandler: ObservableObject {
 
     var configuration: TokenConfiguration?
 
-    init() {
-    }
+    init() {}
 
     // MARK: - Methods
+
     func taskCheckingAuthenticationStatus() {
         Task {
             await checkAuthenticationStatus()
@@ -40,7 +40,7 @@ class TokenHandler: ObservableObject {
         do {
             configuration = try await authenticate(using: optionalToken)
             isAuthenticated = true
-        } catch(let error) {
+        } catch {
             isAuthenticated = false
             print(error.localizedDescription)
         }
@@ -72,11 +72,11 @@ class TokenHandler: ObservableObject {
                 continuation.resume(returning: response)
             }
         }
-        
+
         switch response {
         case .success:
             return configuration
-        case .failure(let error):
+        case let .failure(error):
             throw error
         }
     }

@@ -10,5 +10,4 @@ import Foundation
 enum AuthenticationError: String, Error {
     case nilToken = "Provided token is nil"
     case invalidToken = "Provided token is invalid"
-    
 }

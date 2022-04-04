@@ -11,11 +11,11 @@ import SwiftUI
 struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let snippetHandler = SnippetHandler()
-    
+
     init() {
         tokenHandler.taskCheckingAuthenticationStatus()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             MainView()
