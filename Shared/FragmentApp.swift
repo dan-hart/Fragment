@@ -12,11 +12,11 @@ struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let snippetHandler = SnippetHandler()
     let cacheHandler = CacheHandler()
-
+    
     init() {
         tokenHandler.taskCheckingAuthenticationStatus()
     }
-
+    
     var body: some Scene {
         WindowGroup {
             MainView()
@@ -29,16 +29,26 @@ struct FragmentApp: App {
                 cacheHandler.gistsCache.insert(gists ?? [], forKey: CacheHandler.Key.gists.rawValue)
             }
         }
-
+        
         Settings {
-            struct SettingsView: View {
-                var body: some View {
-                    TabView {
-                        
+            TabView {
+                ProfileSettingsView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.crop.circle")
                     }
-                    .frame(width: 450, height: 250)
-                }
+                
+                AppearanceSettingsView()
+                    .tabItem {
+                        Label("Appearance", systemImage: "paintpalette")
+                    }
+                
+                PrivacySettingsView()
+                    .tabItem {
+                        Label("Privacy", systemImage: "hand.raised")
+                    }
             }
+            .frame(width: 450, height: 250)
         }
     }
+}
 }
