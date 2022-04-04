@@ -25,7 +25,7 @@ struct SnippetsListView: View {
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
         }.filter { gist in // Search
-            searchText.isEmpty ? true : ()
+            gist.meetsSearchCriteria(text: searchText)
         }
 
         if searchText.isEmpty {
