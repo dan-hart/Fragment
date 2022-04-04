@@ -83,7 +83,12 @@ class SessionHandler: ObservableObject {
                 _ content: String) async throws -> Gist
     {
         let response = withCheckedContinuation { continuation in
-            <#code#>
+            Octokit(configuration).patchGistFile(id: id,
+                                                 description: description,
+                                                 filename: filename,
+                                                 fileContent: content)
+            { response in
+            }
         }
         Octokit(configuration).patchGistFile(id: id,
                                              description: description,
