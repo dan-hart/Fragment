@@ -70,7 +70,7 @@ class TokenHandler: ObservableObject {
             Octokit(configuration).me { response in
                 switch response {
                 case .success:
-                    return configuration
+                    response.
                 case .failure:
                     th
                 }
