@@ -41,7 +41,7 @@ class SessionHandler: ObservableObject {
         isAuthenticated = false
     }
 
-    func startSession(with token: String, triggerAuthenticationAtttempt: Bool = false) async throws {
+    func startSession(with token: String) async throws {
         keychain[keychainKeyIdentifier] = token
         if triggerAuthenticationAtttempt {
             try await authenticate(using: token)
