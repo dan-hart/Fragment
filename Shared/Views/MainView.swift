@@ -23,6 +23,7 @@ struct MainView: View {
                 #endif
                 Text("Loading")
                     .font(.system(.body, design: .monospaced))
+                    .frame(minWidth: 800)
             } else {
                 if tokenHandler.isAuthenticated {
                     SnippetsListView()
