@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
     @Binding var isLoading: Bool
 
