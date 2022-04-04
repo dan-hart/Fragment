@@ -17,7 +17,8 @@ struct MainView: View {
             ContainerView(isLoading: $isLoading)
         } else {
             if isLoading {
-                
+                ContainerView(isLoading: $isLoading) // Permanet loading
+                    .redacted(reason: .placeholder)  //
             } else {
             NavigationView {
                 #if os(macOS)
