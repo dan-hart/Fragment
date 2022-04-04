@@ -64,6 +64,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                }
                 .task {
                     isLoading = true
                     
