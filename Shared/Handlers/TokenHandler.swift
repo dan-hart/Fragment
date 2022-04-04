@@ -54,6 +54,7 @@ class TokenHandler: ObservableObject {
         isLoading.wrappedValue = true
         do {
             if let configuration = try await authenticate(using: optionalToken) {
+                isLoading.wrappedValue = false
                 self.configuration = configuration
                 await MainActor.run {
                     isAuthenticated = true
