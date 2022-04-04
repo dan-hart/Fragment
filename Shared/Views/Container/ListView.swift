@@ -40,8 +40,7 @@ struct ListView: View {
                     HStack {
                         if tokenHandler.isAuthenticated {
                             Button {
-                                // TODO: this
-                                // isShowingAddModal.toggle()
+                                isShowingAddModal.toggle()
                             } label: {
                                 HStack {
                                     #if !os(macOS)
