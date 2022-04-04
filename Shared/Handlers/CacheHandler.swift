@@ -7,8 +7,9 @@
 
 import Foundation
 import DHCacheKit
+import OctoKit
 
 class CacheHandler: ObservableObject {
-    let cache
+    let gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
     init() {}
 }
