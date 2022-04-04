@@ -118,7 +118,9 @@ struct ListView: View {
             }
         }
         .onAppear {
-            
+            sessionHandler.callTask {
+                try await sessionHandler.refreshGists()
+            }
         }
         .refreshable {
             sessionHandler.callTask {
