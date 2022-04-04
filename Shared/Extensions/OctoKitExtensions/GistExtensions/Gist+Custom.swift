@@ -13,6 +13,11 @@ public extension Gist {
     var identifier: String {
         id ?? UUID().uuidString
     }
+    
+    /// The first filename
+    var filename: String {
+        "\(files.first?.key ?? "")"
+    }
 
     /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String? {
