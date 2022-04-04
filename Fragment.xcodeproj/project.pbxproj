@@ -215,7 +215,7 @@
 		525D85B427E760A40066B147 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				5A23880127FB3ED000480C20 /* New Group */,
+				5A23880127FB3ED000480C20 /* Handlers */,
 				525D85BA27E760A60066B147 /* Assets.xcassets */,
 				525D85B727E760A40066B147 /* FragmentApp.swift */,
 				5283B2DE27EC0A1B0018F19B /* Models */,
@@ -340,11 +340,11 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		5A23880127FB3ED000480C20 /* New Group */ = {
+		5A23880127FB3ED000480C20 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
