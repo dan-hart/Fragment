@@ -9,10 +9,6 @@ import Foundation
 import OctoKit
 
 class SnippetHandler: ObservableObject {
-    @Published var configuration: TokenConfiguration?
-
-    init() {}
-
     // MARK: - Add Data
 
     func update(using configuration: TokenConfiguration,
