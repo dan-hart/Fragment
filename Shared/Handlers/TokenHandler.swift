@@ -44,12 +44,12 @@ class TokenHandler: ObservableObject {
 
     func taskCheckingAuthenticationStatus() {
         Task {
-            await checkAuthenticationStatus(isLoading: isLoading)
+            await checkAuthenticationStatus()
         }
     }
 
     /// returns true if authentication succeeded
-    func checkAuthenticationStatus(isLoading: Binding<Bool> = .constant(false)) async -> Bool {
+    func checkAuthenticationStatus() async -> Bool {
         let optionalToken = token
         isLoading.wrappedValue = true
         do {
