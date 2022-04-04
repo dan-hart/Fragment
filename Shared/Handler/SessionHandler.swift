@@ -29,11 +29,13 @@ class SessionHandler: ObservableObject {
     private var keychain: Keychain {
         Keychain(service: bundleID)
     }
-    
+
     // MARK: - Alerts
+
     @Published var alert: Alert? {
         didSet { isShowingAlert = alert != nil }
     }
+
     @Published var isShowingAlert = false
 
     // MARK: - Initialization
