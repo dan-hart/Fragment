@@ -98,12 +98,13 @@ struct ListView: View {
                     HStack {
                         GistRow(data: $octoHandler.gists[index])
                     }
-                    .contentShape(Rectangle())
+
                     .onTapGesture {
                         selectedGist = octoHandler.gists[index]
                     }
                     .padding()
                     .background(selectedGist == octoHandler.gists[index] ? Color.blue : Color.clear)
+                    .contentShape(Rectangle())
                 }
             }
         }
