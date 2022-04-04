@@ -17,6 +17,7 @@ class SessionHandler: ObservableObject {
     
     var configuration: TokenConfiguration?
 
+    // MARK: - Initialization
     init() {}
 
     // MARK: - Methods
