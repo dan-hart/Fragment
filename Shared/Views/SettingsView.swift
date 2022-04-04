@@ -16,6 +16,12 @@ struct SettingsView: View {
 
     var body: some View {
         TabView {
+            Text("Privacy Settings")
+                .font(.title)
+                .tabItem {
+                    Label("Privacy", systemImage: "hand.raised")
+                }
+            
             Text("Appearance Settings")
                 .font(.title)
                 .tabItem {
