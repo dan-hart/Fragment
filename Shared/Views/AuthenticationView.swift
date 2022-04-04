@@ -16,6 +16,8 @@ struct AuthenticationView: View {
     @State var token: String = ""
 
     var body: some View {
+        #if os(macOS)
+        #endif
         VStack(alignment: .center) {
             Spacer()
             Text("Github Personal Access Token")
