@@ -109,7 +109,7 @@ struct ListView: View {
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     print("--")
-                    print("visibility: \(visibility.rawValue)")
+                    print("gist has \(Visibility(isPublic: gist.publicGist).rawValue) - view visibility: \(visibility.rawValue)")
                     print("search: \(searchText)")
                     print("return \(audienceIsMatch && searchIsVisible)")
                     print("--")
