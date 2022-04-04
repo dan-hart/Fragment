@@ -32,7 +32,9 @@ struct SettingsView: View {
                 }
             }
             .task {
-                let authenticated = await tokenHandler.checkAuthenticationStatus()
+                if let authenticated = await tokenHandler.checkAuthenticationStatus() {
+                    
+                }
                 await octoHandler.fetchMe(using: tokenHandler.configuration)
             }
             .tabItem {
