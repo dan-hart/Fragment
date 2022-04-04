@@ -225,6 +225,9 @@ struct SnippetsListView: View {
             if let gists = optionalGists {
                 self.gists = gists
             }
+            if tokenHandler.isElidgibleForCaching {
+                
+            }
             cacheHandler.gistsCache.insert(gists, forKey: CacheHandler.Key.gists.rawValue)
             isLoading = false
         }
