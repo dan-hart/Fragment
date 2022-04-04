@@ -18,6 +18,18 @@ struct SettingsView: View {
         TabView {
             List {
                 Text("General")
+                
+                Button {
+                    sessionHandler.callTask {
+                        try await sessionHandler.refreshGists()
+                    }
+                } label: {
+                    HStack {
+                        Image(systemSymbol: .arrowDownCircle)
+                        Text("Refresh")
+                            .font(.system(.body, design: .monospaced))
+                    }
+                }
             }
                 .font(.title)
                 .tabItem {
