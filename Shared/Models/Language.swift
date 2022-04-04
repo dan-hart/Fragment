@@ -1,3 +1,5 @@
+import Foundation
+
 // swiftlint:disable identifier_name
 enum Language: String, CaseIterable {
     case abnf
