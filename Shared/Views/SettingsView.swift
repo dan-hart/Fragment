@@ -31,8 +31,9 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    .navigationTitle("General")
+                    
                 }
+                .navigationTitle("General")
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
@@ -43,8 +44,9 @@ struct SettingsView: View {
                     Stepper("Code Font Size: \(sessionHandler.fontSize)", value: $sessionHandler.fontSize, in: 8 ... 72)
                 }
 
-                .navigationTitle("Appearance")
+                
             }
+            .navigationTitle("Appearance")
             .tabItem {
                 Label("Appearance", systemImage: "paintpalette")
             }
