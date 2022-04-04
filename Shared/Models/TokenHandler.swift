@@ -29,6 +29,9 @@ class TokenHandler: ObservableObject {
     }
 
     // MARK: - Methods
+    func taskCheckingAuthenticationStatus() {
+        
+    }
 
     func checkAuthenticationStatus() async {
         let optionalToken = getToken()
