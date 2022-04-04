@@ -170,4 +170,8 @@ class SessionHandler: ObservableObject {
     func validate() async throws {
         if !isAuthenticated { throw FragmentError.notAuthenticated }
     }
+    
+    func call(sessionFunction: @autoclosure) {
+        
+    }
 }
