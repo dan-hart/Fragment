@@ -19,6 +19,7 @@ public extension Gist {
         files.first?.key ?? identifier
     }
 
+    /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String {
         let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
