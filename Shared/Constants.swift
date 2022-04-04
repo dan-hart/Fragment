@@ -6,6 +6,7 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 
 // swiftlint:disable line_length
 enum Constants {
@@ -15,6 +16,19 @@ enum Constants {
 
     enum Feature {
         static var ifNoGistsEnablePullButton = true
+    }
+    
+    /// Is the current device running macOS or is it an iPad
+    public var isMacOrPad: Bool {
+        #if os(macOS)
+        return true
+        #else
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return true
+        } else {
+            return false
+        }
+        #endif
     }
 }
 
