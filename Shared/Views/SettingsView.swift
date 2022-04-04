@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    let tokenHandler = TokenHandler()
-    let octoHandler = OctoHandler()
-    let cacheHandler = CacheHandler()
+    @EnvironmentObject var tokenHandler: TokenHandler
+    @EnvironmentObject var octoHandler: OctoHandler
+    @EnvironmentObject var cacheHandler: CacheHandler
 
     @Binding var isLoading: Bool
     @Binding var isAuthenticated: Bool
