@@ -55,10 +55,10 @@ struct CodeView: View {
                             
                             isLoadingParent = true
                             sessionHandler.callTask {
-                                let text = try await sessionHandler.update(id, description, filename, sourceCode)
+                                let updatedGist = try await sessionHandler.update(id, description, filename, sourceCode)
                                 self.isLoadingParent = false
                                 await MainActor.run {
-                                    self.sourceCode = text
+                                    self.sourceCode = updatedGist.text
                                     self.loadedSourceCode = text
                                 }
                             }
