@@ -18,6 +18,9 @@ struct FragmentApp: App {
         WindowGroup {
             MainView(isLoading: $isLoading)
                 .environmentObject(sessionHandler)
+                .alert(isPresented: $sessionHandler.isShowingAlert) {
+                                    alerter.alert ?? Alert(title: Text(""))
+                                }
                 .onAppear {
                     sessionHandler.callTask {
                         try await sessionHandler.startSession()
