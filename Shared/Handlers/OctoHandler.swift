@@ -7,6 +7,7 @@
 
 import Foundation
 import OctoKit
+import DHCacheKit
 
 class OctoHandler: ObservableObject {
     @Published var gists = []
