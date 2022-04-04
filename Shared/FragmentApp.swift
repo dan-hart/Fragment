@@ -16,7 +16,7 @@ struct FragmentApp: App {
 
     init() {
         sessionHandler.callTask {
-            try async sessionHandler.startSession()
+            try await sessionHandler.startSession()
         }
     }
 
