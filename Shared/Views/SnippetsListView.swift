@@ -108,7 +108,7 @@ struct SnippetsListView: View {
             }
         }
         .onAppear {
-            gists = cacheHandler.gistsCache.value(forKey: "\(CacheHandler.Key.gists.rawValue)")
+            gists = cacheHandler.gistsCache.value(forKey: "\(CacheHandler.Key.gists.rawValue)") as [Gist]
         }
         .refreshable {
             Task {
