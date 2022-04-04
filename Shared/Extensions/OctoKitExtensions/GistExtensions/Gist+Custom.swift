@@ -37,11 +37,11 @@ extension Gist {
 }
 
 extension Gist: Equatable {
-    
-}
-
-extension Gist: Hashable {
     public static func == (lhs: Gist, rhs: Gist) -> Bool {
         lhs.identifier == rhs.identifier
     }
+}
+
+extension Gist: Hashable {
+
 }
