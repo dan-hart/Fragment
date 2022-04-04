@@ -32,6 +32,7 @@ struct SettingsView: View {
                 }
             }
             .task {
+                let configuration = tokenHandler.au
                 await octoHandler.fetchMe(using: tokenHandler.configuration)
             }
             .tabItem {
