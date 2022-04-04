@@ -19,8 +19,7 @@ class SnippetHandler: ObservableObject {
                 _ description: String,
                 _ filename: String,
                 _ content: String,
-                then: @escaping (Gist?, Error?) -> Void)
-    {
+                then: @escaping (Gist?, Error?) -> Void) {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
