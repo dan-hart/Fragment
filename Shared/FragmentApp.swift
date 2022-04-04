@@ -17,14 +17,14 @@ struct FragmentApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(tokenHandler)
-                .environmentObject(octoHandler)
+            MainView(isLoading: $isLoading)
                 .task {
                     isLoading = true
                     _ = await tokenHandler.checkAuthenticationStatus()
                     isLoading = false
                 }
+                .environmentObject(tokenHandler)
+                .environmentObject(octoHandler)
         }
 
         Settings {
