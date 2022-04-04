@@ -107,7 +107,7 @@ struct SnippetsListView: View {
             }
         }
         .task {
-            await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
+            try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
         }
         .refreshable {
             Task {
