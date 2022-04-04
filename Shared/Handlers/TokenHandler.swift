@@ -64,6 +64,7 @@ class TokenHandler: ObservableObject {
                 return false
             }
         } catch {
+            isLoading.wrappedValue = false
             await MainActor.run {
                 isAuthenticated = false
             }
