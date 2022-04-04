@@ -37,13 +37,13 @@ struct CodeView: View {
             }
         }
         .content.offset(x: 0, y: 0)
-        .onChange(of: gist.text, perform: { newValue in
-            sourceCode = newValue
-        })
         .onAppear {
             loadedSourceCode = gist.text
             sourceCode = gist.text
         }
+        .onChange(of: gist.text, perform: { newValue in
+            sourceCode = newValue
+        })
         .toolbar {
             ToolbarItem {
                 HStack {
