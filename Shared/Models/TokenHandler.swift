@@ -60,8 +60,8 @@ class TokenHandler: ObservableObject {
         }
     }
 
-    func authenticate(using token: String, then: @escaping (Bool) -> Void) {
-        configuration = TokenConfiguration(token)
+    func authenticate(using token: String, then: @escaping (Bool) -> Void) -> TokenConfiguration {
+        let configuration = TokenConfiguration(token)
         guard let configuration = configuration else {
             return then(false)
         }
