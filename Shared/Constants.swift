@@ -14,7 +14,7 @@ enum Constants {
     }
     
     enum Feature: Bool {
-        
+        case ifNoGistsEnablePullButton = false
     }
 }
 
