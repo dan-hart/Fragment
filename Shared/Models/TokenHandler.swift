@@ -38,6 +38,9 @@ class TokenHandler: ObservableObject {
     }
 
     // MARK: - Methods
+    func checkAuthorizationStatus() {
+        
+    }
     func getToken() -> String? {
         keychain[TokenHandler.keyName]
     }
