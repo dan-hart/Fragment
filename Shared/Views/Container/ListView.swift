@@ -119,14 +119,6 @@ struct ListView: View {
         .toolbar {
             let menu = Menu {
                 // Menu Content
-                if sessionHandler.isAuthenticated {
-                    #if os(macOS)
-                        
-
-                    #endif
-
-                    Divider()
-                }
 
                 Button {
                     sessionHandler.invalidateSession()
