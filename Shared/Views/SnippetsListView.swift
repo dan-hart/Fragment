@@ -89,7 +89,7 @@ struct SnippetsListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(gists.filter { gist in
+                ForEach(octoHandler.gists.filter { gist in
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
