@@ -85,7 +85,7 @@ struct CodeView: View {
                     Menu {
                         // Menu Content
                         Button {
-                            ClipboardHelper.set(text: gist.text)
+                            ClipboardHelper.set(text: gist?.text "" "")
                         } label: {
                             HStack {
                                 Image(systemSymbol: SFSymbol.docOnDoc)
