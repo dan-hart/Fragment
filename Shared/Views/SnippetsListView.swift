@@ -15,7 +15,7 @@ struct SnippetsListView: View {
     @EnvironmentObject var snippetHandler: SnippetHandler
     @EnvironmentObject var cacheHandler: CacheHandler
 
-    @State var gists: [Gist] = cacheHandler.gistsCache.value(forKey: CacheHandler.Key.gists.rawValue) ?? []
+    @State var gists: [Gist] = []
     @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
@@ -23,7 +23,7 @@ struct SnippetsListView: View {
     @AppStorage("visibility") var visibility: Visibility = .public
     
     init() {
-        
+        gists = cacheHandler.gistsCache.value(forKey: CacheHandler.Key.gists.rawValue) ?? []
     }
 
     var body: some View {
