@@ -12,22 +12,22 @@ import SwiftUI
 
 struct AddGistView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
-
+    
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-
+    
     @State var language: Language = .swift
     @State var filename: String
     @State var description: String
     @AppStorage("addingGistDefaultVisibility") var visibility: Visibility = .public
     @State var content: String
-
+    
     @State var isAddingData = true
     @State var error: String?
-
+    
     var didAdd: (Gist) -> Void
-
+    
     let clipboard = ClipboardHelper.getText()
-
+    
     @ViewBuilder
     func getSaveButton() -> some View {
         Button {
@@ -35,14 +35,15 @@ struct AddGistView: View {
             if !$filename.wrappedValue.ends(with: ext) {
                 filename.append(ext)
             }
-            do {
-                Task {
+            Task {
+                do {
                     let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
                     didAdd(gist)
                     presentationMode.wrappedValue.dismiss()
+                    
+                } catch(let error) {
+                    self.error = error.localizedDescription
                 }
-            } catch(let error) {
-                error = error.localizedDescription
             }
         } label: {
             HStack {
@@ -51,7 +52,7 @@ struct AddGistView: View {
             }
         }
     }
-
+    
     var body: some View {
         Form {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
@@ -78,7 +79,7 @@ struct AddGistView: View {
                 }
             }
             .font(.system(.caption, design: .monospaced))
-
+            
             if clipboard != nil, !content.isEmpty {
                 Button {
                     content = ""
@@ -87,7 +88,7 @@ struct AddGistView: View {
                         .font(.system(.body, design: .monospaced))
                 }
             }
-
+            
             Section(header: Text("Code").font(.system(.caption, design: .monospaced))) {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
@@ -98,9 +99,9 @@ struct AddGistView: View {
                     content = clipboardText
                 }
             }
-
+            
             getSaveButton()
-
+            
             if error != nil {
                 Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
                     Text(error ?? "")
@@ -117,12 +118,12 @@ struct AddGistView: View {
                         .font(.system(.body, design: .monospaced))
                 }
             }
-
+            
             ToolbarItem(placement: .primaryAction) {
                 getSaveButton()
             }
         }
-
+        
         .navigationTitle(isAddingData ? "Add Gist" : "Edit Gist")
     }
 }
