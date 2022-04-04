@@ -36,12 +36,32 @@ class TokenHandler: ObservableObject {
         keychain[key] = nil
     }
 
+    // MARK: - Authentication
     func checkNeedsAuthenticationStatus() {
         if let token = keychain[TokenHandler.keyName] {
             value = token
             needsAuthentication = false
         } else {
             needsAuthentication = true
+        }
+    }
+    
+    func authenticate(using token: String, then: @escaping (Bool) -> Void) {
+        configuration = TokenConfiguration(token)
+        guard let configuration = configuration else {
+            return then(false)
+        }
+
+        Octokit(configuration).me { [self] response in
+            DispatchQueue.main.async { [self] in
+                switch response {
+                case .success:
+                    self.isAuthenticated = true
+                case .failure:
+                    self.isAuthenticated = false
+                }
+                then(self.isAuthenticated)
+            }
         }
     }
 }
