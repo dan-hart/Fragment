@@ -12,7 +12,8 @@ struct SettingsView: View {
     let octoHandler = OctoHandler()
     let cacheHandler = CacheHandler()
 
-    @State var isLoading = true
+    @Binding var isLoading = true
+    
     @State var name: String?
 
     var body: some View {
