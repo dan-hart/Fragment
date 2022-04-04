@@ -32,7 +32,7 @@ struct SnippetsListView: View {
             .labelsHidden()
 
             if gists.isEmpty {
-                HStack {
+                VStack {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
 
