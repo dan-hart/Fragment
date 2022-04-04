@@ -92,6 +92,7 @@ struct SnippetsListView: View {
             }
             #endif
             #if os(macOS)
+            AddGistView(filename: "", description: <#T##String#>, content: <#T##String#>, didAdd: <#T##(Gist) -> Void#>)
             #endif
         })
         .redacted(reason: isLoading ? .placeholder : [])
