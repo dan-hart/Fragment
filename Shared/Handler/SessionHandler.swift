@@ -53,7 +53,9 @@ class SessionHandler: ObservableObject {
     // MARK: - Authentication
     func attemptAuthentication(using token: String) {
         Task {
-            
+            do {
+                
+            }
         }
     }
     
