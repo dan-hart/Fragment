@@ -50,7 +50,7 @@ struct ContainerView: View {
         }
     }
     
-    private func toggleSidebar() { // 2
+    private func toggleSidebar() {
         #if os(iOS)
         #else
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
