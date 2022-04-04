@@ -142,7 +142,7 @@ struct SnippetsListView: View {
 
                 Button {
                     tokenHandler.delete()
-                    tokenHandler.checkAuthenticationStatus()
+                    tokenHandler.taskCheckingAuthenticationStatus()
                 } label: {
                     HStack {
                         Image(systemSymbol: .xmarkCircle)
@@ -195,7 +195,7 @@ struct SnippetsListView: View {
         isLoading = true
 
         if !tokenHandler.isAuthenticated {
-            tokenHandler.checkAuthenticationStatus()
+            tokenHandler.taskCheckingAuthenticationStatus()
         }
 
         snippetHandler.gists(using: tokenHandler.configuration) { optionalGists in
