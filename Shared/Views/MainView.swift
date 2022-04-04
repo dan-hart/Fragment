@@ -18,7 +18,7 @@ struct MainView: View {
         } else {
             NavigationView {
                 #if os(macOS)
-                EmptyView()
+                    EmptyView()
                 #endif
                 AuthenticationView(isLoading: $isLoading)
                 #if os(iOS)
