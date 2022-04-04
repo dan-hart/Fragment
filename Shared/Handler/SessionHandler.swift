@@ -14,8 +14,8 @@ class SessionHandler: ObservableObject {
     var keychainKeyIdentifier = "FRAGMENT_GITHUB_API_TOKEN"
 
     // MARK: - Publishable data
-    @Published var isAuthenticated = false
-    @Published var gists: [Gist] = []
+    @Published public var isAuthenticated = false
+    @Published public var gists: [Gist] = []
     
     private var configuration = TokenConfiguration()
     
