@@ -42,7 +42,7 @@ struct SettingsView: View {
                 .task {
                     isLoading = true
 
-                    sessionHandler.call {
+                    sessionHandler.callTask {
                         let user = try await sessionHandler.me()
                         self.name = user.name
                     }
