@@ -31,11 +31,9 @@ struct ContainerView: View {
                             toggleSidebar()
                         } label: {
                             Image(systemSymbol: .sidebarLeading)
-                        }
-
                     }
                 }
-        .sheet(isPresented: $isShowingAddModal) content: {
+        .sheet(isPresented: $isShowingAddModal) {
             #if os(iOS)
                 NavigationView {
                     AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
