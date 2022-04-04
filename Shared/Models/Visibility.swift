@@ -11,7 +11,7 @@ import SwiftUI
 
 enum Visibility: String, CaseIterable {
     case `public`
-    case `private`
+    case secret
 
     init(isPublic: Bool?) {
         if isPublic ?? false {
