@@ -33,7 +33,7 @@ struct FragmentApp: App {
         }
 
         Settings {
-            SettingsView(isLoading: $isSettingsLoading, isAuthenticated: <#T##Binding<Bool>#>)
+            SettingsView(isLoading: $isSettingsLoading)
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
                 .environmentObject(cacheHandler)
