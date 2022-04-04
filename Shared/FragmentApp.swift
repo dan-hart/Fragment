@@ -38,7 +38,8 @@ struct FragmentApp: App {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
                 
-                AppearanceSettingsView()
+                Text("Profile Settings")
+                            .font(.title)
                     .tabItem {
                         Label("Appearance", systemImage: "paintpalette")
                     }
@@ -51,5 +52,4 @@ struct FragmentApp: App {
             .frame(width: 450, height: 250)
         }
     }
-}
 }
