@@ -30,8 +30,6 @@ struct FragmentApp: App {
             }
         }
 
-        Settings {
-            
-        }
+        Settings {}
     }
 }
