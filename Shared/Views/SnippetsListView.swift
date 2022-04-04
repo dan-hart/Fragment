@@ -59,7 +59,9 @@ struct SnippetsListView: View {
                             Text("If this is unexpected, try pulling.")
                                 .padding()
                             Button {
-                                octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
+                                Task {
+                                    await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
+                                }
                             } label: {
                                 HStack {
                                     #if os(iOS)
