@@ -12,7 +12,7 @@ import SwiftUI
 
 class OctoHandler: ObservableObject {
     @Published var gists = []
-
+    
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,
@@ -23,7 +23,7 @@ class OctoHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-
+        
         Octokit(configuration).patchGistFile(id: id,
                                              description: description,
                                              filename: filename,
@@ -38,7 +38,7 @@ class OctoHandler: ObservableObject {
             }
         }
     }
-
+    
     func create(
         using configuration: TokenConfiguration?,
         gist filename: String,
@@ -50,7 +50,7 @@ class OctoHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-
+        
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
@@ -66,20 +66,20 @@ class OctoHandler: ObservableObject {
             }
         }
     }
-
+    
     func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>, clearCache: Bool = true) async -> [Gist] {
         isLoading.wrappedValue = true
-
+        
         if clearCache {
             cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
         }
-
+        
         let gists = [Gist]()
-
+        
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
-
+        
         self.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
                 DispatchQueue.main.async {
@@ -94,34 +94,33 @@ class OctoHandler: ObservableObject {
         
         return gists
     }
-
+    
     func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
         guard let configuration = configuration else {
             throw FragmentError.nilConfiguratioin
         }
-
+        
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
                 continuation.resume(returning: response)
             }
         }
         
-            switch response {
-            case let .success(gists):
-                return gists
-            case .failure(error):
-                throw error
-            }
+        switch response {
+        case let .success(gists):
+            return gists
+        case .failure(error):
+            throw error
         }
     }
-
+    
     // MARK: - Profile
-
+    
     func me(using configuration: TokenConfiguration?) async -> User? {
         guard let configuration = configuration else {
             return nil
         }
-
+        
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
                 continuation.resume(returning: response)
