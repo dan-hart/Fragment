@@ -64,6 +64,10 @@ class SnippetHandler: ObservableObject {
     }
 
     func gists(using configuration: TokenConfiguration?, then: @escaping ([Gist]?) -> Void) {
+        guard let configuration = configuration else {
+            return then(nil)
+        }
+        
         Octokit(configuration).myGists { response in
             switch response {
             case let .success(gists):
