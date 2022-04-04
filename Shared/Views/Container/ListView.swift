@@ -119,7 +119,10 @@ struct ListView: View {
         .toolbar {
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
-                    menu
+                    Button {
+                    } label: {
+                        
+                    }
                 }
             #endif
 
