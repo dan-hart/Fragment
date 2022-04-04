@@ -5,14 +5,14 @@
 //  Created by Dan Hart on 3/27/22.
 //
 
+import DHCacheKit
 import Foundation
 import OctoKit
-import DHCacheKit
 import SwiftUI
 
 class OctoHandler: ObservableObject {
     @Published var gists = []
-    
+
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,
@@ -66,10 +66,10 @@ class OctoHandler: ObservableObject {
             }
         }
     }
-    
+
     func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>) {
         isLoading.wrappedValue = true
-        
+
         cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
 
         if CacheHelper.deleteAllOnDisk() {
