@@ -51,7 +51,7 @@ class SessionHandler: ObservableObject {
     }
 
     // MARK: - Authentication
-    func attemptAuthentication(using token: String) {
+    func triggerAuthentication(using token: String) {
         Task {
             do {
                 configuration = try await authenticate(using: token)
