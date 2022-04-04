@@ -13,11 +13,8 @@ struct ContainerView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
-    @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
-
-    @AppStorage("visibility") var visibility: Visibility = .public
 
     var body: some View {
         
