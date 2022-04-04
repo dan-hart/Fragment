@@ -55,7 +55,7 @@ class SnippetHandler: ObservableObject {
         }
     }
 
-    func gists(using configuration: TokenConfiguration, then: @escaping ([Gist]?) -> Void) {
+    func gists(using configuration: TokenConfiguration?, then: @escaping ([Gist]?) -> Void) {
         Octokit(configuration).myGists { response in
             switch response {
             case let .success(gists):
