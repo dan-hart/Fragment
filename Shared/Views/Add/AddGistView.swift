@@ -36,7 +36,7 @@ struct AddGistView: View {
             if !$filename.wrappedValue.ends(with: ext) {
                 filename.append(ext)
             }
-            snippetHandler.create(
+            octoHandler.create(
                 using: tokenHandler.configuration,
                 gist: filename,
                 description,
