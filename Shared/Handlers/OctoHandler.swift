@@ -81,15 +81,14 @@ class OctoHandler: ObservableObject {
     }
 
     // MARK: - Profile
-    func fetchMe() async {
-        
-    }
-
-    func me(using configuration: TokenConfiguration?) async -> User? {
+    func fetchMe(using configuration: TokenConfiguration?) async {
         guard let configuration = configuration else {
             return nil
         }
+        self.me = me(using: )
+    }
 
+    func me(using configuration: TokenConfiguration) async -> User? {
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
                 continuation.resume(returning: response)
