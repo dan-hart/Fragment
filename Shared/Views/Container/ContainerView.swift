@@ -20,7 +20,7 @@ struct ContainerView: View {
 
     var body: some View {
         NavigationView {
-            ListView(isLoading: $isLoading, searchText: $searchText)
+            ListView(selectedGist: $selectedGist, isLoading: $isLoading, searchText: $searchText)
             CodeView(gist: $octoHandler.gists[index], isLoadingParent: $isLoading)
             
                 .navigationTitle("Gists")
