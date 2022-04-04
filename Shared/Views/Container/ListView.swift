@@ -129,7 +129,6 @@ struct ListView: View {
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
                     Menu {
-                        // Menu Content
                         Button {
                             isShowingPreferencesView = true
                         } label: {
