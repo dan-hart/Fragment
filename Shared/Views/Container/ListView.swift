@@ -120,7 +120,6 @@ struct ListView: View {
             if !isLoading {
                 sessionHandler.callTask {
                     try await sessionHandler.refreshGists()
-                    self.gists = sessionHandler.gists
                 }
             }
         }
