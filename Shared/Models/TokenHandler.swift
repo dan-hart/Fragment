@@ -64,7 +64,6 @@ class TokenHandler: ObservableObject {
                 case .failure:
                     then(false)
                 }
-                then(self.isAuthenticated)
             }
         }
     }
