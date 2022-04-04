@@ -38,6 +38,9 @@ struct SnippetsListView: View {
                         .font(.system(.body, design: .monospaced))
 
                     if tokenHandler.isAuthenticated {
+                        Task {
+                            await fetchGists()
+                        }
                         VStack {
                             Text("If this is unexpected, try pulling.")
                                 .padding()
