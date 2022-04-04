@@ -77,8 +77,7 @@ class SessionHandler: ObservableObject {
     }
     
     // MARK: - Gist CRU
-    func update(using configuration: TokenConfiguration?,
-                _ id: String,
+    func update(_ id: String,
                 _ description: String,
                 _ filename: String,
                 _ content: String,
