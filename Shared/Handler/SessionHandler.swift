@@ -91,11 +91,7 @@ class SessionHandler: ObservableObject {
                 continuation.resume(returning: response)
             }
         }
-        Octokit(configuration).patchGistFile(id: id,
-                                             description: description,
-                                             filename: filename,
-                                             fileContent: content)
-        { response in
+
             switch response {
             case let .success(gist):
                 then(gist, nil)
@@ -103,7 +99,6 @@ class SessionHandler: ObservableObject {
                 print(error)
                 then(nil, error)
             }
-        }
     }
 
     func create(
