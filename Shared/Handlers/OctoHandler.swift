@@ -100,10 +100,13 @@ class OctoHandler: ObservableObject {
             throw FragmentError.nilConfiguratioin
         }
 
+        let response = withCheckedContinuation { continuation in
+            <#code#>
+        }
         Octokit(configuration).myGists { response in
             switch response {
             case let .success(gists):
-                then(gists)
+                
             case .failure:
                 then(nil)
             }
