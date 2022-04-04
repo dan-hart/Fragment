@@ -139,7 +139,7 @@ struct SnippetsListView: View {
                                 Text("Create")
                                     .font(.system(.body, design: .monospaced))
                                     .truncationMode(.middle)
-                                                .lineLimit(1)
+                                    .lineLimit(1)
                             }
                         }
 
