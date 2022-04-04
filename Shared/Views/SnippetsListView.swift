@@ -109,11 +109,6 @@ struct SnippetsListView: View {
         .task {
             await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
         }
-        .onAppear {
-            if tokenHandler.isElidgibleForCaching {
-                octoHandler.gists = cacheHandler.gistsCache.value([Gist].self, forKey: "\(tokenHandler.token ?? "")") ?? []
-            }
-        }
         .refreshable {
             Task {
                 try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
