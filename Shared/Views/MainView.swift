@@ -20,7 +20,7 @@ struct MainView: View {
                 .frame(minWidth: 800)
         } else {
             if tokenHandler.isAuthenticated {
-                ContainerView()
+                ContainerView(selectedGist: <#T##Gist#>)
             } else {
                 AuthenticationView()
                     .frame(minWidth: 800)
