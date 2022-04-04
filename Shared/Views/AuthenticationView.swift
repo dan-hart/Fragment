@@ -13,10 +13,6 @@ struct AuthenticationView: View {
     @State var token: String = ""
 
     var body: some View {
-        Group {
-            #if os(macOS)
-                EmptyView()
-            #endif
             VStack(alignment: .center) {
                 Spacer()
                 Text("Github Personal Access Token")
@@ -54,7 +50,6 @@ struct AuthenticationView: View {
                 }
             }
             .padding()
-        }
 
         .navigationTitle("Authentication")
     }
