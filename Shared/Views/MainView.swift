@@ -21,6 +21,7 @@ struct MainView: View {
                 EmptyView()
                 #endif
                 Text("Loading")
+                    .font(.system(.body, design: .monospaced))
             } else {
                 if tokenHandler.isAuthenticated {
                     SnippetsListView()
