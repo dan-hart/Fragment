@@ -208,7 +208,7 @@ class SessionHandler: ObservableObject {
             } else {
                 errorMessage = error.localizedDescription
             }
-            
+
             alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(errorMessage).font(.system(.caption, design: .monospaced)))
         }
     }
