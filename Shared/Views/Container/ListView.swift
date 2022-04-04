@@ -19,6 +19,7 @@ struct ListView: View {
     @AppStorage("visibility") var visibility: Visibility = .public
 
     @State var isShowingPreferencesView = false
+    @State var gists = [Gist]()
 
     var body: some View {
         List {
