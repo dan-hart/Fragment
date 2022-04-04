@@ -23,6 +23,10 @@ class TokenHandler: ObservableObject {
         Keychain(service: bundleID)
     }
     
+    var token: String {
+        
+    }
+    
     var isElidgibleForCaching: Bool {
         return isAuthenticated
     }
