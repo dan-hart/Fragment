@@ -150,7 +150,7 @@ class SessionHandler: ObservableObject {
     // MARK: - Profile
     
     func me() async throws -> User {
-        await validate()
+        try await validate()
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
