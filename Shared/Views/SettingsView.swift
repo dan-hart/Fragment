@@ -50,6 +50,7 @@ struct SettingsView: View {
                 Form {
                     Section {
                         Stepper("Code Font Size: \(sessionHandler.fontSize)", value: $sessionHandler.fontSize, in: 8 ... 72)
+                            .padding()
                     } footer: {
                         Text("Affects areas where code is being used. Go to Settings to adjust other text size.")
                     }
