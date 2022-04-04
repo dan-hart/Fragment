@@ -19,6 +19,9 @@ struct SettingsView: View {
             if sessionHandler.isAuthenticated {
                 VStack {
                     Form {
+                        Section("General") {
+                            <#code#>
+                        }
                         Button {
                             sessionHandler.callTask {
                                 try await sessionHandler.refreshGists()
