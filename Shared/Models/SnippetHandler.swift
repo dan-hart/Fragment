@@ -9,8 +9,6 @@ import Foundation
 import OctoKit
 
 class SnippetHandler: ObservableObject {
-    // MARK: - Add Data
-
     func update(using configuration: TokenConfiguration,
                 _ id: String,
                 _ description: String,
@@ -18,10 +16,6 @@ class SnippetHandler: ObservableObject {
                 _ content: String,
                 then: @escaping (Gist?, Error?) -> Void)
     {
-        guard let configuration = configuration else {
-            return then(nil, nil)
-        }
-        
         Octokit(configuration).patchGistFile(id: id,
                                              description: description,
                                              filename: filename,
@@ -38,16 +32,13 @@ class SnippetHandler: ObservableObject {
     }
 
     func create(
+        using configuration: TokenConfiguration,
         gist filename: String,
         _ description: String,
         _ content: String,
         _ visibility: Visibility,
         then: @escaping (Gist?, Error?) -> Void
     ) {
-        guard let configuration = configuration else {
-            return then(nil, nil)
-        }
-
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
@@ -64,13 +55,7 @@ class SnippetHandler: ObservableObject {
         }
     }
 
-    // MARK: - Get Data
-
     func gists(then: @escaping ([Gist]?) -> Void) {
-        guard let configuration = configuration else {
-            return then(nil)
-        }
-
         Octokit(configuration).myGists { response in
             switch response {
             case let .success(gists):
