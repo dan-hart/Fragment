@@ -38,10 +38,10 @@ class SessionHandler: ObservableObject {
         isAuthenticated = false
     }
 
-    func startSession(with token: String? = nil) async throws {
-        
-        
-        configuration = try await authenticate(using: getToken())
+    func startSession(with optionalToken: String? = nil) async throws {
+        if let token = optionalToken {
+            configuration = try await authenticate(using: )
+        }
     }
 
     // MARK: - Authentication
