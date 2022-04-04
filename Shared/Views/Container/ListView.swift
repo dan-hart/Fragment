@@ -108,9 +108,11 @@ struct ListView: View {
             let why = octoHandler.gists.filter { gist in
                 let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                 let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
+                print("--")
                 print("visibility: \(visibility.rawValue)")
                 print("search: \(searchText)")
-                print("return \(audienceIsMatch) && \(searchIsVisible)")
+                print("return \(audienceIsMatch && searchIsVisible)")
+                print("--")
                 return audienceIsMatch && searchIsVisible
             }
             print(why)
