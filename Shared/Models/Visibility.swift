@@ -26,7 +26,7 @@ enum Visibility: String, CaseIterable {
         switch self {
         case .public:
             symbol = .network
-        case .private:
+        case .secret:
             symbol = .lock
         }
 
