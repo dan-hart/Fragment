@@ -22,7 +22,7 @@ struct ContainerView: View {
         NavigationView {
             ListView(selectedGist: $selectedGist, isLoading: $isLoading, searchText: $searchText)
             CodeView(gist: $selectedGist, isLoadingParent: $isLoading)
-            
+
                 .navigationTitle("Gists")
         }
         .sheet(isPresented: $isShowingAddModal, content: {
