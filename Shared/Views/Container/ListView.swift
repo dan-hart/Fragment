@@ -9,7 +9,7 @@ import OctoKit
 import SFSafeSymbols
 import SwiftUI
 
-struct ContainerView: View {
+struct ListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
