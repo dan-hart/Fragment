@@ -67,6 +67,7 @@ class OctoHandler: ObservableObject {
         }
     }
 
+    @MainActor
     func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>, clearCache: Bool = true) {
         isLoading.wrappedValue = true
 
