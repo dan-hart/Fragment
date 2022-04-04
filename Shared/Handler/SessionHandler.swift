@@ -42,7 +42,7 @@ class SessionHandler: ObservableObject {
         if let token = optionalToken {
             configuration = try await authenticate(using: token)
         } else {
-            
+            configuration = try await authenticate(using: getToken())
         }
     }
 
