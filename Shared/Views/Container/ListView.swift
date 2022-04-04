@@ -168,7 +168,7 @@ struct ListView: View {
 
             ToolbarItem(placement: .primaryAction) {
                 HStack {
-                    if tokenHandler.isAuthenticated {
+                    if sessionHandler.isAuthenticated {
                         Button {
                             isShowingAddModal.toggle()
                         } label: {
