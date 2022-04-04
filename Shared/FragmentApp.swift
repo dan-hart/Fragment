@@ -19,7 +19,6 @@ struct FragmentApp: App {
             MainView()
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
-                .environmentObject(cacheHandler)
         }
 
         Settings {
