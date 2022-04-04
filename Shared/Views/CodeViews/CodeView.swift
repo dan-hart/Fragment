@@ -42,7 +42,8 @@ struct CodeView: View {
             sourceCode = newValue.text
         })
         .onAppear {
-            
+            loadedSourceCode = gist.text
+            sourceCode = newValue.text
         }
         .toolbar {
             ToolbarItem {
