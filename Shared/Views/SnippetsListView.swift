@@ -21,6 +21,10 @@ struct SnippetsListView: View {
     @State var searchText = ""
 
     @AppStorage("visibility") var visibility: Visibility = .public
+    
+    init() {
+        
+    }
 
     var body: some View {
         List {
