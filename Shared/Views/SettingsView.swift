@@ -16,12 +16,6 @@ struct SettingsView: View {
     
     var body: some View {
         TabView {
-            Text("Appearance")
-                .font(.system(.title, design: .monospaced))
-                .tabItem {
-                    Label("Appearance", systemImage: "paintpalette")
-                }
-            
             if sessionHandler.isAuthenticated {
                 List {
                     Text("General")
@@ -43,6 +37,7 @@ struct SettingsView: View {
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
+            }
                 
                 List {
                     Text("Profile")
