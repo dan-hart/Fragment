@@ -42,20 +42,20 @@ struct ContainerView: View {
             #endif
         }
         .toolbar {
-                    ToolbarItem(placement: .navigation) {
-                        Button {
-                            toggleSidebar()
-                        } label: {
-                            Image(systemSymbol: .sidebarLeading)
-                    }
+            ToolbarItem(placement: .navigation) {
+                Button {
+                    toggleSidebar()
+                } label: {
+                    Image(systemSymbol: .sidebarLeading)
                 }
+            }
+        }
     }
-}
-    
+
     private func toggleSidebar() {
         #if os(iOS)
         #else
-        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+            NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
         #endif
     }
 }
