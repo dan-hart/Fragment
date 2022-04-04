@@ -77,4 +77,9 @@ class OctoHandler: ObservableObject {
             }
         }
     }
+    
+    // MARK: -  Profile
+    func go() {
+        Octokit(configuration).
+    }
 }
