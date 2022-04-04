@@ -108,7 +108,7 @@ struct ListView: View {
         }
         .refreshable {
             Task {
-                try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoading)
+                try? await octoHandler.fetchGists(tokenHandler)
             }
         }
         .searchable(text: $searchText)
