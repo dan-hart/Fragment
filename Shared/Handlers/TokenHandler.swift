@@ -51,6 +51,7 @@ class TokenHandler: ObservableObject {
     /// returns true if authentication succeeded
     func checkAuthenticationStatus(isLoading: Binding<Bool> = .constant(false)) async -> Bool {
         let optionalToken = token
+        isLoading = true
         do {
             if let configuration = try await authenticate(using: optionalToken) {
                 self.configuration = configuration
