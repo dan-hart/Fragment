@@ -95,7 +95,7 @@ class OctoHandler: ObservableObject {
         return gists
     }
 
-    func gists(using configuration: TokenConfiguration?, then: @escaping ([Gist]?) async -> Void) {
+    func gists(using configuration: TokenConfiguration?, then: @escaping ([Gist]?) -> Void) async -> [Gist]? {
         guard let configuration = configuration else {
             return then(nil)
         }
