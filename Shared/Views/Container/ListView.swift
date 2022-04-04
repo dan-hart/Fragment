@@ -97,6 +97,7 @@ struct ListView: View {
                 }.indices, id: \.self) { index in
                     NavigationLink {
                         CodeView(gist: $sessionHandler.gists[index], isLoadingParent: $isLoading)
+                            .navigationTitle(sessionHandler.gists[index].filename)
                     } label: {
                         GistRow(data: $sessionHandler.gists[index])
                             .padding()
