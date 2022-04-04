@@ -27,10 +27,14 @@ class TokenHandler: ObservableObject {
     private var value: String?
 
     init() {
-        checkNeedsAuthenticationStatus()
+        configuration = authenticate(using: <#T##String#>, then: <#T##(Bool) -> Void#>)
     }
 
     // MARK: - Methods
+    
+    func getToken() -> {
+        
+    }
 
     func save(token: String) {
         keychain[TokenHandler.keyName] = token
