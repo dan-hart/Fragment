@@ -17,6 +17,8 @@ struct ListView: View {
     @Binding var isShowingAddModal: Bool
 
     @AppStorage("visibility") var visibility: Visibility = .public
+    
+    @State isShowingPreferencesView = false
 
     var body: some View {
         List {
