@@ -13,7 +13,6 @@ struct SettingsView: View {
     @EnvironmentObject var cacheHandler: CacheHandler
 
     @Binding var isLoading: Bool
-    @Binding var isAuthenticated: Bool
 
     @State var name: String?
 
