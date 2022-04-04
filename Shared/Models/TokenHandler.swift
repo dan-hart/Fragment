@@ -7,6 +7,7 @@
 
 import Foundation
 import KeychainAccess
+import OctoKit
 
 class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
@@ -40,6 +41,7 @@ class TokenHandler: ObservableObject {
     func checkNeedsAuthenticationStatus() {
         if let token = keychain[TokenHandler.keyName] {
             value = token
+            
             needsAuthentication = false
         } else {
             needsAuthentication = true
