@@ -8,6 +8,7 @@
 import Foundation
 import OctoKit
 import DHCacheKit
+import SwiftUI
 
 class OctoHandler: ObservableObject {
     @Published var gists = []
