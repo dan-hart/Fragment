@@ -90,6 +90,7 @@ class OctoHandler: ObservableObject {
             return user
         case .failure(let error):
             print(error)
+            return nil
         }
     }
 }
