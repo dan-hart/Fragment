@@ -24,7 +24,6 @@ class TokenHandler: ObservableObject {
     }
     
     private var configuration: TokenConfiguration?
-    private var value: String?
 
     init() {
         let optionalToken = getToken()
