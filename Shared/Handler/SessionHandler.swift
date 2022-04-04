@@ -72,10 +72,10 @@ class SessionHandler: ObservableObject {
     }
 
     func save(token: String) {
-        keychain[TokenHandler.keyName] = token
+        keychain[keychainKeyIdentifier] = token
     }
 
-    func delete(key: String = TokenHandler.keyName) {
+    func delete(key: String) {
         keychain[key] = nil
         isAuthenticated = false
     }
