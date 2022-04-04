@@ -14,7 +14,7 @@ public extension Gist {
         id ?? UUID().uuidString
     }
 
-    // The key used to identify an entry in the cache, fallback is identifier
+    /// The key used to identify an entry in the cache, fallback is identifier
     var cacheKey: String {
         files.first?.key ?? identifier
     }
