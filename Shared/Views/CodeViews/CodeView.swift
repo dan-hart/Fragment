@@ -41,9 +41,6 @@ struct CodeView: View {
             loadedSourceCode = gist.text
             sourceCode = gist.text
         }
-        .onChange(of: gist.text, perform: { newValue in
-            sourceCode = newValue
-        })
         .toolbar {
             ToolbarItem {
                 HStack {
