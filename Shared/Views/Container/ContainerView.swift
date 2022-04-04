@@ -21,6 +21,7 @@ struct ContainerView: View {
         NavigationView {
             ListView(isLoading: $isLoading, searchText: $searchText)
         }
+        
         .navigationTitle("Gists")
     }
 }
