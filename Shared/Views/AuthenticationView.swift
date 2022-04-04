@@ -19,6 +19,7 @@ struct AuthenticationView: View {
         VStack(alignment: .center) {
             Spacer()
             
+            if isLoading {
             Text("Github Personal Access Token")
                 .font(.system(.body, design: .monospaced))
             SecureField(text: $token,
@@ -51,6 +52,9 @@ struct AuthenticationView: View {
                     }
                 }
                 Spacer()
+            }
+            } else {
+                
             }
         }
         .padding()
