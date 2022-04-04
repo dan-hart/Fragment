@@ -17,9 +17,9 @@ struct MainView: View {
             ContainerView()
         } else {
             NavigationView {
-                if Constants.isMacOrPad() {
-                    EmptyView()
-                }
+                #if os(macOS)
+                EmptyView()
+                #endif
                 AuthenticationView(isLoading: $isLoading)
                     .padding()
             }
