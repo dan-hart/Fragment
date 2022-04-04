@@ -204,7 +204,7 @@ class SessionHandler: ObservableObject {
         } catch {
             var errorMessage = ""
             if error is FragmentError {
-                let fragmentError = (error as? FragmentError)?.rawValue
+                errorMessage = (error as? FragmentError)?.rawValue
                 print(fragmentError ?? "Error")
             } else {
                 print(error)
