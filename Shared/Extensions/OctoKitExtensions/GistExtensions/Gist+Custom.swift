@@ -8,23 +8,23 @@
 import Foundation
 import OctoKit
 
-extension Gist {
-    public var identifier: String {
+public extension Gist {
+    var identifier: String {
         id ?? UUID().uuidString
     }
-    
-    public var cacheKey: String {
+
+    var cacheKey: String {
         files.first?.key ?? identifier
     }
 
-    public var fileExtension: String {
+    var fileExtension: String {
         let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
     }
 
     // MARK: - Functions
 
-    public func meetsSearchCriteria(text: String) -> Bool {
+    func meetsSearchCriteria(text: String) -> Bool {
         let descriptionContainsText = description?.lowercased().contains(text.lowercased()) ?? false
         let filenameContainsText = files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
 
