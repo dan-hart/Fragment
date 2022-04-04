@@ -36,7 +36,7 @@ struct AddGistView: View {
                 filename.append(ext)
             }
             sessionHandler.call {
-                let gist = sessionHandler.create(gist: filename, description, content, visibility)
+                let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
             }
             octoHandler.create(
                 using: tokenHandler.configuration,
