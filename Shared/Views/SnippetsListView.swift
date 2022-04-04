@@ -37,6 +37,22 @@ struct SnippetsListView: View {
                 VStack {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
+                    
+                    HStack {
+                        if tokenHandler.isAuthenticated {
+                            Button {
+                                isShowingAddModal.toggle()
+                            } label: {
+                                HStack {
+                                    #if !os(macOS)
+                                        Image(systemSymbol: .plusCircle)
+                                    #endif
+                                    Text("Create")
+                                        .font(.system(.body, design: .monospaced))
+                                }
+                            }
+                        }
+                    }
 
                     if Constants.Feature.ifNoGistsEnablePullButton, tokenHandler.isAuthenticated {
                         VStack {
