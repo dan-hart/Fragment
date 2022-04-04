@@ -8,7 +8,7 @@
 import Foundation
 import OctoKit
 
-extension Gist {
+extension Gist: Hashable {
     var identifier: String {
         id ?? UUID().uuidString
     }
@@ -34,4 +34,8 @@ extension Gist {
             return false
         }
     }
+}
+
+extension Gist: Hashable {
+    
 }
