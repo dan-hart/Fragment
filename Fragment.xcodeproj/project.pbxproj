@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10427F21DF100D5FF2C /* LinesGenerator.swift */; };
-		5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10427F21DF100D5FF2C /* LinesGenerator.swift */; };
-		5219A10B27F224E200D5FF2C /* CodableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */; };
-		5219A10C27F224E200D5FF2C /* CodableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */; };
 		522915B227E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915B327E778300087530C /* GistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522915B127E778300087530C /* GistRow.swift */; };
 		522915C027E789E20087530C /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 522915BF27E789E20087530C /* OctoKit */; };
@@ -89,8 +85,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5219A10427F21DF100D5FF2C /* LinesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesGenerator.swift; sourceTree = "<group>"; };
-		5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableAttributedString.swift; sourceTree = "<group>"; };
 		522915B127E778300087530C /* GistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistRow.swift; sourceTree = "<group>"; };
 		5254DE0027EF8331005BAC56 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		525D85B727E760A40066B147 /* FragmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentApp.swift; sourceTree = "<group>"; };
@@ -300,8 +294,6 @@
 				526D97D227F0C82D00BD46CE /* Language.swift */,
 				526D97D327F0C82D00BD46CE /* Theme.swift */,
 				52769DFF27F0EEE400F5D4E0 /* Visibility.swift */,
-				5219A10427F21DF100D5FF2C /* LinesGenerator.swift */,
-				5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -616,7 +608,6 @@
 				5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */,
 				525D860327E7621D0066B147 /* MainView.swift in Sources */,
 				5ADC94A627F8E00200EFE347 /* Gist+Custom.swift in Sources */,
-				5219A10527F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
 				52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				5A2387FF27FB3B1900480C20 /* AuthenticationError.swift in Sources */,
 				52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */,
@@ -627,7 +618,6 @@
 				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				52769DF127F0D0D200F5D4E0 /* Theme.swift in Sources */,
 				52769E0327F0F06900F5D4E0 /* AddGistView.swift in Sources */,
-				5219A10B27F224E200D5FF2C /* CodableAttributedString.swift in Sources */,
 				5254DE0127EF8331005BAC56 /* Constants.swift in Sources */,
 				52769DF027F0D0CB00F5D4E0 /* Language.swift in Sources */,
 			);
@@ -645,7 +635,6 @@
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				5ADC94A727F8E00200EFE347 /* Gist+Custom.swift in Sources */,
-				5219A10627F21DF100D5FF2C /* LinesGenerator.swift in Sources */,
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 				5A23880027FB3B1900480C20 /* AuthenticationError.swift in Sources */,
 				52769E0127F0EEE400F5D4E0 /* Visibility.swift in Sources */,
@@ -656,7 +645,6 @@
 				5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				526D97D427F0C82D00BD46CE /* Language.swift in Sources */,
 				52769E0427F0F06900F5D4E0 /* AddGistView.swift in Sources */,
-				5219A10C27F224E200D5FF2C /* CodableAttributedString.swift in Sources */,
 				52769DEF27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				526D97E227F0CBCC00BD46CE /* CodeView.swift in Sources */,
 			);
