@@ -28,13 +28,13 @@ struct FragmentApp: App {
         }
 
         #if os(macOS)
-        Settings {
-            SettingsView(isLoading: $isSettingsLoading)
-                .environmentObject(tokenHandler)
-                .environmentObject(octoHandler)
-                .frame(width: 400, height: 400)
-                .redacted(reason: isSettingsLoading ? .placeholder : [])
-        }
+            Settings {
+                SettingsView(isLoading: $isSettingsLoading)
+                    .environmentObject(tokenHandler)
+                    .environmentObject(octoHandler)
+                    .frame(width: 400, height: 400)
+                    .redacted(reason: isSettingsLoading ? .placeholder : [])
+            }
         #endif
     }
 }
