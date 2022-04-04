@@ -32,7 +32,7 @@ class TokenHandler: ObservableObject {
 
     // MARK: - Methods
     
-    func getToken() -> String {
+    func getToken() -> String? {
         
     }
 
