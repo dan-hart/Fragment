@@ -55,6 +55,8 @@ class SessionHandler: ObservableObject {
         Task {
             do {
                 
+            } catch(let error) {
+                print(error)
             }
         }
     }
