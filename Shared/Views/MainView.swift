@@ -15,24 +15,24 @@ struct MainView: View {
 
     var body: some View {
         Group {
-        if isLoading {
-            Text("Loading...")
-                .font(.system(.largeTitle, design: .monospaced))
-                .frame(minWidth: 800)
-        } else {
-            if tokenHandler.isAuthenticated {
-                ContainerView()
+            if isLoading {
+                Text("Loading...")
+                    .font(.system(.largeTitle, design: .monospaced))
+                    .frame(minWidth: 800)
             } else {
-                NavigationView {
-                    if Constants.isMacOrPad() {
-                        EmptyView()
+                if tokenHandler.isAuthenticated {
+                    ContainerView()
+                } else {
+                    NavigationView {
+                        if Constants.isMacOrPad() {
+                            EmptyView()
+                        }
+                        AuthenticationView()
+                            .frame(minWidth: 800)
+                            .padding()
                     }
-                    AuthenticationView()
-                        .frame(minWidth: 800)
-                        .padding()
                 }
             }
-        }
         }
         .task {
             isLoading = true
