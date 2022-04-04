@@ -13,7 +13,6 @@ struct FragmentApp: App {
     let octoHandler = OctoHandler()
     let cacheHandler = CacheHandler()
 
-    @State var isAuthenticationLoading = true
     @State var isSettingsLoading = false
 
     init() {
@@ -26,11 +25,6 @@ struct FragmentApp: App {
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
                 .environmentObject(cacheHandler)
-                .onChange(of: tokenHandler.isAuthenticated) { _ in
-                    octoHandler.gists(using: tokenHandler.configuration) { gists in
-                        cacheHandler.gistsCache.insert(gists ?? [], forKey: tokenHandler.token ?? "")
-                    }
-                }
         }
 
         Settings {
