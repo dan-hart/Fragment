@@ -209,7 +209,7 @@ class SessionHandler: ObservableObject {
                 errorMessage = error.localizedDescription
             }
             
-            alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(fragmentError ?? "Error").font(.system(.caption, design: .monospaced)))
+            alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(errorMessage).font(.system(.caption, design: .monospaced)))
         }
     }
 
