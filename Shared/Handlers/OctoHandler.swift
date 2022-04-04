@@ -110,7 +110,7 @@ class OctoHandler: ObservableObject {
         case let .success(gists):
             return gists
         case .failure:
-            throw FragmentError
+            throw FragmentError.couldNotFetchData
         }
     }
     
