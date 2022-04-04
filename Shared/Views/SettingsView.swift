@@ -31,6 +31,9 @@ struct SettingsView: View {
                     }
                 }
             }
+            .task {
+                octoHandler.fetchMe(using: tokenHandler.configuration)
+            }
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle")
             }
