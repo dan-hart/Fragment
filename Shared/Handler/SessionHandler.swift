@@ -37,7 +37,7 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Methods
     func invalidateSession() {
-        delete(key: keychainKeyIdentifier)
+        keychain[key] = nil
         isAuthenticated = false
     }
 
@@ -46,11 +46,6 @@ class SessionHandler: ObservableObject {
         if triggerAuthenticationAtttempt {
             triggerAuthenticationAttempt()
         }
-    }
-
-    func delete(key: String) {
-        keychain[key] = nil
-        isAuthenticated = false
     }
 
     // MARK: - Authentication
