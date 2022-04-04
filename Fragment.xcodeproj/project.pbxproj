@@ -26,7 +26,6 @@
 		526D97C827F0C5BE00BD46CE /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C727F0C5BE00BD46CE /* Highlightr */; };
 		526D97CA27F0C5C500BD46CE /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C927F0C5C500BD46CE /* Highlightr */; };
 		526D97D427F0C82D00BD46CE /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97D227F0C82D00BD46CE /* Language.swift */; };
-		526D97D527F0C82D00BD46CE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97D327F0C82D00BD46CE /* Theme.swift */; };
 		526D97DE27F0CA8600BD46CE /* Gist+text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97DD27F0CA8600BD46CE /* Gist+text.swift */; };
 		526D97DF27F0CA8600BD46CE /* Gist+text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97DD27F0CA8600BD46CE /* Gist+text.swift */; };
 		526D97E127F0CBCC00BD46CE /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97E027F0CBCC00BD46CE /* CodeView.swift */; };
@@ -34,7 +33,6 @@
 		52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */; };
 		52769DEF27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */; };
 		52769DF027F0D0CB00F5D4E0 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97D227F0C82D00BD46CE /* Language.swift */; };
-		52769DF127F0D0D200F5D4E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97D327F0C82D00BD46CE /* Theme.swift */; };
 		52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */; };
 		52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */; };
 		52769DFC27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */; };
@@ -95,7 +93,6 @@
 		525D860227E7621D0066B147 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		525D860427E762610066B147 /* SnippetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsListView.swift; sourceTree = "<group>"; };
 		526D97D227F0C82D00BD46CE /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		526D97D327F0C82D00BD46CE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		526D97DD27F0CA8600BD46CE /* Gist+text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+text.swift"; sourceTree = "<group>"; };
 		526D97E027F0CBCC00BD46CE /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+language.swift"; sourceTree = "<group>"; };
@@ -292,7 +289,6 @@
 			children = (
 				5A2387FD27FB3B0200480C20 /* Errors */,
 				526D97D227F0C82D00BD46CE /* Language.swift */,
-				526D97D327F0C82D00BD46CE /* Theme.swift */,
 				52769DFF27F0EEE400F5D4E0 /* Visibility.swift */,
 			);
 			path = Models;
@@ -616,7 +612,6 @@
 				52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
-				52769DF127F0D0D200F5D4E0 /* Theme.swift in Sources */,
 				52769E0327F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				5254DE0127EF8331005BAC56 /* Constants.swift in Sources */,
 				52769DF027F0D0CB00F5D4E0 /* Language.swift in Sources */,
@@ -638,7 +633,6 @@
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 				5A23880027FB3B1900480C20 /* AuthenticationError.swift in Sources */,
 				52769E0127F0EEE400F5D4E0 /* Visibility.swift in Sources */,
-				526D97D527F0C82D00BD46CE /* Theme.swift in Sources */,
 				5254DE0227EF8331005BAC56 /* Constants.swift in Sources */,
 				52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
 				52769E0727F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
