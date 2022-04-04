@@ -26,7 +26,7 @@ class TokenHandler: ObservableObject {
     var configuration: TokenConfiguration?
 
     init() {
-        Task {
+        MainActor.run {
             await checkAuthenticationStatus()
         }
     }
