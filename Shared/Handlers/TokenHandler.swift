@@ -50,7 +50,7 @@ class TokenHandler: ObservableObject {
 
     /// returns true if authentication succeeded
     func checkAuthenticationStatus() async -> Bool {
-        let optionalToken = getToken()
+        let optionalToken = token
         do {
             if let configuration = try await authenticate(using: optionalToken) {
                 self.configuration = configuration
