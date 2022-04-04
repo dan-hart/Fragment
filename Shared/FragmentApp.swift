@@ -11,6 +11,7 @@ import SwiftUI
 struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let snippetHandler = SnippetHandler()
+    let cacheHandler = CacheHandler()
 
     init() {
         tokenHandler.taskCheckingAuthenticationStatus()
