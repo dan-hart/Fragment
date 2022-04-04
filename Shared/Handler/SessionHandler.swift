@@ -41,6 +41,9 @@ class SessionHandler: ObservableObject {
     }
 
     @Published var isShowingAlert = false
+    
+    // MARK: - Settings
+    @AppStorage("fontSize") var fontSize: Int = 12
 
     // MARK: - Initialization
 
