@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import DHCacheKit
 
 class CacheHandler: ObservableObject {
-    
+    let cache
+    init() {}
 }
