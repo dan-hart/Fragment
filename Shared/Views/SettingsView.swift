@@ -22,7 +22,7 @@ struct SettingsView: View {
                         Section("General") {
                             EmptyView()
                         }
-                        
+
                         Section {
                             Button {
                                 sessionHandler.callTask {
