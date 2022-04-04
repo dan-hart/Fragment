@@ -144,9 +144,6 @@ struct SnippetsListView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        
-                        .frame(maxWidth: 1000)
-                        #endif
 
                         #if os(macOS)
                             menu
