@@ -10,11 +10,15 @@ import SwiftUI
 
 struct AuthenticationView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
+    
+    @Binding var isLoading: Bool
+    
     @State var token: String = ""
 
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
+            
             Text("Github Personal Access Token")
                 .font(.system(.body, design: .monospaced))
             SecureField(text: $token,
