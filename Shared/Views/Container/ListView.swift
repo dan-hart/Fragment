@@ -19,15 +19,6 @@ struct ListView: View {
 
     @AppStorage("visibility") var visibility: Visibility = .public
     
-    init() {
-        let wtf = octoHandler.gists.filter { gist in
-            let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
-            let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
-            return audienceIsMatch && searchIsVisible
-        }
-        print(wtf)
-    }
-
     var body: some View {
         List {
             Picker("Visibility", selection: $visibility) {
@@ -114,6 +105,12 @@ struct ListView: View {
         }
         .task {
             _ = try? await octoHandler.fetchGists(tokenHandler)
+            let wtf = octoHandler.gists.filter { gist in
+                let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
+                let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
+                return audienceIsMatch && searchIsVisible
+            }
+            print(wtf)
         }
         .refreshable {
             Task {
