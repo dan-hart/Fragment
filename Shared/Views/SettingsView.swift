@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var octoHandler: OctoHandler
+    @EnvironmentObject var sessionHandler: SessionHandler
 
     @Binding var isLoading: Bool
 
