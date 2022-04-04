@@ -26,7 +26,7 @@ enum ClipboardHelper {
             }
 
             // Access the item in the clipboard
-            return clipboardItems[0]
+        return clipboardItems[ifExistsAt: 0]
         #endif
     }
 
