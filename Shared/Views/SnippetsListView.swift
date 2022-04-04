@@ -86,17 +86,12 @@ struct SnippetsListView: View {
         .sheet(isPresented: $isShowingAddModal, content: {
             #if os(iOS)
             NavigationView {
-                #if os(macOS)
-                    EmptyView()
-                        .frame(width: 0, height: 0, alignment: .leading)
-                #endif
                 AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
                     gists.insert(newGist, at: 0)
                 }
-                #if os(macOS)
-                .padding()
-                #endif
             }
+            #endif
+            #if os(macOS)
             #endif
         })
         .redacted(reason: isLoading ? .placeholder : [])
