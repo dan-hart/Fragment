@@ -130,7 +130,7 @@ struct SnippetsListView: View {
                 AddGistView(filename: "", description: "", content: "") { newGist in
                     gists.insert(newGist, at: 0)
                 }
-                .frame(minWidth: 800, minHeight: 800)
+                .frame(minWidth: NSApplication.shared.mainWindow?.frame.height ?? 800 * 0.75, minHeight: NSApplication.shared.mainWindow?.frame.height ?? 800 * 0.75)
                 .padding()
             #endif
         })
