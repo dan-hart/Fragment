@@ -130,24 +130,24 @@ struct ListView: View {
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             #if os(iOS)
-            
+
                 ToolbarItem(placement: .navigationBarLeading) {
                     if Constants.Feature.settingsEnabled {
-                    Menu {
-                        Button {
-                            isShowingPreferencesView = true
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .gearshape)
-                                Text("Preferences")
-                                    .font(.system(.body, design: .monospaced))
+                        Menu {
+                            Button {
+                                isShowingPreferencesView = true
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .gearshape)
+                                    Text("Preferences")
+                                        .font(.system(.body, design: .monospaced))
+                                }
                             }
+                        } label: {
+                            Image(systemSymbol: .gearshape)
                         }
-                    } label: {
-                        Image(systemSymbol: .gearshape)
                     }
                 }
-            }
             #endif
 
             ToolbarItem(placement: .primaryAction) {

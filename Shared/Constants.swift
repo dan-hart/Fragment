@@ -20,7 +20,7 @@ enum Constants {
         // False
         static var ifNoGistsEnableCreateButton = false
         static var ifNoGistsEnablePullButton = false
-        
+
         // True
         static var settingsEnabled = true
     }
