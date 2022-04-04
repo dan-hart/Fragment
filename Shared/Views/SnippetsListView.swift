@@ -60,7 +60,7 @@ struct SnippetsListView: View {
                                 .padding()
                             Button {
                                 Task {
-                                    await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
+                                    try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
                                 }
                             } label: {
                                 HStack {
