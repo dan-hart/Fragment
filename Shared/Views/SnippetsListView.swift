@@ -32,8 +32,23 @@ struct SnippetsListView: View {
             .labelsHidden()
 
             if gists.isEmpty {
-                Text("No Gists")
-                    .font(.system(.body, design: .monospaced))
+                HStack {
+                    Text("No Gists")
+                        .font(.system(.body, design: .monospaced))
+
+                    Button {
+                        Task {
+                            await fetchGists()
+                        }
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .arrowDownCircle)
+                            Text("Try Pulling")
+                                .font(.system(.body, design: .monospaced))
+                        }
+                    }
+                    .padding()
+                }
             } else {
                 if !searchText.isEmpty {
                     Text("Results")
