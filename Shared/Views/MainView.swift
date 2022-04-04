@@ -16,6 +16,9 @@ struct MainView: View {
         if sessionHandler.isAuthenticated {
             ContainerView(isLoading: $isLoading)
         } else {
+            if isLoading {
+                
+            }
             NavigationView {
                 #if os(macOS)
                     EmptyView()
