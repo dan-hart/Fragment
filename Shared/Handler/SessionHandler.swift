@@ -31,7 +31,7 @@ class SessionHandler: ObservableObject {
     }
     
     var token: String? {
-        
+        keychain[keychainKeyIdentifier]
     }
 
     // MARK: - Alerts
