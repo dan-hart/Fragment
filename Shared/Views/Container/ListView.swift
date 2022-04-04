@@ -107,6 +107,7 @@ struct ListView: View {
                 }
             }
         }
+        .listStyle(SidebarListStyle())
         .task {
             _ = try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoading)
         }
