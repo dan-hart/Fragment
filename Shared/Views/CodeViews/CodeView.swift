@@ -56,6 +56,7 @@ struct CodeView: View {
                             isLoadingParent = true
                             sessionHandler.callTask {
                                 let text = try await sessionHandler.update(id, description, filename, sourceCode)
+                                self.isLoadingParent = false
                             }
 
                             octoHandler.update(
