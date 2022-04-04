@@ -26,6 +26,7 @@ struct MainView: View {
                     .navigationViewStyle(StackNavigationViewStyle())
                 
                 Text("Enter Github personal access token on the lefthand sidebar")
+                    .font(.system(.body, design: .monospaced))
                 
                 #endif
                 
