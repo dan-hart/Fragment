@@ -37,7 +37,7 @@ struct SnippetsListView: View {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
 
-                    if tokenHandler.isAuthenticated {
+                    if Constants.Feature.ifNoGistsEnablePullButton, tokenHandler.isAuthenticated {
                         VStack {
                             Text("If this is unexpected, try pulling.")
                                 .padding()
