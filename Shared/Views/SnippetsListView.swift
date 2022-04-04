@@ -137,9 +137,7 @@ struct SnippetsListView: View {
                 if tokenHandler.isAuthenticated {
                     #if os(macOS)
                         Button {
-                            Task {
-                                await fetchGists()
-                            }
+                            octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
                         } label: {
                             HStack {
                                 Image(systemSymbol: .arrowDownCircle)
