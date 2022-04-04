@@ -37,6 +37,7 @@ class TokenHandler: ObservableObject {
 
     func delete(key: String = TokenHandler.keyName) {
         keychain[key] = nil
+        isAuthenticated = false
     }
 
     // MARK: - Authentication
