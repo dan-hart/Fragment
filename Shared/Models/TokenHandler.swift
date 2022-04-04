@@ -13,32 +13,32 @@ class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
     
     @Published var configuration: TokenConfiguration?
-
+    
     var bundleID: String {
         Bundle.main.bundleIdentifier ?? ""
     }
-
+    
     var keychain: Keychain {
         Keychain(service: bundleID)
     }
-
+    
     @Published var value: String?
     @Published var needsAuthentication = true
-
+    
     init() {
         checkNeedsAuthenticationStatus()
     }
-
+    
     // MARK: - Methods
-
+    
     func save(token: String) {
         keychain[TokenHandler.keyName] = token
     }
-
+    
     func delete(key: String = TokenHandler.keyName) {
         keychain[key] = nil
     }
-
+    
     // MARK: - Authentication
     func checkNeedsAuthenticationStatus() {
         if let token = keychain[TokenHandler.keyName] {
@@ -54,14 +54,14 @@ class TokenHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(false)
         }
-
+        
         Octokit(configuration).me { response in
-                switch response {
-                case .success:
-                    then(true)
-                case .failure:
-                    then(false)
-                }
+            switch response {
+            case .success:
+                then(true)
+            case .failure:
+                then(false)
+            }
         }
     }
 }
