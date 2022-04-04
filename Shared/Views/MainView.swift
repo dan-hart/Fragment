@@ -12,7 +12,7 @@ struct MainView: View {
     @EnvironmentObject var octoHandler: OctoHandler
     @EnvironmentObject var cacheHandler: CacheHandler
     
-    @State var is
+    @State var isLoading = true
 
     var body: some View {
         NavigationView {
