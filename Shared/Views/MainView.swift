@@ -19,6 +19,7 @@ struct MainView: View {
             if isLoading {
                 #if os(macOS)
                     EmptyView()
+                        .frame(minWidth: 1000)
                 #endif
                 Text("Loading")
                     .font(.system(.body, design: .monospaced))
