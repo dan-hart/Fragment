@@ -18,6 +18,12 @@ struct SettingsView: View {
 
     var body: some View {
         TabView {
+            Text("Appearance Settings")
+                .font(.title)
+                .tabItem {
+                    Label("Appearance", systemImage: "paintpalette")
+                }
+            
             List {
                 Text("Profile Settings")
                     .font(.title)
@@ -48,12 +54,6 @@ struct SettingsView: View {
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle")
             }
-
-            Text("Profile Settings")
-                .font(.title)
-                .tabItem {
-                    Label("Appearance", systemImage: "paintpalette")
-                }
 
             Text("Privacy Settings")
                 .font(.title)
