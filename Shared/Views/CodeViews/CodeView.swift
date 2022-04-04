@@ -15,7 +15,6 @@ import SwiftUI
 struct CodeView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
-    @EnvironmentObject var cacheHandler: CacheHandler
     @Environment(\.colorScheme) var colorScheme
 
     var theme: CodeEditor.ThemeName {
