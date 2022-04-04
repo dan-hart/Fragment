@@ -12,7 +12,7 @@ import SwiftUI
 
 class OctoHandler: ObservableObject {
     @Published var gists: [Gist] = []
-    
+
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,
@@ -23,7 +23,7 @@ class OctoHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-        
+
         Octokit(configuration).patchGistFile(id: id,
                                              description: description,
                                              filename: filename,
@@ -38,7 +38,7 @@ class OctoHandler: ObservableObject {
             }
         }
     }
-    
+
     func create(
         using configuration: TokenConfiguration?,
         gist filename: String,
@@ -50,7 +50,7 @@ class OctoHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-        
+
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
@@ -66,46 +66,46 @@ class OctoHandler: ObservableObject {
             }
         }
     }
-    
+
     @discardableResult
     func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>, usingCache: Bool = true) async throws -> [Gist] {
         guard let token = tokenHandler.token else {
             throw FragmentError.nilToken
         }
-        
+
         isLoading.wrappedValue = true
-        
+
         if usingCache {
             cacheHandler.gistsCache.removeValue(forKey: token)
         }
-        
+
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
-        
+
         let gists = try await self.gists(using: tokenHandler.configuration) ?? []
-        
+
         if tokenHandler.isElidgibleForCaching, usingCache {
             cacheHandler.gistsCache.insert(gists, forKey: token)
         }
         isLoading.wrappedValue = false
-        
+
         self.gists = gists
-        
+
         return gists
     }
-    
+
     func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
         guard let configuration = configuration else {
             throw FragmentError.nilConfiguratioin
         }
-        
+
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
                 continuation.resume(returning: response)
             }
         }
-        
+
         switch response {
         case let .success(gists):
             return gists
@@ -113,14 +113,14 @@ class OctoHandler: ObservableObject {
             throw FragmentError.couldNotFetchData
         }
     }
-    
+
     // MARK: - Profile
-    
+
     func me(using configuration: TokenConfiguration?) async -> User? {
         guard let configuration = configuration else {
             return nil
         }
-        
+
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
                 continuation.resume(returning: response)
