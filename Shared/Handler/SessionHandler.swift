@@ -53,6 +53,7 @@ class SessionHandler: ObservableObject {
         if let token = optionalToken {
             // Continue existing session
             configuration = try await authenticate(using: token)
+            keychain[keychainKeyIdentifier] = token
         } else {
             // No token. Start a new session by providing one.
         }
