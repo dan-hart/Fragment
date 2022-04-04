@@ -40,7 +40,7 @@ struct AddGistView: View {
                 didAdd(gist)
                 presentationMode.wrappedValue.dismiss()
             } catch(let error) {
-                
+                error = error.localizedDescription
             }
         } label: {
             HStack {
