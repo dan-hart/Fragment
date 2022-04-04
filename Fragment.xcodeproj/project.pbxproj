@@ -57,6 +57,7 @@
 		5A23880327FB3F2900480C20 /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880227FB3F2900480C20 /* CacheHandler.swift */; };
 		5A23880427FB3F2900480C20 /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880227FB3F2900480C20 /* CacheHandler.swift */; };
 		5A23880727FB47E300480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880627FB47E300480C20 /* SwifterSwift */; };
+		5A23880927FB47F200480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880827FB47F200480C20 /* SwifterSwift */; };
 		5A4C7E5627F3B600006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5527F3B600006B3A4A /* CodeEditor */; };
 		5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5727F3BE78006B3A4A /* CodeEditor */; };
 		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
@@ -140,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A23880927FB47F200480C20 /* SwifterSwift in Frameworks */,
 				526D97CA27F0C5C500BD46CE /* Highlightr in Frameworks */,
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
 				5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */,
@@ -394,6 +396,7 @@
 				526D97C927F0C5C500BD46CE /* Highlightr */,
 				5AD4DFF427F3AC87003C2C61 /* DHCacheKit */,
 				5A4C7E5527F3B600006B3A4A /* CodeEditor */,
+				5A23880827FB47F200480C20 /* SwifterSwift */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -1154,6 +1157,11 @@
 			productName = Highlightr;
 		};
 		5A23880627FB47E300480C20 /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
+		};
+		5A23880827FB47F200480C20 /* SwifterSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
 			productName = SwifterSwift;
