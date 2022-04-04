@@ -31,7 +31,6 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    
                 }
                 .navigationTitle("General")
                 .tabItem {
@@ -43,8 +42,6 @@ struct SettingsView: View {
                 Form {
                     Stepper("Code Font Size: \(sessionHandler.fontSize)", value: $sessionHandler.fontSize, in: 8 ... 72)
                 }
-
-                
             }
             .navigationTitle("Appearance")
             .tabItem {
@@ -68,8 +65,6 @@ struct SettingsView: View {
                             }
                         }
                     }
-
-                    
                 }
                 .task {
                     isLoading = true
@@ -95,8 +90,6 @@ struct SettingsView: View {
                             Text("Not implemented yet")
                         }
                     }
-
-                    
                 }
                 .navigationTitle("Privacy")
                 .tabItem {
