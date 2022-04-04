@@ -137,7 +137,7 @@ struct SnippetsListView: View {
                     #if os(macOS)
                         Button {
                             Task {
-                                try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
+                                try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoading)
                             }
                         } label: {
                             HStack {
