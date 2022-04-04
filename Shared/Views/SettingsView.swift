@@ -38,7 +38,7 @@ struct SettingsView: View {
                 }
             
             Text("Appearance")
-                .font(.title)
+                .font(.system(.title, design: .monospaced))
                 .tabItem {
                     Label("Appearance", systemImage: "paintpalette")
                 }
