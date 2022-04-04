@@ -22,6 +22,7 @@ struct AuthenticationView: View {
             if isLoading {
                 Text("Loading...")
                     .font(.system(.largeTitle, design: .monospaced))
+                Spacer()
             } else {
                 Text("Github Personal Access Token")
                     .font(.system(.body, design: .monospaced))
