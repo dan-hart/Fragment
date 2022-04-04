@@ -23,6 +23,7 @@ struct MainView: View {
                 ContainerView()
             } else {
                 NavigationView {
+                    if Constants
                     #if os(macOS)
                         EmptyView()
                     #endif
