@@ -174,7 +174,9 @@ class SessionHandler: ObservableObject {
     func call(thisAsyncThrowingCode: @escaping () -> Void) {
         Task {
         do {
-            let value = try await thisAsyncThrowingCode()
+            try await thisAsyncThrowingCode()
+        } catch {
+            
         }
         }
     }
