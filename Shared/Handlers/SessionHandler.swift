@@ -13,6 +13,7 @@ import SwiftUI
 class SessionHandler: ObservableObject {
     static var keychainKeyIdentifier = "FRAGMENT_GITHUB_API_TOKEN"
 
+    // MARK: - Publishable data
     @Published var isAuthenticated = false
     @Published var gists: [Gist] = []
     
