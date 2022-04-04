@@ -146,6 +146,7 @@ struct ListView: View {
                         Image(systemSymbol: .gearshape)
                     }
                 }
+            }
             #endif
 
             ToolbarItem(placement: .primaryAction) {
