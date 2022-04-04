@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct FragmentApp: App {
+    let tokenHandler = TokenHandler()
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(TokenHandler())
+                .environmentObject()
                 .environmentObject(SnippetHandler())
         }
     }
