@@ -22,7 +22,8 @@ enum Constants {
     public var isMacOrPad: Bool {
         #if os(macOS)
         return true
-        #else
+        #endif
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             return true
         } else {
