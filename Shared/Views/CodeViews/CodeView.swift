@@ -21,7 +21,7 @@ struct CodeView: View {
         colorScheme == .dark ? .atelierSavannaDark : .atelierSavannaLight
     }
 
-    @Binding var gist: Gist
+    @Binding var gist: Gist?
     @Binding var isLoadingParent: Bool
 
     @State var loadedSourceCode = ""
