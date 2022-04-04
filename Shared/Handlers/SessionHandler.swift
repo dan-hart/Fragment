@@ -165,7 +165,7 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Profile
 
-    func me(using configuration: TokenConfiguration?) async throws-> User? {
+    func me(using configuration: TokenConfiguration?) async throws -> User? {
         guard let configuration = configuration else {
             throw FragmentError.nilConfiguratioin
         }
@@ -175,6 +175,7 @@ class SessionHandler: ObservableObject {
                 continuation.resume(returning: response)
             }
         }
+        
         switch response {
         case let .success(user):
             return user
