@@ -19,6 +19,7 @@ struct MainView: View {
             if isLoading {
                 #if os(macOS)
                 EmptyView()
+                #endif
                 Text("Loading")
             } else {
                 if tokenHandler.isAuthenticated {
