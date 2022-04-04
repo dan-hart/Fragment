@@ -76,7 +76,7 @@ class OctoHandler: ObservableObject {
             print("Cleared cache")
         }
 
-        gists = [Gist]()
+        let gists = [Gist]()
 
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
