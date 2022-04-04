@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     let tokenHandler = TokenHandler()
-    let snippetHandler = SnippetHandler()
+    let snippetHandler = OctoHandler()
     let cacheHandler = CacheHandler()
 
     var body: some View {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var snippetHandler: SnippetHandler
+    @EnvironmentObject var snippetHandler: OctoHandler
     @EnvironmentObject var cacheHandler: CacheHandler
 
     var body: some View {

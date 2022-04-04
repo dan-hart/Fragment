@@ -8,7 +8,7 @@
 import Foundation
 import OctoKit
 
-class SnippetHandler: ObservableObject {
+class OctoHandler: ObservableObject {
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,

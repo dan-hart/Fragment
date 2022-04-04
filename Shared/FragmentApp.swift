@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct FragmentApp: App {
     let tokenHandler = TokenHandler()
-    let snippetHandler = SnippetHandler()
+    let snippetHandler = OctoHandler()
     let cacheHandler = CacheHandler()
 
     init() {

@@ -12,7 +12,7 @@ import SwiftUI
 
 struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var snippetHandler: SnippetHandler
+    @EnvironmentObject var snippetHandler: OctoHandler
     @EnvironmentObject var cacheHandler: CacheHandler
 
     @State var gists: [Gist] = []

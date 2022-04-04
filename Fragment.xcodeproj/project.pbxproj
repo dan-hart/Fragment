@@ -33,8 +33,8 @@
 		52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */; };
 		52769DEF27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */; };
 		52769DF027F0D0CB00F5D4E0 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D97D227F0C82D00BD46CE /* Language.swift */; };
-		52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */; };
-		52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */; };
+		52769DF327F0D18300F5D4E0 /* OctoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* OctoHandler.swift */; };
+		52769DF427F0D18300F5D4E0 /* OctoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DF227F0D18300F5D4E0 /* OctoHandler.swift */; };
 		52769DFC27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */; };
 		52769DFD27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */; };
 		52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769DFF27F0EEE400F5D4E0 /* Visibility.swift */; };
@@ -102,7 +102,7 @@
 		526D97DD27F0CA8600BD46CE /* Gist+text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+text.swift"; sourceTree = "<group>"; };
 		526D97E027F0CBCC00BD46CE /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		52769DED27F0CD4C00F5D4E0 /* Gist+language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+language.swift"; sourceTree = "<group>"; };
-		52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetHandler.swift; sourceTree = "<group>"; };
+		52769DF227F0D18300F5D4E0 /* OctoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoHandler.swift; sourceTree = "<group>"; };
 		52769DFB27F0E83300F5D4E0 /* Collections+ifExistsAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+ifExistsAt.swift"; sourceTree = "<group>"; };
 		52769DFF27F0EEE400F5D4E0 /* Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visibility.swift; sourceTree = "<group>"; };
 		52769E0227F0F06900F5D4E0 /* AddGistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGistView.swift; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */,
-				52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */,
+				52769DF227F0D18300F5D4E0 /* OctoHandler.swift */,
 				5A23880227FB3F2900480C20 /* CacheHandler.swift */,
 			);
 			path = Handlers;
@@ -625,7 +625,7 @@
 				52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */,
 				5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				522915B227E778300087530C /* GistRow.swift in Sources */,
-				52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
+				52769DF327F0D18300F5D4E0 /* OctoHandler.swift in Sources */,
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5A23880327FB3F2900480C20 /* CacheHandler.swift in Sources */,
 				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
@@ -652,7 +652,7 @@
 				5A23880027FB3B1900480C20 /* AuthenticationError.swift in Sources */,
 				52769E0127F0EEE400F5D4E0 /* Visibility.swift in Sources */,
 				5254DE0227EF8331005BAC56 /* Constants.swift in Sources */,
-				52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
+				52769DF427F0D18300F5D4E0 /* OctoHandler.swift in Sources */,
 				52769E0727F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				5A23880427FB3F2900480C20 /* CacheHandler.swift in Sources */,
