@@ -36,7 +36,8 @@ public extension Gist {
 
         if descriptionContainsText ||
             filenameContainsText ||
-            fileExtensionContainsText {
+            fileExtensionContainsText
+        {
             return true
         } else {
             return false
