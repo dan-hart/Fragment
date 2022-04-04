@@ -27,7 +27,7 @@ class TokenHandler: ObservableObject {
 
     init() {
         Task {
-            checkAuthenticationStatus()
+            await checkAuthenticationStatus()
         }
     }
 
