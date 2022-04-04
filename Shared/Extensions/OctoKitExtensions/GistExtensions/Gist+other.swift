@@ -9,7 +9,7 @@ import Foundation
 import OctoKit
 
 extension Gist {
-    var id: String {
+    var identifier: String {
         id
     }
     
