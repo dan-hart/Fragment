@@ -9,6 +9,8 @@ import Foundation
 import OctoKit
 
 class OctoHandler: ObservableObject {
+    @Published var me: User?
+    
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,
