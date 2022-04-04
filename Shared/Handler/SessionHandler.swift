@@ -108,28 +108,26 @@ class SessionHandler: ObservableObject {
         _ visibility: Visibility
     ) async throws -> Gist {
         let response = await withCheckedContinuation { continuation in
-        Octokit(configuration).postGistFile(
-            description: description,
-            filename: filename,
-            fileContent: content,
-            publicAccess: visibility == .public ? true : false
-        ) { response in
-            continuation.resume(returning: response)
-        }
-        }
-            
-            switch response {
-            case let .success(gist):
-                return gist
-            case let .failure(error):
-                throw error
+            Octokit(configuration).postGistFile(
+                description: description,
+                filename: filename,
+                fileContent: content,
+                publicAccess: visibility == .public ? true : false
+            ) { response in
+                continuation.resume(returning: response)
             }
+        }
+        
+        switch response {
+        case let .success(gist):
+            return gist
+        case let .failure(error):
+            throw error
+        }
     }
     
     func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
-        guard let configuration = configuration else {
-            throw FragmentError.nilConfiguratioin
-        }
+
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
