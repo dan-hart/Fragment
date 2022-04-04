@@ -159,10 +159,6 @@ struct ListView: View {
                         #if os(macOS)
                         .frame(minWidth: 100)
                         #endif
-
-                        #if os(macOS)
-                            menu
-                        #endif
                     }
                 }
             }
