@@ -10,26 +10,25 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
 
-    @Binding var isLoading
+    @Binding var isLoading: Bool
 
     var body: some View {
-            if isLoading {
-                #if os(macOS)
-                    EmptyView()
-                #endif
-                Text("Loading...")
-                    .font(.system(.largeTitle, design: .monospaced))
-                    .frame(minWidth: 800)
+        if isLoading {
+            #if os(macOS)
+                EmptyView()
+            #endif
+            Text("Loading...")
+                .font(.system(.largeTitle, design: .monospaced))
+                .frame(minWidth: 800)
+        } else {
+            if tokenHandler.isAuthenticated {
+                SnippetsListView()
             } else {
-                if tokenHandler.isAuthenticated {
-                    SnippetsListView()
-                } else {
-                    AuthenticationView()
-                        .frame(minWidth: 800)
-                        .padding()
-                }
+                AuthenticationView()
+                    .frame(minWidth: 800)
+                    .padding()
             }
-
+        }
     }
 }
 
