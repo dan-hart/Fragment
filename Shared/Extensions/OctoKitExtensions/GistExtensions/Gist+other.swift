@@ -14,7 +14,7 @@ extension Gist {
     }
     
     var cacheKey: String {
-        files.first?.key ?? (id ?? UUID().uuidString)
+        files.first?.key ?? identifier
     }
 
     var ext: String {
