@@ -20,6 +20,9 @@ struct MainView: View {
                 AuthenticationView()
             }
         }
+        .onAppear {
+            
+        }
     }
 }
 
