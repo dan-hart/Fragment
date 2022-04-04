@@ -138,6 +138,7 @@ struct SnippetsListView: View {
                                 #endif
                                 Text("Create")
                                     .font(.system(.body, design: .monospaced))
+                                    .padding()
                             }
                         }
 
