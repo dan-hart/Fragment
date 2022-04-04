@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct SettingsView: View {
+    let tokenHandler = TokenHandler()
+    let snippetHandler = SnippetHandler()
+    let cacheHandler = CacheHandler()
+
     var body: some View {
         TabView {
             List {
@@ -46,6 +50,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-            SettingsView()
+        SettingsView()
     }
 }
