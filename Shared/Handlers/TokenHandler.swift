@@ -13,7 +13,7 @@ import SwiftUI
 class TokenHandler: ObservableObject {
     static var keyName = "FRAGMENT_GITHUB_API_TOKEN"
 
-    @AppStorage("isAuthenticated") var isAuthenticated = false
+    @Published var isAuthenticated = false
 
     var bundleID: String {
         Bundle.main.bundleIdentifier ?? ""
