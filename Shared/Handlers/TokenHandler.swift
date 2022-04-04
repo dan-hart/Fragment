@@ -28,6 +28,10 @@ class TokenHandler: ObservableObject {
     init() {}
 
     // MARK: - Methods
+    
+    func clear() {
+        
+    }
 
     func taskCheckingAuthenticationStatus() {
         Task {
