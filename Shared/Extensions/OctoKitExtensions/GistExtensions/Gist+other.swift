@@ -9,7 +9,6 @@ import Foundation
 import OctoKit
 
 extension Gist {
-    // swiftlint:disable identifier_name
     var cacheKey: String {
         files.first?.key ?? (id ?? UUID().uuidString)
     }
@@ -18,8 +17,6 @@ extension Gist {
         let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
     }
-
-    // swiftlint:enable identifier_name
 
     // MARK: - Functions
 
