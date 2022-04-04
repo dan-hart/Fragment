@@ -110,16 +110,7 @@ struct ListView: View {
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
-                    .toolbar {
-                        ToolbarItem(placement: .primaryAction) {
-                            Button {
-                                isShowingPreferencesView = false
-                            } label: {
-                                Text("Done")
-                                    .font(.system(.body, design: .monospaced))
-                            }
-                        }
-                    }
+                    
 
                     .navigationTitle("Settings")
             }
