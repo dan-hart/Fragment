@@ -120,6 +120,8 @@ struct ListView: View {
         .sheet(isPresented: $isShowingPreferencesView {
             NavigationView {
                 SettingsView()
+                
+                    .navigationTitle("Settings")
             }
         }
         .toolbar {
