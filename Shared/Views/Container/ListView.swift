@@ -118,22 +118,6 @@ struct ListView: View {
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             let menu = Menu {
-                // Menu Content
-
-                Button {
-                    sessionHandler.invalidateSession()
-                } label: {
-                    HStack {
-                        Image(systemSymbol: .xmarkCircle)
-                        Text("Clear Token")
-                            .font(.system(.body, design: .monospaced))
-                    }
-                }
-                // End Menu Content
-            } label: {
-                Image(systemSymbol: .gearshape)
-            }
-
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
                     menu
