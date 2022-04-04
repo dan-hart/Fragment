@@ -46,7 +46,7 @@ class SnippetHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-        
+
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
@@ -67,7 +67,7 @@ class SnippetHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil)
         }
-        
+
         Octokit(configuration).myGists { response in
             switch response {
             case let .success(gists):

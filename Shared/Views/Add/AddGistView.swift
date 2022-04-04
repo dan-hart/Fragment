@@ -12,7 +12,7 @@ import SwiftUI
 struct AddGistView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var snippetHandler: SnippetHandler
-    
+
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
 
     @State var language: Language = .swift

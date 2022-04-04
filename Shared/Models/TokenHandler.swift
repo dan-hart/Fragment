@@ -22,7 +22,7 @@ class TokenHandler: ObservableObject {
     var keychain: Keychain {
         Keychain(service: bundleID)
     }
-    
+
     var configuration: TokenConfiguration?
 
     init() {
@@ -30,6 +30,7 @@ class TokenHandler: ObservableObject {
     }
 
     // MARK: - Methods
+
     func checkAuthorizationStatus() {
         let optionalToken = getToken()
         authenticate(using: optionalToken) { optionalConfiguration in
@@ -41,7 +42,7 @@ class TokenHandler: ObservableObject {
             }
         }
     }
-    
+
     func getToken() -> String? {
         keychain[TokenHandler.keyName]
     }
@@ -56,11 +57,12 @@ class TokenHandler: ObservableObject {
     }
 
     // MARK: - Authentication
+
     func authenticate(using token: String?, then: @escaping (TokenConfiguration?) -> Void) {
         guard let token = token else {
             return then(nil)
         }
-        
+
         let configuration = TokenConfiguration(token)
 
         Octokit(configuration).me { response in
