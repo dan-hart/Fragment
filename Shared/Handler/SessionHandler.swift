@@ -97,7 +97,7 @@ class SessionHandler: ObservableObject {
                 then(gist, nil)
             case let .failure(error):
                 print(error)
-                then(nil, error)
+                throw error
             }
     }
 
