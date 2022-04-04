@@ -15,7 +15,6 @@ struct SnippetsListView: View {
     @EnvironmentObject var octoHandler: OctoHandler
     @EnvironmentObject var cacheHandler: CacheHandler
 
-    @State var gists: [Gist] = []
     @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
