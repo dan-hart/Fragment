@@ -56,6 +56,8 @@ class TokenHandler: ObservableObject {
                         self.isAuthenticated = isAuthenticated
                     }
                 }
+            } else {
+                
             }
         }
     }
