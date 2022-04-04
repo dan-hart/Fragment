@@ -104,8 +104,12 @@ struct ListView: View {
             }
         }
         .task {
-            for gist in try? await octoHandler.fetchGists(tokenHandler) {
+            do {
+            for gist in try await octoHandler.fetchGists(tokenHandler) {
                 
+            }
+            } catch {
+                print("error")
             }
             for gist in octoHandler.gists
             let why = octoHandler.gists.filter { gist in
