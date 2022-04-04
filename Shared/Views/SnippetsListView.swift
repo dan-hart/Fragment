@@ -37,6 +37,7 @@ struct SnippetsListView: View {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
 
+                    if tokenHandler.isAuthenticated {
                     VStack {
                         Text("If this is unexpected, try pulling.")
                             .padding()
@@ -65,6 +66,7 @@ struct SnippetsListView: View {
                             .strokeBorder()
                             .foregroundColor(.gray)
                     )
+                    }
                 }
             } else {
                 if !searchText.isEmpty {
