@@ -60,10 +60,8 @@ struct AuthenticationView: View {
 
     func go() {
         sessionHandler.call {
-            sessionHandler.startSession(with: token)
+            self.sessionHandler.startSession(with: token)
         }
-        tokenHandler.save(token: token)
-        tokenHandler.taskCheckingAuthenticationStatus()
     }
 }
 
