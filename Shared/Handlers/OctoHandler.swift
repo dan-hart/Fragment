@@ -81,6 +81,7 @@ class OctoHandler: ObservableObject {
     }
 
     // MARK: - Profile
+    func publishMe()
 
     func me(using configuration: TokenConfiguration?) async -> User? {
         guard let configuration = configuration else {
