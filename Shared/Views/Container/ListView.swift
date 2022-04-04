@@ -110,7 +110,7 @@ struct ListView: View {
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
-                                presentationMode.wrappedValue.dismiss()
+                                isShowingPreferencesView = false
                             } label: {
                                 Text("Done")
                                     .font(.system(.body, design: .monospaced))
