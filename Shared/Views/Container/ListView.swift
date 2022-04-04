@@ -114,7 +114,7 @@ struct ListView: View {
                     print("return \(audienceIsMatch && searchIsVisible)")
                     print("--")
                 }
-            } catch(let error) {
+            } catch {
                 print("error: \(error.localizedDescription)")
             }
         }
