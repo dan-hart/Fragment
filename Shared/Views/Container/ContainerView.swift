@@ -19,7 +19,7 @@ struct ContainerView: View {
     @State var searchText = ""
 
     var body: some View {
-        HStack {
+        NavigationView {
             ListView(selectedGist: $selectedGist, isLoading: $isLoading, searchText: $searchText)
             CodeView(gist: $selectedGist, isLoadingParent: $isLoading)
         }
