@@ -9,7 +9,7 @@ import SFSafeSymbols
 import SwiftUI
 
 struct AuthenticationView: View {
-    @EnvironmentObject var tokenHandler: TokenHandler
+    @EnvironmentObject var sessionHandler: SessionHandler
 
     @Binding var isLoading: Bool
 
