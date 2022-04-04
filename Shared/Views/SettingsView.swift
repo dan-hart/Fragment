@@ -21,7 +21,7 @@ struct SettingsView: View {
             }
                 .font(.title)
                 .tabItem {
-                    Label("Privacy", systemImage: "hand.raised")
+                    Label("General", systemImage: "hand.raised")
                 }
             
             Text("Appearance")
