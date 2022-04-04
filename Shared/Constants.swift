@@ -21,7 +21,7 @@ enum Constants {
     }
     
     /// Is the current device running macOS or is it an iPad
-    var isMacOrPad: Bool {
+    static func isMacOrPad() -> Bool {
         #if os(macOS)
         return true
         #endif
