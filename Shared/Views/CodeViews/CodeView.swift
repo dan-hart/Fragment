@@ -61,7 +61,7 @@ struct CodeView: View {
                             }
 
                             snippetHandler.update(
-                                using:
+                                using: tokenHandler.configuration,
                                 id,
                                 description,
                                 filename,
