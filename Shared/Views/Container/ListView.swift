@@ -118,7 +118,11 @@ struct ListView: View {
             }
         }
         .refreshable {
+            sessionHandler.call {
+                try await sessionHandler.myGists()
+            }
             Task {
+                
                 try? await octoHandler.fetchGists(tokenHandler)
             }
         }
