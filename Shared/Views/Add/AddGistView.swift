@@ -38,25 +38,9 @@ struct AddGistView: View {
             do {
                 let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
                 didAdd(gist)
+                presentationMode.wrappedValue.dismiss()
             } catch(let error) {
                 
-            }
-            sessionHandler.call {
-                
-            }
-            octoHandler.create(
-                using: tokenHandler.configuration,
-                gist: filename,
-                description,
-                content,
-                visibility
-            ) { optionalGist, optionalError in
-                if let gist = optionalGist {
-                    didAdd(gist)
-                    presentationMode.wrappedValue.dismiss()
-                } else {
-                    error = optionalError?.localizedDescription
-                }
             }
         } label: {
             HStack {
