@@ -107,7 +107,7 @@ struct ListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(filteredGists.indices, id: \.self) { index in
+                ForEach(filteredGists, id: \.self) { index in
                     NavigationLink {
                         CodeView(gist: $filteredGists[index], isLoadingParent: $isLoading)
                             .navigationTitle(filteredGists[index].filename)
