@@ -23,8 +23,7 @@ class TokenHandler: ObservableObject {
         Keychain(service: bundleID)
     }
     
-    @Published var value: String?
-    @Published var needsAuthentication = true
+    @Published private var value: String?
     
     init() {
         checkNeedsAuthenticationStatus()
