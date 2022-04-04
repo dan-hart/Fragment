@@ -71,7 +71,7 @@ class OctoHandler: ObservableObject {
         isLoading.wrappedValue = true
 
         if clearCache {
-        cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
+            cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
         }
 
         let gists = [Gist]()
