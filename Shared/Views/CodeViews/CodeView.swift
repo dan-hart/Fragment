@@ -66,6 +66,8 @@ struct CodeView: View {
                                         self.gist = gist
                                         sourceCode = gist.text
                                         loadedSourceCode = gist.text
+                                        
+                                        octoHandler.fetchGists(tokenHandler, CacheHandler, isLoading: isLoadingParent)
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
                                     }
