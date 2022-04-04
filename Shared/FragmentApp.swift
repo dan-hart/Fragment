@@ -36,6 +36,16 @@ struct FragmentApp: App {
                     Text("Privacy Settings")
                         .font(.title)
                     
+                    Button {
+                        tokenHandler.delete()
+                        tokenHandler.taskCheckingAuthenticationStatus()
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .xmarkCircle)
+                            Text("Clear Token")
+                                .font(.system(.body, design: .monospaced))
+                        }
+                    }
                 }
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
