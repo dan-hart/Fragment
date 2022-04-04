@@ -21,7 +21,7 @@ struct CodeView: View {
         colorScheme == .dark ? .atelierSavannaDark : .atelierSavannaLight
     }
 
-    @Binding var gist: Gist?
+    @Binding var gist: Gist
     @Binding var isLoadingParent: Bool
 
     @State var loadedSourceCode = ""
@@ -30,7 +30,7 @@ struct CodeView: View {
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
             ScrollViewReader { reader in
-                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist?.fileExtension ?? ""), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
+                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist.fileExtension ?? ""), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
                     .onAppear {
                         reader.scrollTo(0, anchor: .topLeading)
                     }
@@ -47,9 +47,9 @@ struct CodeView: View {
                     if loadedSourceCode != sourceCode {
                         Button {
                             isLoadingParent = true
-                            guard let id = gist?.id,
-                                  let description = gist?.description,
-                                  let filename = gist?.files.first?.key
+                            guard let id = gist.id,
+                                  let description = gist.description,
+                                  let filename = gist.files.first?.key
                             else {
                                 return
                             }
@@ -85,7 +85,7 @@ struct CodeView: View {
                     Menu {
                         // Menu Content
                         Button {
-                            ClipboardHelper.set(text: gist?.text ?? "")
+                            ClipboardHelper.set(text: gist.text ?? "")
                         } label: {
                             HStack {
                                 Image(systemSymbol: SFSymbol.docOnDoc)
@@ -94,7 +94,7 @@ struct CodeView: View {
                             }
                         }
 
-                        if let url = gist?.htmlURL {
+                        if let url = gist.htmlURL {
                             Button {
                                 WebLauncher.go(to: url)
                             } label: {
