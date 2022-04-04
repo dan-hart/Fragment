@@ -32,7 +32,7 @@ class SessionHandler: ObservableObject {
     init() {}
 
     // MARK: - Methods
-    func getToken() throws -> String {
+    private func getToken() throws -> String {
         guard let token = keychain[keychainKeyIdentifier] else {
             throw FragmentError.nilToken
         }
