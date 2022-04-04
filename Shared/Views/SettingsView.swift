@@ -61,6 +61,7 @@ struct SettingsView: View {
                 .tabItem {
                     Label("Privacy", systemImage: "hand.raised")
                 }
+            }
         }
     }
 }
