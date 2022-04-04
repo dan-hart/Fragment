@@ -104,7 +104,7 @@ struct ListView: View {
                     .padding()
                     .overlay {
                         if selectedGist == octoHandler.gists[index] {
-                            
+                        }
                     }
                     .overlay(
                         
