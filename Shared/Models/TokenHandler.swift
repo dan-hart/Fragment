@@ -30,7 +30,9 @@ class TokenHandler: ObservableObject {
 
     // MARK: - Methods
     func taskCheckingAuthenticationStatus() {
-        
+        Task {
+            await checkAuthenticationStatus()
+        }
     }
 
     func checkAuthenticationStatus() async {
