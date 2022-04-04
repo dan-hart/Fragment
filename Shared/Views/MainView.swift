@@ -13,7 +13,6 @@ struct MainView: View {
     @State var isLoading = true
 
     var body: some View {
-        NavigationView {
             if isLoading {
                 #if os(macOS)
                     EmptyView()
@@ -30,7 +29,6 @@ struct MainView: View {
                         .padding()
                 }
             }
-        }
         .task {
             isLoading = true
             _ = await tokenHandler.checkAuthenticationStatus()
