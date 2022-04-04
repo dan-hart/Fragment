@@ -85,7 +85,7 @@ class OctoHandler: ObservableObject {
         let gists = try await self.gists(using: tokenHandler.configuration)
         
         if tokenHandler.isElidgibleForCaching {
-            cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
+            cacheHandler.gistsCache.insert(gists, forKey: token)
         }
         isLoading.wrappedValue = false
         
