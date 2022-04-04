@@ -13,7 +13,7 @@ struct FragmentApp: App {
     let snippetHandler = SnippetHandler()
     
     init() {
-        
+        tokenHandler.taskCheckingAuthenticationStatus()
     }
     
     var body: some Scene {
