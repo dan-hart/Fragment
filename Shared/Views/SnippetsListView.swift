@@ -57,9 +57,9 @@ struct SnippetsListView: View {
                 ForEach(filteredGists, id: \.id) { gist in
                     NavigationLink {
                         CodeView(gist: .constant(gist), isLoadingParent: $isLoading)
-                        #if os(macOS)
-                            .frame(minWidth: 1000, alignment: .center)
-                        #endif
+#if os(macOS)
+                            .frame(minWidth: Int.max, idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment:.center)
+#endif
                     } label: {
                         GistRow(data: gist)
                             .padding()
