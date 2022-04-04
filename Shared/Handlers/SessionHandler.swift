@@ -180,7 +180,7 @@ class SessionHandler: ObservableObject {
             return user
         case let .failure(error):
             print(error)
-            return nil
+            throw error
         }
     }
 }
