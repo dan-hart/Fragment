@@ -26,7 +26,7 @@ class TokenHandler: ObservableObject {
     private var configuration: TokenConfiguration?
 
     init() {
-        
+        checkAuthorizationStatus()
     }
 
     // MARK: - Methods
