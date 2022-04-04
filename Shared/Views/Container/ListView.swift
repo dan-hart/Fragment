@@ -133,7 +133,9 @@ struct ListView: View {
                     #if os(macOS)
                         Button {
                             Task {
-                                try? await octoHandler.fetchGists(tokenHandler)
+                                sessionHandler.call {
+                                    
+                                }
                             }
                         } label: {
                             HStack {
