@@ -57,8 +57,8 @@ struct ListView: View {
                             Text("If this is unexpected, try pulling.")
                                 .padding()
                             Button {
-                                Task {
-                                    try? await octoHandler.fetchGists(tokenHandler)
+                                sessionHandler.callTask {
+                                    try await sessionHandler.refreshGists()
                                 }
                             } label: {
                                 HStack {
