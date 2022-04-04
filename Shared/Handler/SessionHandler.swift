@@ -54,7 +54,7 @@ class SessionHandler: ObservableObject {
     func attemptAuthentication(using token: String) {
         Task {
             do {
-                configuration try await authenticate(using: token)
+                configuration = try await authenticate(using: token)
             } catch(let error) {
                 print(error)
             }
