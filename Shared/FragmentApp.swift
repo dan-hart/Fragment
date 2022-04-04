@@ -12,6 +12,7 @@ struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let octoHandler = OctoHandler()
 
+    @State var isLoading = false
     @State var isSettingsLoading = false
 
     var body: some Scene {
