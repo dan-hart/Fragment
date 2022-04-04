@@ -31,7 +31,14 @@ struct FragmentApp: App {
         }
 
         Settings {
-            Text("Test")
+            struct SettingsView: View {
+                var body: some View {
+                    TabView {
+                        
+                    }
+                    .frame(width: 450, height: 250)
+                }
+            }
         }
     }
 }
