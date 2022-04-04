@@ -20,7 +20,20 @@ struct ListView: View {
 
     @State var isShowingPreferencesView = false
 
-    
+    var filteredGists: [Gist] {
+        let withVisibility = sessionHandler.gists.filter { gist in
+            let gistVisibility = Visibility(isPublic: gist.publicGist)
+            return gistVisibility == visibility
+        }
+
+        if searchText.isEmpty {
+            return withVisibility
+        } else {
+            return withVisibility.filter { gist in
+                gist.meetsSearchCriteria(text: searchText)
+            }
+        }
+    }
 
     var body: some View {
         List {
