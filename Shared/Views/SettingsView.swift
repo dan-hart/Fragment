@@ -96,8 +96,9 @@ struct SettingsView: View {
                         }
                     }
 
-                    .navigationTitle("Privacy")
+                    
                 }
+                .navigationTitle("Privacy")
                 .tabItem {
                     Label("Privacy", systemImage: "hand.raised")
                 }
