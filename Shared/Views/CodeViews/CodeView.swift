@@ -62,7 +62,7 @@ struct CodeView: View {
                                 filename,
                                 sourceCode
                             ) { optionalGist, optionalError in
-                                Task {
+                                DispatchQueue.main.async {
                                     if let gist = optionalGist {
                                         self.gist = gist
                                         sourceCode = gist.text
