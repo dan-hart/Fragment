@@ -18,13 +18,13 @@ struct FragmentApp: App {
     var body: some Scene {
         WindowGroup {
             MainView(isLoading: $isLoading)
+                .environmentObject(tokenHandler)
+                .environmentObject(octoHandler)
                 .task {
                     isLoading = true
                     _ = await tokenHandler.checkAuthenticationStatus()
                     isLoading = false
                 }
-                .environmentObject(tokenHandler)
-                .environmentObject(octoHandler)
         }
 
         Settings {
