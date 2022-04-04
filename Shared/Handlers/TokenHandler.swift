@@ -22,6 +22,10 @@ class TokenHandler: ObservableObject {
     var keychain: Keychain {
         Keychain(service: bundleID)
     }
+    
+    var isElidgibleForCaching: Bool {
+        return isAuthenticated
+    }
 
     var configuration: TokenConfiguration?
 
