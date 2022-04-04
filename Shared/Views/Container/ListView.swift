@@ -18,7 +18,7 @@ struct ListView: View {
 
     @AppStorage("visibility") var visibility: Visibility = .public
     
-    @State isShowingPreferencesView = false
+    @State var isShowingPreferencesView = false
 
     var body: some View {
         List {
