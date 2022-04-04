@@ -88,7 +88,7 @@ class OctoHandler: ObservableObject {
             if tokenHandler.isElidgibleForCaching {
                 cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
             }
-            isLoading = false
+            isLoading.wrappedValue = false
         }
     }
 
