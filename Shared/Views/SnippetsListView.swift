@@ -92,7 +92,9 @@ struct SnippetsListView: View {
             }
             #endif
             #if os(macOS)
-            AddGistView(filename: "", description: <#T##String#>, content: <#T##String#>, didAdd: <#T##(Gist) -> Void#>)
+            AddGistView(filename: "", description: "", content: "") { newGist in
+                gists.insert(newGist, at: 0)
+            }
             #endif
         })
         .redacted(reason: isLoading ? .placeholder : [])
