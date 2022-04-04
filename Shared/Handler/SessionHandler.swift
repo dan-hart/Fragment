@@ -193,8 +193,9 @@ class SessionHandler: ObservableObject {
             try await thisAsyncThrowingCode()
         } catch {
             if error is FragmentError {
-                alert = Alert(title: "Hello from SomeChildView!")
-                print((error as! FragmentError).rawValue)
+                let fragmentError = (error as! FragmentError).rawValue
+                alert = Alert(title: "Oops!", message: error)
+                print(.rawValue)
             } else {
                 print(error)
             }
