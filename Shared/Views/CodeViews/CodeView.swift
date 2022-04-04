@@ -58,7 +58,8 @@ struct CodeView: View {
                                 let text = try await sessionHandler.update(id, description, filename, sourceCode)
                                 self.isLoadingParent = false
                                 await MainActor.run {
-                                    
+                                    self.sourceCode = text
+                                    self.loadedSourceCode = text
                                 }
                             }
 
