@@ -21,6 +21,9 @@ struct MainView: View {
                 EmptyView()
                 #endif
                 AuthenticationView(isLoading: $isLoading)
+                #if os(iOS)
+                    .navigationViewStyle(StackNavigationViewStyle())
+                #endif
                     .padding()
             }
         }
