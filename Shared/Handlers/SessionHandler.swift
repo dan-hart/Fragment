@@ -8,7 +8,7 @@
 import Foundation
 
 class SessionHandler: ObservableObject {
-    static var keyName = "FRAGMENT_GITHUB_API_TOKEN"
+    static var keychainKeyIdentifier = "FRAGMENT_GITHUB_API_TOKEN"
 
     @Published var isAuthenticated = false
 }
