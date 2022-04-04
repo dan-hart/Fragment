@@ -10,7 +10,7 @@ import SFSafeSymbols
 import SwiftUI
 
 struct GistRow: View {
-    @State var data: Gist?
+    @Binding var data: Gist?
 
     var filenameNoExtension: String? {
         ((data?.files.first?.key ?? "") as NSString).deletingPathExtension
