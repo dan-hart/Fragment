@@ -33,7 +33,7 @@ struct CodeView: View {
                 // swiftlint:disable all
                 CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
                 #if os(macOS)
-                    .frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.75, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
+                    //.frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.50, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
                 #endif
 
                     .onAppear {
