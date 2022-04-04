@@ -27,7 +27,7 @@ class TokenHandler: ObservableObject {
 
     init() {
         MainActor.run {
-            await checkAuthenticationStatus()
+            checkAuthenticationStatus()
         }
     }
 
