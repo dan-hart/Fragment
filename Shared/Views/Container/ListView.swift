@@ -115,7 +115,7 @@ struct ListView: View {
                     print("--")
                 }
             } catch(let error) {
-                print("error")
+                print("error: \(error.localizedDescription)")
             }
         }
         .refreshable {
