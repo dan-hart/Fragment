@@ -16,7 +16,6 @@ struct MainView: View {
         NavigationView {
             if tokenHandler.isAuthenticated {
                 SnippetsListView()
-                    .environmentObject(cacheHandler)
             } else {
                 AuthenticationView()
             }
