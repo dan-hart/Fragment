@@ -205,5 +205,4 @@ enum Language: String, CaseIterable {
         }
     }
 }
-
 // swiftlint:enable identifier_name
