@@ -69,7 +69,7 @@ struct SettingsView: View {
                         }
                     }
 
-                    .navigationTitle("Profile")
+                    
                 }
                 .task {
                     isLoading = true
@@ -81,6 +81,7 @@ struct SettingsView: View {
 
                     isLoading = false
                 }
+                .navigationTitle("Profile")
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
