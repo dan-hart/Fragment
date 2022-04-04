@@ -25,7 +25,7 @@ struct FragmentApp: App {
         }
         .onChange(of: tokenHandler.isAuthenticated) { _ in
             snippetHandler.gists(using: tokenHandler.configuration) { gists in
-                cacheHandler.gistsCache.insert(gists, forKey: CacheHandler.Key.gists.rawValue)
+                cacheHandler.gistsCache.insert(gists ?? [], forKey: CacheHandler.Key.gists.rawValue)
             }
         }
     }
