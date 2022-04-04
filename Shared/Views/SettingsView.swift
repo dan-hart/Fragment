@@ -41,7 +41,7 @@ struct SettingsView: View {
 
             VStack {
             Form {
-            Stepper("Font Size", value: $age, in: 0...130)
+                Stepper("Font Size", value: $sessionHandler.fontSize, in: 8...72)
             }
             }
                 .tabItem {
