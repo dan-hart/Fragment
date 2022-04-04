@@ -21,6 +21,11 @@ struct MainView: View {
         } else {
             if tokenHandler.isAuthenticated {
                 ContainerView()
+                                .task {
+                                    isLoading = true
+                                    _ = await tokenHandler.checkAuthenticationStatus()
+                                    isLoading = false
+                                }
             } else {
                 NavigationView {
                     if Constants.isMacOrPad() {
