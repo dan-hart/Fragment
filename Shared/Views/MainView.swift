@@ -31,6 +31,7 @@ struct MainView: View {
                         EmptyView()
                     #endif
                     AuthenticationView()
+                        .padding()
                         .frame(minWidth: 800)
                 }
             }
