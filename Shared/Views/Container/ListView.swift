@@ -112,7 +112,7 @@ struct ListView: View {
                         CodeView(gist: .constant(gist), isLoadingParent: $isLoading)
                             .navigationTitle(gist.filename)
                     } label: {
-                        GistRow(data: $filteredGists[index])
+                        GistRow(data: .constant(gist))
                             .padding()
                     }
                 }
