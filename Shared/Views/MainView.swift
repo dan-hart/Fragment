@@ -23,12 +23,11 @@ struct MainView: View {
                         .padding()
                 #endif
                 #if os(iOS)
-                AuthenticationView(isLoading: $isLoading)
-                    .padding()
-                Text("Enter Github personal access token on the lefthand sidebar")
-                    .font(.system(.body, design: .monospaced))
+                    AuthenticationView(isLoading: $isLoading)
+                        .padding()
+                    Text("Enter Github personal access token on the lefthand sidebar")
+                        .font(.system(.body, design: .monospaced))
                 #endif
-                
             }
         }
     }
