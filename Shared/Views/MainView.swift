@@ -11,14 +11,14 @@ struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
     @EnvironmentObject var cacheHandler: CacheHandler
-    
+
     @State var isLoading = true
 
     var body: some View {
         NavigationView {
             if isLoading {
                 #if os(macOS)
-                EmptyView()
+                    EmptyView()
                 #endif
                 Text("Loading")
                     .font(.system(.body, design: .monospaced))
