@@ -14,7 +14,7 @@ struct ListView: View {
     @EnvironmentObject var octoHandler: OctoHandler
 
     @Binding var isLoading: Bool
-    @Binding var searchText
+    @Binding var searchText: String
 
     @AppStorage("visibility") var visibility: Visibility = .public
 
