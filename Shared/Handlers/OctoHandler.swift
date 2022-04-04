@@ -82,6 +82,7 @@ class OctoHandler: ObservableObject {
 
     // MARK: - Profile
 
+    @MainActor
     func fetchMe(using configuration: TokenConfiguration?) async {
         guard let configuration = configuration else {
             return
