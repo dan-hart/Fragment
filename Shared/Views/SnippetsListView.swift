@@ -209,11 +209,11 @@ struct SnippetsListView: View {
 
     func fetchGists() async {
         cacheHandler.gistsCache.removeValue(forKey: CacheHandler.Key.gists.rawValue)
-        
+
         if CacheHelper.deleteAllOnDisk() {
             print("Cleared cache")
         }
-        
+
         gists = []
         isLoading = true
 
