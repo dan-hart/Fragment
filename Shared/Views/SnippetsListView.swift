@@ -40,6 +40,8 @@ struct SnippetsListView: View {
             
         }
     }
+    
+    @State var filteredGists: [Gist] = []
 
     var body: some View {
         List {
