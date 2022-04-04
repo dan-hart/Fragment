@@ -19,7 +19,7 @@ struct ContainerView: View {
 
     var body: some View {
         NavigationView {
-            ListView(isLoading: $isLoading, searchText: $searchText)
+            ListView(isLoading: $isLoading, searchText: $searchText, isShowingAddModal: $isShowingAddModal)
         }
         .sheet(isPresented: $isShowingAddModal) {
             #if os(iOS)
