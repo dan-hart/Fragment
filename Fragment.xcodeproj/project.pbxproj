@@ -292,7 +292,7 @@
 		5283B2DE27EC0A1B0018F19B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5A2387FD27FB3B0200480C20 /* New Group */,
+				5A2387FD27FB3B0200480C20 /* Errors */,
 				526D97D227F0C82D00BD46CE /* Language.swift */,
 				526D97D327F0C82D00BD46CE /* Theme.swift */,
 				5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */,
@@ -328,11 +328,11 @@
 			path = FragmentSharedTests;
 			sourceTree = "<group>";
 		};
-		5A2387FD27FB3B0200480C20 /* New Group */ = {
+		5A2387FD27FB3B0200480C20 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
