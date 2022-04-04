@@ -13,6 +13,7 @@ struct SettingsView: View {
     let cacheHandler = CacheHandler()
 
     @Binding var isLoading: Bool
+    @Binding var isAuthenticated: Bool
 
     @State var name: String?
 
