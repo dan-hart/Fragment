@@ -80,25 +80,4 @@ class SnippetHandler: ObservableObject {
             }
         }
     }
-
-    // MARK: - Authentication
-
-    func authenticate(using token: String, then: @escaping (Bool) -> Void) {
-        configuration = TokenConfiguration(token)
-        guard let configuration = configuration else {
-            return then(false)
-        }
-
-        Octokit(configuration).me { [self] response in
-            DispatchQueue.main.async { [self] in
-                switch response {
-                case .success:
-                    self.isAuthenticated = true
-                case .failure:
-                    self.isAuthenticated = false
-                }
-                then(self.isAuthenticated)
-            }
-        }
-    }
 }
