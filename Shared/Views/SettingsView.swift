@@ -83,7 +83,11 @@ struct SettingsView: View {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
                 
-                Text("Privacy Settings")
+                VStack {
+                    Form {
+                        
+                    }
+                }
                     .font(.system(.title, design: .monospaced))
                     .tabItem {
                         Label("Privacy", systemImage: "hand.raised")
