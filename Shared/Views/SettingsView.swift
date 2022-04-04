@@ -23,44 +23,44 @@ struct SettingsView: View {
                 .tabItem {
                     Label("Appearance", systemImage: "paintpalette")
                 }
-            
+
             if tokenHandler.isAuthenticated {
-            List {
-                Text("Profile Settings")
-                    .font(.title)
+                List {
+                    Text("Profile Settings")
+                        .font(.title)
 
-                Text(name ?? "Name")
+                    Text(name ?? "Name")
 
-                Button {
-                    tokenHandler.delete()
-                    tokenHandler.taskCheckingAuthenticationStatus()
-                } label: {
-                    HStack {
-                        Image(systemSymbol: .xmarkCircle)
-                        Text("Clear Token")
-                            .font(.system(.body, design: .monospaced))
+                    Button {
+                        tokenHandler.delete()
+                        tokenHandler.taskCheckingAuthenticationStatus()
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .xmarkCircle)
+                            Text("Clear Token")
+                                .font(.system(.body, design: .monospaced))
+                        }
                     }
                 }
-            }
-            .task {
-                isLoading = true
+                .task {
+                    isLoading = true
 
-                let authenticated = await tokenHandler.checkAuthenticationStatus()
-                if authenticated {
-                    name = await octoHandler.me(using: tokenHandler.configuration)?.name
+                    let authenticated = await tokenHandler.checkAuthenticationStatus()
+                    if authenticated {
+                        name = await octoHandler.me(using: tokenHandler.configuration)?.name
+                    }
+
+                    isLoading = false
                 }
-
-                isLoading = false
-            }
-            .tabItem {
-                Label("Profile", systemImage: "person.crop.circle")
-            }
-
-            Text("Privacy Settings")
-                .font(.title)
                 .tabItem {
-                    Label("Privacy", systemImage: "hand.raised")
+                    Label("Profile", systemImage: "person.crop.circle")
                 }
+
+                Text("Privacy Settings")
+                    .font(.title)
+                    .tabItem {
+                        Label("Privacy", systemImage: "hand.raised")
+                    }
             }
         }
     }
