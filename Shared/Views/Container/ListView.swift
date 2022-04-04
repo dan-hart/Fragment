@@ -13,6 +13,7 @@ struct ListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
+    @Binding var selectedGist: Gist?
     @Binding var isLoading: Bool
     @Binding var searchText: String
 
@@ -105,22 +106,6 @@ struct ListView: View {
             }
         }
         .searchable(text: $searchText)
-        .sheet(isPresented: $isShowingAddModal, content: {
-            #if os(iOS)
-                NavigationView {
-                    AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
-                        gists.insert(newGist, at: 0)
-                    }
-                }
-            #endif
-            #if os(macOS)
-                AddGistView(filename: "", description: "", content: "") { newGist in
-                    octoHandler.gists.insert(newGist, at: 0)
-                }
-                .frame(minWidth: 800, minHeight: 800)
-                .padding()
-            #endif
-        })
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             let menu = Menu {
