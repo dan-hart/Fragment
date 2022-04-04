@@ -179,7 +179,7 @@ struct SnippetsListView: View {
         } else {
             print("Failed to clear Cache")
         }
-        snippetHandler.gists { optionalGists in
+        snippetHandler.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
                 self.gists = gists
             }
