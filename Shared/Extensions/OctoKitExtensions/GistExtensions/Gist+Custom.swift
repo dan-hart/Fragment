@@ -13,7 +13,7 @@ public extension Gist {
     var identifier: String {
         id ?? UUID().uuidString
     }
-    
+
     /// The first filename
     var filename: String {
         "\(files.first?.key ?? "")"
