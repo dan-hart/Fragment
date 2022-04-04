@@ -32,7 +32,7 @@ class SnippetHandler: ObservableObject {
     }
 
     func create(
-        using configuration: TokenConfiguration,
+        using configuration: TokenConfiguration?,
         gist filename: String,
         _ description: String,
         _ content: String,
