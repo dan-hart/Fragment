@@ -23,7 +23,7 @@ struct FragmentApp: App {
                 .environmentObject(snippetHandler)
         }
         .onChange(of: tokenHandler.isAuthenticated) { _ in
-            snippetHandler.gists(using: tokenHandler.configuration) { gists in
+            snippetHandler.gists(using: tokenHandler.configuration) { _ in
                 // Code
             }
         }
