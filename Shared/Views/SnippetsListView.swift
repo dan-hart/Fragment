@@ -96,7 +96,7 @@ struct SnippetsListView: View {
         .toolbar {
             let menu = Menu {
                 // Menu Content
-                if snippetHandler.isAuthenticated {
+                if tokenHandler.isAuthenticated {
                     #if os(macOS)
                         Button {
                             Task {
