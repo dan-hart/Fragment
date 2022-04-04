@@ -38,6 +38,6 @@ extension Gist {
 
 extension Gist: Hashable {
     public static func == (lhs: Gist, rhs: Gist) -> Bool {
-        <#code#>
+        lhs.identifier == rhs.id
     }
 }
