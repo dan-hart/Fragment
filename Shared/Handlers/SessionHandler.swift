@@ -18,6 +18,20 @@ class SessionHandler: ObservableObject {
     @Published var gists: [Gist] = []
     
     var configuration: TokenConfiguration?
+    
+    // MARK: - Computed
+    var bundleID: String {
+        Bundle.main.bundleIdentifier ?? ""
+    }
+
+    var keychain: Keychain {
+        Keychain(service: bundleID)
+    }
+
+    var token: String? {
+        keychain[TokenHandler.keyName]
+    }
+    
 
     // MARK: - Initialization
     init() {}
