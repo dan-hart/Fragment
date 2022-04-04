@@ -29,6 +29,7 @@ public extension Gist {
 
     /// Does this gist meet the search criteria based on the search text
     func meetsSearchCriteria(text: String) -> Bool {
+        let lowercasedSearchText = text.lowercased()
         let descriptionContainsText = description?.lowercased().contains(text.lowercased()) ?? false
         let fileExtensionContainsText = fileExtension.lowercased().contains(text.lowercased())
         let filenameContainsText = files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
