@@ -30,6 +30,12 @@ struct ContainerView: View {
                         Button(action: toggleSidebar, label: {
                             Image(systemName: "sidebar.leading")
                         })
+                        Button {
+                            toggleSidebar()
+                        } label: {
+                            Image(systemSymbol: .sidebarLeading)
+                        }
+
                     }
                 }
         .sheet(isPresented: $isShowingAddModal) content: {
