@@ -21,7 +21,7 @@ enum Constants {
     }
     
     /// Is the current device running macOS or is it an iPad
-    public var isMacOrPad: Bool {
+    var isMacOrPad: Bool {
         #if os(macOS)
         return true
         #endif
