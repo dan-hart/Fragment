@@ -122,7 +122,7 @@ struct SnippetsListView: View {
                         print("Failed to clear Cache")
                     }
                     tokenHandler.delete()
-                    tokenHandler.checkNeedsAuthenticationStatus()
+                    tokenHandler.checkNeedsAuthenticationStatus(attemptReauthentication: false)
                 } label: {
                     HStack {
                         Image(systemSymbol: .xmarkCircle)
