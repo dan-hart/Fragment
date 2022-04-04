@@ -96,6 +96,9 @@ struct ListView: View {
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
                     GistRow(data: $octoHandler.gists[index])
+                        .onTapGesture {
+                            selectedGist = $octoHandler.gists[index]
+                        }
                         .padding()
                 }
             }
