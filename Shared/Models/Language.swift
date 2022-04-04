@@ -1,10 +1,3 @@
-//
-//  File.swift
-//
-//
-//
-
-import Foundation.NSURL
 // swiftlint:disable identifier_name
 enum Language: String, CaseIterable {
     case abnf
