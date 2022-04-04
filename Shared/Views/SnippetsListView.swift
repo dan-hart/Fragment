@@ -219,7 +219,7 @@ struct SnippetsListView: View {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
 
-        snippetHandler.gists(using: tokenHandler.configuration) { optionalGists in
+        octoHandler.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
                 self.gists = gists
             }
