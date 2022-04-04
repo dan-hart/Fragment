@@ -211,6 +211,7 @@ struct SnippetsListView: View {
         if CacheHelper.deleteAllOnDisk() {
             print("Cleared cache")
         }
+        
         gists = []
         isLoading = true
 
