@@ -114,7 +114,7 @@ struct ListView: View {
                     print("return \(audienceIsMatch && searchIsVisible)")
                     print("--")
                 }
-            } catch {
+            } catch(let error) {
                 print("error")
             }
         }
