@@ -172,6 +172,7 @@ class SessionHandler: ObservableObject {
     }
     
     func call(sessionFunction: @escaping () -> Void) {
+        Task {
         do {
             let value = try await sessionFunction()
         }
