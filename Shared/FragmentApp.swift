@@ -33,7 +33,7 @@ struct FragmentApp: App {
         Settings {
             TabView {
                 List {
-                    Text("Profl Settings")
+                    Text("Profile Settings")
                         .font(.title)
 
                     Button {
