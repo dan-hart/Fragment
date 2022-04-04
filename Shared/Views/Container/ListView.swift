@@ -88,7 +88,7 @@ struct ListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(octoHandler.gists.filter { gist in
+                ForEach(sessionHandler.gists.filter { gist in
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
