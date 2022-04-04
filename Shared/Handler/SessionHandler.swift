@@ -150,7 +150,7 @@ class SessionHandler: ObservableObject {
     // MARK: - Profile
     
     func me() async throws -> User {
-        if !isAuthenticated { throw FragmentError.notAuthenticated }
+        validate()
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
@@ -168,6 +168,6 @@ class SessionHandler: ObservableObject {
     
     // MARK: - Helpers
     func validate() async throws {
-        
+        if !isAuthenticated { throw FragmentError.notAuthenticated }
     }
 }
