@@ -84,7 +84,7 @@ struct AddGistView: View {
                         .font(.system(.body, design: .monospaced))
                 }
             }
-            
+
             Section(header: Text("Code").font(.system(.caption, design: .monospaced))) {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
