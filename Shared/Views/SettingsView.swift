@@ -85,7 +85,11 @@ struct SettingsView: View {
                 
                 VStack {
                     Form {
-                        
+                        Section {
+                            Toggle("Disable Local Caching", isOn: $showingAdvancedOptions.animation())
+                        } footer: {
+                            <#code#>
+                        }
                     }
                     
                     .navigationTitle("Privacy")
