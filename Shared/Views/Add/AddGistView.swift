@@ -1,5 +1,5 @@
 //
-//  EditGistView.swift
+//  AddGistView.swift
 //  Fragment
 //
 //  Created by Dan Hart on 3/27/22.
