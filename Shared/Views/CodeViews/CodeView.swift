@@ -94,7 +94,7 @@ struct CodeView: View {
                             }
                         }
 
-                        if let url = gist.htmlURL {
+                        if let url = gist?.htmlURL {
                             Button {
                                 WebLauncher.go(to: url)
                             } label: {
