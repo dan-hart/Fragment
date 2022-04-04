@@ -22,7 +22,7 @@ struct ContainerView: View {
     }
 }
 
-struct SnippetsListView_Previews: PreviewProvider {
+struct ContainerView_Previews: PreviewProvider {
     static var previews: some View {
         ContainerView()
     }
