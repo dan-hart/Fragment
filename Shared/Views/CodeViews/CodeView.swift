@@ -30,7 +30,7 @@ struct CodeView: View {
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
             ScrollViewReader { reader in
-                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
+                CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist.fileExtension), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
                     .onAppear {
                         reader.scrollTo(0, anchor: .topLeading)
                     }

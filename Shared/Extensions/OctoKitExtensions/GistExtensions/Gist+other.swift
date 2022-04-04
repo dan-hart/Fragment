@@ -17,7 +17,7 @@ extension Gist {
         files.first?.key ?? identifier
     }
 
-    var ext: String {
+    var fileExtension: String {
         let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
     }
