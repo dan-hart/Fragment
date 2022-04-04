@@ -300,7 +300,6 @@
 				526D97D227F0C82D00BD46CE /* Language.swift */,
 				526D97D327F0C82D00BD46CE /* Theme.swift */,
 				5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */,
-				52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */,
 				52769DFF27F0EEE400F5D4E0 /* Visibility.swift */,
 				5219A10427F21DF100D5FF2C /* LinesGenerator.swift */,
 				5219A10A27F224E200D5FF2C /* CodableAttributedString.swift */,
@@ -343,6 +342,7 @@
 		5A23880127FB3ED000480C20 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
