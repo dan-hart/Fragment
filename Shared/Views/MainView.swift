@@ -34,6 +34,9 @@ struct MainView: View {
                 }
             }
         }
+        .onChange(of: tokenHandler.isAuthenticated, perform: { newValue in
+            isLoading = false
+        })
         .onAppear {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
