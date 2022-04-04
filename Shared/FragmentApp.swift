@@ -32,6 +32,9 @@ struct FragmentApp: App {
 
         Settings {
             SettingsView()
+                .environmentObject(tokenHandler)
+                .environmentObject(octoHandler)
+                .environmentObject(cacheHandler)
         }
     }
 }
