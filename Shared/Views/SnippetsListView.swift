@@ -208,6 +208,9 @@ struct SnippetsListView: View {
     }
 
     func fetchGists() async {
+        if CacheHelper.deleteAllOnDisk() {
+            print("Cleared cache")
+        }
         gists = []
         isLoading = true
 
