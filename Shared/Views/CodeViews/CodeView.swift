@@ -62,24 +62,6 @@ struct CodeView: View {
                                     self.loadedSourceCode = updatedGist.text
                                 }
                             }
-
-                            octoHandler.update(
-                                using: tokenHandler.configuration,
-                                id,
-                                description,
-                                filename,
-                                sourceCode
-                            ) { optionalGist, optionalError in
-                                isLoadingParent = false
-                                DispatchQueue.main.async {
-                                    if let gist = optionalGist {
-                                        sourceCode = gist.text
-                                        loadedSourceCode = gist.text
-                                    } else {
-                                        print(optionalError?.localizedDescription ?? "")
-                                    }
-                                }
-                            }
                         } label: {
                             Text("Save")
                                 .font(.system(.body, design: .monospaced))
