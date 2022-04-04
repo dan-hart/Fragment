@@ -17,7 +17,8 @@ struct SettingsView: View {
     var body: some View {
         TabView {
             if sessionHandler.isAuthenticated {
-                List {
+                VStack {
+                Form {
                     Text("General")
                         .font(.system(.title, design: .monospaced))
 
@@ -33,7 +34,7 @@ struct SettingsView: View {
                         }
                     }
                 }
-                .font(.title)
+                }
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
