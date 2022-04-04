@@ -194,13 +194,6 @@ struct ListView: View {
     }
 }
 
-struct SnippetsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContainerView()
-    }
-}
-
-
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()
