@@ -37,6 +37,5 @@ struct FragmentApp: App {
                 .environmentObject(cacheHandler)
                 .frame(width: 400, height: 400)
         }
-        
     }
 }
