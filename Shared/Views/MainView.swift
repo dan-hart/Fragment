@@ -16,9 +16,7 @@ struct MainView: View {
     var body: some View {
         Group {
             if isLoading {
-                Text("Loading...")
-                    .font(.system(.largeTitle, design: .monospaced))
-                    .frame(minWidth: 800)
+                
             } else {
                 if tokenHandler.isAuthenticated {
                     ContainerView()
