@@ -1094,8 +1094,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dan-hart/DHCacheKit";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 0.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
