@@ -20,9 +20,9 @@ struct ContainerView: View {
     var body: some View {
         NavigationView {
             ListView(isLoading: $isLoading, searchText: $searchText)
+            
+                .navigationTitle("Gists")
         }
-        
-        .navigationTitle("Gists")
     }
 }
 
