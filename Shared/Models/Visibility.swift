@@ -17,7 +17,7 @@ enum Visibility: String, CaseIterable {
         if isPublic ?? false {
             self = .public
         } else {
-            self = .private
+            self = .secret
         }
     }
 
