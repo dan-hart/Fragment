@@ -24,7 +24,7 @@ struct SettingsView: View {
                     Label("Privacy", systemImage: "hand.raised")
                 }
             
-            Text("Appearance Settings")
+            Text("Appearance")
                 .font(.title)
                 .tabItem {
                     Label("Appearance", systemImage: "paintpalette")
@@ -32,7 +32,7 @@ struct SettingsView: View {
 
             if sessionHandler.isAuthenticated {
                 List {
-                    Text("Profile Settings")
+                    Text("Profile")
                         .font(.title)
 
                     Text(name ?? "Loading...")
