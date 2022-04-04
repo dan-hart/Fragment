@@ -88,4 +88,6 @@ class SessionHandler: ObservableObject {
             throw error
         }
     }
+    
+    // MARK: - Gist CRUD
 }
