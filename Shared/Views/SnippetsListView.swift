@@ -39,6 +39,7 @@ struct SnippetsListView: View {
 
                     VStack {
                         Text("If this is unexpected, try pulling.")
+                            .padding()
                         Button {
                             Task {
                                 await fetchGists()
