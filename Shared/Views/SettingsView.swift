@@ -50,7 +50,8 @@ struct SettingsView: View {
             }
             
             if sessionHandler.isAuthenticated {
-                Form {                    
+                VStack {
+                Form {
                     Text(name ?? "Loading...")
                     
                     Button {
