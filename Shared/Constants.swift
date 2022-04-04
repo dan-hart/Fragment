@@ -12,6 +12,10 @@ enum Constants {
     enum URL: String {
         case githubHowToPersonalAccessToken = "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
     }
+    
+    enum Feature: Bool {
+        
+    }
 }
 
 // swiftlint:enable line_length
