@@ -7,8 +7,8 @@
 
 import CodeEditor
 import OctoKit
-import SwiftUI
 import SwifterSwift
+import SwiftUI
 
 struct AddGistView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
