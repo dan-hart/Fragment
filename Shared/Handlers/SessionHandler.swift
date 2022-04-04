@@ -31,7 +31,6 @@ class SessionHandler: ObservableObject {
     var token: String? {
         keychain[TokenHandler.keyName]
     }
-    
 
     // MARK: - Initialization
     init() {}
