@@ -116,11 +116,6 @@ struct SnippetsListView: View {
                 }
 
                 Button {
-                    if CacheHelper.deleteAllOnDisk() {
-                        print("Cleared Cache")
-                    } else {
-                        print("Failed to clear Cache")
-                    }
                     tokenHandler.delete()
                     tokenHandler.checkNeedsAuthenticationStatus(attemptReauthentication: false)
                 } label: {
