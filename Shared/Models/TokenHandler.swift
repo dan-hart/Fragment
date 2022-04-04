@@ -23,7 +23,7 @@ class TokenHandler: ObservableObject {
         Keychain(service: bundleID)
     }
     
-    private var configuration: TokenConfiguration?
+    var configuration: TokenConfiguration?
 
     init() {
         checkAuthorizationStatus()
