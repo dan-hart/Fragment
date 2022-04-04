@@ -37,9 +37,9 @@ struct AddGistView: View {
             }
             do {
                 Task {
-                let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
-                didAdd(gist)
-                presentationMode.wrappedValue.dismiss()
+                    let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
+                    didAdd(gist)
+                    presentationMode.wrappedValue.dismiss()
                 }
             } catch(let error) {
                 error = error.localizedDescription
