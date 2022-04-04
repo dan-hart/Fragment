@@ -73,7 +73,7 @@ class TokenHandler: ObservableObject {
         }
         
         switch response {
-            
+        case .success
         }
         
     }
