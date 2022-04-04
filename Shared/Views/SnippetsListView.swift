@@ -57,6 +57,11 @@ struct SnippetsListView: View {
                 }
             }
         }
+        .onAppear {
+            Task {
+                await fetchGists()
+            }
+        }
         .refreshable {
             Task {
                 await fetchGists()
@@ -78,11 +83,6 @@ struct SnippetsListView: View {
             }
         })
         .redacted(reason: isLoading ? .placeholder : [])
-        .onAppear {
-            Task {
-                await fetchGists()
-            }
-        }
         .toolbar {
             let menu = Menu {
                 // Menu Content
