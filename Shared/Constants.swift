@@ -17,7 +17,7 @@ enum Constants {
     }
 
     enum Feature {
-        static var ifNoGistsEnablePullButton = true
+        static var ifNoGistsEnablePullButton = false
     }
 
     /// Is the current device running macOS or is it an iPad
