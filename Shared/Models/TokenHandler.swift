@@ -26,6 +26,11 @@ class TokenHandler: ObservableObject {
     private var configuration: TokenConfiguration?
 
     init() {
+        
+    }
+
+    // MARK: - Methods
+    func checkAuthorizationStatus() {
         let optionalToken = getToken()
         authenticate(using: optionalToken) { optionalConfiguration in
             if let configuration = optionalConfiguration {
@@ -36,11 +41,7 @@ class TokenHandler: ObservableObject {
             }
         }
     }
-
-    // MARK: - Methods
-    func checkAuthorizationStatus() {
-        
-    }
+    
     func getToken() -> String? {
         keychain[TokenHandler.keyName]
     }
