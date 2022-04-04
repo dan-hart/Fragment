@@ -34,11 +34,13 @@ class TokenHandler: ObservableObject {
     func checkAuthorizationStatus() {
         let optionalToken = getToken()
         authenticate(using: optionalToken) { optionalConfiguration in
-            if let configuration = optionalConfiguration {
-                self.configuration = configuration
-                self.isAuthenticated = true
-            } else {
-                self.isAuthenticated = false
+            DispatchQueue.main.async {
+                if let configuration = optionalConfiguration {
+                    self.configuration = configuration
+                    self.isAuthenticated = true
+                } else {
+                    self.isAuthenticated = false
+                }
             }
         }
     }
