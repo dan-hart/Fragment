@@ -26,6 +26,7 @@ struct MainView: View {
                 AuthenticationView()
                     .frame(minWidth: 800)
                     .padding()
+                }
             }
         }
     }
