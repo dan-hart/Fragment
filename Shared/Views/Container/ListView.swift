@@ -38,7 +38,7 @@ struct ListView: View {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
 
-                    if Constants.Feature.ifNoGistsEnableCreateButton 
+                    if Constants.Feature.ifNoGistsEnableCreateButton {
                     HStack {
                         if sessionHandler.isAuthenticated {
                             Button {
@@ -53,6 +53,7 @@ struct ListView: View {
                                 }
                             }
                         }
+                    }
                     }
 
                     if Constants.Feature.ifNoGistsEnablePullButton, sessionHandler.isAuthenticated {
