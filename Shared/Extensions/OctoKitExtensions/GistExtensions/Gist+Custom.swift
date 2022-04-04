@@ -22,7 +22,6 @@ public extension Gist {
     /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String? {
         guard let filename = (files.first?.key) as? NSString else { return nil }
-        let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
     }
 
