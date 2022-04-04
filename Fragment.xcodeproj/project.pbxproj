@@ -259,7 +259,6 @@
 				52769DFE27F0EED100F5D4E0 /* Add */,
 				525D860227E7621D0066B147 /* MainView.swift */,
 				5283B2E227EC0C240018F19B /* AuthenticationView.swift */,
-				525D860427E762610066B147 /* ContainerView.swift */,
 				522915B827E7855E0087530C /* CodeViews */,
 				522915B027E7781E0087530C /* GistViews */,
 				5A23880E27FB4C4E00480C20 /* SettingsView.swift */,
@@ -347,6 +346,7 @@
 		5A23881427FB673600480C20 /* Container */ = {
 			isa = PBXGroup;
 			children = (
+				525D860427E762610066B147 /* ContainerView.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
