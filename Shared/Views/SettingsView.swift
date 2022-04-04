@@ -38,6 +38,14 @@ struct SettingsView: View {
                     Label("General", systemImage: "gearshape")
                 }
             }
+            
+            Text("Appearance")
+                .font(.system(.title, design: .monospaced))
+                .tabItem {
+                    Label("Appearance", systemImage: "paintpalette")
+                }
+            
+            if sessionHandler.isAuthenticated {
                 
                 List {
                     Text("Profile")
