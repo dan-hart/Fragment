@@ -67,7 +67,7 @@ struct AddGistView: View {
                 Picker("Language", selection: $language) {
                     ForEach(Language.allCases, id: \.self) { language in
                         Text(language.rawValue)
-                        
+                            .font(.system(.footnote, design: .monospaced))
                             .tag(language.rawValue)
                     }
                 }
