@@ -173,7 +173,7 @@ class SessionHandler: ObservableObject {
     
     func call<T>(sessionFunction: @autoclosure () async throws -> T) async -> T {
         do {
-            try
+            let value = try await sessionFunction()
         }
     }
 }
