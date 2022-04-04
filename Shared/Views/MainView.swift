@@ -34,7 +34,7 @@ struct MainView: View {
                 }
             }
         }
-        .onChange(of: tokenHandler.isAuthenticated, perform: { newValue in
+        .onChange(of: tokenHandler.isAuthenticated, perform: { _ in
             isLoading = false
         })
         .onAppear {
