@@ -54,7 +54,7 @@ struct CodeView: View {
                                 return
                             }
 
-                            snippetHandler.update(
+                            octoHandler.update(
                                 using: tokenHandler.configuration,
                                 id,
                                 description,
