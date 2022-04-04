@@ -17,7 +17,7 @@ struct ListView: View {
     @Binding var isShowingAddModal: Bool
 
     @AppStorage("visibility") var visibility: Visibility = .public
-    
+
     @State var isShowingPreferencesView = false
 
     var body: some View {
@@ -107,7 +107,7 @@ struct ListView: View {
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
-                
+
                     .navigationTitle("Settings")
             }
         }

@@ -9,18 +9,18 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
-    
+
     @Binding var isLoading: Bool
-    
+
     @State var name: String?
-    
+
     var body: some View {
         TabView {
             if sessionHandler.isAuthenticated {
                 List {
                     Text("General")
                         .font(.system(.title, design: .monospaced))
-                    
+
                     Button {
                         sessionHandler.callTask {
                             try await sessionHandler.refreshGists()
@@ -38,21 +38,20 @@ struct SettingsView: View {
                     Label("General", systemImage: "gearshape")
                 }
             }
-            
+
             Text("Appearance")
                 .font(.system(.title, design: .monospaced))
                 .tabItem {
                     Label("Appearance", systemImage: "paintpalette")
                 }
-            
+
             if sessionHandler.isAuthenticated {
-                
                 List {
                     Text("Profile")
                         .font(.system(.title, design: .monospaced))
-                    
+
                     Text(name ?? "Loading...")
-                    
+
                     Button {
                         sessionHandler.invalidateSession()
                     } label: {
@@ -65,18 +64,18 @@ struct SettingsView: View {
                 }
                 .task {
                     isLoading = true
-                    
+
                     sessionHandler.callTask {
                         let user = try await sessionHandler.me()
                         self.name = user.name
                     }
-                    
+
                     isLoading = false
                 }
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
-                
+
                 Text("Privacy Settings")
                     .font(.system(.title, design: .monospaced))
                     .tabItem {
