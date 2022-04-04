@@ -52,7 +52,7 @@ struct ListView: View {
                         }
                     }
 
-                    if Constants.Feature.ifNoGistsEnablePullButton, tokenHandler.isAuthenticated {
+                    if Constants.Feature.ifNoGistsEnablePullButton, sessionHandler.isAuthenticated {
                         VStack {
                             Text("If this is unexpected, try pulling.")
                                 .padding()
