@@ -43,6 +43,9 @@ class SessionHandler: ObservableObject {
 
     func save(token: String, triggerAuthenticationAtttempt: Bool = false) {
         keychain[keychainKeyIdentifier] = token
+        if triggerAuthenticationAtttempt {
+            triggerAuthenticationAttempt()
+        }
     }
 
     func delete(key: String) {
