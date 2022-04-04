@@ -78,7 +78,7 @@ class OctoHandler: ObservableObject {
         }
     }
 
-    // MARK: -  Profile
+    // MARK: - Profile
 
     func me(using configuration: TokenConfiguration) async -> User? {
         let response = await withCheckedContinuation { continuation in
