@@ -9,7 +9,6 @@ import Foundation
 import OctoKit
 
 class SnippetHandler: ObservableObject {
-    @Published var isAuthenticated = false
     @Published var configuration: TokenConfiguration?
 
     init() {}
