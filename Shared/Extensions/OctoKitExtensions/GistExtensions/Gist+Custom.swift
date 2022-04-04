@@ -34,7 +34,9 @@ public extension Gist {
         let fileExtensionContainsText = fileExtension.lowercased().contains(lowercasedSearchText)
         let filenameContainsText = files.first?.value.filename?.lowercased().contains(lowercasedSearchText) ?? false
 
-        if descriptionContainsText || filenameContainsText {
+        if descriptionContainsText ||
+            filenameContainsText ||
+            fileExtensionContainsText {
             return true
         } else {
             return false
