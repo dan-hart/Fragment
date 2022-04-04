@@ -11,7 +11,7 @@ import OctoKit
 import SwiftUI
 
 class OctoHandler: ObservableObject {
-    @Published var gists = []
+    @Published var gists: [Gist] = []
     
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
