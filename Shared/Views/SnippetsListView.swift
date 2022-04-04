@@ -44,7 +44,7 @@ struct SnippetsListView: View {
                     return gistVisibility == visibility
                 }.filter { gist in // Search
                     searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
-                }.indices, id: \.id) { index in
+                }.indices, id: \.self) { index in
                     NavigationLink {
                         CodeView(gist: $gists[index], isLoadingParent: $isLoading)
                         #if os(macOS)
