@@ -106,6 +106,9 @@ struct SnippetsListView: View {
                 }
             }
         }
+        .task {
+            octoHandler.gists(using: tokenHandler.configuration)
+        }
         .onAppear {
             if tokenHandler.isElidgibleForCaching {
                 octoHandler.gists = cacheHandler.gistsCache.value([Gist].self, forKey: "\(tokenHandler.token ?? "")") ?? []
