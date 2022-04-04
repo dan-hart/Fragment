@@ -57,7 +57,7 @@ struct SnippetsListView: View {
                 ForEach(gists.filter { gist in // Public / Private
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
-                    return gistVisibility == visibility
+                    return audienceIsMatch && searchIsVisible
                 }.filter { gist in // Search
                     
                 }.indices, id: \.self) { index in
