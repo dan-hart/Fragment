@@ -16,7 +16,7 @@ struct MainView: View {
             if tokenHandler.isAuthenticated {
                 SnippetsListView()
             } else {
-                AuthenticationView
+                AuthenticationView()
             }
         }
     }
