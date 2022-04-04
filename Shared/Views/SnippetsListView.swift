@@ -89,11 +89,9 @@ struct SnippetsListView: View {
         })
         .redacted(reason: isLoading ? .placeholder : [])
         .onAppear {
-            snippetHandler.authenticate(using: tokenHandler.value ?? "") { _ in
                 Task {
                     await fetchGists()
                 }
-            }
         }
         .toolbar {
             let menu = Menu {
