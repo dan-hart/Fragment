@@ -138,7 +138,7 @@ struct SnippetsListView: View {
                         } label: {
                             HStack {
                                 #if !os(macOS)
-                                Image(systemSymbol: .plusCircle)
+                                    Image(systemSymbol: .plusCircle)
                                 #endif
                                 Text("Create")
                                     .font(.system(.body, design: .monospaced))
