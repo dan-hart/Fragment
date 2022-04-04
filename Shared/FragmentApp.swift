@@ -23,6 +23,7 @@ struct FragmentApp: App {
                 }
                 .onAppear {
                     sessionHandler.callTask {
+                        isLoading = true
                         try await sessionHandler.startSession(with: sessionHandler.token)
                     }
                 }
