@@ -25,6 +25,13 @@ struct ContainerView: View {
 
                 .navigationTitle("Gists")
         }
+        .toolbar {
+                    ToolbarItem(placement: .navigation) {
+                        Button(action: toggleSidebar, label: { // 1
+                            Image(systemName: "sidebar.leading")
+                        })
+                    }
+                }
         .sheet(isPresented: $isShowingAddModal, content: {
             #if os(iOS)
                 NavigationView {
