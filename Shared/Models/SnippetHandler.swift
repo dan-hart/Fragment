@@ -15,7 +15,8 @@ class SnippetHandler: ObservableObject {
 
     // MARK: - Add Data
 
-    func update(_ id: String,
+    func update(using configuration: TokenConfiguration,
+                _ id: String,
                 _ description: String,
                 _ filename: String,
                 _ content: String,
