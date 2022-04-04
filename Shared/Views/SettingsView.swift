@@ -110,6 +110,16 @@ struct SettingsView: View {
                 }
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Done")
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
+        }
     }
 }
 
