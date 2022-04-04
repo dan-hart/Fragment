@@ -67,7 +67,7 @@ class OctoHandler: ObservableObject {
         }
     }
     
-    func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>, usingCache: Bool = true) async -> [Gist] {
+    func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>, usingCache: Bool = true) async throws -> [Gist] {
         isLoading.wrappedValue = true
         
         if usingCache {
