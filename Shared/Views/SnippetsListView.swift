@@ -98,22 +98,24 @@ struct SnippetsListView: View {
         .toolbar {
             let menu = Menu {
                 // Menu Content
-                #if os(macOS)
-                    Button {
-                        Task {
-                            await fetchGists()
+                if snippetHandler.isAuthenticated {
+                    #if os(macOS)
+                        Button {
+                            Task {
+                                await fetchGists()
+                            }
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .arrowDownCircle)
+                                Text("Pull")
+                                    .font(.system(.body, design: .monospaced))
+                            }
                         }
-                    } label: {
-                        HStack {
-                            Image(systemSymbol: .arrowDownCircle)
-                            Text("Pull")
-                                .font(.system(.body, design: .monospaced))
-                        }
-                    }
 
-                #endif
+                    #endif
 
-                Divider()
+                    Divider()
+                }
 
                 Button {
                     if CacheHelper.deleteAllOnDisk() {
@@ -141,9 +143,7 @@ struct SnippetsListView: View {
             #if os(iOS)
 
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if snippetHandler.isAuthenticated {
-                        menu
-                    }
+                    menu
                 }
             #endif
 
