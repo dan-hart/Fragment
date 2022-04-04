@@ -24,7 +24,7 @@ class SnippetHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-
+        
         Octokit(configuration).patchGistFile(id: id,
                                              description: description,
                                              filename: filename,
