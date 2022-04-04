@@ -20,7 +20,7 @@ struct SettingsView: View {
                 VStack {
                     Form {
                         Section("General") {
-                            <#code#>
+                            EmptyView()
                         }
                         Button {
                             sessionHandler.callTask {
