@@ -10,8 +10,7 @@ import SFSafeSymbols
 import SwiftUI
 
 struct ListView: View {
-    @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var octoHandler: OctoHandler
+    @EnvironmentObject var sessionHandler: SessionHandler
 
     @Binding var isLoading: Bool
     @Binding var searchText: String
