@@ -194,8 +194,8 @@ class SessionHandler: ObservableObject {
         } catch {
             if error is FragmentError {
                 let fragmentError = (error as! FragmentError).rawValue
-                alert = Alert(title: "Oops!", message: error)
-                print(.rawValue)
+                alert = Alert(title: "Oops!", message: fragmentError)
+                print(fragmentError)
             } else {
                 print(error)
             }
