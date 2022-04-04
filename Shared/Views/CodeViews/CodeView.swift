@@ -15,6 +15,7 @@ import SwiftUI
 struct CodeView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
+    @EnvironmentObject var cacheHandler: CacheHandler
     @Environment(\.colorScheme) var colorScheme
 
     var theme: CodeEditor.ThemeName {
@@ -68,7 +69,7 @@ struct CodeView: View {
                                         loadedSourceCode = gist.text
                                         
                                         // Re-fetch to get the latest
-                                        octoHandler.fetchGists(tokenHandler, CacheHandler, isLoading: isLoadingParent)
+                                        octoHandler.fetchGists(tokenHandler, cacheHandle, isLoading: $isLoadingParent)
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
                                     }
