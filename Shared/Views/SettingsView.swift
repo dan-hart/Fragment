@@ -42,9 +42,9 @@ struct SettingsView: View {
                 .task {
                     isLoading = true
 
-                    let authenticated = await tokenHandler.checkAuthenticationStatus()
-                    if authenticated {
-                        name = await octoHandler.me(using: tokenHandler.configuration)?.name
+                    sessionHandler.call {
+                        let user = try await sessionHandler.me()
+                        self.name = user.name
                     }
 
                     isLoading = false
