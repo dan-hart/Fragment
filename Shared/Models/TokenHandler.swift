@@ -56,15 +56,13 @@ class TokenHandler: ObservableObject {
             return then(false)
         }
 
-        Octokit(configuration).me { [self] response in
-            DispatchQueue.main.async { [self] in
+        Octokit(configuration).me { response in
                 switch response {
                 case .success:
                     then(true)
                 case .failure:
                     then(false)
                 }
-            }
         }
     }
 }
