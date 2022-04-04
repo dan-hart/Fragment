@@ -183,4 +183,8 @@ class SessionHandler: ObservableObject {
             print(error)
         }
     }
+    
+    func callTask(thisAsyncThrowingCode: @escaping () async throws -> Void) {
+        
+    }
 }
