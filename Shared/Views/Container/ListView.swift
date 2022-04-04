@@ -126,25 +126,22 @@ struct ListView: View {
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
-            let menu = Menu {
-                // Menu Content
-                Button {
-                    isShowingPreferencesView = true
-                } label: {
-                    HStack {
-                        Image(systemSymbol: .gearshape)
-                        Text("Preferences")
-                            .font(.system(.body, design: .monospaced))
-                    }
-                }
-                // End Menu Content
-            } label: {
-                Image(systemSymbol: .gearshape)
-            }
-
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
-                    menu
+                    Menu {
+                        // Menu Content
+                        Button {
+                            isShowingPreferencesView = true
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .gearshape)
+                                Text("Preferences")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+                    } label: {
+                        Image(systemSymbol: .gearshape)
+                    }
                 }
             #endif
 
