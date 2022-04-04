@@ -32,7 +32,8 @@ struct FragmentApp: App {
         
         Settings {
             TabView {
-                ProfileSettingsView()
+                Text("Profile Settings")
+                            .font(.title)
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
