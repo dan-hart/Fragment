@@ -83,7 +83,7 @@ class SessionHandler: ObservableObject {
         _ filename: String,
         _ content: String) async throws -> Gist
     {
-        validate()
+        await validate()
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).patchGistFile(id: id,
@@ -109,7 +109,7 @@ class SessionHandler: ObservableObject {
         _ content: String,
         _ visibility: Visibility
     ) async throws -> Gist {
-        validate()
+        await validate()
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).postGistFile(
@@ -131,7 +131,7 @@ class SessionHandler: ObservableObject {
     }
     
     func myGists() async throws -> [Gist] {
-        validate()
+        await validate()
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
