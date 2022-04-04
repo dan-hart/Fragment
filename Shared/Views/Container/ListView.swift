@@ -180,9 +180,9 @@ struct ListView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        #if os(macOS)
-                        .buttonStyle(PlainButtonStyle())
-                        #endif
+//                        #if os(macOS)
+//                        .buttonStyle(PlainButtonStyle())
+//                        #endif
 
                         #if os(macOS)
                             menu
