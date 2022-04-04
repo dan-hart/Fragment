@@ -35,7 +35,8 @@ struct FragmentApp: App {
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
                 .environmentObject(cacheHandler)
+                .frame(width: 400, height: 400)
         }
-        .frame(width: 400, height: 400)
+        
     }
 }
