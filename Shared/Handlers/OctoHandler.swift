@@ -85,7 +85,7 @@ class OctoHandler: ObservableObject {
         guard let configuration = configuration else {
             return nil
         }
-        self.me = me(using: )
+        self.me = me(using: configuration)
     }
 
     func me(using configuration: TokenConfiguration) async -> User? {
