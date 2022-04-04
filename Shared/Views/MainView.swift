@@ -21,7 +21,7 @@ struct MainView: View {
                     EmptyView()
                 #endif
                 Text("Loading...")
-                    .font(.system(.body, design: .monospaced))
+                    .font(.system(.largeTitle, design: .monospaced))
                     .frame(minWidth: 800)
             } else {
                 if tokenHandler.isAuthenticated {
