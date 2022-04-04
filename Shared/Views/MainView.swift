@@ -11,6 +11,8 @@ struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
     @EnvironmentObject var cacheHandler: CacheHandler
+    
+    @State var is
 
     var body: some View {
         NavigationView {
@@ -20,8 +22,8 @@ struct MainView: View {
                 AuthenticationView()
             }
         }
-        .onAppear {
-            
+        .task {
+            await tokenHandler.checkAuthenticationStatus()
         }
     }
 }
