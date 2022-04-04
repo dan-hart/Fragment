@@ -19,15 +19,14 @@ struct MainView: View {
             NavigationView {
                 #if os(macOS)
                     EmptyView()
+                    AuthenticationView(isLoading: $isLoading)
+                        .padding()
                 #endif
+                #if os(iOS)
                 AuthenticationView(isLoading: $isLoading)
                     .padding()
-                #if os(iOS)
-                    .navigationViewStyle(StackNavigationViewStyle())
-                
                 Text("Enter Github personal access token on the lefthand sidebar")
                     .font(.system(.body, design: .monospaced))
-                
                 #endif
                 
             }
