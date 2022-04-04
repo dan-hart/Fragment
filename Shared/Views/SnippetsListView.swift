@@ -18,6 +18,7 @@ struct SnippetsListView: View {
     @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
+    
     @AppStorage("visibility") var visibility: Visibility = .public
 
     var body: some View {
