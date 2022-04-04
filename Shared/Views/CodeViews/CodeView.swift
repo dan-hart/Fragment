@@ -61,6 +61,7 @@ struct CodeView: View {
                                 filename,
                                 sourceCode
                             ) { optionalGist, optionalError in
+                                isLoadingParent = false
                                 DispatchQueue.main.async {
                                     if let gist = optionalGist {
                                         sourceCode = gist.text
@@ -68,7 +69,6 @@ struct CodeView: View {
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
                                     }
-                                    isLoadingParent = false
                                 }
                             }
                         } label: {
