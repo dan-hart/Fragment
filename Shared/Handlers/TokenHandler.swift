@@ -44,7 +44,10 @@ class TokenHandler: ObservableObject {
                     isAuthenticated = true
                 }
                 return true
+            } else {
+                return false
             }
+            
         } catch {
             await MainActor.run {
                 isAuthenticated = false
