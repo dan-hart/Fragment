@@ -107,12 +107,12 @@ struct ListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(filteredGists, id: \.self) { gist in
+                ForEach(filteredGists.index, id: \.self) { gist in
                     NavigationLink {
-                        CodeView(gist: gist, isLoadingParent: $isLoading)
-                            .navigationTitle(gist.filename)
+                        CodeView(gist: filteredGists[index], isLoadingParent: $isLoading)
+                            .navigationTitle(fil[index].filename)
                     } label: {
-                        GistRow(data: gist)
+                        GistRow(data: $sessionHandler.gists[index])
                             .padding()
                     }
                 }
