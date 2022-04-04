@@ -33,7 +33,7 @@ struct FragmentApp: App {
         }
 
         Settings {
-            SettingsView(isAuthenticated: tokenHandler.isAuthenticated, isLoading: $isSettingsLoading)
+            SettingsView(isLoading: $isSettingsLoading, isAuthenticated: tokenHandler.$isAuthenticated)
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
                 .environmentObject(cacheHandler)
