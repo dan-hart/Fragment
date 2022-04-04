@@ -11,6 +11,8 @@ import OctoKit
 
 class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
+    
+    @Published var configuration: TokenConfiguration?
 
     var bundleID: String {
         Bundle.main.bundleIdentifier ?? ""
