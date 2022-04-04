@@ -202,13 +202,15 @@ class SessionHandler: ObservableObject {
         do {
             try await thisAsyncThrowingCode()
         } catch {
+            var errorMessage = ""
             if error is FragmentError {
                 let fragmentError = (error as? FragmentError)?.rawValue
-                alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(fragmentError ?? "Error").font(.system(.caption, design: .monospaced)))
                 print(fragmentError ?? "Error")
             } else {
                 print(error)
             }
+            
+            alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(fragmentError ?? "Error").font(.system(.caption, design: .monospaced)))
         }
     }
 
