@@ -11,7 +11,7 @@ struct SettingsView: View {
     let tokenHandler = TokenHandler()
     let octoHandler = OctoHandler()
     let cacheHandler = CacheHandler()
-    
+
     @State var name: String?
 
     var body: some View {
