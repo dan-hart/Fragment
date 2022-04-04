@@ -43,6 +43,10 @@ class SnippetHandler: ObservableObject {
         _ visibility: Visibility,
         then: @escaping (Gist?, Error?) -> Void
     ) {
+        guard let configuration = configuration else {
+            return then(nil, nil)
+        }
+        
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
