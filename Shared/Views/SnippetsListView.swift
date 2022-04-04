@@ -84,6 +84,7 @@ struct SnippetsListView: View {
         }
         .searchable(text: $searchText)
         .sheet(isPresented: $isShowingAddModal, content: {
+            #if os(iOS)
             NavigationView {
                 #if os(macOS)
                     EmptyView()
@@ -96,6 +97,7 @@ struct SnippetsListView: View {
                 .padding()
                 #endif
             }
+            #endif
         })
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
