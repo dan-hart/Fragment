@@ -60,7 +60,7 @@ class TokenHandler: ObservableObject {
             DispatchQueue.main.async { [self] in
                 switch response {
                 case .success:
-                    self.isAuthenticated = true
+                    then(true)
                 case .failure:
                     self.isAuthenticated = false
                 }
