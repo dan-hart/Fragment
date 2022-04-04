@@ -16,10 +16,6 @@ struct GistRow: View {
         ((data.files.first?.key ?? "") as NSString).deletingPathExtension
     }
 
-    var fileExtension: String? {
-        ((data.files.first?.value.filename ?? "") as NSString).pathExtension
-    }
-
     var body: some View {
         VStack(alignment: .leading) {
             Text(filenameNoExtension ?? (data.files.first?.key ?? "Unknown"))
@@ -44,7 +40,7 @@ struct GistRow: View {
             HStack {
                 Visibility(isPublic: data.publicGist).body
                 Spacer()
-                if let `extension` = fileExtension, !`extension`.isEmpty {
+                if let `extension` = data.fileExtension, !`extension`.isEmpty {
                     Text(`extension`)
                         .font(.system(.footnote, design: .monospaced))
                         .lineLimit(1)
