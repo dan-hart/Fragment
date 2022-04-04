@@ -12,7 +12,7 @@ import SwiftUI
 
 class SessionHandler: ObservableObject {
     var keychainKeyIdentifier = "FRAGMENT_GITHUB_API_TOKEN"
-
+    
     // MARK: - Publishable data
     @Published public var isAuthenticated = false
     @Published public var gists: [Gist] = []
@@ -23,21 +23,21 @@ class SessionHandler: ObservableObject {
     var bundleID: String {
         Bundle.main.bundleIdentifier ?? ""
     }
-
+    
     private var keychain: Keychain {
         Keychain(service: bundleID)
     }
-
+    
     // MARK: - Initialization
     init() {}
-
+    
     // MARK: - Methods
     
     func invalidateSession() {
         keychain[keychainKeyIdentifier] = nil
         isAuthenticated = false
     }
-
+    
     func startSession(with optionalToken: String? = nil) async throws {
         if let token = optionalToken {
             configuration = try await authenticate(using: token)
@@ -45,7 +45,7 @@ class SessionHandler: ObservableObject {
             configuration = try await authenticate(using: getToken())
         }
     }
-
+    
     // MARK: - Authentication
     private func getToken() throws -> String {
         guard let token = keychain[keychainKeyIdentifier] else {
@@ -59,14 +59,14 @@ class SessionHandler: ObservableObject {
         guard let token = token, !token.isEmpty else {
             throw FragmentError.nilToken
         }
-
+        
         let configuration = TokenConfiguration(token)
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
                 continuation.resume(returning: response)
             }
         }
-
+        
         switch response {
         case .success:
             isAuthenticated = true
@@ -91,17 +91,16 @@ class SessionHandler: ObservableObject {
                 continuation.resume(returning: response)
             }
         }
-
-            switch response {
-            case let .success(gist):
-                return gist
-            case let .failure(error):
-                throw error
-            }
+        
+        switch response {
+        case let .success(gist):
+            return gist
+        case let .failure(error):
+            throw error
+        }
     }
-
+    
     func create(
-        using configuration: TokenConfiguration?,
         gist filename: String,
         _ description: String,
         _ content: String,
@@ -111,7 +110,7 @@ class SessionHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-
+        
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
@@ -127,18 +126,18 @@ class SessionHandler: ObservableObject {
             }
         }
     }
-
+    
     func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
         guard let configuration = configuration else {
             throw FragmentError.nilConfiguratioin
         }
-
+        
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
                 continuation.resume(returning: response)
             }
         }
-
+        
         switch response {
         case let .success(gists):
             return gists
@@ -146,14 +145,14 @@ class SessionHandler: ObservableObject {
             throw FragmentError.couldNotFetchData
         }
     }
-
+    
     // MARK: - Profile
-
+    
     func me(using configuration: TokenConfiguration?) async throws -> User? {
         guard let configuration = configuration else {
             throw FragmentError.nilConfiguratioin
         }
-
+        
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
                 continuation.resume(returning: response)
