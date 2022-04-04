@@ -17,6 +17,7 @@ struct AuthenticationView: View {
 
     var body: some View {
         #if os(macOS)
+        return Text("Loading")
         #endif
         VStack(alignment: .center) {
             Spacer()
