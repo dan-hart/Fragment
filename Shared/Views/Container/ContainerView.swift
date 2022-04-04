@@ -13,11 +13,14 @@ struct ContainerView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
+    @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
 
     var body: some View {
-        
+        NavigationView {
+            ListView(isLoading: <#T##Binding<Bool>#>, searchText: <#T##Binding<String>#>)
+        }
         .navigationTitle("Gists")
     }
 }
