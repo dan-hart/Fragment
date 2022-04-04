@@ -10,7 +10,7 @@ import OctoKit
 
 extension Gist {
     var id: String {
-        
+        id
     }
     
     var cacheKey: String {
