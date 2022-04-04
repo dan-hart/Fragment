@@ -9,7 +9,7 @@ import OctoKit
 import SFSafeSymbols
 import SwiftUI
 
-struct SnippetsListView: View {
+struct ContainerView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
@@ -205,6 +205,6 @@ struct SnippetsListView: View {
 
 struct SnippetsListView_Previews: PreviewProvider {
     static var previews: some View {
-        SnippetsListView()
+        ContainerView()
     }
 }

@@ -19,7 +19,7 @@ struct MainView: View {
                 .frame(minWidth: 800)
         } else {
             if tokenHandler.isAuthenticated {
-                SnippetsListView()
+                ContainerView()
             } else {
                 AuthenticationView()
                     .frame(minWidth: 800)
