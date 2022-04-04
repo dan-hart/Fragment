@@ -29,7 +29,9 @@ class TokenHandler: ObservableObject {
     init() {
         let optionalToken = getToken()
         authenticate(using: optionalToken) { optionalToken in
-            <#code#>
+            if let token = optionalToken {
+                self.isAuthenticated = true
+            }
         }
     }
 
