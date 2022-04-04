@@ -102,11 +102,8 @@ struct ListView: View {
                         selectedGist = octoHandler.gists[index]
                     }
                     .padding()
-                    .overlay {
-                        if selectedGist == octoHandler.gists[index] {
-                            RoundedRectangle(cornerRadius: 8).foregroundColor(.blue)
-                        }
-                    }
+                    .background(selectedGist == octoHandler.gists[index] ? .blue : .clear)
+                    .contentShape(RoundedRectangle(cornerRadius: 8)))
                 }
             }
         }
