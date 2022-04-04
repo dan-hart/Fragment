@@ -75,7 +75,7 @@ class TokenHandler: ObservableObject {
         switch response {
         case .success:
             return configuration
-        case .failure(let error)
+        case .failure(let error):
             throw error
         }
     }
