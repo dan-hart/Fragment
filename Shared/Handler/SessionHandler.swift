@@ -121,7 +121,7 @@ class SessionHandler: ObservableObject {
             
             switch response {
             case let .success(gist):
-                then(gist, nil)
+                return gist
             case let .failure(error):
                 print(error)
                 then(nil, error)
