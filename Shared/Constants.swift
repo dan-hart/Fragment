@@ -7,6 +7,8 @@
 
 import Foundation
 #if canImport(UIKit)
+import UIKit
+#endif
 
 // swiftlint:disable line_length
 enum Constants {
