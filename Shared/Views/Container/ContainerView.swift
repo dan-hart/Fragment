@@ -14,7 +14,6 @@ struct ContainerView: View {
     
     @Binding var isLoading: Bool
 
-    @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
 
