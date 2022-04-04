@@ -117,7 +117,6 @@ struct ListView: View {
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
-            let menu = Menu {
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
                     menu
@@ -138,10 +137,6 @@ struct ListView: View {
                         }
                         #if os(macOS)
                         .frame(minWidth: 100)
-                        #endif
-
-                        #if os(macOS)
-                            menu
                         #endif
                     }
                 }
