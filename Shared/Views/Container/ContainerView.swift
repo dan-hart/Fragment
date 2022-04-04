@@ -32,7 +32,7 @@ struct ContainerView: View {
                         })
                     }
                 }
-        .sheet(isPresented: $isShowingAddModal, content: {
+        .sheet(isPresented: $isShowingAddModal) content: {
             #if os(iOS)
                 NavigationView {
                     AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
@@ -47,6 +47,13 @@ struct ContainerView: View {
                 .frame(minWidth: 800, minHeight: 800)
                 .padding()
             #endif
-        })
+        }
+    }
+    
+    private func toggleSidebar() { // 2
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
     }
 }
