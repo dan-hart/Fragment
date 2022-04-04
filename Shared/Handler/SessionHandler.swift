@@ -130,6 +130,10 @@ class SessionHandler: ObservableObject {
         }
     }
     
+    func refreshGists() async throws {
+        
+    }
+    
     func myGists() async throws -> [Gist] {
         try await validate()
         
