@@ -118,10 +118,8 @@ struct ListView: View {
             }
         }
         .refreshable {
-            Task {
-                sessionHandler.call {
-                    try await sessionHandler.refreshGists()
-                }
+            sessionHandler.callTask {
+                try await sessionHandler.refreshGists()
             }
         }
         .searchable(text: $searchText)
