@@ -21,9 +21,11 @@ struct SnippetsListView: View {
     @AppStorage("visibility") var visibility: Visibility = .public
 
     var computeFilteredGists: [Gist] {
-        let withVisibility = gists.filter { gist in
+        let withVisibility = gists.filter { gist in // Public / Private
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
+        }.filter { gist in
+            
         }
 
         if searchText.isEmpty {
@@ -56,7 +58,10 @@ struct SnippetsListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(gists, id: \.id) { gist in
+                ForEach(gists.filter { gist in
+                    let gistVisibility = Visibility(isPublic: gist.publicGist)
+                    return gistVisibility == visibility
+                }, id: \.id) { gist in
                     NavigationLink {
                         CodeView(gist: .constant(gist), isLoadingParent: $isLoading)
                         #if os(macOS)
