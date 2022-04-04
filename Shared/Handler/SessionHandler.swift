@@ -205,9 +205,8 @@ class SessionHandler: ObservableObject {
             var errorMessage = ""
             if error is FragmentError {
                 errorMessage = (error as? FragmentError)?.rawValue
-                print(fragmentError ?? "Error")
             } else {
-                print(error)
+                errorMessage = error.localizedDescription
             }
             
             alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(fragmentError ?? "Error").font(.system(.caption, design: .monospaced)))
