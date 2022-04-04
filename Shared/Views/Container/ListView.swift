@@ -108,7 +108,7 @@ struct ListView: View {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
                     .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
+                        ToolbarItem(placement: .primaryAction) {
                             Button {
                                 isShowingPreferencesView = false
                             } label: {
