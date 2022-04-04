@@ -176,7 +176,7 @@ class SessionHandler: ObservableObject {
         do {
             try await thisAsyncThrowingCode()
         } catch(let error) {
-            print(
+            print(error)
         }
         }
     }
