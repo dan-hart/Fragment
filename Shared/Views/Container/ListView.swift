@@ -176,17 +176,8 @@ struct ListView: View {
                 }
             }
         }
-
-        .navigationTitle("Gists")
     }
 }
-
-struct SnippetsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContainerView()
-    }
-}
-
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
