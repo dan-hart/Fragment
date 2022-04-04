@@ -14,20 +14,15 @@ struct FragmentApp: App {
     @State var isLoading = false
     @State var isSettingsLoading = false
 
-    init() {
-        Task {
-        do {
-            try await sessionHandler.startSession()
-        } catch {
-            print("Unable to start session")
-        }
-        }
-    }
-
     var body: some Scene {
         WindowGroup {
             MainView(isLoading: $isLoading)
                 .environmentObject(sessionHandler)
+                .onAppear {
+                    sessionHandler.callTask {
+                        try await sessionHandler.startSession()
+                    }
+                }
         }
 
         #if os(macOS)
