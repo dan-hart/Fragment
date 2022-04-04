@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ContainerView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
-    
+
     @Binding var isLoading: Bool
 
     @State var isShowingAddModal = false
