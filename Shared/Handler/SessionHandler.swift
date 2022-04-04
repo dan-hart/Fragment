@@ -17,7 +17,7 @@ class SessionHandler: ObservableObject {
     @Published var isAuthenticated = false
     @Published var gists: [Gist] = []
     
-    var configuration = TokenConfiguration()
+    private var configuration = TokenConfiguration()
     
     // MARK: - Computed
     var bundleID: String {
