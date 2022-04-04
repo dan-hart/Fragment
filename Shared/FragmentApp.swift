@@ -33,6 +33,8 @@ struct FragmentApp: App {
         Settings {
             TabView {
                 VStack {
+                    Text("Privacy Settings")
+                        .font(.title)
                     
                 }
                     .tabItem {
