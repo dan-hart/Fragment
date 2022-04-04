@@ -36,11 +36,6 @@ struct SnippetsListView: View {
                 VStack {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
-                        .onAppear {
-                            Task {
-                                await fetchGists()
-                            }
-                        }
 
                     if tokenHandler.isAuthenticated {
                         VStack {
