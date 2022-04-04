@@ -13,8 +13,8 @@ import SFSafeSymbols
 import SwiftUI
 
 struct CodeView: View {
-    @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var octoHandler: OctoHandler
+    @EnvironmentObject var sessionHandler: SessionHandler
+    
     @Environment(\.colorScheme) var colorScheme
 
     var theme: CodeEditor.ThemeName {
