@@ -31,6 +31,7 @@ class TokenHandler: ObservableObject {
     
     func clear() {
         delete(key: TokenHandler.keyName)
+        isAuthenticated = false
     }
 
     func taskCheckingAuthenticationStatus() {
