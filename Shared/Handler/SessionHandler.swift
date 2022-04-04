@@ -36,7 +36,7 @@ class SessionHandler: ObservableObject {
     init() {}
 
     // MARK: - Methods
-    func invalidateSession() {
+    func clearToken() {
         keychain[key] = nil
         isAuthenticated = false
     }
