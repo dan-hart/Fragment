@@ -204,7 +204,7 @@ class SessionHandler: ObservableObject {
         } catch {
             var errorMessage = ""
             if error is FragmentError {
-                errorMessage = (error as? FragmentError)?.rawValue
+                errorMessage = (error as? FragmentError)?.rawValue ?? "Error"
             } else {
                 errorMessage = error.localizedDescription
             }
