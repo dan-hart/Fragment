@@ -35,7 +35,7 @@ struct ListView: View {
 
             if sessionHandler.gists.isEmpty {
                 VStack {
-                    Text("No Gists")
+                    Text(isLoading ? "Loading..." : "No Gists")
                         .font(.system(.body, design: .monospaced))
 
                     if Constants.Feature.ifNoGistsEnableCreateButton {
