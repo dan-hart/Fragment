@@ -68,6 +68,7 @@ class SessionHandler: ObservableObject {
         return token
     }
 
+    @MainActor
     private func authenticate(using token: String?) async throws -> TokenConfiguration {
         guard let token = token, !token.isEmpty else {
             throw FragmentError.nilToken
