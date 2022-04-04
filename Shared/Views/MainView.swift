@@ -26,12 +26,6 @@ struct MainView: View {
                     if Constants.isMacOrPad() {
                         EmptyView()
                     }
-                    #if os(macOS)
-                        EmptyView()
-                    #endif
-                    #if os(iPadOS)
-                        EmptyView()
-                    #endif
                     AuthenticationView()
                         .frame(minWidth: 800)
                         .padding()
