@@ -11,35 +11,36 @@ import OctoKit
 
 class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
-    
+
     @Published var isAuthenticated: Bool = false
-    
+
     var bundleID: String {
         Bundle.main.bundleIdentifier ?? ""
     }
-    
+
     var keychain: Keychain {
         Keychain(service: bundleID)
     }
-    
+
     private var configuration: TokenConfiguration?
     private var value: String?
-    
+
     init() {
         checkNeedsAuthenticationStatus()
     }
-    
+
     // MARK: - Methods
-    
+
     func save(token: String) {
         keychain[TokenHandler.keyName] = token
     }
-    
+
     func delete(key: String = TokenHandler.keyName) {
         keychain[key] = nil
     }
-    
+
     // MARK: - Authentication
+
     func checkNeedsAuthenticationStatus() {
         if let token = keychain[TokenHandler.keyName] {
             value = token
@@ -48,13 +49,13 @@ class TokenHandler: ObservableObject {
             }
         }
     }
-    
+
     func authenticate(using token: String, then: @escaping (Bool) -> Void) {
         configuration = TokenConfiguration(token)
         guard let configuration = configuration else {
             return then(false)
         }
-        
+
         Octokit(configuration).me { response in
             switch response {
             case .success:

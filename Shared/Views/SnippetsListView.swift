@@ -89,9 +89,9 @@ struct SnippetsListView: View {
         })
         .redacted(reason: isLoading ? .placeholder : [])
         .onAppear {
-                Task {
-                    await fetchGists()
-                }
+            Task {
+                await fetchGists()
+            }
         }
         .toolbar {
             let menu = Menu {
@@ -176,7 +176,7 @@ struct SnippetsListView: View {
         if !tokenHandler.isAuthenticated {
             return
         }
-        
+
         isLoading = true
         gists = []
         if CacheHelper.deleteAllOnDisk() {
