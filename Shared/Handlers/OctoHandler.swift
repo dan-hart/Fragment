@@ -64,6 +64,31 @@ class OctoHandler: ObservableObject {
             }
         }
     }
+    
+    func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>) {
+        cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
+
+        if CacheHelper.deleteAllOnDisk() {
+            print("Cleared cache")
+        }
+
+        gists = []
+        isLoading = true
+
+        if !tokenHandler.isAuthenticated {
+            tokenHandler.taskCheckingAuthenticationStatus()
+        }
+
+        octoHandler.gists(using: tokenHandler.configuration) { optionalGists in
+            if let gists = optionalGists {
+                self.gists = gists
+            }
+            if tokenHandler.isElidgibleForCaching {
+                cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
+            }
+            isLoading = false
+        }
+    }
 
     func gists(using configuration: TokenConfiguration?, then: @escaping ([Gist]?) -> Void) {
         guard let configuration = configuration else {
