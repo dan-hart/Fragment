@@ -29,7 +29,7 @@ struct ContainerView: View {
             #if os(iOS)
                 NavigationView {
                     AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
-                        gists.insert(newGist, at: 0)
+                        octoHandler.gists.insert(newGist, at: 0)
                     }
                 }
             #endif
