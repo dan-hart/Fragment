@@ -30,14 +30,13 @@ struct FragmentApp: App {
                 }
         }
 
-        
         #if os(macOS)
             Settings {
                 if Constants.Feature.settingsEnabled {
-                SettingsView(isLoading: $isSettingsLoading)
-                    .environmentObject(sessionHandler)
-                    .frame(width: 400, height: 400)
-                    .redacted(reason: isSettingsLoading ? .placeholder : [])
+                    SettingsView(isLoading: $isSettingsLoading)
+                        .environmentObject(sessionHandler)
+                        .frame(width: 400, height: 400)
+                        .redacted(reason: isSettingsLoading ? .placeholder : [])
                 }
             }
         #endif
