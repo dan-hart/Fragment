@@ -68,9 +68,9 @@ class TokenHandler: ObservableObject {
 
     // MARK: - Authentication
 
-    func authenticate(using token: String?) async throws -> TokenConfiguration {
+    func authenticate(using token: String?) async throws -> TokenConfiguration? {
         guard let token = token else {
-            throw AuthenticationError.nilToken
+            return nil
         }
 
         let configuration = TokenConfiguration(token)
