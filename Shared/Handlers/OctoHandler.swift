@@ -82,7 +82,7 @@ class OctoHandler: ObservableObject {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
 
-        gists(using: tokenHandler.configuration) { optionalGists in
+        self.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
                 self.gists = gists
             }
