@@ -29,11 +29,7 @@ struct MainView: View {
                         .padding()
                 }
             }
-        .task {
-            isLoading = true
-            _ = await tokenHandler.checkAuthenticationStatus()
-            isLoading = false
-        }
+
     }
 }
 
