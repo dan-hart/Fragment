@@ -20,7 +20,7 @@ struct SnippetsListView: View {
     @State var searchText = ""
     @AppStorage("visibility") var visibility: Visibility = .public
 
-    @State var filteredGists: [Gist] {
+    var filteredGists: [Gist] {
         let withVisibility = gists.filter { gist in
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
