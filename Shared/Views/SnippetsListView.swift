@@ -37,7 +37,7 @@ struct SnippetsListView: View {
                 VStack {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
-                    
+
                     HStack {
                         if tokenHandler.isAuthenticated {
                             Button {
@@ -47,7 +47,7 @@ struct SnippetsListView: View {
                                     #if !os(macOS)
                                         Image(systemSymbol: .plusCircle)
                                     #endif
-                                    Text("Create")
+                                    Text("Create Gist")
                                         .font(.system(.body, design: .monospaced))
                                 }
                             }
