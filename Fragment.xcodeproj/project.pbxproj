@@ -17,10 +17,10 @@
 		525D85E227E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D85E327E760A60066B147 /* FragmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D85B727E760A40066B147 /* FragmentApp.swift */; };
 		525D860327E7621D0066B147 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860227E7621D0066B147 /* MainView.swift */; };
-		525D860527E762610066B147 /* SnippetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* SnippetsListView.swift */; };
+		525D860527E762610066B147 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* ContainerView.swift */; };
 		525D860827E762B40066B147 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 525D860727E762B40066B147 /* OctoKit */; };
 		525D860927E763B50066B147 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860227E7621D0066B147 /* MainView.swift */; };
-		525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* SnippetsListView.swift */; };
+		525D860A27E763B80066B147 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D860427E762610066B147 /* ContainerView.swift */; };
 		526D97C327F0C25B00BD46CE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C227F0C25B00BD46CE /* KeychainAccess */; };
 		526D97C527F0C26600BD46CE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C427F0C26600BD46CE /* KeychainAccess */; };
 		526D97C827F0C5BE00BD46CE /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = 526D97C727F0C5BE00BD46CE /* Highlightr */; };
@@ -95,7 +95,7 @@
 		525D85C527E760A60066B147 /* Fragment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fragment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525D85C727E760A60066B147 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		525D860227E7621D0066B147 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		525D860427E762610066B147 /* SnippetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsListView.swift; sourceTree = "<group>"; };
+		525D860427E762610066B147 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		526D97D227F0C82D00BD46CE /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		526D97DD27F0CA8600BD46CE /* Gist+text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+text.swift"; sourceTree = "<group>"; };
 		526D97E027F0CBCC00BD46CE /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 				52769DFE27F0EED100F5D4E0 /* Add */,
 				525D860227E7621D0066B147 /* MainView.swift */,
 				5283B2E227EC0C240018F19B /* AuthenticationView.swift */,
-				525D860427E762610066B147 /* SnippetsListView.swift */,
+				525D860427E762610066B147 /* ContainerView.swift */,
 				522915B827E7855E0087530C /* CodeViews */,
 				522915B027E7781E0087530C /* GistViews */,
 				5A23880E27FB4C4E00480C20 /* SettingsView.swift */,
@@ -609,7 +609,7 @@
 			files = (
 				5A23880F27FB4C4E00480C20 /* SettingsView.swift in Sources */,
 				526D97E127F0CBCC00BD46CE /* CodeView.swift in Sources */,
-				525D860527E762610066B147 /* SnippetsListView.swift in Sources */,
+				525D860527E762610066B147 /* ContainerView.swift in Sources */,
 				526D97DE27F0CA8600BD46CE /* Gist+text.swift in Sources */,
 				525D85E227E760A60066B147 /* FragmentApp.swift in Sources */,
 				52769DFC27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */,
@@ -635,7 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A23881027FB4C4E00480C20 /* SettingsView.swift in Sources */,
-				525D860A27E763B80066B147 /* SnippetsListView.swift in Sources */,
+				525D860A27E763B80066B147 /* ContainerView.swift in Sources */,
 				526D97DF27F0CA8600BD46CE /* Gist+text.swift in Sources */,
 				525D85E327E760A60066B147 /* FragmentApp.swift in Sources */,
 				5283B2E427EC0C240018F19B /* AuthenticationView.swift in Sources */,
