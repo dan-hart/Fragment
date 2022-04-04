@@ -11,5 +11,6 @@ import OctoKit
 
 class CacheHandler: ObservableObject {
     let gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
+    
     init() {}
 }
