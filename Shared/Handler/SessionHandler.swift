@@ -75,6 +75,7 @@ class SessionHandler: ObservableObject {
 
         switch response {
         case .success:
+            isAuthenticated = true
             return configuration
         case let .failure(error):
             throw error
