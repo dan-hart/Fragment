@@ -29,7 +29,7 @@ struct ListView: View {
             }
             .pickerStyle(.segmented)
             .labelsHidden()
-            
+
             .navigationTitle("Gists")
 
             if octoHandler.gists.isEmpty {
