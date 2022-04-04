@@ -66,7 +66,6 @@ struct CodeView: View {
                             ) { optionalGist, optionalError in
                                 DispatchQueue.main.async {
                                     if let gist = optionalGist {
-                                        self.gist = gist
                                         sourceCode = gist.text
                                         loadedSourceCode = gist.text
 
