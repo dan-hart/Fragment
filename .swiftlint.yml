@@ -44,6 +44,7 @@ disabled_rules:
 - no_space_in_method_call
 - type_name
 - opening_brace
+- line_length
 
 # https://realm.github.io/SwiftLint/rule-directory.html
 
