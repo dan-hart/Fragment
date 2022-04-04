@@ -105,12 +105,12 @@ struct ListView: View {
         }
         .task {
             _ = try? await octoHandler.fetchGists(tokenHandler)
-            let wtf = octoHandler.gists.filter { gist in
+            let why = octoHandler.gists.filter { gist in
                 let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                 let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                 return audienceIsMatch && searchIsVisible
             }
-            print(wtf)
+            print(why)
         }
         .refreshable {
             Task {
