@@ -117,7 +117,7 @@ struct ListView: View {
         }
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
-        .sheet(isPresented: $isShowingPreferencesView {
+        .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView()
                 
