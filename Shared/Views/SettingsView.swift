@@ -34,6 +34,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                .navigationTitle("General")
                 }
                 .tabItem {
                     Label("General", systemImage: "gearshape")
