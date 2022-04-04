@@ -13,6 +13,7 @@ struct FragmentApp: App {
     let octoHandler = OctoHandler()
     let cacheHandler = CacheHandler()
 
+    @
     @State var isSettingsLoading = false
 
     init() {
