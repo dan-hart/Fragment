@@ -83,6 +83,8 @@ class SessionHandler: ObservableObject {
         _ filename: String,
         _ content: String) async throws -> Gist
     {
+        if !isAuthenticated { throw FragmentError.notAuthenticated }
+        
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).patchGistFile(id: id,
                                                  description: description,
@@ -107,6 +109,8 @@ class SessionHandler: ObservableObject {
         _ content: String,
         _ visibility: Visibility
     ) async throws -> Gist {
+        if !isAuthenticated { throw FragmentError.notAuthenticated }
+        
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).postGistFile(
                 description: description,
