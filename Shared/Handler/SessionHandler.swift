@@ -177,10 +177,10 @@ class SessionHandler: ObservableObject {
     }
     
     func call(thisAsyncThrowingCode: @escaping () async throws -> Void) async {
-            do {
-                try await thisAsyncThrowingCode()
-            } catch(let error) {
-                print(error)
-            }
+        do {
+            try await thisAsyncThrowingCode()
+        } catch(let error) {
+            print(error)
+        }
     }
 }
