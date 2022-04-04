@@ -23,6 +23,9 @@ struct MainView: View {
                 ContainerView()
             } else {
                 NavigationView {
+                    #if os(macOS)
+                    EmptyView()
+                    #endif
                 AuthenticationView()
                     .frame(minWidth: 800)
                     .padding()
