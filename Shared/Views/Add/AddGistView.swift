@@ -76,18 +76,19 @@ struct AddGistView: View {
             }
             .font(.system(.caption, design: .monospaced))
 
+            if clipboard != nil, !content.isEmpty {
+                Button {
+                    content = ""
+                } label: {
+                    Text("Clear")
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
+            
             Section(header: Text("Code").font(.system(.caption, design: .monospaced))) {
                 CodeEditor(source: $content, language: CodeEditor.Language(rawValue: language.rawValue))
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 100)
-                if clipboard != nil, !content.isEmpty {
-                    Button {
-                        content = ""
-                    } label: {
-                        Text("Clear")
-                            .font(.system(.body, design: .monospaced))
-                    }
-                }
             }
             .onAppear {
                 if let clipboardText = clipboard {
