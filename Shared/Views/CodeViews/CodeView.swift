@@ -68,7 +68,7 @@ struct CodeView: View {
                                         sourceCode = gist.text
                                         loadedSourceCode = gist.text
 
-                                        await MainActor.run {
+                                        Task {
                                             try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoadingParent)
                                         }
                                     } else {
