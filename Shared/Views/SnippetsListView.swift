@@ -137,12 +137,14 @@ struct SnippetsListView: View {
                             isShowingAddModal.toggle()
                         } label: {
                             HStack {
+                                #if !os(macOS)
                                 Image(systemSymbol: .plusCircle)
+                                #endif
                                 Text("Create")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        #if os(macOS)
+                        
                         .frame(maxWidth: 1000)
                         #endif
 
