@@ -20,41 +20,41 @@ struct AuthenticationView: View {
             Spacer()
             
             if isLoading {
-            Text("Github Personal Access Token")
-                .font(.system(.body, design: .monospaced))
-            SecureField(text: $token,
-                        prompt: Text("uZnVflqpqr2U1M9x984h3985a48dn74n").font(.system(.body, design: .monospaced))) {
-                Text("Token")
+            
+            } else {
+                Text("Github Personal Access Token")
                     .font(.system(.body, design: .monospaced))
-            }
-            .onSubmit {
-                go()
-            }
-
-            Button {
-                go()
-            } label: {
-                HStack {
-                    Image(systemSymbol: SFSymbol.lock)
-                    Text("Validate")
+                SecureField(text: $token,
+                            prompt: Text("uZnVflqpqr2U1M9x984h3985a48dn74n").font(.system(.body, design: .monospaced))) {
+                    Text("Token")
                         .font(.system(.body, design: .monospaced))
                 }
-            }
-            Spacer()
-            if let url = URL(string: Constants.URL.githubHowToPersonalAccessToken.rawValue) {
+                .onSubmit {
+                    go()
+                }
+
                 Button {
-                    WebLauncher.go(to: url)
+                    go()
                 } label: {
                     HStack {
-                        Image(systemSymbol: SFSymbol.questionmarkCircle)
-                        Text("How To")
+                        Image(systemSymbol: SFSymbol.lock)
+                        Text("Validate")
                             .font(.system(.body, design: .monospaced))
                     }
                 }
                 Spacer()
-            }
-            } else {
-                
+                if let url = URL(string: Constants.URL.githubHowToPersonalAccessToken.rawValue) {
+                    Button {
+                        WebLauncher.go(to: url)
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: SFSymbol.questionmarkCircle)
+                            Text("How To")
+                                .font(.system(.body, design: .monospaced))
+                        }
+                    }
+                    Spacer()
+                }
             }
         }
         .padding()
