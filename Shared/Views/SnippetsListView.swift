@@ -46,12 +46,12 @@ struct SnippetsListView: View {
                     searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                 }.indices, id: \.id) { index in
                     NavigationLink {
-                        CodeView(gist: $gist[index], isLoadingParent: $isLoading)
+                        CodeView(gist: $gists[index], isLoadingParent: $isLoading)
                         #if os(macOS)
                             .frame(minWidth: CGFloat(1000), idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
                         #endif
                     } label: {
-                        GistRow(data: gist)
+                        GistRow(data: $gists[index])
                             .padding()
                     }
                 }
