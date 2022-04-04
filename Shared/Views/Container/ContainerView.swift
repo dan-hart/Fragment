@@ -19,7 +19,7 @@ struct ContainerView: View {
 
     var body: some View {
         NavigationView {
-            ListView(isLoading: <#T##Binding<Bool>#>, searchText: <#T##Binding<String>#>)
+            ListView(isLoading: $isLoading, searchText: $searchText)
         }
         .navigationTitle("Gists")
     }
