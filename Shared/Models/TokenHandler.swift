@@ -65,6 +65,7 @@ class TokenHandler: ObservableObject {
         guard let token = token else {
             return then(nil)
         }
+        
         let configuration = TokenConfiguration(token)
 
         Octokit(configuration).me { response in
