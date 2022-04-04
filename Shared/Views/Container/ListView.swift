@@ -18,7 +18,7 @@ struct ListView: View {
     @Binding var isShowingAddModal: Bool
 
     @AppStorage("visibility") var visibility: Visibility = .public
-    
+
     var body: some View {
         List {
             Picker("Visibility", selection: $visibility) {
