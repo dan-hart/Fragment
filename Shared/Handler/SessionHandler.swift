@@ -172,6 +172,8 @@ class SessionHandler: ObservableObject {
     }
     
     func call<T>(sessionFunction: @autoclosure () -> T) {
-        
+        do {
+            
+        }
     }
 }
