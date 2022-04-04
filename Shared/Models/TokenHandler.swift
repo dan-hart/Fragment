@@ -13,6 +13,7 @@ class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
     
     @Published var configuration: TokenConfiguration?
+    @Published var isAuthenticated: Bool = false
     
     var bundleID: String {
         Bundle.main.bundleIdentifier ?? ""
