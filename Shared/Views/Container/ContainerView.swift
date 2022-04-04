@@ -27,7 +27,7 @@ struct ContainerView: View {
         }
         .toolbar {
                     ToolbarItem(placement: .navigation) {
-                        Button(action: toggleSidebar, label: { // 1
+                        Button(action: toggleSidebar, label: {
                             Image(systemName: "sidebar.leading")
                         })
                     }
