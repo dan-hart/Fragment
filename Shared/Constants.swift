@@ -17,6 +17,7 @@ enum Constants {
     }
 
     enum Feature {
+        static var ifNoGistsEnableCreateButton = false
         static var ifNoGistsEnablePullButton = false
         static var settingsEnabled = false
     }
