@@ -18,7 +18,7 @@ struct MainView: View {
         } else {
             if isLoading {
                 
-            }
+            } else {
             NavigationView {
                 #if os(macOS)
                     EmptyView()
@@ -31,6 +31,7 @@ struct MainView: View {
                     Text("Enter Github personal access token on the lefthand sidebar")
                         .font(.system(.body, design: .monospaced))
                 #endif
+            }
             }
         }
     }
