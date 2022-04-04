@@ -101,9 +101,11 @@ class OctoHandler: ObservableObject {
         }
 
         let response = withCheckedContinuation { continuation in
-            
+            Octokit(configuration).myGists { response in
+                continuation.resume(returning: response)
+            }
         }
-        Octokit(configuration).myGists { response in
+        
             switch response {
             case let .success(gists):
                 
