@@ -21,7 +21,6 @@ struct SnippetsListView: View {
     @AppStorage("visibility") var visibility: Visibility = .public
 
     var computeFilteredGists: [Gist] {
-        get {
         let withVisibility = gists.filter { gist in
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
@@ -33,11 +32,6 @@ struct SnippetsListView: View {
             return withVisibility.filter { gist in
                 gist.meetsSearchCriteria(text: searchText)
             }
-        }
-        }
-        
-        didSet {
-            filteredGists = computeFilteredGists
         }
     }
     
