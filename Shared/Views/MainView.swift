@@ -27,8 +27,6 @@ struct MainView: View {
                         .padding()
                     Text("Enter Github personal access token on the lefthand sidebar")
                         .font(.system(.body, design: .monospaced))
-
-                        .navigationTitle("Welcome to Fragment")
                 #endif
             }
         }
