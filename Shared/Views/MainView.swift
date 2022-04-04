@@ -24,7 +24,7 @@ struct MainView: View {
             } else {
                 NavigationView {
                     if Constants.isMacOrPad() {
-                        
+                        EmptyView()
                     }
                     #if os(macOS)
                         EmptyView()
