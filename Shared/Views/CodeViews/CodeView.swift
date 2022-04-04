@@ -13,6 +13,7 @@ import SFSafeSymbols
 import SwiftUI
 
 struct CodeView: View {
+    @EnvironmentObject var tokenHandler: SnippetHandler
     @EnvironmentObject var snippetHandler: SnippetHandler
     @Environment(\.colorScheme) var colorScheme
 
@@ -60,6 +61,7 @@ struct CodeView: View {
                             }
 
                             snippetHandler.update(
+                                using:
                                 id,
                                 description,
                                 filename,
