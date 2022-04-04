@@ -36,6 +36,8 @@ class SessionHandler: ObservableObject {
         guard let token = keychain[keychainKeyIdentifier] else {
             throw FragmentError.nilToken
         }
+        
+        return token
     }
     
     func invalidateSession() {
