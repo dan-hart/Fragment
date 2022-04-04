@@ -89,5 +89,98 @@ class SessionHandler: ObservableObject {
         }
     }
     
-    // MARK: - Gist CRUD
+    // MARK: - Gist CRU
+    func update(using configuration: TokenConfiguration?,
+                _ id: String,
+                _ description: String,
+                _ filename: String,
+                _ content: String,
+                then: @escaping (Gist?, Error?) -> Void)
+    {
+        guard let configuration = configuration else {
+            return then(nil, nil)
+        }
+
+        Octokit(configuration).patchGistFile(id: id,
+                                             description: description,
+                                             filename: filename,
+                                             fileContent: content)
+        { response in
+            switch response {
+            case let .success(gist):
+                then(gist, nil)
+            case let .failure(error):
+                print(error)
+                then(nil, error)
+            }
+        }
+    }
+
+    func create(
+        using configuration: TokenConfiguration?,
+        gist filename: String,
+        _ description: String,
+        _ content: String,
+        _ visibility: Visibility,
+        then: @escaping (Gist?, Error?) -> Void
+    ) {
+        guard let configuration = configuration else {
+            return then(nil, nil)
+        }
+
+        Octokit(configuration).postGistFile(
+            description: description,
+            filename: filename,
+            fileContent: content,
+            publicAccess: visibility == .public ? true : false
+        ) { response in
+            switch response {
+            case let .success(gist):
+                then(gist, nil)
+            case let .failure(error):
+                print(error)
+                then(nil, error)
+            }
+        }
+    }
+
+    func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
+        guard let configuration = configuration else {
+            throw FragmentError.nilConfiguratioin
+        }
+
+        let response = await withCheckedContinuation { continuation in
+            Octokit(configuration).myGists { response in
+                continuation.resume(returning: response)
+            }
+        }
+
+        switch response {
+        case let .success(gists):
+            return gists
+        case .failure:
+            throw FragmentError.couldNotFetchData
+        }
+    }
+
+    // MARK: - Profile
+
+    func me(using configuration: TokenConfiguration?) async -> User? {
+        guard let configuration = configuration else {
+            return nil
+        }
+
+        let response = await withCheckedContinuation { continuation in
+            Octokit(configuration).me { response in
+                continuation.resume(returning: response)
+            }
+        }
+        switch response {
+        case let .success(user):
+            return user
+        case let .failure(error):
+            print(error)
+            return nil
+        }
+    }
 }
