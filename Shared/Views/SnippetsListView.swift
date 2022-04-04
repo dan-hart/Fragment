@@ -117,7 +117,7 @@ struct SnippetsListView: View {
 
                 Button {
                     tokenHandler.delete()
-                    tokenHandler.checkNeedsAuthenticationStatus(attemptReauthentication: false)
+                    tokenHandler.checkAuthorizationStatus()
                 } label: {
                     HStack {
                         Image(systemSymbol: .xmarkCircle)
