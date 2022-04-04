@@ -118,7 +118,9 @@ struct ListView: View {
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
         .sheet(isPresented: $isShowingPreferencesView {
-            
+            NavigationView {
+                SettingsView()
+            }
         }
         .toolbar {
             let menu = Menu {
