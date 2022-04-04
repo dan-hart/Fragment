@@ -108,7 +108,9 @@ struct SnippetsListView: View {
             }
         }
         .onAppear {
-            if tokenHandler.isElidgibleForCaching
+            if tokenHandler.isElidgibleForCaching {
+                
+            }
             gists = cacheHandler.gistsCache.value([Gist].self, forKey: "\(tokenHandler.get)") ?? []
         }
         .refreshable {
