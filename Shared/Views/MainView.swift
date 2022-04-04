@@ -23,7 +23,9 @@ struct MainView: View {
                 ContainerView()
             } else {
                 NavigationView {
-                    if Constants
+                    if Constants.isMacOrPad() {
+                        
+                    }
                     #if os(macOS)
                         EmptyView()
                     #endif
