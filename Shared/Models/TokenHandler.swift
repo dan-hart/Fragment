@@ -23,7 +23,7 @@ class TokenHandler: ObservableObject {
         Keychain(service: bundleID)
     }
     
-    private var configuration: TokenConfiguration
+    private var configuration: TokenConfiguration?
     private var value: String?
 
     init() {
