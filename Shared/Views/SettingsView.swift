@@ -29,7 +29,7 @@ struct SettingsView: View {
                     Text("Profile Settings")
                         .font(.title)
 
-                    Text(name ?? "Name")
+                    Text(name ?? "Loading...")
 
                     Button {
                         tokenHandler.delete()
