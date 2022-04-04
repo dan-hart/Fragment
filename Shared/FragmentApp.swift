@@ -16,7 +16,7 @@ struct FragmentApp: App {
     @State var isSettingsLoading = false
 
     init() {
-        tokenHandler.taskCheckingAuthenticationStatus()
+        tokenHandler.taskCheckingAuthenticationStatus(isLoading: $isLoading)
     }
 
     var body: some Scene {
