@@ -51,7 +51,7 @@ struct SnippetsListView: View {
                             .frame(minWidth: CGFloat(1000), idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
                         #endif
                     } label: {
-                        GistRow(data: $gists[index])
+                        GistRow(data: gists[index])
                             .padding()
                     }
                 }
