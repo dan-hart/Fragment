@@ -37,6 +37,7 @@ struct SnippetsListView: View {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
 
+                    RoundedRectangle()
                     Button {
                         Task {
                             await fetchGists()
