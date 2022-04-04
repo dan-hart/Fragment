@@ -106,7 +106,7 @@ class SessionHandler: ObservableObject {
         _ description: String,
         _ content: String,
         _ visibility: Visibility
-    ) {
+    ) async throws -> {
         let response = await withCheckedContinuation { continuation in
         Octokit(configuration).postGistFile(
             description: description,
