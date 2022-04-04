@@ -68,6 +68,8 @@ class OctoHandler: ObservableObject {
     }
     
     func fetchGists(_ tokenHandler: TokenHandler, _ cacheHandler: CacheHandler, isLoading: Binding<Bool>) {
+        isLoading.wrappedValue = true
+        
         cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
 
         if CacheHelper.deleteAllOnDisk() {
@@ -75,7 +77,6 @@ class OctoHandler: ObservableObject {
         }
 
         gists = []
-        isLoading.wrappedValue = true
 
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
