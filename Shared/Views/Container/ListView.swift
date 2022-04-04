@@ -147,8 +147,7 @@ struct ListView: View {
                 }
 
                 Button {
-                    tokenHandler.delete()
-                    tokenHandler.taskCheckingAuthenticationStatus()
+                    sessionHandler.invalidateSession()
                 } label: {
                     HStack {
                         Image(systemSymbol: .xmarkCircle)
