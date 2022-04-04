@@ -39,11 +39,12 @@ class TokenHandler: ObservableObject {
     func checkAuthenticationStatus() async -> Bool {
         let optionalToken = getToken()
         do {
-            configuration = try await authenticate(using: optionalToken)
-            await MainActor.run {
-                isAuthenticated = true
+            if let configuration = try await authenticate(using: optionalToken) {
+                await MainActor.run {
+                    isAuthenticated = true
+                }
+                return true
             }
-            return true
         } catch {
             await MainActor.run {
                 isAuthenticated = false
