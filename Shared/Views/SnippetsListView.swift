@@ -119,9 +119,6 @@ struct SnippetsListView: View {
             } label: {
                 Image(systemSymbol: .ellipsisCircle)
             }
-            #if os(macOS)
-            .frame(maxWidth: 50)
-            #endif
 
             #if os(iOS)
 
