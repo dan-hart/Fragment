@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct FragmentApp: App {
-    let sessionHandler = SessionHandler()
+    @StateObject let sessionHandler = SessionHandler()
 
     @State var isLoading = false
     @State var isSettingsLoading = false
