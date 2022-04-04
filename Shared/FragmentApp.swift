@@ -12,6 +12,10 @@ struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let snippetHandler = SnippetHandler()
     
+    init() {
+        
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainView()
