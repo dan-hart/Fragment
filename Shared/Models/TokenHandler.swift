@@ -68,7 +68,7 @@ class TokenHandler: ObservableObject {
         let configuration = TokenConfiguration(token)
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
-                continuation.resume(response)
+                continuation.resume(returning: response)
             }
         }
         
