@@ -38,34 +38,34 @@ struct SnippetsListView: View {
                         .font(.system(.body, design: .monospaced))
 
                     if tokenHandler.isAuthenticated {
-                    VStack {
-                        Text("If this is unexpected, try pulling.")
+                        VStack {
+                            Text("If this is unexpected, try pulling.")
+                                .padding()
+                            Button {
+                                Task {
+                                    await fetchGists()
+                                }
+                            } label: {
+                                HStack {
+                                    #if os(iOS)
+                                        Image(systemSymbol: .arrowDownCircle)
+                                    #endif
+                                    Text("Pull")
+                                        .font(.system(.body, design: .monospaced))
+                                    #if os(macOS)
+                                        .padding()
+                                    #endif
+                                }
+                            }
                             .padding()
-                        Button {
-                            Task {
-                                await fetchGists()
-                            }
-                        } label: {
-                            HStack {
-                                #if os(iOS)
-                                    Image(systemSymbol: .arrowDownCircle)
-                                #endif
-                                Text("Pull")
-                                    .font(.system(.body, design: .monospaced))
-                                #if os(macOS)
-                                    .padding()
-                                #endif
-                            }
                         }
-                        .padding()
-                    }
-                    .font(.system(.footnote, design: .monospaced))
-                    .padding(5)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder()
-                            .foregroundColor(.gray)
-                    )
+                        .font(.system(.footnote, design: .monospaced))
+                        .padding(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder()
+                                .foregroundColor(.gray)
+                        )
                     }
                 }
             } else {
