@@ -14,5 +14,6 @@ enum FragmentError: String, Error {
     case notAuthenticated = "Not authenticated"
 
     // MARK: - Data
+
     case couldNotFetchData = "Could not fetch data"
 }

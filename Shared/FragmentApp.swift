@@ -14,9 +14,7 @@ struct FragmentApp: App {
     @State var isLoading = false
     @State var isSettingsLoading = false
 
-    init() {
-        
-    }
+    init() {}
 
     var body: some Scene {
         WindowGroup {

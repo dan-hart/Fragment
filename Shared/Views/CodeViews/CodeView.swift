@@ -14,7 +14,7 @@ import SwiftUI
 
 struct CodeView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
-    
+
     @Environment(\.colorScheme) var colorScheme
 
     var theme: CodeEditor.ThemeName {
@@ -52,7 +52,7 @@ struct CodeView: View {
                             else {
                                 return
                             }
-                            
+
                             isLoadingParent = true
                             sessionHandler.callTask {
                                 let updatedGist = try await sessionHandler.update(id, description, filename, sourceCode)
