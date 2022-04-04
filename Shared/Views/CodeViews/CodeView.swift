@@ -59,7 +59,12 @@ struct CodeView: View {
                                 return
                             }
 
-                            snippetHandler.update(id, description, filename, sourceCode) { optionalGist, optionalError in
+                            snippetHandler.update(
+                                id,
+                                description,
+                                filename,
+                                sourceCode
+                            ) { optionalGist, optionalError in
                                 DispatchQueue.main.async {
                                     if let gist = optionalGist {
                                         self.gist = gist
