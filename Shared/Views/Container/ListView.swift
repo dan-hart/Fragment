@@ -178,7 +178,9 @@ struct ListView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
+                        #if os(macOS)
                         .frame(minWidth: 100)
+                        #endif
 
                         #if os(macOS)
                             menu
