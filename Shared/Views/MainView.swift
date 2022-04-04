@@ -25,6 +25,7 @@ struct MainView: View {
         .task {
             isLoading = true
             _ = await tokenHandler.checkAuthenticationStatus()
+            isLoading = false
         }
     }
 }
