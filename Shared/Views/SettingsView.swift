@@ -25,7 +25,7 @@ struct SettingsView: View {
                     Label("Appearance", systemImage: "paintpalette")
                 }
 
-            if tokenHandler.isAuthenticated {
+            if isAuthenticated {
                 List {
                     Text("Profile Settings")
                         .font(.title)
