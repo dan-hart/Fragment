@@ -26,12 +26,12 @@ class TokenHandler: ObservableObject {
     var configuration: TokenConfiguration?
 
     init() {
-        checkAuthorizationStatus()
+        checkAuthenticationStatus()
     }
 
     // MARK: - Methods
 
-    func checkAuthorizationStatus() {
+    func checkAuthenticationStatus() {
         let optionalToken = getToken()
         authenticate(using: optionalToken) { optionalConfiguration in
             DispatchQueue.main.async {
