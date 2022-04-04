@@ -9,7 +9,7 @@ import Foundation
 import OctoKit
 
 class SnippetHandler: ObservableObject {
-    func update(using configuration: TokenConfiguration,
+    func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,
                 _ filename: String,
