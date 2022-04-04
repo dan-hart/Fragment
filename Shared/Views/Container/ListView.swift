@@ -96,14 +96,14 @@ struct ListView: View {
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
                     Group {
-                    GistRow(data: $octoHandler.gists[index])
+                        GistRow(data: $octoHandler.gists[index])
                     }
                     .background(selectedGist == octoHandler.gists[index] ? .blue : Color.clear)
                     .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedGist = octoHandler.gists[index]
-                        }
-                        .padding()
+                    .onTapGesture {
+                        selectedGist = octoHandler.gists[index]
+                    }
+                    .padding()
                 }
             }
         }
