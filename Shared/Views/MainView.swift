@@ -16,6 +16,9 @@ struct MainView: View {
 
     var body: some View {
         NavigationView {
+            if isLoading {
+                
+            }
             if tokenHandler.isAuthenticated {
                 SnippetsListView()
             } else {
