@@ -28,7 +28,7 @@ class SessionHandler: ObservableObject {
         Keychain(service: bundleID)
     }
 
-    var token: String? {
+    private var token: String? {
         keychain[keychainKeyIdentifier]
     }
 
