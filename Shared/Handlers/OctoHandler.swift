@@ -80,6 +80,9 @@ class OctoHandler: ObservableObject {
     
     // MARK: -  Profile
     func me(using configuration: TokenConfiguration) async {
+        let response = withCheckedContinuation { continuation in
+            <#code#>
+        }
         Octokit(configuration).
     }
 }
