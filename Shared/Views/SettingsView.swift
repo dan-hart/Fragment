@@ -75,7 +75,7 @@ struct SettingsView: View {
                 }
 
                 Text("Privacy Settings")
-                    .font(.system(.body, design: .monospaced))
+                    .font(.system(.title, design: .monospaced))
                     .tabItem {
                         Label("Privacy", systemImage: "hand.raised")
                     }
