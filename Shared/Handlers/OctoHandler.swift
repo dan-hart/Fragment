@@ -80,17 +80,10 @@ class OctoHandler: ObservableObject {
         
         let gists = try await self.gists(using: tokenHandler.configuration)
         
-        self.gists(using: tokenHandler.configuration) { optionalGists in
-            if let gists = optionalGists {
-                DispatchQueue.main.async {
-                    self.gists = gists
-                }
-            }
-            if tokenHandler.isElidgibleForCaching {
-                cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
-            }
-            isLoading.wrappedValue = false
+        if tokenHandler.isElidgibleForCaching {
+            cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
         }
+        isLoading.wrappedValue = false
         
         return gists
     }
