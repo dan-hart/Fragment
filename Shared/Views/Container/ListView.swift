@@ -39,21 +39,21 @@ struct ListView: View {
                         .font(.system(.body, design: .monospaced))
 
                     if Constants.Feature.ifNoGistsEnableCreateButton {
-                    HStack {
-                        if sessionHandler.isAuthenticated {
-                            Button {
-                                isShowingAddModal.toggle()
-                            } label: {
-                                HStack {
-                                    #if !os(macOS)
-                                        Image(systemSymbol: .plusCircle)
-                                    #endif
-                                    Text("Create Gist")
-                                        .font(.system(.body, design: .monospaced))
+                        HStack {
+                            if sessionHandler.isAuthenticated {
+                                Button {
+                                    isShowingAddModal.toggle()
+                                } label: {
+                                    HStack {
+                                        #if !os(macOS)
+                                            Image(systemSymbol: .plusCircle)
+                                        #endif
+                                        Text("Create Gist")
+                                            .font(.system(.body, design: .monospaced))
+                                    }
                                 }
                             }
                         }
-                    }
                     }
 
                     if Constants.Feature.ifNoGistsEnablePullButton, sessionHandler.isAuthenticated {
