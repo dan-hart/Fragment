@@ -21,7 +21,7 @@ struct SnippetsListView: View {
     @State var searchText = ""
 
     @AppStorage("visibility") var visibility: Visibility = .public
-    
+
     init() {
         gists = cacheHandler.gistsCache.value(forKey: CacheHandler.Key.gists.rawValue) ?? []
     }
