@@ -188,8 +188,9 @@ class SessionHandler: ObservableObject {
         } catch {
             if error is FragmentError {
                 print((error as! FragmentError).rawValue)
+            } else {
+                print(error)
             }
-            print(error)
         }
     }
 
