@@ -62,7 +62,7 @@ class TokenHandler: ObservableObject {
 
     func authenticate(using token: String?) async throws -> TokenConfiguration {
         guard let token = token else {
-            throw 
+            throw
         }
 
         let configuration = TokenConfiguration(token)
@@ -70,7 +70,7 @@ class TokenHandler: ObservableObject {
         Octokit(configuration).me { response in
             switch response {
             case .success:
-                then(configuration)
+                return configuration
             case .failure:
                 then(nil)
             }
