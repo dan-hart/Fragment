@@ -15,6 +15,7 @@ struct ListView: View {
 
     @Binding var isLoading: Bool
     @Binding var searchText: String
+    @Binding var isShowingAddModal: Bool
 
     @AppStorage("visibility") var visibility: Visibility = .public
 
