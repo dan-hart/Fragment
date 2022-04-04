@@ -65,14 +65,18 @@ struct SettingsView: View {
                             Text(name ?? "Loading...")
                         }
 
-                        Button {
-                            sessionHandler.invalidateSession()
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .xmarkCircle)
-                                Text("Clear Token")
-                                    .font(.system(.body, design: .monospaced))
+                        Section {
+                            Button {
+                                sessionHandler.invalidateSession()
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .xmarkCircle)
+                                    Text("Clear Token")
+                                        .font(.system(.body, design: .monospaced))
+                                }
                             }
+                        } footer: {
+                            Text("Clears all gists and discards your personal access token")
                         }
                     }
                 }
