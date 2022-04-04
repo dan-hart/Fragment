@@ -16,7 +16,9 @@ struct SettingsView: View {
 
     var body: some View {
         TabView {
-            Text("Privacy Settings")
+            List {
+                Text("General")
+            }
                 .font(.title)
                 .tabItem {
                     Label("Privacy", systemImage: "hand.raised")
