@@ -22,5 +22,8 @@ struct FragmentApp: App {
                 .environmentObject(tokenHandler)
                 .environmentObject(snippetHandler)
         }
+        .onChange(of: tokenHandler.isAuthenticated) { newValue in
+            <#code#>
+        }
     }
 }
