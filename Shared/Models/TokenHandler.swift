@@ -34,7 +34,8 @@ class TokenHandler: ObservableObject {
     func checkAuthenticationStatus() async {
         let optionalToken = getToken()
         do {
-        configuration = try await authenticate(using: optionalToken)
+            configuration = try await authenticate(using: optionalToken)
+            isAuthenticated = true
         } catch(let error) {
             print(error.localizedDescription)
         }
