@@ -75,10 +75,6 @@ class OctoHandler: ObservableObject {
 
         isLoading.wrappedValue = true
 
-        if usingCache {
-            cacheHandler.gistsCache.removeValue(forKey: token)
-        }
-
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
