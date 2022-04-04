@@ -17,6 +17,7 @@ public extension Gist {
     /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String? {
         let filename = "\(files.first?.key ?? "")"
+        if filename.isEmpty { return nil }
         return filename.pathExtension
     }
 
