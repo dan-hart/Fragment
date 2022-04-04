@@ -54,6 +54,7 @@ class SessionHandler: ObservableObject {
             // Continue existing session
             configuration = try await authenticate(using: token)
         } else {
+            // Start a new session
             configuration = try await authenticate(using: getToken(expectingValue: false))
         }
     }
