@@ -80,6 +80,8 @@ class OctoHandler: ObservableObject {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
         
+        let gists = try await self.gists(using: tokenHandler.configuration)
+        
         self.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
                 DispatchQueue.main.async {
