@@ -26,7 +26,9 @@ class TokenHandler: ObservableObject {
     var configuration: TokenConfiguration?
 
     init() {
+        Task {
         checkAuthenticationStatus()
+        }
     }
 
     // MARK: - Methods
@@ -39,16 +41,6 @@ class TokenHandler: ObservableObject {
         } catch(let error) {
             isAuthenticated = false
             print(error.localizedDescription)
-        }
-        authenticate(using: optionalToken) { optionalConfiguration in
-            DispatchQueue.main.async {
-                if let configuration = optionalConfiguration {
-                    self.configuration = configuration
-                    self.isAuthenticated = true
-                } else {
-                    self.isAuthenticated = false
-                }
-            }
         }
     }
 
