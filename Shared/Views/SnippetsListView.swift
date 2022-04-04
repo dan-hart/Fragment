@@ -56,7 +56,7 @@ struct SnippetsListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(filteredGists, id: \.id) { gist in
+                ForEach(gists, id: \.id) { gist in
                     NavigationLink {
                         CodeView(gist: .constant(gist), isLoadingParent: $isLoading)
                         #if os(macOS)
