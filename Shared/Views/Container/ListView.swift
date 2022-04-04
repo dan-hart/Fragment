@@ -110,7 +110,6 @@ struct ListView: View {
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
-                    
 
                     .navigationTitle("Settings")
             }
@@ -131,6 +130,7 @@ struct ListView: View {
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             #if os(iOS)
+            if Constants.Feature.settingsEnabled {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Menu {
                         Button {
