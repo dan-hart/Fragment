@@ -41,10 +41,6 @@ struct CodeView: View {
             loadedSourceCode = newValue?.text
             sourceCode = newValue?.text
         })
-        .onAppear {
-            loadedSourceCode = gist?.text ?? ""
-            sourceCode = gist?.text ?? ""
-        }
         .toolbar {
             ToolbarItem {
                 HStack {
