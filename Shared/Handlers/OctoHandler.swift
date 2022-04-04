@@ -91,6 +91,8 @@ class OctoHandler: ObservableObject {
             }
             isLoading.wrappedValue = false
         }
+        
+        return gists
     }
 
     func gists(using configuration: TokenConfiguration?, then: @escaping ([Gist]?) -> Void) {
