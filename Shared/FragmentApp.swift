@@ -9,8 +9,7 @@ import SwiftUI
 
 @main
 struct FragmentApp: App {
-    let tokenHandler = TokenHandler()
-    let octoHandler = OctoHandler()
+    let sessionHandler SessionHandler()
 
     @State var isLoading = false
     @State var isSettingsLoading = false
