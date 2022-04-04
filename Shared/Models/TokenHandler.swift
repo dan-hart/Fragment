@@ -62,7 +62,7 @@ class TokenHandler: ObservableObject {
                 case .success:
                     then(true)
                 case .failure:
-                    self.isAuthenticated = false
+                    then(false)
                 }
                 then(self.isAuthenticated)
             }
