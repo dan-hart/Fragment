@@ -18,6 +18,7 @@ struct SettingsView: View {
         TabView {
             List {
                 Text("General")
+                    .font(.system(.title, design: .monospaced))
                 
                 Button {
                     sessionHandler.callTask {
