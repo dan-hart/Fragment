@@ -40,6 +40,7 @@ class TokenHandler: ObservableObject {
         let optionalToken = getToken()
         do {
             if let configuration = try await authenticate(using: optionalToken) {
+                self.configuration = configuration
                 await MainActor.run {
                     isAuthenticated = true
                 }
