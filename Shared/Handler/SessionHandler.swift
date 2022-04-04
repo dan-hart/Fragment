@@ -32,13 +32,6 @@ class SessionHandler: ObservableObject {
     init() {}
 
     // MARK: - Methods
-    private func getToken() throws -> String {
-        guard let token = keychain[keychainKeyIdentifier] else {
-            throw FragmentError.nilToken
-        }
-        
-        return token
-    }
     
     func invalidateSession() {
         keychain[keychainKeyIdentifier] = nil
@@ -51,6 +44,14 @@ class SessionHandler: ObservableObject {
     }
 
     // MARK: - Authentication
+    private func getToken() throws -> String {
+        guard let token = keychain[keychainKeyIdentifier] else {
+            throw FragmentError.nilToken
+        }
+        
+        return token
+    }
+    
     private func authenticate(using token: String?) async throws -> TokenConfiguration {
         guard let token = token, !token.isEmpty else {
             throw FragmentError.nilToken
