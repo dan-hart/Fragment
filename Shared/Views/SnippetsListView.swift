@@ -147,7 +147,7 @@ struct SnippetsListView: View {
 
             ToolbarItem(placement: .primaryAction) {
                 HStack {
-                    if snippetHandler.isAuthenticated {
+                    if tokenHandler.isAuthenticated {
                         Button {
                             isShowingAddModal.toggle()
                         } label: {
