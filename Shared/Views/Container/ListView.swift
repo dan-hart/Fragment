@@ -99,6 +99,7 @@ struct ListView: View {
                         CodeView(gist: $selectedGist, isLoadingParent: $isLoading)
                     } label: {
                         GistRow(data: $octoHandler.gists[index])
+                            .padding()
                     }
                 }
             }
