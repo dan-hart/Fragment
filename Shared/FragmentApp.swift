@@ -27,6 +27,7 @@ struct FragmentApp: App {
                 }
         }
 
+        #if os(macOS)
         Settings {
             SettingsView(isLoading: $isSettingsLoading)
                 .environmentObject(tokenHandler)
