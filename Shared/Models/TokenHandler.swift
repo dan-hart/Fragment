@@ -33,6 +33,8 @@ class TokenHandler: ObservableObject {
 
     func checkAuthenticationStatus() async {
         let optionalToken = getToken()
+        configuration = try await authenticate(using: optionalToken)
+        
         authenticate(using: optionalToken) { optionalConfiguration in
             DispatchQueue.main.async {
                 if let configuration = optionalConfiguration {
