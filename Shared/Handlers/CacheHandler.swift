@@ -10,7 +10,7 @@ import DHCacheKit
 import OctoKit
 
 class CacheHandler: ObservableObject {
-    @Published let gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
+    @Published var gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
     
     init() {}
 }
