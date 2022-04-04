@@ -130,8 +130,9 @@ struct ListView: View {
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             #if os(iOS)
-            if Constants.Feature.settingsEnabled {
+            
                 ToolbarItem(placement: .navigationBarLeading) {
+                    if Constants.Feature.settingsEnabled {
                     Menu {
                         Button {
                             isShowingPreferencesView = true
