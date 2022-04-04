@@ -107,7 +107,7 @@ struct SnippetsListView: View {
             }
         }
         .task {
-            octoHandler.gists(using: tokenHandler.configuration)
+            octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
         }
         .onAppear {
             if tokenHandler.isElidgibleForCaching {
