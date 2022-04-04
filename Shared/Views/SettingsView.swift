@@ -46,7 +46,7 @@ struct SettingsView: View {
             if sessionHandler.isAuthenticated {
                 List {
                     Text("Profile")
-                        .font(.title)
+                        .font(.system(.title, design: .monospaced))
 
                     Text(name ?? "Loading...")
 
