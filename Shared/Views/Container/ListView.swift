@@ -95,7 +95,7 @@ struct ListView: View {
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
-                    Group {
+                    HStack {
                         GistRow(data: $octoHandler.gists[index])
                     }
                     .background(selectedGist == octoHandler.gists[index] ? Color.blue : Color.clear)
