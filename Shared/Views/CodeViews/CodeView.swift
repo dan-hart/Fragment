@@ -41,6 +41,9 @@ struct CodeView: View {
             loadedSourceCode = newValue.text
             sourceCode = newValue.text
         })
+        .onAppear {
+            
+        }
         .toolbar {
             ToolbarItem {
                 HStack {
