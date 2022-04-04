@@ -24,7 +24,7 @@ struct SnippetsListView: View {
         let withVisibility = gists.filter { gist in // Public / Private
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
-        }.filter { gist in
+        }.filter { gist in // Search
             
         }
 
