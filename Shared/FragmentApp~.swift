@@ -29,9 +29,5 @@ struct FragmentApp: App {
                 cacheHandler.gistsCache.insert(gists ?? [], forKey: CacheHandler.Key.gists.rawValue)
             }
         }
-        
-        Settings {
-            Text("Test")
-        }
     }
 }
