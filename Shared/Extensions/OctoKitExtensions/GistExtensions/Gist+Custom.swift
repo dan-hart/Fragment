@@ -43,5 +43,7 @@ extension Gist: Equatable {
 }
 
 extension Gist: Hashable {
-
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
 }
