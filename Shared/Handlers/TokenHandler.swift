@@ -44,7 +44,7 @@ class TokenHandler: ObservableObject {
 
     func taskCheckingAuthenticationStatus(isLoading: Binding<Bool> = .constant(false)) {
         Task {
-            await checkAuthenticationStatus(isLoading: $isLoading)
+            await checkAuthenticationStatus(isLoading: isLoading)
         }
     }
 
