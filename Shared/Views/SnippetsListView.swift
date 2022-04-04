@@ -208,8 +208,9 @@ struct SnippetsListView: View {
     }
 
     func fetchGists() async {
+        cacheHandler.gistsCache.removeValue(forKey: $cacheHandler.key.gists.rawValue)
         
-        if CacheHelper.deleteAllOnDisk(), cacheHandler.gistsCache.removeValue(forKey: $cacheHandler.key.gists.rawValue) {
+        if CacheHelper.deleteAllOnDisk() {
             print("Cleared cache")
         }
         
