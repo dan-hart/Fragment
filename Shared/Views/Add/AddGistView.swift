@@ -35,7 +35,12 @@ struct AddGistView: View {
             if !filename.ends(with: ext) {
                 filename.append(ext)
             }
-            snippetHandler.create(using: tokenHandler.configuration, gist: filename, description, content, visibility) { optionalGist, optionalError in
+            snippetHandler.create(
+                using: tokenHandler.configuration,
+                gist: filename,
+                description,
+                content,
+                visibility) { optionalGist, optionalError in
                 if let gist = optionalGist {
                     didAdd(gist)
                     presentationMode.wrappedValue.dismiss()
