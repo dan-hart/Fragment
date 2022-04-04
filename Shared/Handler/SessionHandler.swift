@@ -80,8 +80,7 @@ class SessionHandler: ObservableObject {
     func update(_ id: String,
                 _ description: String,
                 _ filename: String,
-                _ content: String,
-                then: @escaping (Gist?, Error?) -> Void)
+                _ content: String) async throws -> Gist
     {
         Octokit(configuration).patchGistFile(id: id,
                                              description: description,
