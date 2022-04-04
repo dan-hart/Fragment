@@ -104,7 +104,7 @@ struct ListView: View {
             }
         }
         .task {
-            _ = try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoading)
+            _ = try? await octoHandler.fetchGists(tokenHandler)
         }
         .refreshable {
             Task {
