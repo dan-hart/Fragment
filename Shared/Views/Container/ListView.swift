@@ -103,6 +103,13 @@ struct ListView: View {
                 }
             }
         }
+        .sheet(isPresented: $isShowingPreferencesView) {
+            NavigationView {
+                SettingsView(isLoading: $isLoading)
+                
+                    .navigationTitle("Settings")
+            }
+        }
         .onAppear {
             if !isLoading {
                 sessionHandler.callTask {
@@ -117,13 +124,7 @@ struct ListView: View {
         }
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
-        .sheet(isPresented: $isShowingPreferencesView) {
-            NavigationView {
-                SettingsView(isLoading: $isLoading)
-                
-                    .navigationTitle("Settings")
-            }
-        }
+
         .toolbar {
             let menu = Menu {
                 // Menu Content
