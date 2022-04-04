@@ -41,13 +41,15 @@ class SessionHandler: ObservableObject {
     }
 
     @Published var isShowingAlert = false
-    
+
     // MARK: - Settings
+
     @AppStorage("fontSize") var fontSize: Int = 12 {
         didSet {
             cgFloatFontSize = CGFloat(fontSize)
         }
     }
+
     @Published var cgFloatFontSize: CGFloat = 12
 
     // MARK: - Initialization
