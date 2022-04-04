@@ -27,9 +27,6 @@ struct MainView: View {
                 if tokenHandler.isAuthenticated {
                     SnippetsListView()
                 } else {
-                    #if os(macOS)
-                        EmptyView()
-                    #endif
                     AuthenticationView()
                         .padding()
                         .frame(minWidth: 800)
