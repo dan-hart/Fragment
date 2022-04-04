@@ -15,7 +15,9 @@ struct FragmentApp: App {
     @State var isSettingsLoading = false
 
     init() {
-        sessionHandler.startSession()
+        sessionHandler.callTask {
+            try async sessionHandler.startSession()
+        }
     }
 
     var body: some Scene {
