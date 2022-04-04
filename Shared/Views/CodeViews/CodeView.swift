@@ -30,7 +30,6 @@ struct CodeView: View {
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
             ScrollViewReader { reader in
-                // swiftlint:disable all
                 CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
                     .onAppear {
                         reader.scrollTo(0, anchor: .topLeading)
