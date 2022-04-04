@@ -14,9 +14,6 @@ struct MainView: View {
 
     var body: some View {
         if isLoading {
-            #if os(macOS)
-                EmptyView()
-            #endif
             Text("Loading...")
                 .font(.system(.largeTitle, design: .monospaced))
                 .frame(minWidth: 800)
