@@ -175,6 +175,10 @@ struct SnippetsListView: View {
     }
 
     func fetchGists() async {
+        if tokenHandler.needsAuthentication {
+            return {}
+        }
+        
         isLoading = true
         gists = []
         if CacheHelper.deleteAllOnDisk() {
