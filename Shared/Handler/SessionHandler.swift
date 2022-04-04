@@ -186,7 +186,7 @@ class SessionHandler: ObservableObject {
     
     func callTask(thisAsyncThrowingCode: @escaping () async throws -> Void) {
         Task {
-            call(thisAsyncThrowingCode: thisAsyncThrowingCode)
+            await call(thisAsyncThrowingCode: thisAsyncThrowingCode)
         }
     }
 }
