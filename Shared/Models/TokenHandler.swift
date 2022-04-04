@@ -41,7 +41,7 @@ class TokenHandler: ObservableObject {
 
     // MARK: - Authentication
 
-    func checkNeedsAuthenticationStatus(reauthenticate: Bool = true) {
+    func checkNeedsAuthenticationStatus(attemptReauthentication: Bool = true) {
         if let token = keychain[TokenHandler.keyName] {
             value = token
             authenticate(using: token) { isAuthenticated in
