@@ -226,7 +226,7 @@ struct SnippetsListView: View {
                 self.gists = gists
             }
             if tokenHandler.isElidgibleForCaching {
-                cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token)
+                cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
             }
             isLoading = false
         }
