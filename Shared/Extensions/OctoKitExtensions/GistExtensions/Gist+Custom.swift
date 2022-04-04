@@ -14,11 +14,6 @@ public extension Gist {
         id ?? UUID().uuidString
     }
 
-    /// The key used to identify an entry in the cache, fallback is identifier
-    var cacheKey: String {
-        files.first?.key ?? identifier
-    }
-
     /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String? {
         guard let filename = (files.first?.key) as? NSString else { return nil }
