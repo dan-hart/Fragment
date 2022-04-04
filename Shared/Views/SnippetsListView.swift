@@ -206,31 +206,6 @@ struct SnippetsListView: View {
 
         .navigationTitle("Gists")
     }
-
-    func fetchGists() async {
-        cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
-
-        if CacheHelper.deleteAllOnDisk() {
-            print("Cleared cache")
-        }
-
-        gists = []
-        isLoading = true
-
-        if !tokenHandler.isAuthenticated {
-            tokenHandler.taskCheckingAuthenticationStatus()
-        }
-
-        octoHandler.gists(using: tokenHandler.configuration) { optionalGists in
-            if let gists = optionalGists {
-                self.gists = gists
-            }
-            if tokenHandler.isElidgibleForCaching {
-                cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
-            }
-            isLoading = false
-        }
-    }
 }
 
 struct SnippetsListView_Previews: PreviewProvider {
