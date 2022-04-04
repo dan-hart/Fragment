@@ -20,11 +20,6 @@ struct FragmentApp: App {
             MainView(isLoading: $isLoading)
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
-//                .task {
-//                    isLoading = true
-//                    _ = await tokenHandler.checkAuthenticationStatus()
-//                    isLoading = false
-//                }
         }
 
         #if os(macOS)
