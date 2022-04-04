@@ -11,8 +11,8 @@ enum FragmentError: String, Error {
     case nilToken = "Provided token is nil"
     case nilConfiguratioin = "Configuration is nil"
     case invalidToken = "Provided token is invalid"
+    case notAuthenticated = "Not authenticated"
 
     // MARK: - Data
-
     case couldNotFetchData = "Could not fetch data"
 }
