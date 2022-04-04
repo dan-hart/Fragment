@@ -88,6 +88,7 @@ class SessionHandler: ObservableObject {
                                                  filename: filename,
                                                  fileContent: content)
             { response in
+                continuation.resume(returning: response)
             }
         }
         Octokit(configuration).patchGistFile(id: id,
