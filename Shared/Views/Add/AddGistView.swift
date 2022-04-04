@@ -40,7 +40,8 @@ struct AddGistView: View {
                 gist: filename,
                 description,
                 content,
-                visibility) { optionalGist, optionalError in
+                visibility
+            ) { optionalGist, optionalError in
                 if let gist = optionalGist {
                     didAdd(gist)
                     presentationMode.wrappedValue.dismiss()
