@@ -9,15 +9,15 @@ import Foundation
 import OctoKit
 
 extension Gist {
-    var identifier: String {
+    public var identifier: String {
         id ?? UUID().uuidString
     }
     
-    var cacheKey: String {
+    public var cacheKey: String {
         files.first?.key ?? identifier
     }
 
-    var fileExtension: String {
+    public var fileExtension: String {
         let filename: NSString = (files.first?.key ?? "") as NSString
         return filename.pathExtension
     }
