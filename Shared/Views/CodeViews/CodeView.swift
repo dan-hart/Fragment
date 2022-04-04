@@ -69,7 +69,9 @@ struct CodeView: View {
                                         loadedSourceCode = gist.text
 
                                         // Re-fetch to get the latest
-                                        octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoadingParent)
+                                        await MainActor.run {
+                                            try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoadingParent)
+                                        }
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
                                     }
