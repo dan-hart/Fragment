@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
 
-    @Binding var isLoading = true
+    @Binding var isLoading
 
     var body: some View {
             if isLoading {
