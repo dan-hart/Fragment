@@ -58,8 +58,6 @@ struct SnippetsListView: View {
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
-                }.filter { gist in // Search
-                    
                 }.indices, id: \.self) { index in
                     NavigationLink {
                         CodeView(gist: $gists[index], isLoadingParent: $isLoading)
