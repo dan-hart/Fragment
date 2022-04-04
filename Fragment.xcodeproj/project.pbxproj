@@ -41,8 +41,6 @@
 		52769E0427F0F06900F5D4E0 /* AddGistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769E0227F0F06900F5D4E0 /* AddGistView.swift */; };
 		52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769E0527F0FE6A00F5D4E0 /* WebLauncher.swift */; };
 		52769E0727F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52769E0527F0FE6A00F5D4E0 /* WebLauncher.swift */; };
-		5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */; };
-		5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */; };
 		5283B2E327EC0C240018F19B /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2E227EC0C240018F19B /* AuthenticationView.swift */; };
 		5283B2E427EC0C240018F19B /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283B2E227EC0C240018F19B /* AuthenticationView.swift */; };
 		52BABB2927E7DCF300999F01 /* Fragment_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB2827E7DCF300999F01 /* Fragment_iOS_Tests.swift */; };
@@ -106,7 +104,6 @@
 		52769DFF27F0EEE400F5D4E0 /* Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visibility.swift; sourceTree = "<group>"; };
 		52769E0227F0F06900F5D4E0 /* AddGistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGistView.swift; sourceTree = "<group>"; };
 		52769E0527F0FE6A00F5D4E0 /* WebLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLauncher.swift; sourceTree = "<group>"; };
-		5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHandler.swift; sourceTree = "<group>"; };
 		5283B2E227EC0C240018F19B /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		52BABB1C27E7D79E00999F01 /* .swiftformat.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftformat.yml; sourceTree = "<group>"; };
 		52BABB1D27E7D79E00999F01 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -340,7 +337,6 @@
 		5A23880127FB3ED000480C20 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */,
 				5A1C6CFA27FB7E4A00EB8D91 /* SessionHandler.swift */,
 			);
 			path = Handlers;
@@ -632,7 +628,6 @@
 				52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				5A2387FF27FB3B1900480C20 /* FragmentError.swift in Sources */,
 				52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */,
-				5283B2E027EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				522915B227E778300087530C /* GistRow.swift in Sources */,
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
@@ -655,7 +650,6 @@
 				52769DFD27F0E83300F5D4E0 /* Collections+ifExistsAt.swift in Sources */,
 				525D860927E763B50066B147 /* MainView.swift in Sources */,
 				5A1C6CFC27FB7E4A00EB8D91 /* SessionHandler.swift in Sources */,
-				5283B2E127EC0A2F0018F19B /* TokenHandler.swift in Sources */,
 				5ADC94A727F8E00200EFE347 /* Gist+Custom.swift in Sources */,
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 				5A23880027FB3B1900480C20 /* FragmentError.swift in Sources */,
