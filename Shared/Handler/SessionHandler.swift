@@ -28,10 +28,6 @@ class SessionHandler: ObservableObject {
         Keychain(service: bundleID)
     }
 
-    private var token: String? {
-        keychain[keychainKeyIdentifier]
-    }
-
     // MARK: - Initialization
     init() {}
 
