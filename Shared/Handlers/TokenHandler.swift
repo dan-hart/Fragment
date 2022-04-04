@@ -22,11 +22,11 @@ class TokenHandler: ObservableObject {
     var keychain: Keychain {
         Keychain(service: bundleID)
     }
-    
+
     var token: String? {
         keychain[TokenHandler.keyName]
     }
-    
+
     var isElidgibleForCaching: Bool {
         return isAuthenticated
     }
@@ -36,7 +36,7 @@ class TokenHandler: ObservableObject {
     init() {}
 
     // MARK: - Methods
-    
+
     func clear() {
         delete(key: TokenHandler.keyName)
         isAuthenticated = false
