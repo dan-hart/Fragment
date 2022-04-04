@@ -52,7 +52,9 @@ struct SettingsView: View {
             if sessionHandler.isAuthenticated {
                 VStack {
                 Form {
-                    Text(name ?? "Loading...")
+                    Section("You") {
+                        Text(name ?? "Loading...")
+                    }
                     
                     Button {
                         sessionHandler.invalidateSession()
