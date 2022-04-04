@@ -23,7 +23,7 @@ struct MainView: View {
             }
         }
         .task {
-            await tokenHandler.checkAuthenticationStatus()
+            _ await tokenHandler.checkAuthenticationStatus()
         }
     }
 }
