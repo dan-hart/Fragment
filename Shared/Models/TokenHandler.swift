@@ -11,7 +11,7 @@ import OctoKit
 import SwiftUI
 
 class TokenHandler: ObservableObject {
-    static var keyName = "GITHUB_API_TOKEN"
+    static var keyName = "FRAGMENT_GITHUB_API_TOKEN"
 
     @AppStorage("isAuthenticated") var isAuthenticated = false
 
