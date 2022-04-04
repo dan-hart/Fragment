@@ -62,7 +62,7 @@ class TokenHandler: ObservableObject {
 
     func authenticate(using token: String?) async throws -> TokenConfiguration {
         guard let token = token else {
-            return then(nil)
+            throw 
         }
 
         let configuration = TokenConfiguration(token)
