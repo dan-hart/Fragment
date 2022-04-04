@@ -79,7 +79,7 @@ class OctoHandler: ObservableObject {
     }
     
     // MARK: -  Profile
-    func me(using configuration: TokenConfiguration) {
+    func me(using configuration: TokenConfiguration) async {
         Octokit(configuration).
     }
 }
