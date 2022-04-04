@@ -29,7 +29,7 @@ class SessionHandler: ObservableObject {
     }
 
     var token: String? {
-        keychain[TokenHandler.keyName]
+        keychain[keychainKeyIdentifier]
     }
 
     // MARK: - Initialization
