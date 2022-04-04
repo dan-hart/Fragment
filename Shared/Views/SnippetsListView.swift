@@ -12,7 +12,6 @@ import SwiftUI
 struct SnippetsListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
-    @EnvironmentObject var cacheHandler: CacheHandler
 
     @State var isLoading = false
     @State var isShowingAddModal = false
