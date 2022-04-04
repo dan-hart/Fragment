@@ -20,12 +20,11 @@ struct MainView: View {
                 EmptyView()
                 Text("Loading")
             } else {
-                
-            }
-            if tokenHandler.isAuthenticated {
-                SnippetsListView()
-            } else {
-                AuthenticationView()
+                if tokenHandler.isAuthenticated {
+                    SnippetsListView()
+                } else {
+                    AuthenticationView()
+                }
             }
         }
         .task {
