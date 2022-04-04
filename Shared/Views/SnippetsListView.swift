@@ -95,6 +95,7 @@ struct SnippetsListView: View {
                 AddGistView(filename: "", description: "", content: "") { newGist in
                     gists.insert(newGist, at: 0)
                 }
+                .padding()
             #endif
         })
         .redacted(reason: isLoading ? .placeholder : [])
