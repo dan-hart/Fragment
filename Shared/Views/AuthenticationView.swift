@@ -56,8 +56,10 @@ struct AuthenticationView: View {
 
     func go() {
         tokenHandler.save(token: token)
+        Task {
         MainActor.run {
             tokenHandler.checkAuthenticationStatus()
+        }
         }
     }
 }
