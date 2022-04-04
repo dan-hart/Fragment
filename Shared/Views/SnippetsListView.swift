@@ -115,9 +115,8 @@ struct SnippetsListView: View {
         }
         .refreshable {
             Task {
-                try? await 
+                try? await octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
             }
-            octoHandler.fetchGists(tokenHandler, cacheHandler, isLoading: $isLoading)
         }
         .searchable(text: $searchText)
         .sheet(isPresented: $isShowingAddModal, content: {
