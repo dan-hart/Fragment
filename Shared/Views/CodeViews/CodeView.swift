@@ -68,10 +68,6 @@ struct CodeView: View {
                                     if let gist = optionalGist {
                                         sourceCode = gist.text
                                         loadedSourceCode = gist.text
-
-                                        Task {
-                                            // try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoadingParent)
-                                        }
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
                                     }
