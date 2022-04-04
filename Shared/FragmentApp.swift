@@ -15,8 +15,8 @@ struct FragmentApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject()
-                .environmentObject()
+                .environmentObject(tokenHandler)
+                .environmentObject(snippetHandler)
         }
     }
 }
