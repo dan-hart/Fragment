@@ -39,6 +39,23 @@ struct SnippetsListView: View {
 
                     VStack {
                         Text("If this is unexpected, try pulling.")
+                        Button {
+                            Task {
+                                await fetchGists()
+                            }
+                        } label: {
+                            HStack {
+                                #if os(iOS)
+                                    Image(systemSymbol: .arrowDownCircle)
+                                #endif
+                                Text("Pull")
+                                    .font(.system(.body, design: .monospaced))
+                                #if os(macOS)
+                                    .padding()
+                                #endif
+                            }
+                        }
+                        .padding()
                     }
                         .font(.system(.footnote, design: .monospaced))
                         .lineLimit(1)
@@ -49,23 +66,6 @@ struct SnippetsListView: View {
                                 .strokeBorder()
                                 .foregroundColor(.gray)
                         )
-                    Button {
-                        Task {
-                            await fetchGists()
-                        }
-                    } label: {
-                        HStack {
-                            #if os(iOS)
-                                Image(systemSymbol: .arrowDownCircle)
-                            #endif
-                            Text("Try Pulling")
-                                .font(.system(.body, design: .monospaced))
-                            #if os(macOS)
-                                .padding()
-                            #endif
-                        }
-                    }
-                    .padding()
                 }
             } else {
                 if !searchText.isEmpty {
