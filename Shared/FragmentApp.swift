@@ -19,7 +19,7 @@ struct FragmentApp: App {
             MainView(isLoading: $isLoading)
                 .environmentObject(sessionHandler)
                 .alert(isPresented: $sessionHandler.isShowingAlert) {
-                                    alerter.alert ?? Alert(title: Text(""))
+                                    sessionHandler.alert ?? Alert(title: Text(""))
                                 }
                 .onAppear {
                     sessionHandler.callTask {
