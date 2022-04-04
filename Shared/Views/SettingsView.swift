@@ -110,6 +110,7 @@ struct SettingsView: View {
                 }
             }
         }
+        #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
