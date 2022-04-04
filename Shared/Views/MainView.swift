@@ -20,7 +20,7 @@ struct MainView: View {
                 #if os(macOS)
                     EmptyView()
                 #endif
-                Text("Loading")
+                Text("Loading...")
                     .font(.system(.body, design: .monospaced))
                     .frame(minWidth: 800)
             } else {
