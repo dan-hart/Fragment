@@ -171,10 +171,11 @@ class SessionHandler: ObservableObject {
         if !isAuthenticated { throw FragmentError.notAuthenticated }
     }
     
-    func call(sessionFunction: @escaping () -> Void) {
+    func call(thisAsyncThrowingCode: @escaping () -> Void) {
         Task {
         do {
-            let value = try await sessionFunction()
+            let value = try await thisAsyncThrowingCode()
+        }
         }
     }
 }
