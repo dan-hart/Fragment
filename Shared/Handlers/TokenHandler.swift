@@ -48,6 +48,7 @@ class TokenHandler: ObservableObject {
                 isAuthenticated = false
             }
             print(error.localizedDescription)
+            return false
         }
     }
 
