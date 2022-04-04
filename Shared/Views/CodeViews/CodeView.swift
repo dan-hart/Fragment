@@ -38,7 +38,7 @@ struct CodeView: View {
         }
         .content.offset(x: 0, y: 0)
         .onChange(of: gist.text, perform: { newValue in
-            sourceCode = newValue.text
+            sourceCode = newValue
         })
         .onAppear {
             loadedSourceCode = gist.text
