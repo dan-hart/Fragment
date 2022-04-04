@@ -102,21 +102,21 @@ struct ListView: View {
                 }
             }
         }
-        .task {
-            do {
-                for gist in try await sessionHandler.myGists() {
-                    let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
-                    let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
-                    print("--")
-                    print("gist has \(Visibility(isPublic: gist.publicGist).rawValue) - view visibility: \(visibility.rawValue)")
-                    print("search: \(searchText)")
-                    print("return \(audienceIsMatch && searchIsVisible)")
-                    print("--")
-                }
-            } catch {
-                print("error: \(error.localizedDescription)")
-            }
-        }
+//        .task {
+//            do {
+//                for gist in try await sessionHandler.myGists() {
+//                    let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
+//                    let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
+//                    print("--")
+//                    print("gist has \(Visibility(isPublic: gist.publicGist).rawValue) - view visibility: \(visibility.rawValue)")
+//                    print("search: \(searchText)")
+//                    print("return \(audienceIsMatch && searchIsVisible)")
+//                    print("--")
+//                }
+//            } catch {
+//                print("error: \(error.localizedDescription)")
+//            }
+//        }
         .onAppear {
             sessionHandler.callTask {
                 try await sessionHandler.refreshGists()
