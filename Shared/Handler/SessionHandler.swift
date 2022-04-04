@@ -145,6 +145,7 @@ class SessionHandler: ObservableObject {
         }
     }
 
+    @MainActor
     func refreshGists() async throws {
         try await validate()
         gists = try await myGists()
