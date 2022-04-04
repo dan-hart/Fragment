@@ -117,15 +117,25 @@ struct ListView: View {
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
+            let menu = Menu {
+                // Menu Content
+                Button {
+                    
+                } label: {
+                    HStack {
+                        Image(systemSymbol: .gearshape)
+                        Text("Clear Token")
+                            .font(.system(.body, design: .monospaced))
+                    }
+                }
+                // End Menu Content
+            } label: {
+                Image(systemSymbol: .gearshape)
+            }
+
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        HStack {
-                            
-                        }
-                    }
+                    menu
                 }
             #endif
 
@@ -143,6 +153,10 @@ struct ListView: View {
                         }
                         #if os(macOS)
                         .frame(minWidth: 100)
+                        #endif
+
+                        #if os(macOS)
+                            menu
                         #endif
                     }
                 }
