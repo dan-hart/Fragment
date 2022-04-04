@@ -39,6 +39,8 @@ struct SettingsView: View {
                 if authenticated {
                     name = await octoHandler.me(using: tokenHandler.configuration)?.name
                 }
+                
+                isLoading = false
             }
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle")
