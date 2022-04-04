@@ -25,6 +25,7 @@ struct FragmentApp: App {
                     sessionHandler.callTask {
                         isLoading = true
                         try await sessionHandler.startSession(with: sessionHandler.token)
+                        isLoading = false
                     }
                 }
         }
