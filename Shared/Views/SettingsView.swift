@@ -39,7 +39,9 @@ struct SettingsView: View {
                 }
             }
 
-            Text("Appearance")
+            Form {
+            Stepper("Font Size", value: $age, in: 0...130)
+            }
                 .font(.system(.title, design: .monospaced))
                 .tabItem {
                     Label("Appearance", systemImage: "paintpalette")
