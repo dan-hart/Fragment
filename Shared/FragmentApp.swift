@@ -50,7 +50,7 @@ struct FragmentApp: App {
                         Label("Privacy", systemImage: "hand.raised")
                     }
             }
-            .frame(width: 450, height: 250)
+            .frame(width: 800, height: 800)
         }
     }
 }
