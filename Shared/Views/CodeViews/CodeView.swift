@@ -42,9 +42,7 @@ struct CodeView: View {
             sourceCode = gist.text
         }
         .onChange(of: gist.text, perform: { newValue in
-            Throttler(maxInterval: 5).throttle {
-                sourceCode = newValue
-            }
+            sourceCode = newValue
         })
         .toolbar {
             ToolbarItem {
