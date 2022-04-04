@@ -100,7 +100,7 @@ class OctoHandler: ObservableObject {
             throw FragmentError.nilConfiguratioin
         }
 
-        let response = withCheckedContinuation { continuation in
+        let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
                 continuation.resume(returning: response)
             }
