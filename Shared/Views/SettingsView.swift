@@ -18,7 +18,7 @@ struct SettingsView: View {
                 Text("Profile Settings")
                     .font(.title)
                 
-                Text(octoHandler.me(using: tokenHandler.configuration))
+                Text(await octoHandler.me(using: tokenHandler.configuration))
 
                 Button {
                     tokenHandler.delete()
