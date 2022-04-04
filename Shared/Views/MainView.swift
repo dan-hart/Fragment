@@ -10,9 +10,9 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
-    
+
     @Binding var isLoading: Bool
-    
+
     var body: some View {
         if tokenHandler.isAuthenticated {
             ContainerView()

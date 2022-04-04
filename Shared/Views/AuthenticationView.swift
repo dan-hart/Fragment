@@ -10,15 +10,15 @@ import SwiftUI
 
 struct AuthenticationView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
-    
+
     @Binding var isLoading: Bool
-    
+
     @State var token: String = ""
 
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            
+
             if isLoading {
                 Text("Loading...")
                     .font(.system(.largeTitle, design: .monospaced))
