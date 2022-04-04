@@ -14,7 +14,7 @@ enum Constants {
     }
 
     enum Feature {
-        static var ifNoGistsEnablePullButton = false
+        static var ifNoGistsEnablePullButton = true
     }
 }
 
