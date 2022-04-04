@@ -58,7 +58,7 @@ struct SnippetsListView: View {
                     NavigationLink {
                         CodeView(gist: .constant(gist), isLoadingParent: $isLoading)
 #if os(macOS)
-                            .frame(minWidth: Int.max, idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment:.center)
+                            .frame(minWidth: CGFloat(Int.max), idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment:.center)
 #endif
                     } label: {
                         GistRow(data: gist)
