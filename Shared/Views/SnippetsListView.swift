@@ -57,15 +57,15 @@ struct SnippetsListView: View {
                         }
                         .padding()
                     }
-                        .font(.system(.footnote, design: .monospaced))
-                        .lineLimit(1)
-                        .truncationMode(.middle)
-                        .padding(5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .strokeBorder()
-                                .foregroundColor(.gray)
-                        )
+                    .font(.system(.footnote, design: .monospaced))
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+                    .padding(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .strokeBorder()
+                            .foregroundColor(.gray)
+                    )
                 }
             } else {
                 if !searchText.isEmpty {
