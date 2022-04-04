@@ -68,6 +68,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(isLoading: .constant(false), isAuthenticated: .constant(true))
+        SettingsView(isLoading: .constant(false))
     }
 }
