@@ -59,7 +59,7 @@ struct ListView: View {
                                 .padding()
                             Button {
                                 Task {
-                                    try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoading)
+                                    try? await octoHandler.fetchGists(tokenHandler)
                                 }
                             } label: {
                                 HStack {
