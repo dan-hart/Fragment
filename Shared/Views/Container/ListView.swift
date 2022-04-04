@@ -104,7 +104,7 @@ struct ListView: View {
         }
         .task {
             do {
-                for gist in try await octoHandler.fetchGists(tokenHandler) {
+                for gist in try await sessionHandler.myGists() {
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     print("--")
