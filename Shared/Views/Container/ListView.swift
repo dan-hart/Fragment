@@ -149,7 +149,7 @@ struct ListView: View {
                 }
                 // End Menu Content
             } label: {
-                Image(systemSymbol: .ellipsisCircle)
+                Image(systemSymbol: .gearshape)
             }
 
             #if os(iOS)
