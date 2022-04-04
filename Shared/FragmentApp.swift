@@ -12,7 +12,7 @@ struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let octoHandler = OctoHandler()
     let cacheHandler = CacheHandler()
-    
+
     @State var isSettingsLoading = false
 
     init() {
