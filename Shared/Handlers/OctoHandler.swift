@@ -91,7 +91,7 @@ class OctoHandler: ObservableObject {
         isLoading.wrappedValue = false
 
         await MainActor.run {
-        self.gists = gists
+            self.gists = gists
         }
 
         return gists
