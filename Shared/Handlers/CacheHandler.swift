@@ -11,7 +11,7 @@ import OctoKit
 
 public class CacheHandler: ObservableObject {
     public enum Key: String, CaseIterable {
-        
+        case gists
     }
     
     @Published public var gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
