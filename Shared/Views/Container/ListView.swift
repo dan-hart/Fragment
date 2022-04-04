@@ -31,7 +31,7 @@ struct ListView: View {
 
             .navigationTitle("Gists")
 
-            if octoHandler.gists.isEmpty {
+            if sessionHandler.gists.isEmpty {
                 VStack {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
