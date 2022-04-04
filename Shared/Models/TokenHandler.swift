@@ -12,7 +12,6 @@ import OctoKit
 class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
     
-    
     @Published var isAuthenticated: Bool = false
     
     var bundleID: String {
