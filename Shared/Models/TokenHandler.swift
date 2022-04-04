@@ -8,6 +8,7 @@
 import Foundation
 import KeychainAccess
 import OctoKit
+import SwiftUI
 
 class TokenHandler: ObservableObject {
     static var keyName = "GITHUB_API_TOKEN"
