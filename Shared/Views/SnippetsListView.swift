@@ -176,6 +176,7 @@ struct SnippetsListView: View {
         if !tokenHandler.isAuthenticated {
             return
         }
+        
         isLoading = true
         gists = []
         if CacheHelper.deleteAllOnDisk() {
