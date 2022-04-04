@@ -35,7 +35,7 @@ class TokenHandler: ObservableObject {
         let optionalToken = getToken()
         do {
         configuration = try await authenticate(using: optionalToken)
-        } catch {
+        } catch(let error) {
             
         }
         authenticate(using: optionalToken) { optionalConfiguration in
