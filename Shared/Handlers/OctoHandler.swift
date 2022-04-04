@@ -90,6 +90,8 @@ class OctoHandler: ObservableObject {
         }
         isLoading.wrappedValue = false
         
+        self.gists = gists
+        
         return gists
     }
     
