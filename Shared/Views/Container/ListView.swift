@@ -117,6 +117,9 @@ struct ListView: View {
                 print("error: \(error.localizedDescription)")
             }
         }
+        .onAppear {
+            
+        }
         .refreshable {
             sessionHandler.callTask {
                 try await sessionHandler.refreshGists()
