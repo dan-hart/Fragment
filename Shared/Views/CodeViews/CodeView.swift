@@ -38,8 +38,8 @@ struct CodeView: View {
         }
         .content.offset(x: 0, y: 0)
         .onAppear {
-            loadedSourceCode = gist.text
-            sourceCode = gist.text
+            loadedSourceCode = gist?.text
+            sourceCode = gist?.text
         }
         .toolbar {
             ToolbarItem {
