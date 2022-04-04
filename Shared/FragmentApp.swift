@@ -24,7 +24,7 @@ struct FragmentApp: App {
         }
         .onChange(of: tokenHandler.isAuthenticated) { _ in
             snippetHandler.gists(using: tokenHandler.configuration) { gists in
-                <#code#>
+                // Code
             }
         }
     }
