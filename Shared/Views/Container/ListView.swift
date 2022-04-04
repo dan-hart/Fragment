@@ -91,7 +91,15 @@ struct ListView: View {
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
-                    Text("\(index)")
+                    NavigationLink {
+                        CodeView(gist: $octoHandler.gists[index], isLoadingParent: $isLoading)
+                        #if os(macOS)
+                            .frame(minWidth: 1000)
+                        #endif
+                    } label: {
+                        GistRow(data: $octoHandler.gists[index])
+                            .padding()
+                    }
                 }
             }
         }
@@ -193,6 +201,13 @@ struct ListView: View {
         .navigationTitle("Gists")
     }
 }
+
+struct SnippetsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContainerView()
+    }
+}
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
