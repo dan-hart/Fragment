@@ -89,6 +89,7 @@ class OctoHandler: ObservableObject {
         case .success(let user)
             return user
         case .failure(let error)
+            print(error)
         }
     }
 }
