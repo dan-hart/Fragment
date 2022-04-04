@@ -62,9 +62,6 @@ class TokenHandler: ObservableObject {
 
     func authenticate(using token: String, then: @escaping (Bool) -> Void) -> TokenConfiguration {
         let configuration = TokenConfiguration(token)
-        guard let configuration = configuration else {
-            return then(false)
-        }
 
         Octokit(configuration).me { response in
             switch response {
@@ -74,5 +71,7 @@ class TokenHandler: ObservableObject {
                 then(false)
             }
         }
+        
+        return configuration
     }
 }
