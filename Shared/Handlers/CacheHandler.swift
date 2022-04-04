@@ -9,12 +9,12 @@ import DHCacheKit
 import Foundation
 import OctoKit
 
-public class CacheHandler: ObservableObject {
-    public enum Key: String, CaseIterable {
+class CacheHandler: ObservableObject {
+    enum Key: String, CaseIterable {
         case gists
     }
 
-    @Published public var gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
+    @Published var gistsCache = Cache<String, [Gist]>(useLocalDisk: true)
 
     init() {}
 }
