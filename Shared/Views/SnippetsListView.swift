@@ -22,10 +22,6 @@ struct SnippetsListView: View {
 
     @AppStorage("visibility") var visibility: Visibility = .public
 
-    init() {
-        gists = cacheHandler.gistsCache.value(forKey: CacheHandler.Key.gists.rawValue) ?? []
-    }
-
     var body: some View {
         List {
             Picker("Visibility", selection: $visibility) {
