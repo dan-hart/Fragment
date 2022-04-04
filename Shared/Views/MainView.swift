@@ -14,7 +14,7 @@ struct MainView: View {
 
     var body: some View {
         if sessionHandler.isAuthenticated {
-            ContainerView()
+            ContainerView(isLoading: $isLoading)
         } else {
             NavigationView {
                 #if os(macOS)
