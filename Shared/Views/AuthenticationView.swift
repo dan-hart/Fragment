@@ -10,11 +10,11 @@ import SwiftUI
 
 struct AuthenticationView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
-    
+
     @Binding var isLoading: Bool
-    
+
     @State var token: String = ""
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -25,10 +25,10 @@ struct AuthenticationView: View {
                 Text("Token")
                     .font(.system(.body, design: .monospaced))
             }
-                        .onSubmit {
-                            go()
-                        }
-            
+            .onSubmit {
+                go()
+            }
+
             Button {
                 go()
             } label: {
@@ -53,10 +53,10 @@ struct AuthenticationView: View {
             }
         }
         .padding()
-        
+
         .navigationTitle("Authentication")
     }
-    
+
     func go() {
         tokenHandler.save(token: token)
         tokenHandler.taskCheckingAuthenticationStatus()
