@@ -58,7 +58,7 @@ struct AuthenticationView: View {
         tokenHandler.save(token: token)
         Task {
         await MainActor.run {
-            await tokenHandler.checkAuthenticationStatus()
+            tokenHandler.checkAuthenticationStatus()
         }
         }
     }
