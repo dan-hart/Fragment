@@ -95,15 +95,9 @@ struct ListView: View {
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
-                    HStack {
+                    
                         GistRow(data: $octoHandler.gists[index])
-                    }
-                    .onTapGesture {
-                        selectedGist = octoHandler.gists[index]
-                    }
-                    .padding()
-                    .background(selectedGist == octoHandler.gists[index] ? .blue : .clear)
-                    .contentShape(RoundedRectangle(cornerRadius: 8))
+                    
                 }
             }
         }
