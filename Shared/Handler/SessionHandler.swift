@@ -130,7 +130,7 @@ class SessionHandler: ObservableObject {
         }
     }
     
-    func gists() async throws -> [Gist] {
+    func myGists() async throws -> [Gist] {
         if !isAuthenticated { throw FragmentError.notAuthenticated }
         
         let response = await withCheckedContinuation { continuation in
