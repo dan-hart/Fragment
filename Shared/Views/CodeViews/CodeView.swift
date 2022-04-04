@@ -35,8 +35,6 @@ struct CodeView: View {
                     .onAppear {
                         reader.scrollTo(0, anchor: .topLeading)
                     }
-
-                // swiftlint:enable all
             }
         }
         .content.offset(x: 0, y: 0)
