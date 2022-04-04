@@ -73,7 +73,7 @@ class TokenHandler: ObservableObject {
             case .success:
                 then(configuration)
             case .failure:
-                then(false)
+                then(nil)
             }
         }
         
