@@ -54,6 +54,8 @@
 		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
 		5A2387FF27FB3B1900480C20 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* AuthenticationError.swift */; };
 		5A23880027FB3B1900480C20 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* AuthenticationError.swift */; };
+		5A23880327FB3F2900480C20 /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880227FB3F2900480C20 /* CacheHandler.swift */; };
+		5A23880427FB3F2900480C20 /* CacheHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880227FB3F2900480C20 /* CacheHandler.swift */; };
 		5A4C7E5627F3B600006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5527F3B600006B3A4A /* CodeEditor */; };
 		5A4C7E5827F3BE78006B3A4A /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4C7E5727F3BE78006B3A4A /* CodeEditor */; };
 		5AD4DFF327F3AC7A003C2C61 /* DHCacheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */; };
@@ -113,6 +115,7 @@
 		52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
 		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
 		5A2387FE27FB3B1900480C20 /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
+		5A23880227FB3F2900480C20 /* CacheHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheHandler.swift; sourceTree = "<group>"; };
 		5ADC94A527F8E00200EFE347 /* Gist+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gist+Custom.swift"; sourceTree = "<group>"; };
 		5ADC94A827F8EB0600EFE347 /* ClipboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,6 +334,7 @@
 			children = (
 				5283B2DF27EC0A2F0018F19B /* TokenHandler.swift */,
 				52769DF227F0D18300F5D4E0 /* SnippetHandler.swift */,
+				5A23880227FB3F2900480C20 /* CacheHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -611,6 +615,7 @@
 				522915B227E778300087530C /* GistRow.swift in Sources */,
 				52769DF327F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
+				5A23880327FB3F2900480C20 /* CacheHandler.swift in Sources */,
 				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				52769E0327F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				5254DE0127EF8331005BAC56 /* Constants.swift in Sources */,
@@ -637,6 +642,7 @@
 				52769DF427F0D18300F5D4E0 /* SnippetHandler.swift in Sources */,
 				52769E0727F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
+				5A23880427FB3F2900480C20 /* CacheHandler.swift in Sources */,
 				526D97D427F0C82D00BD46CE /* Language.swift in Sources */,
 				52769E0427F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				52769DEF27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
