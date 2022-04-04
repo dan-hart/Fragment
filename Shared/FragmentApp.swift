@@ -23,7 +23,7 @@ struct FragmentApp: App {
                 }
                 .onAppear {
                     sessionHandler.callTask {
-                        try await sessionHandler.startSession()
+                        try await sessionHandler.startSession(with: sessionHandler.token)
                     }
                 }
         }
