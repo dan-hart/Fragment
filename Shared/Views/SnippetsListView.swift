@@ -95,13 +95,13 @@ struct SnippetsListView: View {
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
                     NavigationLink {
-                        CodeView(gist: $gists[index], isLoadingParent: $isLoading)
+                        CodeView(gist: $octoHandler.gists[index], isLoadingParent: $isLoading)
                         #if os(macOS)
                             .frame(minWidth: 1000)
                             // .frame(minWidth: CGFloat(1000), idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: nil, alignment: .center)
                         #endif
                     } label: {
-                        GistRow(data: $gists[index])
+                        GistRow(data: $octoHandler.gists[index])
                             .padding()
                     }
                 }
