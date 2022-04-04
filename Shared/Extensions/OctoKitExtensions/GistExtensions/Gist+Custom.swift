@@ -9,10 +9,12 @@ import Foundation
 import OctoKit
 
 public extension Gist {
+    /// Non-optional identifier for a gist, uses a UUID as fallback
     var identifier: String {
         id ?? UUID().uuidString
     }
 
+    // The key used to identify an entry in the cache, fallback is identifier
     var cacheKey: String {
         files.first?.key ?? identifier
     }
