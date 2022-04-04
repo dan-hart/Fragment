@@ -64,6 +64,8 @@ struct SettingsView: View {
                         }
                     }
                 }
+                    
+                .navigationTitle("Profile")
                 }
                 .task {
                     isLoading = true
