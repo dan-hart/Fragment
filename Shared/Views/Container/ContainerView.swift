@@ -21,7 +21,6 @@ struct ContainerView: View {
     var body: some View {
         NavigationView {
             ListView(selectedGist: $selectedGist, isLoading: $isLoading, searchText: $searchText)
-            CodeView(gist: $selectedGist, isLoadingParent: $isLoading)
         }
         .sheet(isPresented: $isShowingAddModal) {
             #if os(iOS)
