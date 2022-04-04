@@ -41,35 +41,6 @@ class SessionHandler: ObservableObject {
         isAuthenticated = false
     }
 
-    func taskCheckingAuthenticationStatus() {
-        Task {
-            await checkAuthenticationStatus()
-        }
-    }
-
-    /// returns true if authentication succeeded
-    func checkAuthenticationStatus() async -> Bool {
-        let optionalToken = token
-
-        do {
-            if let configuration = try await authenticate(using: optionalToken) {
-                self.configuration = configuration
-                await MainActor.run {
-                    isAuthenticated = true
-                }
-                return true
-            } else {
-                return false
-            }
-        } catch {
-            await MainActor.run {
-                isAuthenticated = false
-            }
-            print(error.localizedDescription)
-            return false
-        }
-    }
-
     func save(token: String) {
         keychain[keychainKeyIdentifier] = token
     }
