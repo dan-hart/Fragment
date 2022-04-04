@@ -19,6 +19,11 @@ struct FragmentApp: App {
             MainView()
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
+                .task {
+                    isLoading = true
+                    _ = await tokenHandler.checkAuthenticationStatus()
+                    isLoading = false
+                }
         }
 
         Settings {
