@@ -46,7 +46,6 @@ struct CodeView: View {
                 HStack {
                     if loadedSourceCode != sourceCode {
                         Button {
-                            isLoadingParent = true
                             guard let id = gist.id,
                                   let description = gist.description,
                                   let filename = gist.files.first?.key
@@ -54,6 +53,7 @@ struct CodeView: View {
                                 return
                             }
                             
+                            isLoadingParent = true
                             sessionHandler.callTask {
                                 let text = try await sessionHandler.update(id, description, filename, sourceCode)
                             }
