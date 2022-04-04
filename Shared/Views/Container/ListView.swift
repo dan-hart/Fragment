@@ -103,7 +103,7 @@ struct ListView: View {
             }
         }
         .onAppear {
-            if !loading {
+            if !isLoading {
                 sessionHandler.callTask {
                     try await sessionHandler.refreshGists()
                 }
