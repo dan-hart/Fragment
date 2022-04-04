@@ -98,11 +98,8 @@ struct ListView: View {
                     Group {
                     GistRow(data: $octoHandler.gists[index])
                     }
-                    .background((selected == number ? highlightColor : nil).offset(x: -10, y: 0))
-                                    .contentShape(Rectangle())
-                                    .onTapGesture {
-                                        selected = number
-                                    }
+                    .background((selectedGist.id == $octoHandler.gists[index].id ? highlightColor : nil)
+                    .contentShape(Rectangle())
                         .onTapGesture {
                             selectedGist = octoHandler.gists[index]
                         }
