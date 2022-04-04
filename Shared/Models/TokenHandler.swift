@@ -43,6 +43,9 @@ class TokenHandler: ObservableObject {
     func checkNeedsAuthenticationStatus() {
         if let token = keychain[TokenHandler.keyName] {
             value = token
+            authenticate(using: token) { isAuthenticated in
+                <#code#>
+            }
             
             needsAuthentication = false
         } else {
