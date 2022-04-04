@@ -14,7 +14,7 @@ struct MainView: View {
     @Binding var isLoading: Bool
 
     var body: some View {
-        if tokenHandler.isAuthenticated {
+        if tokenHandler.token != nil {
             ContainerView()
         } else {
             NavigationView {
