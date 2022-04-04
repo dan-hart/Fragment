@@ -14,6 +14,7 @@ struct MainView: View {
     @Binding var isLoading: Bool
 
     var body: some View {
+        Group {
         if isLoading {
             Text("Loading...")
                 .font(.system(.largeTitle, design: .monospaced))
@@ -21,11 +22,6 @@ struct MainView: View {
         } else {
             if tokenHandler.isAuthenticated {
                 ContainerView()
-                                .task {
-                                    isLoading = true
-                                    _ = await tokenHandler.checkAuthenticationStatus()
-                                    isLoading = false
-                                }
             } else {
                 NavigationView {
                     if Constants.isMacOrPad() {
@@ -36,6 +32,12 @@ struct MainView: View {
                         .padding()
                 }
             }
+        }
+        }
+        .task {
+            isLoading = true
+            _ = await tokenHandler.checkAuthenticationStatus()
+            isLoading = false
         }
     }
 }
