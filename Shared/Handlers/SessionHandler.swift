@@ -127,9 +127,6 @@ class SessionHandler: ObservableObject {
         guard let configuration = configuration else {
             return then(nil, nil)
         }
-        
-        let response = await withCheckedContinuation { continuation in
-        }
 
         Octokit(configuration).postGistFile(
             description: description,
