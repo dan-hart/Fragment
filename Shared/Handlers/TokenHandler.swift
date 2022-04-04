@@ -24,7 +24,6 @@ class TokenHandler: ObservableObject {
     }
 
     var configuration: TokenConfiguration?
-    var token: String?
 
     init() {}
 
@@ -36,7 +35,7 @@ class TokenHandler: ObservableObject {
         }
     }
 
-    func checkAuthenticationStatus() async {
+    func checkAuthenticationStatus() async -> Bool {
         let optionalToken = getToken()
         do {
             configuration = try await authenticate(using: optionalToken)
