@@ -190,7 +190,7 @@ struct SnippetsListView: View {
 
     func fetchGists() async {
         if !tokenHandler.isAuthenticated {
-            return
+            tokenHandler.checkAuthorizationStatus()
         }
 
         isLoading = true
