@@ -175,7 +175,7 @@ struct ListView: View {
                             HStack {
                                 Image(systemSymbol: .plusCircle)
                                 Text("Create")
-                                    .font(.system(.caption, design: .monospaced))
+                                    .font(.system(.body, design: .monospaced))
                             }
                         }
 //                        #if os(macOS)
