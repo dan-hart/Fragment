@@ -39,8 +39,10 @@ struct SettingsView: View {
                 }
             }
 
+            VStack {
             Form {
             Stepper("Font Size", value: $age, in: 0...130)
+            }
             }
                 .font(.system(.title, design: .monospaced))
                 .tabItem {
