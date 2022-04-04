@@ -82,7 +82,9 @@ class OctoHandler: ObservableObject {
 
         self.gists(using: tokenHandler.configuration) { optionalGists in
             if let gists = optionalGists {
-                self.gists = gists
+                DispatchQueue.main.async {
+                    self.gists = gists
+                }
             }
             if tokenHandler.isElidgibleForCaching {
                 cacheHandler.gistsCache.insert(gists, forKey: tokenHandler.token ?? "")
