@@ -10,7 +10,7 @@ import OctoKit
 
 class OctoHandler: ObservableObject {
     @Published var me: User?
-    
+
     func update(using configuration: TokenConfiguration?,
                 _ id: String,
                 _ description: String,
@@ -81,11 +81,12 @@ class OctoHandler: ObservableObject {
     }
 
     // MARK: - Profile
+
     func fetchMe(using configuration: TokenConfiguration?) async {
         guard let configuration = configuration else {
             return
         }
-        self.me = await me(using: configuration)
+        me = await me(using: configuration)
     }
 
     func me(using configuration: TokenConfiguration) async -> User? {
