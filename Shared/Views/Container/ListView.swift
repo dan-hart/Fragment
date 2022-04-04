@@ -119,7 +119,7 @@ struct ListView: View {
         .redacted(reason: isLoading ? .placeholder : [])
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
-                SettingsView()
+                SettingsView(isLoading: $isLoading)
                 
                     .navigationTitle("Settings")
             }
