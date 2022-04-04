@@ -51,7 +51,7 @@ class TokenHandler: ObservableObject {
         if let token = keychain[TokenHandler.keyName] {
             value = token
             if attemptReauthentication {
-                authenticate(using: token) { isAuthenticated in
+                configuration = authenticate(using: token) { isAuthenticated in
                     DispatchQueue.main.async {
                         self.isAuthenticated = isAuthenticated
                     }
