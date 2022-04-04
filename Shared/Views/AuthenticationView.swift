@@ -59,7 +59,7 @@ struct AuthenticationView: View {
     }
 
     func go() {
-        sessionHandler.call {
+        sessionHandler.callTask {
             try await sessionHandler.startSession(with: token)
         }
     }
