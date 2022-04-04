@@ -10,8 +10,7 @@ import SFSafeSymbols
 import SwiftUI
 
 struct ContainerView: View {
-    @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var octoHandler: OctoHandler
+    @EnvironmentObject var sessionHandler: SessionHandler
 
     @State var isLoading = false
     @State var isShowingAddModal = false
