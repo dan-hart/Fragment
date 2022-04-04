@@ -30,6 +30,7 @@ struct SettingsView: View {
                     Text(name ?? "Loading...")
 
                     Button {
+                        sessionHandler.invalidateSession()
                         tokenHandler.delete()
                         tokenHandler.taskCheckingAuthenticationStatus()
                     } label: {
