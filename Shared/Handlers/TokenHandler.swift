@@ -24,6 +24,7 @@ class TokenHandler: ObservableObject {
     }
 
     var configuration: TokenConfiguration?
+    private var token: String
 
     init() {}
 
