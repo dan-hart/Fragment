@@ -171,7 +171,7 @@ class SessionHandler: ObservableObject {
         if !isAuthenticated { throw FragmentError.notAuthenticated }
     }
     
-    func call<T>(sessionFunction: @autoclosure () async throws -> T) {
+    func call<T>(sessionFunction: @autoclosure () async throws -> T) async {
         do {
             try
         }
