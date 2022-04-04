@@ -28,7 +28,7 @@ class TokenHandler: ObservableObject {
 
     init() {
         let optionalToken = getToken()
-        configuration = authenticate(using: ) { optionalToken in
+        configuration = authenticate(using: optionalToken) { optionalToken in
             <#code#>
         })
     }
