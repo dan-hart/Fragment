@@ -7,6 +7,8 @@
 
 import Foundation
 
-enum AuthenticationError: Error, String {
-    case nilToken = "Provided token was nil"
+enum AuthenticationError: String, Error {
+    case nilToken = "Provided token is nil"
+    case invalidToken = "Provided token is invalid"
+    
 }
