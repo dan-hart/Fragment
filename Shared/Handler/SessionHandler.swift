@@ -149,7 +149,7 @@ class SessionHandler: ObservableObject {
     
     // MARK: - Profile
     
-    func me() async throws -> User? {
+    func me() async throws -> User {
         if !isAuthenticated { throw FragmentError.notAuthenticated }
         
         let response = await withCheckedContinuation { continuation in
