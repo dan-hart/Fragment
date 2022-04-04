@@ -165,4 +165,9 @@ class SessionHandler: ObservableObject {
             throw error
         }
     }
+    
+    // MARK: - Helpers
+    func validate() async throws {
+        
+    }
 }
