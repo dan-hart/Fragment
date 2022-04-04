@@ -49,15 +49,6 @@ class SessionHandler: ObservableObject {
     }
 
     // MARK: - Authentication
-    private func triggerAuthenticationAttempt() {
-        Task {
-            do {
-                configuration = try await authenticate(using: token)
-            } catch(let error) {
-                print(error)
-            }
-        }
-    }
     
     private func authenticate(using token: String?) async throws -> TokenConfiguration {
         guard let token = token, !token.isEmpty else {
