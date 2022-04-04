@@ -167,7 +167,7 @@ class SessionHandler: ObservableObject {
 
     func me(using configuration: TokenConfiguration?) async -> User? {
         guard let configuration = configuration else {
-            return nil
+            throw FragmentError.nilConfiguratioin
         }
 
         let response = await withCheckedContinuation { continuation in
