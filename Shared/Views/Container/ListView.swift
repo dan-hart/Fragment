@@ -129,7 +129,7 @@ struct ListView: View {
         .toolbar {
             let menu = Menu {
                 // Menu Content
-                if tokenHandler.isAuthenticated {
+                if sessionHandler.isAuthenticated {
                     #if os(macOS)
                         Button {
                             Task {
