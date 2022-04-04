@@ -12,12 +12,8 @@ struct FragmentApp: App {
     let tokenHandler = TokenHandler()
     let octoHandler = OctoHandler()
 
-    @State var isLoading = true
+    @State var isLoading = false
     @State var isSettingsLoading = false
-
-    init() {
-        tokenHandler.taskCheckingAuthenticationStatus(isLoading: $isLoading)
-    }
 
     var body: some Scene {
         WindowGroup {
