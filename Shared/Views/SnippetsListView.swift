@@ -37,7 +37,7 @@ struct SnippetsListView: View {
         }
         
         didSet {
-            
+            filteredGists = computeFilteredGists
         }
     }
     
