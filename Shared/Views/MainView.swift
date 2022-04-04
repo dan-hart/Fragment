@@ -22,6 +22,7 @@ struct MainView: View {
             if tokenHandler.isAuthenticated {
                 ContainerView()
             } else {
+                NavigationView {
                 AuthenticationView()
                     .frame(minWidth: 800)
                     .padding()
