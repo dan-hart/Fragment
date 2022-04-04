@@ -9,6 +9,10 @@ import Foundation
 import OctoKit
 
 extension Gist {
+    var id: String {
+        
+    }
+    
     var cacheKey: String {
         files.first?.key ?? (id ?? UUID().uuidString)
     }
