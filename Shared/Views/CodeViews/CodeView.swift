@@ -53,6 +53,10 @@ struct CodeView: View {
                             else {
                                 return
                             }
+                            
+                            sessionHandler.callTask {
+                                let text = try await sessionHandler.update(id, description, filename, sourceCode)
+                            }
 
                             octoHandler.update(
                                 using: tokenHandler.configuration,
