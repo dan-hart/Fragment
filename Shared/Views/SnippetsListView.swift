@@ -90,7 +90,7 @@ struct SnippetsListView: View {
         }
         .onAppear {
             Task {
-                // await fetchGists()
+                await fetchGists()
             }
         }
         .refreshable {
