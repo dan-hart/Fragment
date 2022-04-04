@@ -39,7 +39,9 @@ class TokenHandler: ObservableObject {
         let optionalToken = getToken()
         do {
             configuration = try await authenticate(using: optionalToken)
+            MainActor.run {
             isAuthenticated = true
+            }
         } catch {
             isAuthenticated = false
             print(error.localizedDescription)
