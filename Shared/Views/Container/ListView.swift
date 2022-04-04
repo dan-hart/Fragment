@@ -13,7 +13,7 @@ struct ListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
-    @Binding var selectedGist: Gist
+    @Binding var selectedGist: Gist?
     @Binding var isLoading: Bool
     @Binding var searchText: String
 
