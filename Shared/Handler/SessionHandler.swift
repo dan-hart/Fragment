@@ -150,9 +150,7 @@ class SessionHandler: ObservableObject {
     // MARK: - Profile
     
     func me(using configuration: TokenConfiguration?) async throws -> User? {
-        guard let configuration = configuration else {
-            throw FragmentError.nilConfiguratioin
-        }
+        if !isAuthenticated { throw FragmentError.notAuthenticated }
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
