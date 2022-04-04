@@ -186,6 +186,9 @@ class SessionHandler: ObservableObject {
         do {
             try await thisAsyncThrowingCode()
         } catch {
+            if error is FragmentError {
+                print((error as! FragmentError).rawValue)
+            }
             print(error)
         }
     }
