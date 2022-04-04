@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct FragmentApp: App {
     let tokenHandler = TokenHandler()
-    let snippetHandler = OctoHandler()
+    let octoHandler = OctoHandler()
     let cacheHandler = CacheHandler()
 
     init() {
@@ -21,11 +21,11 @@ struct FragmentApp: App {
         WindowGroup {
             MainView()
                 .environmentObject(tokenHandler)
-                .environmentObject(snippetHandler)
+                .environmentObject(octoHandler)
                 .environmentObject(cacheHandler)
         }
         .onChange(of: tokenHandler.isAuthenticated) { _ in
-            snippetHandler.gists(using: tokenHandler.configuration) { gists in
+            octoHandler.gists(using: tokenHandler.configuration) { gists in
                 cacheHandler.gistsCache.insert(gists ?? [], forKey: CacheHandler.Key.gists.rawValue)
             }
         }
