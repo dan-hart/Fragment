@@ -76,7 +76,5 @@ class TokenHandler: ObservableObject {
                 then(nil)
             }
         }
-        
-        return configuration
     }
 }
