@@ -30,7 +30,7 @@ class TokenHandler: ObservableObject {
     // MARK: - Methods
     
     func clear() {
-        delete(key: keyName)
+        delete(key: TokenHandler.keyName)
     }
 
     func taskCheckingAuthenticationStatus() {
