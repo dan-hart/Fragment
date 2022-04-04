@@ -44,10 +44,13 @@ struct SnippetsListView: View {
                     } label: {
                         HStack {
                             #if os(iOS)
-                            Image(systemSymbol: .arrowDownCircle)
+                                Image(systemSymbol: .arrowDownCircle)
                             #endif
                             Text("Try Pulling")
                                 .font(.system(.body, design: .monospaced))
+                            #if os(macOS)
+                                .padding()
+                            #endif
                         }
                     }
                     .padding()
