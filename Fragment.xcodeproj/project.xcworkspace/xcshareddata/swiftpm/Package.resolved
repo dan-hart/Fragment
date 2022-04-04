@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dan-hart/DHCacheKit",
       "state" : {
-        "branch" : "main",
-        "revision" : "4317aa6d9ae4db33325b51aa2ea2e6f6d09b3b40"
+        "revision" : "4317aa6d9ae4db33325b51aa2ea2e6f6d09b3b40",
+        "version" : "0.0.3"
       }
     },
     {
