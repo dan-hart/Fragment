@@ -31,7 +31,6 @@ class TokenHandler: ObservableObject {
     }
 
     // MARK: - Methods
-    
     func getToken() -> String? {
         keychain[TokenHandler.keyName]
     }
