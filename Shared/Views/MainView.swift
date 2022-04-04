@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
+    @EnvironmentObject var octoHandler: OctoHandler
 
     @Binding var isLoading: Bool
 
