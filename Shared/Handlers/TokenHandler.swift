@@ -70,10 +70,6 @@ class TokenHandler: ObservableObject {
         }
     }
 
-    func getToken() -> String? {
-        
-    }
-
     func save(token: String) {
         keychain[TokenHandler.keyName] = token
     }
