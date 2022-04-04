@@ -88,7 +88,7 @@ struct SettingsView: View {
                         Section {
                             Toggle("Disable Local Caching", isOn: .constant(false))
                         } footer: {
-                            <#code#>
+                            Text("Not implemented yet")
                         }
                     }
                     
