@@ -28,8 +28,9 @@ struct MainView: View {
                     SnippetsListView()
                 } else {
                     AuthenticationView()
-                        .padding()
                         .frame(minWidth: 800)
+                        .padding()
+                        
                 }
             }
         }
