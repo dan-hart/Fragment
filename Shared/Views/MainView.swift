@@ -10,30 +10,21 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
-
+    
     @Binding var isLoading: Bool
-
+    
     var body: some View {
-        Group {
-            if isLoading {
-                
-            } else {
-                if tokenHandler.isAuthenticated {
-                    ContainerView()
-                } else {
-                    NavigationView {
-                        if Constants.isMacOrPad() {
-                            EmptyView()
-                        }
-                        AuthenticationView()
-                            .frame(minWidth: 800)
-                            .padding()
-                    }
+        if tokenHandler.isAuthenticated {
+            ContainerView()
+        } else {
+            NavigationView {
+                if Constants.isMacOrPad() {
+                    EmptyView()
                 }
+                AuthenticationView(isLoading: $isLoading)
+                    .frame(minWidth: 800)
+                    .padding()
             }
-        }
-        .onAppear {
-            tokenHandler.taskCheckingAuthenticationStatus()
         }
     }
 }
