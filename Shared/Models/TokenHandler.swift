@@ -46,7 +46,6 @@ class TokenHandler: ObservableObject {
             value = token
             authenticate(using: token) { isAuthenticated in
                 self.isAuthenticated = isAuthenticated
-                self.needsAuthentication = !isAuthenticated
             }
         }
     }
