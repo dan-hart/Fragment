@@ -32,8 +32,8 @@ struct FragmentApp: App {
 
         Settings {
             TabView {
-                VStack {
-                    Text("Privacy Settings")
+                List {
+                    Text("Profl Settings")
                         .font(.title)
 
                     Button {
