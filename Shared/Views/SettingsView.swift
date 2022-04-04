@@ -60,6 +60,7 @@ struct SettingsView: View {
                     Label("Privacy", systemImage: "hand.raised")
                 }
         }
+        .redacted(reason: isLoading ? .placeholder : [])
     }
 }
 
