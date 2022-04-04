@@ -165,7 +165,7 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Profile
 
-    func me(using configuration: TokenConfiguration?) async -> User? {
+    func me(using configuration: TokenConfiguration?) async throws-> User? {
         guard let configuration = configuration else {
             throw FragmentError.nilConfiguratioin
         }
