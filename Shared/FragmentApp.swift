@@ -25,11 +25,11 @@ struct FragmentApp: App {
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
                 .environmentObject(cacheHandler)
-        }
-        .onChange(of: tokenHandler.isAuthenticated) { _ in
-            octoHandler.gists(using: tokenHandler.configuration) { gists in
-                cacheHandler.gistsCache.insert(gists ?? [], forKey: CacheHandler.Key.gists.rawValue)
-            }
+                .onChange(of: tokenHandler.isAuthenticated) { _ in
+                    octoHandler.gists(using: tokenHandler.configuration) { gists in
+                        cacheHandler.gistsCache.insert(gists ?? [], forKey: CacheHandler.Key.gists.rawValue)
+                    }
+                }
         }
 
         Settings {
