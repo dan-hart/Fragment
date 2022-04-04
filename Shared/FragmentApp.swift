@@ -30,6 +30,7 @@ struct FragmentApp: App {
                 }
         }
 
+        if Constants.Feature.settingsEnabled {
         #if os(macOS)
             Settings {
                 SettingsView(isLoading: $isSettingsLoading)
@@ -38,5 +39,6 @@ struct FragmentApp: App {
                     .redacted(reason: isSettingsLoading ? .placeholder : [])
             }
         #endif
+        }
     }
 }
