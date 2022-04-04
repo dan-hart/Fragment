@@ -13,7 +13,7 @@ struct ListView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
     @EnvironmentObject var octoHandler: OctoHandler
 
-    @State var isLoading = false
+    @Binding var isLoading: Bool
     @State var isShowingAddModal = false
     @State var searchText = ""
 
