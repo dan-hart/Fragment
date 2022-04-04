@@ -90,7 +90,7 @@ class OctoHandler: ObservableObject {
         me = await me(using: configuration)
     }
 
-    func me(using configuration: TokenConfiguration) async -> User? {
+    func me(using configuration: TokenConfiguration?) async -> User? {
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).me { response in
                 continuation.resume(returning: response)
