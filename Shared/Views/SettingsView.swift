@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
-    
+
     @Binding var isLoading: Bool
-    
+
     @State var name: String?
-    
+
     var body: some View {
         TabView {
             if sessionHandler.isAuthenticated {
@@ -37,52 +37,52 @@ struct SettingsView: View {
                     Label("General", systemImage: "gearshape")
                 }
             }
-            
+
             VStack {
                 Form {
                     Stepper("Code Font Size: \(sessionHandler.fontSize)", value: $sessionHandler.fontSize, in: 8 ... 72)
                 }
-                
+
                 .navigationTitle("Appearance")
             }
             .tabItem {
                 Label("Appearance", systemImage: "paintpalette")
             }
-            
+
             if sessionHandler.isAuthenticated {
                 VStack {
-                Form {
-                    Section("You") {
-                        Text(name ?? "Loading...")
-                    }
-                    
-                    Button {
-                        sessionHandler.invalidateSession()
-                    } label: {
-                        HStack {
-                            Image(systemSymbol: .xmarkCircle)
-                            Text("Clear Token")
-                                .font(.system(.body, design: .monospaced))
+                    Form {
+                        Section("You") {
+                            Text(name ?? "Loading...")
+                        }
+
+                        Button {
+                            sessionHandler.invalidateSession()
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .xmarkCircle)
+                                Text("Clear Token")
+                                    .font(.system(.body, design: .monospaced))
+                            }
                         }
                     }
-                }
-                    
-                .navigationTitle("Profile")
+
+                    .navigationTitle("Profile")
                 }
                 .task {
                     isLoading = true
-                    
+
                     sessionHandler.callTask {
                         let user = try await sessionHandler.me()
                         self.name = user.name
                     }
-                    
+
                     isLoading = false
                 }
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
-                
+
                 VStack {
                     Form {
                         Section {
@@ -92,13 +92,13 @@ struct SettingsView: View {
                             Text("Not implemented yet")
                         }
                     }
-                    
+
                     .navigationTitle("Privacy")
                 }
-                    .font(.system(.title, design: .monospaced))
-                    .tabItem {
-                        Label("Privacy", systemImage: "hand.raised")
-                    }
+                .font(.system(.title, design: .monospaced))
+                .tabItem {
+                    Label("Privacy", systemImage: "hand.raised")
+                }
             }
         }
     }
