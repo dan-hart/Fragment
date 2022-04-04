@@ -59,7 +59,7 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Authentication
 
-    private func getToken(expectingValue: Bool = false) throws -> String {
+    private func getToken(expectingValue: Bool = true) throws -> String {
         guard let token = keychain[keychainKeyIdentifier], expectingValue else {
             throw FragmentError.nilToken
         }
