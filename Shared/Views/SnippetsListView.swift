@@ -32,7 +32,7 @@ struct SnippetsListView: View {
             .pickerStyle(.segmented)
             .labelsHidden()
 
-            if gists.isEmpty {
+            if octoHandler.gists.isEmpty {
                 VStack {
                     Text("No Gists")
                         .font(.system(.body, design: .monospaced))
