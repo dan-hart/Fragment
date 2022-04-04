@@ -77,10 +77,11 @@ class SessionHandler: ObservableObject {
     }
     
     // MARK: - Gist CRU
-    func update(_ id: String,
-                _ description: String,
-                _ filename: String,
-                _ content: String) async throws -> Gist
+    func update(
+        _ id: String,
+        _ description: String,
+        _ filename: String,
+        _ content: String) async throws -> Gist
     {
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).patchGistFile(id: id,
@@ -107,16 +108,17 @@ class SessionHandler: ObservableObject {
         _ visibility: Visibility,
         then: @escaping (Gist?, Error?) -> Void
     ) {
-        guard let configuration = configuration else {
-            return then(nil, nil)
-        }
-        
+        let response = await withCheckedContinuation { continuation in
         Octokit(configuration).postGistFile(
             description: description,
             filename: filename,
             fileContent: content,
             publicAccess: visibility == .public ? true : false
         ) { response in
+            continuation.resume(returning: response)
+        }
+        }
+            
             switch response {
             case let .success(gist):
                 then(gist, nil)
@@ -124,7 +126,6 @@ class SessionHandler: ObservableObject {
                 print(error)
                 then(nil, error)
             }
-        }
     }
     
     func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
