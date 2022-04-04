@@ -83,7 +83,7 @@ class SessionHandler: ObservableObject {
         _ filename: String,
         _ content: String) async throws -> Gist
     {
-        if !isAuthenticated { throw FragmentError.notAuthenticated }
+        validate()
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).patchGistFile(id: id,
