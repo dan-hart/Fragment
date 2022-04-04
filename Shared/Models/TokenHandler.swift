@@ -27,7 +27,10 @@ class TokenHandler: ObservableObject {
     private var value: String?
 
     init() {
-        configuration = authenticate(using: <#T##String#>, then: <#T##(Bool) -> Void#>)
+        let optionalToken = getToken()
+        configuration = authenticate(using: ) { optionalToken in
+            <#code#>
+        })
     }
 
     // MARK: - Methods
