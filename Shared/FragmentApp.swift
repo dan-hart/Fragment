@@ -35,5 +35,6 @@ struct FragmentApp: App {
                 .frame(width: 400, height: 400)
                 .redacted(reason: isSettingsLoading ? .placeholder : [])
         }
+        #endif
     }
 }
