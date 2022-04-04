@@ -95,9 +95,11 @@ struct ListView: View {
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
-                    
+                    NavigationLink {
+                        CodeView(gist: $selectedGist, isLoadingParent: $isLoading)
+                    } label: {
                         GistRow(data: $octoHandler.gists[index])
-                    
+                    }
                 }
             }
         }
