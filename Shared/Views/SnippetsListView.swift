@@ -18,7 +18,7 @@ struct SnippetsListView: View {
     @State var isLoading = false
     @State var isShowingAddModal = false
     @State var searchText = ""
-    
+
     @AppStorage("visibility") var visibility: Visibility = .public
 
     var body: some View {
@@ -85,16 +85,16 @@ struct SnippetsListView: View {
         .searchable(text: $searchText)
         .sheet(isPresented: $isShowingAddModal, content: {
             #if os(iOS)
-            NavigationView {
-                AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
-                    gists.insert(newGist, at: 0)
+                NavigationView {
+                    AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
+                        gists.insert(newGist, at: 0)
+                    }
                 }
-            }
             #endif
             #if os(macOS)
-            AddGistView(filename: "", description: "", content: "") { newGist in
-                gists.insert(newGist, at: 0)
-            }
+                AddGistView(filename: "", description: "", content: "") { newGist in
+                    gists.insert(newGist, at: 0)
+                }
             #endif
         })
         .redacted(reason: isLoading ? .placeholder : [])
