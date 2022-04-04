@@ -124,7 +124,7 @@ struct ListView: View {
                 } label: {
                     HStack {
                         Image(systemSymbol: .gearshape)
-                        Text("Clear Token")
+                        Text("Preferences")
                             .font(.system(.body, design: .monospaced))
                     }
                 }
