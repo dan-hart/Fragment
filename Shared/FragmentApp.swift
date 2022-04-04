@@ -35,7 +35,7 @@ struct FragmentApp: App {
                 VStack {
                     Text("Privacy Settings")
                         .font(.title)
-                    
+
                     Button {
                         tokenHandler.delete()
                         tokenHandler.taskCheckingAuthenticationStatus()
@@ -47,9 +47,9 @@ struct FragmentApp: App {
                         }
                     }
                 }
-                    .tabItem {
-                        Label("Profile", systemImage: "person.crop.circle")
-                    }
+                .tabItem {
+                    Label("Profile", systemImage: "person.crop.circle")
+                }
 
                 Text("Profile Settings")
                     .font(.title)
