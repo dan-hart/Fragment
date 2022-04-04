@@ -130,8 +130,8 @@ class SessionHandler: ObservableObject {
         }
     }
     
-    func gists(using configuration: TokenConfiguration?) async throws -> [Gist]? {
-
+    func gists(using configuration: TokenConfiguration?) async throws -> [Gist] {
+        if !isAuthenticated { throw FragmentError.notAuthenticated }
         
         let response = await withCheckedContinuation { continuation in
             Octokit(configuration).myGists { response in
