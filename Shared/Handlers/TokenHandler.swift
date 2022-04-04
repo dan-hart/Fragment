@@ -35,6 +35,7 @@ class TokenHandler: ObservableObject {
         }
     }
 
+    /// returns true if authentication succeeded
     func checkAuthenticationStatus() async -> Bool {
         let optionalToken = getToken()
         do {
