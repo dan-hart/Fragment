@@ -54,11 +54,11 @@ struct SnippetsListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(gists.filter { gist in // Public / Private
+                ForEach(gists.filter { gist in
                     let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
                     let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
                     return audienceIsMatch && searchIsVisible
-                }.indices, id: \.self) { index in
+                }.indices, id: \.id) { index in
                     NavigationLink {
                         CodeView(gist: $gists[index], isLoadingParent: $isLoading)
                         #if os(macOS)
