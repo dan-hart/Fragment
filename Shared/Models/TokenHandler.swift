@@ -45,6 +45,7 @@ class TokenHandler: ObservableObject {
         if let token = keychain[TokenHandler.keyName] {
             value = token
             authenticate(using: token) { isAuthenticated in
+                self.isAuthenticated = isAuthenticated
                 self.needsAuthentication = !isAuthenticated
             }
         }
