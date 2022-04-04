@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var tokenHandler: TokenHandler
-    @EnvironmentObject var octoHandler: OctoHandler
 
     @State var isLoading = true
 
