@@ -103,7 +103,7 @@ struct ListView: View {
                     }
                     .padding()
                     .background(selectedGist == octoHandler.gists[index] ? .blue : .clear)
-                    .contentShape(RoundedRectangle(cornerRadius: 8)))
+                    .contentShape(RoundedRectangle(cornerRadius: 8))
                 }
             }
         }
