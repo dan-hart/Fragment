@@ -22,7 +22,6 @@ struct MainView: View {
                     EmptyView()
                 }
                 AuthenticationView(isLoading: $isLoading)
-                    .frame(minWidth: 800)
                     .padding()
             }
         }
