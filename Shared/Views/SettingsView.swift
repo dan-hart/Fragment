@@ -40,9 +40,11 @@ struct SettingsView: View {
             }
 
             VStack {
-            Form {
-                Stepper("Font Size", value: $sessionHandler.fontSize, in: 8...72)
-            }
+                Form {
+                    Stepper("Font Size", value: $sessionHandler.fontSize, in: 8...72)
+                }
+                
+                .navigationTitle("Appearance")
             }
                 .tabItem {
                     Label("Appearance", systemImage: "paintpalette")
