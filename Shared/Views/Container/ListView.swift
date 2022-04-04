@@ -107,11 +107,7 @@ struct ListView: View {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(sessionHandler.gists.filter { gist in
-                    let audienceIsMatch = Visibility(isPublic: gist.publicGist) == visibility
-                    let searchIsVisible = searchText.isEmpty ? true : gist.meetsSearchCriteria(text: searchText)
-                    return audienceIsMatch && searchIsVisible
-                }.indices, id: \.self) { index in
+                ForEach(filteredGists.indices, id: \.self) { index in
                     NavigationLink {
                         CodeView(gist: $sessionHandler.gists[index], isLoadingParent: $isLoading)
                             .navigationTitle(sessionHandler.gists[index].filename)
