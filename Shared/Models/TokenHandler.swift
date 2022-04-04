@@ -43,7 +43,9 @@ class TokenHandler: ObservableObject {
                 isAuthenticated = true
             }
         } catch {
-            isAuthenticated = false
+            await MainActor.run {
+                isAuthenticated = false
+            }
             print(error.localizedDescription)
         }
     }
