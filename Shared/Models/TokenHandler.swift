@@ -53,21 +53,6 @@ class TokenHandler: ObservableObject {
 
     // MARK: - Authentication
 
-    func checkNeedsAuthenticationStatus(attemptReauthentication: Bool = true) {
-        if let token = keychain[TokenHandler.keyName] {
-            value = token
-            if attemptReauthentication {
-                configuration = authenticate(using: token) { isAuthenticated in
-                    DispatchQueue.main.async {
-                        self.isAuthenticated = isAuthenticated
-                    }
-                }
-            } else {
-                self.isAuthenticated = false
-            }
-        }
-    }
-
     func authenticate(using token: String?, then: @escaping (TokenConfiguration?) -> Void) {
         guard let token = token else {
             return then(nil)
