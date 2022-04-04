@@ -25,7 +25,6 @@ struct FragmentApp: App {
             SettingsView(isLoading: $isSettingsLoading)
                 .environmentObject(tokenHandler)
                 .environmentObject(octoHandler)
-                .environmentObject(cacheHandler)
                 .frame(width: 400, height: 400)
                 .redacted(reason: isSettingsLoading ? .placeholder : [])
         }
