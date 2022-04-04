@@ -23,8 +23,8 @@ class TokenHandler: ObservableObject {
         Keychain(service: bundleID)
     }
     
-    var token: String {
-        
+    var token: String? {
+        keychain[TokenHandler.keyName]
     }
     
     var isElidgibleForCaching: Bool {
@@ -71,7 +71,7 @@ class TokenHandler: ObservableObject {
     }
 
     func getToken() -> String? {
-        keychain[TokenHandler.keyName]
+        
     }
 
     func save(token: String) {
