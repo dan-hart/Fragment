@@ -107,6 +107,20 @@ struct ListView: View {
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Text("Done")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+
+                        ToolbarItem(placement: .primaryAction) {
+                            getSaveButton()
+                        }
+                    }
 
                     .navigationTitle("Settings")
             }
