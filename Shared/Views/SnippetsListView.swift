@@ -141,8 +141,8 @@ struct SnippetsListView: View {
                                     Image(systemSymbol: .plusCircle)
                                 #endif
                                 Text("Create")
-                                    .sizeThatFits()
                                     .font(.system(.body, design: .monospaced))
+                                    .sizeThatFits()
                             }
                         }
 
