@@ -68,10 +68,6 @@ class OctoHandler: ObservableObject {
 
     @discardableResult
     func fetchGists(_ tokenHandler: TokenHandler, isLoading: Binding<Bool>) async throws -> [Gist] {
-        guard let token = tokenHandler.token else {
-            throw FragmentError.nilToken
-        }
-
         isLoading.wrappedValue = true
 
         if !tokenHandler.isAuthenticated {
