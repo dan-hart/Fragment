@@ -40,7 +40,7 @@ class SessionHandler: ObservableObject {
 
     func startSession(with optionalToken: String? = nil) async throws {
         if let token = optionalToken {
-            configuration = try await authenticate(using: )
+            configuration = try await authenticate(using: token)
         }
     }
 
