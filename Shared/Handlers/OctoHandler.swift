@@ -74,8 +74,6 @@ class OctoHandler: ObservableObject {
             cacheHandler.gistsCache.removeValue(forKey: tokenHandler.token ?? "")
         }
         
-        let gists = [Gist]()
-        
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
