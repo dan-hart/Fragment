@@ -59,7 +59,7 @@ struct CodeView: View {
                                 self.isLoadingParent = false
                                 await MainActor.run {
                                     self.sourceCode = updatedGist.text
-                                    self.loadedSourceCode = text
+                                    self.loadedSourceCode = updatedGist.text
                                 }
                             }
 
