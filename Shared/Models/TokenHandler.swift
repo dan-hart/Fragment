@@ -31,6 +31,8 @@ class TokenHandler: ObservableObject {
         authenticate(using: optionalToken) { optionalToken in
             if let token = optionalToken {
                 self.isAuthenticated = true
+            } else {
+                self.isAuthenticated = false
             }
         }
     }
