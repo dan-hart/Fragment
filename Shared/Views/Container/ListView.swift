@@ -130,10 +130,8 @@ struct ListView: View {
                 if sessionHandler.isAuthenticated {
                     #if os(macOS)
                         Button {
-                            Task {
-                                sessionHandler.call {
-                                    
-                                }
+                            sessionHandler.callTask {
+                                try await sessionHandler.refreshGists()
                             }
                         } label: {
                             HStack {
