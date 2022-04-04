@@ -122,7 +122,7 @@ struct ListView: View {
             let menu = Menu {
                 // Menu Content
                 Button {
-                    
+                    isShowingPreferencesView = true
                 } label: {
                     HStack {
                         Image(systemSymbol: .gearshape)
