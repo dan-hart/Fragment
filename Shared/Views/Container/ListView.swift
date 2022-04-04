@@ -14,8 +14,7 @@ struct ListView: View {
     @EnvironmentObject var octoHandler: OctoHandler
 
     @Binding var isLoading: Bool
-    @State var isShowingAddModal = false
-    @State var searchText = ""
+    @Binding var searchText
 
     @AppStorage("visibility") var visibility: Visibility = .public
 
