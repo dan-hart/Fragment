@@ -87,6 +87,8 @@ struct SettingsView: View {
                     Form {
                         
                     }
+                    
+                    .navigationTitle("Privacy")
                 }
                     .font(.system(.title, design: .monospaced))
                     .tabItem {
