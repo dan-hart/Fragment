@@ -67,16 +67,12 @@ class OctoHandler: ObservableObject {
     }
 
     @discardableResult
-    func fetchGists(_ tokenHandler: TokenHandler, isLoading: Binding<Bool>) async throws -> [Gist] {
-        isLoading.wrappedValue = true
-
+    func fetchGists(_ tokenHandler: TokenHandler) async throws -> [Gist] {
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
 
         let gists = try await self.gists(using: tokenHandler.configuration) ?? []
-
-        isLoading.wrappedValue = false
 
         await MainActor.run {
             self.gists = gists
