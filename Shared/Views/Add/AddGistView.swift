@@ -32,7 +32,7 @@ struct AddGistView: View {
     func getSaveButton() -> some View {
         Button {
             let ext = ".\(language.rawValue)"
-            if !$filename.ends(with: ext) {
+            if !$filename.wrappedValue.ends(with: ext) {
                 filename.append(ext)
             }
             snippetHandler.create(
