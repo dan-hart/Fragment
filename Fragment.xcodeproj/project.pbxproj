@@ -52,8 +52,6 @@
 		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
-		5A1C6CF827FB78C600EB8D91 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C6CF727FB78C600EB8D91 /* Throttler.swift */; };
-		5A1C6CF927FB78C600EB8D91 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C6CF727FB78C600EB8D91 /* Throttler.swift */; };
 		5A2387FF27FB3B1900480C20 /* FragmentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* FragmentError.swift */; };
 		5A23880027FB3B1900480C20 /* FragmentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* FragmentError.swift */; };
 		5A23880727FB47E300480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880627FB47E300480C20 /* SwifterSwift */; };
@@ -120,7 +118,6 @@
 		52BABB3D27E7DDB200999F01 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
 		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
-		5A1C6CF727FB78C600EB8D91 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		5A2387FE27FB3B1900480C20 /* FragmentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentError.swift; sourceTree = "<group>"; };
 		5A23880E27FB4C4E00480C20 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5A23881527FB674C00480C20 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -304,7 +301,6 @@
 				5A2387FD27FB3B0200480C20 /* Errors */,
 				526D97D227F0C82D00BD46CE /* Language.swift */,
 				52769DFF27F0EEE400F5D4E0 /* Visibility.swift */,
-				5A1C6CF727FB78C600EB8D91 /* Throttler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -641,7 +637,6 @@
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5ADC94A927F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				5A23881627FB674C00480C20 /* ListView.swift in Sources */,
-				5A1C6CF827FB78C600EB8D91 /* Throttler.swift in Sources */,
 				52769E0327F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				5254DE0127EF8331005BAC56 /* Constants.swift in Sources */,
 				52769DF027F0D0CB00F5D4E0 /* Language.swift in Sources */,
@@ -670,7 +665,6 @@
 				5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
 				526D97D427F0C82D00BD46CE /* Language.swift in Sources */,
 				5A23881727FB674C00480C20 /* ListView.swift in Sources */,
-				5A1C6CF927FB78C600EB8D91 /* Throttler.swift in Sources */,
 				52769E0427F0F06900F5D4E0 /* AddGistView.swift in Sources */,
 				52769DEF27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				526D97E227F0CBCC00BD46CE /* CodeView.swift in Sources */,
