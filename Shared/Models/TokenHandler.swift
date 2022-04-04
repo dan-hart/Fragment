@@ -28,11 +28,9 @@ class TokenHandler: ObservableObject {
 
     init() {
         let optionalToken = getToken()
-        authenticate(using: optionalToken) { optionalToken in
+        authenticate(using: optionalToken) { optionalConfiguration in
             if let token = optionalToken {
-                self.isAuthenticated = true
-            } else {
-                self.isAuthenticated = false
+                self.configuration
             }
         }
     }
