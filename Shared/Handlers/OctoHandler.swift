@@ -108,7 +108,7 @@ class OctoHandler: ObservableObject {
         
             switch response {
             case let .success(gists):
-                
+                return gists
             case .failure:
                 then(nil)
             }
