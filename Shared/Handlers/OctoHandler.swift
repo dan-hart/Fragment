@@ -82,7 +82,7 @@ class OctoHandler: ObservableObject {
             tokenHandler.taskCheckingAuthenticationStatus()
         }
         
-        let gists = try await self.gists(using: tokenHandler.configuration)
+        let gists = try await self.gists(using: tokenHandler.configuration) ?? []
         
         if tokenHandler.isElidgibleForCaching {
             cacheHandler.gistsCache.insert(gists, forKey: token)
