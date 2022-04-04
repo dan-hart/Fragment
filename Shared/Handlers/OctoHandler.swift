@@ -75,7 +75,7 @@ class OctoHandler: ObservableObject {
         }
 
         gists = []
-        isLoading = true
+        isLoading.wrappedValue = true
 
         if !tokenHandler.isAuthenticated {
             tokenHandler.taskCheckingAuthenticationStatus()
