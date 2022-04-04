@@ -31,8 +31,6 @@ struct SettingsView: View {
 
                     Button {
                         sessionHandler.invalidateSession()
-                        tokenHandler.delete()
-                        tokenHandler.taskCheckingAuthenticationStatus()
                     } label: {
                         HStack {
                             Image(systemSymbol: .xmarkCircle)
