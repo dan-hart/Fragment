@@ -95,7 +95,7 @@ struct ListView: View {
                     return audienceIsMatch && searchIsVisible
                 }.indices, id: \.self) { index in
                     NavigationLink {
-                        CodeView(gist: $octoHandler.gists[index], isLoadingParent: $isLoading)
+                        CodeView(isLoadingParent: $isLoading)
                     } label: {
                         GistRow(data: $octoHandler.gists[index])
                             .padding()
