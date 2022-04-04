@@ -13,10 +13,10 @@ struct MainView: View {
 
     var body: some View {
         NavigationView {
-            if tokenHandler.needsAuthentication {
-                AuthenticationView()
-            } else {
+            if tokenHandler.isAuthenticated {
                 SnippetsListView()
+            } else {
+                AuthenticationView
             }
         }
     }
