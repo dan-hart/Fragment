@@ -36,6 +36,7 @@ struct AddGistView: View {
                 filename.append(ext)
             }
             do {
+                Task {
                 let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
                 didAdd(gist)
                 presentationMode.wrappedValue.dismiss()
