@@ -44,7 +44,8 @@ struct FragmentApp: App {
                         Label("Appearance", systemImage: "paintpalette")
                     }
                 
-                PrivacySettingsView()
+                Text("Privacy Settings")
+                    .font(.title)
                     .tabItem {
                         Label("Privacy", systemImage: "hand.raised")
                     }
