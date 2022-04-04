@@ -116,10 +116,6 @@ struct ListView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-
-                        ToolbarItem(placement: .primaryAction) {
-                            getSaveButton()
-                        }
                     }
 
                     .navigationTitle("Settings")
