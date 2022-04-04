@@ -23,7 +23,7 @@ struct MainView: View {
                 ContainerView()
             } else {
                 NavigationView {
-                    #if os(macOS)
+                    #if os(macOS, iPadOS)
                         EmptyView()
                     #endif
                     AuthenticationView()
