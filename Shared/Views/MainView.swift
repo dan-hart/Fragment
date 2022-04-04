@@ -18,21 +18,21 @@ struct MainView: View {
         } else {
             if isLoading {
                 ContainerView(isLoading: $isLoading) // Permanet loading
-                    .redacted(reason: .placeholder)  //
+                    .redacted(reason: .placeholder) //
             } else {
-            NavigationView {
-                #if os(macOS)
-                    EmptyView()
-                    AuthenticationView(isLoading: $isLoading)
-                        .padding()
-                #endif
-                #if os(iOS)
-                    AuthenticationView(isLoading: $isLoading)
-                        .padding()
-                    Text("Enter Github personal access token on the lefthand sidebar")
-                        .font(.system(.body, design: .monospaced))
-                #endif
-            }
+                NavigationView {
+                    #if os(macOS)
+                        EmptyView()
+                        AuthenticationView(isLoading: $isLoading)
+                            .padding()
+                    #endif
+                    #if os(iOS)
+                        AuthenticationView(isLoading: $isLoading)
+                            .padding()
+                        Text("Enter Github personal access token on the lefthand sidebar")
+                            .font(.system(.body, design: .monospaced))
+                    #endif
+                }
             }
         }
     }
