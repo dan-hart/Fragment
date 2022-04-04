@@ -124,7 +124,6 @@ struct ListView: View {
         }
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
-
         .toolbar {
             let menu = Menu {
                 // Menu Content
