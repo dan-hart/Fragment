@@ -24,7 +24,7 @@ extension Gist {
 
     // MARK: - Functions
 
-    func meetsSearchCriteria(text: String) -> Bool {
+    public func meetsSearchCriteria(text: String) -> Bool {
         let descriptionContainsText = description?.lowercased().contains(text.lowercased()) ?? false
         let filenameContainsText = files.first?.value.filename?.lowercased().contains(text.lowercased()) ?? false
 
@@ -43,7 +43,7 @@ extension Gist: Equatable {
 }
 
 extension Gist: Hashable {
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
     }
 }
