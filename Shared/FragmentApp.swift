@@ -15,21 +15,19 @@ struct FragmentApp: App {
     @State var isSettingsLoading = false
 
     init() {
-        tokenHandler.taskCheckingAuthenticationStatus()
+        
     }
 
     var body: some Scene {
         WindowGroup {
             MainView(isLoading: $isLoading)
-                .environmentObject(tokenHandler)
-                .environmentObject(octoHandler)
+                .environmentObject(sessionHandler)
         }
 
         #if os(macOS)
             Settings {
                 SettingsView(isLoading: $isSettingsLoading)
-                    .environmentObject(tokenHandler)
-                    .environmentObject(octoHandler)
+                    .environmentObject(sessionHandler)
                     .frame(width: 400, height: 400)
                     .redacted(reason: isSettingsLoading ? .placeholder : [])
             }
