@@ -32,7 +32,7 @@ struct CodeView: View {
             ScrollViewReader { reader in
                 // swiftlint:disable all
                 CodeEditor(source: $sourceCode, language: CodeEditor.Language(rawValue: gist.ext), theme: theme, fontSize: .constant(18), flags: .defaultEditorFlags, indentStyle: .system, autoPairs: nil, inset: nil)
-                #if canImport(AppKit)
+                #if os(macOS)
                     .frame(minWidth: (NSScreen.main?.frame.width ?? 1000) * 0.75, minHeight: (NSScreen.main?.frame.height ?? 1000) * 0.75)
                 #endif
 
