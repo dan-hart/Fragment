@@ -13,8 +13,8 @@ enum Constants {
         case githubHowToPersonalAccessToken = "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
     }
     
-    enum Feature: Bool {
-        case ifNoGistsEnablePullButton = false
+    enum Feature {
+        static var ifNoGistsEnablePullButton = false
     }
 }
 
