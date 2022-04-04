@@ -97,7 +97,7 @@ class OctoHandler: ObservableObject {
 
     func gists(using configuration: TokenConfiguration?) async -> [Gist]? {
         guard let configuration = configuration else {
-            throw 
+            throw FragmentError.nilConfiguratioin
         }
 
         Octokit(configuration).myGists { response in
