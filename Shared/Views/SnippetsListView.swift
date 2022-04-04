@@ -109,7 +109,7 @@ struct SnippetsListView: View {
         }
         .onAppear {
             if tokenHandler.isElidgibleForCaching {
-                cacheHandler.gistsCache.value([Gist].self, forKey: "\(tokenHandler.token ?? "")") ?? []
+                octoHandler.gists = cacheHandler.gistsCache.value([Gist].self, forKey: "\(tokenHandler.token ?? "")") ?? []
             }
         }
         .refreshable {
