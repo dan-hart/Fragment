@@ -9,7 +9,38 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            List {
+                Text("Profile Settings")
+                    .font(.title)
+
+                Button {
+                    tokenHandler.delete()
+                    tokenHandler.taskCheckingAuthenticationStatus()
+                } label: {
+                    HStack {
+                        Image(systemSymbol: .xmarkCircle)
+                        Text("Clear Token")
+                            .font(.system(.body, design: .monospaced))
+                    }
+                }
+            }
+            .tabItem {
+                Label("Profile", systemImage: "person.crop.circle")
+            }
+
+            Text("Profile Settings")
+                .font(.title)
+                .tabItem {
+                    Label("Appearance", systemImage: "paintpalette")
+                }
+
+            Text("Privacy Settings")
+                .font(.title)
+                .tabItem {
+                    Label("Privacy", systemImage: "hand.raised")
+                }
+        }
     }
 }
 
