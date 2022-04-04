@@ -71,7 +71,7 @@ struct CodeView: View {
                                         loadedSourceCode = gist.text
 
                                         Task {
-                                            try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoadingParent)
+                                            // try? await octoHandler.fetchGists(tokenHandler, isLoading: $isLoadingParent)
                                         }
                                     } else {
                                         print(optionalError?.localizedDescription ?? "")
