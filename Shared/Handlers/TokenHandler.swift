@@ -54,7 +54,6 @@ class TokenHandler: ObservableObject {
         
         do {
             if let configuration = try await authenticate(using: optionalToken) {
-                isLoading.wrappedValue = false
                 self.configuration = configuration
                 await MainActor.run {
                     isAuthenticated = true
@@ -64,7 +63,6 @@ class TokenHandler: ObservableObject {
                 return false
             }
         } catch {
-            isLoading.wrappedValue = false
             await MainActor.run {
                 isAuthenticated = false
             }
