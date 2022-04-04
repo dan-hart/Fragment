@@ -121,17 +121,7 @@ struct ListView: View {
                 // Menu Content
                 if sessionHandler.isAuthenticated {
                     #if os(macOS)
-                        Button {
-                            sessionHandler.callTask {
-                                try await sessionHandler.refreshGists()
-                            }
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .arrowDownCircle)
-                                Text("Pull")
-                                    .font(.system(.body, design: .monospaced))
-                            }
-                        }
+                        
 
                     #endif
 
