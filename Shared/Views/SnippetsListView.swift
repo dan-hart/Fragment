@@ -43,7 +43,6 @@ struct SnippetsListView: View {
                         }
 
                     if tokenHandler.isAuthenticated {
-                        
                         VStack {
                             Text("If this is unexpected, try pulling.")
                                 .padding()
