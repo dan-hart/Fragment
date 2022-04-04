@@ -110,7 +110,7 @@ struct ListView: View {
                 ForEach(filteredGists, id: \.self) { gist in
                     NavigationLink {
                         CodeView(gist: gist, isLoadingParent: $isLoading)
-                            .navigationTitle(fil[index].filename)
+                            .navigationTitle(gist.filename)
                     } label: {
                         GistRow(data: $sessionHandler.gists[index])
                             .padding()
