@@ -98,7 +98,7 @@ struct ListView: View {
                     Group {
                     GistRow(data: $octoHandler.gists[index])
                     }
-                    .background((selectedGist == octoHandler.gists[index] ? .blue : nil)
+                    .background(selectedGist == octoHandler.gists[index] ? .blue : nil)
                     .contentShape(Rectangle())
                         .onTapGesture {
                             selectedGist = octoHandler.gists[index]
