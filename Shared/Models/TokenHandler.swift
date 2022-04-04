@@ -22,6 +22,10 @@ class TokenHandler: ObservableObject {
     var keychain: Keychain {
         Keychain(service: bundleID)
     }
+    
+    var configuration: TokenConfiguration {
+        
+    }
 
     private var configuration: TokenConfiguration?
     private var value: String?
