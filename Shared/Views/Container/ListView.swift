@@ -18,6 +18,7 @@ struct ListView: View {
     
     @AppStorage("visibility") var visibility: Visibility = .public
     
+    @State var isShowingSupportThisAppView = false
     @State var isShowingPreferencesView = false
     
     var filteredGists: [Gist] {
@@ -118,6 +119,9 @@ struct ListView: View {
                 }
             }
         }
+        .sheet(isPresented: $isShowingSupportThisAppView) {
+            SupportView()
+        }
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
@@ -144,9 +148,12 @@ struct ListView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Menu {
                     Button {
+                        isShowingSupportThisAppView = true
                     } label: {
                         HStack {
-                            
+                            Image(systemSymbol: SFSymbol.person3)
+                            Text("Support this app")
+                                .font(.system(.body, design: .monospaced))
                         }
                     }
                     if Constants.Feature.settingsEnabled {

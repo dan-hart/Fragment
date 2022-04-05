@@ -1,5 +1,5 @@
 //
-//  SupportView.swift
+//  SupportThisAppView.swift
 //  Fragment
 //
 //  Created by Dan Hart on 4/4/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SupportView: View {
+struct SupportThisAppView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Support this project")
@@ -42,6 +42,6 @@ struct SupportView: View {
 
 struct SupportView_Previews: PreviewProvider {
     static var previews: some View {
-        SupportView()
+        SupportThisAppView()
     }
 }
