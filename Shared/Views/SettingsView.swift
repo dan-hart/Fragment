@@ -41,16 +41,20 @@ struct SettingsView: View {
                         }
                         .padding(.bottom)
 
-                        Button {
-                            WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .dollarsignCircle)
-                                Text("Donate")
-                                    .font(.system(.body, design: .monospaced))
+                        Section {
+                            Button {
+                                WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .dollarsignCircle)
+                                    Text("Donate")
+                                        .font(.system(.body, design: .monospaced))
+                                }
                             }
+                            .padding(.vertical)
+                        } footer: {
+                            Text("Support this app")
                         }
-                        .padding(.vertical)
                     }
                 }
                 .tabItem {
@@ -125,7 +129,7 @@ struct SettingsView: View {
 
             SupportThisAppView(showCancelButton: false)
                 .tabItem {
-                    Label("Support", systemImage: "people.3")
+                    Label("Support", systemImage: "person.3")
                 }
         }
         #if os(iOS)
