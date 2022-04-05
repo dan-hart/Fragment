@@ -12,7 +12,7 @@ struct SupportView: View {
         VStack(alignment: .center) {
             Text("Support this project")
                 .font(.system(.title, design: .monospaced))
-            Text("")
+            Text("\(Constants.appName) will always be free.")
         }
     }
 }
