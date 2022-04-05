@@ -9,10 +9,9 @@ import SwiftUI
 
 struct SupportView: View {
     var body: some View {
-        VStack() {
+        VStack(alignment: .leading) {
             Text("Support this project")
                 .font(.system(.title, design: .monospaced))
-                .padding()
             Text("\(Constants.appName) will always be free.")
                 .font(.system(.subheadline, design: .monospaced))
         }
