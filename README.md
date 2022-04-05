@@ -6,7 +6,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/abb6d83c6dafb22f3bef/maintainability)](https://codeclimate.com/github/dan-hart/Fragment/maintainability)
 [![ios tests](https://github.com/dan-hart/Fragment/actions/workflows/iOS-test.yml/badge.svg)](https://github.com/dan-hart/Fragment/actions/workflows/iOS-test.yml)
 [![macOS tests](https://github.com/dan-hart/Fragment/actions/workflows/macOS-test.yml/badge.svg)](https://github.com/dan-hart/Fragment/actions/workflows/macOS-test.yml)
-### iOS & macOS Code Snippet Manager
+### iOS & macOS Gist manager using Github
 
 ![screen shot 2022-04-04 at 18 32 07](https://user-images.githubusercontent.com/13913605/161664604-ead728bc-cac4-4a39-914c-147e1af2399f.png)
 
