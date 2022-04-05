@@ -18,6 +18,7 @@ struct ListView: View {
 
     @AppStorage("visibility") var visibility: Visibility = .public
 
+    @State var isShowingSupportThisAppView = false
     @State var isShowingPreferencesView = false
 
     var filteredGists: [Gist] {
@@ -118,6 +119,11 @@ struct ListView: View {
                 }
             }
         }
+        .sheet(isPresented: $isShowingSupportThisAppView) {
+            NavigationView {
+                SupportThisAppView(showCancelButton: true)
+            }
+        }
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
@@ -142,8 +148,28 @@ struct ListView: View {
         .toolbar {
             #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if Constants.Feature.settingsEnabled {
-                        Menu {
+                    Menu {
+                        Button {
+                            isShowingSupportThisAppView = true
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: SFSymbol.person2Circle)
+                                Text("Support this app")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+
+                        Button {
+                            WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .dollarsignCircle)
+                                Text("Donate")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+
+                        if Constants.Feature.settingsEnabled {
                             Button {
                                 isShowingPreferencesView = true
                             } label: {
@@ -153,9 +179,9 @@ struct ListView: View {
                                         .font(.system(.body, design: .monospaced))
                                 }
                             }
-                        } label: {
-                            Image(systemSymbol: .gearshape)
                         }
+                    } label: {
+                        Image(systemSymbol: .gearshape)
                     }
                 }
             #endif

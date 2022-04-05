@@ -20,6 +20,7 @@ struct ContainerView: View {
     var body: some View {
         NavigationView {
             ListView(isLoading: $isLoading, searchText: $searchText, isShowingAddModal: $isShowingAddModal)
+            SupportThisAppView(showCancelButton: false)
         }
         .sheet(isPresented: $isShowingAddModal) {
             #if os(iOS)

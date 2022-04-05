@@ -48,6 +48,8 @@
 		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
+		52E3297027FBBEAD0059F82B /* SupportThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3296F27FBBEAD0059F82B /* SupportThisAppView.swift */; };
+		52E3297127FBBEAD0059F82B /* SupportThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3296F27FBBEAD0059F82B /* SupportThisAppView.swift */; };
 		5A1C6CFB27FB7E4A00EB8D91 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C6CFA27FB7E4A00EB8D91 /* SessionHandler.swift */; };
 		5A1C6CFC27FB7E4A00EB8D91 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C6CFA27FB7E4A00EB8D91 /* SessionHandler.swift */; };
 		5A2387FF27FB3B1900480C20 /* FragmentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* FragmentError.swift */; };
@@ -114,6 +116,7 @@
 		52BABB3D27E7DDB200999F01 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		52C9ECD727EC1D5100021911 /* Fragment--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--iOS--Info.plist"; sourceTree = "<group>"; };
 		52C9ECD827EC1D5B00021911 /* Fragment--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fragment--macOS--Info.plist"; sourceTree = "<group>"; };
+		52E3296F27FBBEAD0059F82B /* SupportThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportThisAppView.swift; sourceTree = "<group>"; };
 		5A1C6CFA27FB7E4A00EB8D91 /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		5A2387FE27FB3B1900480C20 /* FragmentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentError.swift; sourceTree = "<group>"; };
 		5A23880E27FB4C4E00480C20 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		525D860127E762140066B147 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52E3296E27FBBE980059F82B /* Support */,
 				5A23881427FB673600480C20 /* Container */,
 				52769DFE27F0EED100F5D4E0 /* Add */,
 				525D860227E7621D0066B147 /* MainView.swift */,
@@ -324,6 +328,14 @@
 				52BABB3D27E7DDB200999F01 /* TestApp.swift */,
 			);
 			path = FragmentSharedTests;
+			sourceTree = "<group>";
+		};
+		52E3296E27FBBE980059F82B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				52E3296F27FBBEAD0059F82B /* SupportThisAppView.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		5A2387FD27FB3B0200480C20 /* Errors */ = {
@@ -489,6 +501,7 @@
 				5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */,
 				5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */,
 				5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
+				52E3296927FBBE840059F82B /* XCRemoteSwiftPackageReference "buymeacoffee" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -627,6 +640,7 @@
 				5ADC94A627F8E00200EFE347 /* Gist+Custom.swift in Sources */,
 				52769DEE27F0CD4C00F5D4E0 /* Gist+language.swift in Sources */,
 				5A2387FF27FB3B1900480C20 /* FragmentError.swift in Sources */,
+				52E3297027FBBEAD0059F82B /* SupportThisAppView.swift in Sources */,
 				52769E0027F0EEE400F5D4E0 /* Visibility.swift in Sources */,
 				522915B227E778300087530C /* GistRow.swift in Sources */,
 				52769E0627F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
@@ -654,6 +668,7 @@
 				522915B327E778300087530C /* GistRow.swift in Sources */,
 				5A23880027FB3B1900480C20 /* FragmentError.swift in Sources */,
 				52769E0127F0EEE400F5D4E0 /* Visibility.swift in Sources */,
+				52E3297127FBBEAD0059F82B /* SupportThisAppView.swift in Sources */,
 				5254DE0227EF8331005BAC56 /* Constants.swift in Sources */,
 				52769E0727F0FE6A00F5D4E0 /* WebLauncher.swift in Sources */,
 				5ADC94AA27F8EB0600EFE347 /* ClipboardHelper.swift in Sources */,
@@ -830,7 +845,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.5;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
@@ -862,7 +877,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.5;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
@@ -883,7 +898,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8N5252PDS7;
+				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -895,7 +910,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 0.0.5;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
@@ -914,7 +929,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8N5252PDS7;
+				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -926,7 +941,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 0.0.5;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
@@ -1095,6 +1110,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
+			};
+		};
+		52E3296927FBBE840059F82B /* XCRemoteSwiftPackageReference "buymeacoffee" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dan-hart/buymeacoffee";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 		5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {

@@ -110,7 +110,7 @@ class SessionHandler: ObservableObject {
     // MARK: - Gist CRU
 
     func update(
-        _ id: String,
+        _ identifier: String,
         _ description: String,
         _ filename: String,
         _ content: String
@@ -118,7 +118,7 @@ class SessionHandler: ObservableObject {
         try await validate()
 
         let response = await withCheckedContinuation { continuation in
-            Octokit(configuration).patchGistFile(id: id,
+            Octokit(configuration).patchGistFile(id: identifier,
                                                  description: description,
                                                  filename: filename,
                                                  fileContent: content)

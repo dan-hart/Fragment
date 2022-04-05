@@ -46,7 +46,7 @@ struct CodeView: View {
                 HStack {
                     if loadedSourceCode != sourceCode {
                         Button {
-                            guard let id = gist.id,
+                            guard let identifier = gist.id,
                                   let description = gist.description,
                                   let filename = gist.files.first?.key
                             else {
@@ -55,7 +55,7 @@ struct CodeView: View {
 
                             isLoadingParent = true
                             sessionHandler.callTask {
-                                let updatedGist = try await sessionHandler.update(id, description, filename, sourceCode)
+                                let updatedGist = try await sessionHandler.update(identifier, description, filename, sourceCode)
                                 self.isLoadingParent = false
                                 await MainActor.run {
                                     self.sourceCode = updatedGist.text

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "buymeacoffee",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dan-hart/buymeacoffee",
+      "state" : {
+        "branch" : "master",
+        "revision" : "850b6346dcdc96fe761a5bf953294d3885ffac7d"
+      }
+    },
+    {
       "identity" : "codeeditor",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ZeeZide/CodeEditor",
