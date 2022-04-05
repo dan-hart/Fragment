@@ -118,9 +118,9 @@ struct ListView: View {
                     }
                 }
             }
-                .sheet(isPresented: $isShowingSupportThisAppView) {
-                    SupportThisAppView()
-                }
+        }
+        .sheet(isPresented: $isShowingSupportThisAppView) {
+            SupportThisAppView()
         }
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
@@ -144,8 +144,8 @@ struct ListView: View {
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
-#if os(iOS)
             ToolbarItem(placement: .navigationBarLeading) {
+#if os(iOS)
                 Menu {
                     Button {
                         isShowingSupportThisAppView = true
