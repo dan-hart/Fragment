@@ -47,7 +47,7 @@ struct ListView: View {
             .pickerStyle(.segmented)
             .labelsHidden()
 
-                .navigationTitle("Gists")
+            .navigationTitle("Gists")
 
             if sessionHandler.gists.isEmpty {
                 VStack {
