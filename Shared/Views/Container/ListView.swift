@@ -120,7 +120,9 @@ struct ListView: View {
             }
         }
         .sheet(isPresented: $isShowingSupportThisAppView) {
-            SupportThisAppView()
+            NavigationView {
+                SupportThisAppView()
+            }
         }
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
@@ -156,6 +158,17 @@ struct ListView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
+                        
+                        Button {
+                            WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: SFSymbol.person3)
+                                Text("Donate")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+                        
                         if Constants.Feature.settingsEnabled {
                             Button {
                                 isShowingPreferencesView = true

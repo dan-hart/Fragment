@@ -39,7 +39,7 @@ struct SettingsView: View {
                         } footer: {
                             Text("Get new Gists from Github or use pull-to-refresh on the list")
                         }
-                        
+
                         Section("Support") {
                             NavigationLink("Support this app") {
                                 SupportThisAppView()
