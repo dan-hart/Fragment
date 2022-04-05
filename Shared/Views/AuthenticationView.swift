@@ -66,7 +66,9 @@ struct AuthenticationView: View {
             Spacer()
         }
         .sheet(isPresented: $isShowingSupportThisAppView) {
-            SupportThisAppView()
+            NavigationView {
+                SupportThisAppView()
+            }
         }
         .redacted(reason: isLoading ? .placeholder : [])
         .padding()

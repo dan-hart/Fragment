@@ -12,6 +12,7 @@ struct SupportThisAppView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            Spacer()
             Text("Support this project")
                 .font(.system(.title, design: .monospaced))
                 .padding(.bottom)
@@ -37,18 +38,19 @@ struct SupportThisAppView: View {
             .padding()
             Text("Thank you,\nDan")
                 .font(.system(.subheadline, design: .monospaced))
+            Spacer()
         }
+        .padding()
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
+            ToolbarItem(placement: .cancellationAction) {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Text("Done")
+                    Text("Cancel")
                         .font(.system(.body, design: .monospaced))
                 }
             }
         }
-        .padding()
     }
 }
 
