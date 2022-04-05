@@ -11,22 +11,22 @@ import SwiftUI
 
 struct ListView: View {
     @EnvironmentObject var sessionHandler: SessionHandler
-    
+
     @Binding var isLoading: Bool
     @Binding var searchText: String
     @Binding var isShowingAddModal: Bool
-    
+
     @AppStorage("visibility") var visibility: Visibility = .public
-    
+
     @State var isShowingSupportThisAppView = false
     @State var isShowingPreferencesView = false
-    
+
     var filteredGists: [Gist] {
         let withVisibility = sessionHandler.gists.filter { gist in
             let gistVisibility = Visibility(isPublic: gist.publicGist)
             return gistVisibility == visibility
         }
-        
+
         if searchText.isEmpty {
             return withVisibility
         } else {
@@ -35,7 +35,7 @@ struct ListView: View {
             }
         }
     }
-    
+
     var body: some View {
         List {
             Picker("Visibility", selection: $visibility) {
@@ -46,14 +46,14 @@ struct ListView: View {
             }
             .pickerStyle(.segmented)
             .labelsHidden()
-            
+
             .navigationTitle("Gists")
-            
+
             if sessionHandler.gists.isEmpty {
                 VStack {
                     Text(isLoading ? "Loading..." : "No Gists")
                         .font(.system(.body, design: .monospaced))
-                    
+
                     if Constants.Feature.ifNoGistsEnableCreateButton {
                         HStack {
                             if sessionHandler.isAuthenticated {
@@ -61,9 +61,9 @@ struct ListView: View {
                                     isShowingAddModal.toggle()
                                 } label: {
                                     HStack {
-#if !os(macOS)
-                                        Image(systemSymbol: .plusCircle)
-#endif
+                                        #if !os(macOS)
+                                            Image(systemSymbol: .plusCircle)
+                                        #endif
                                         Text("Create Gist")
                                             .font(.system(.body, design: .monospaced))
                                     }
@@ -71,7 +71,7 @@ struct ListView: View {
                             }
                         }
                     }
-                    
+
                     if Constants.Feature.ifNoGistsEnablePullButton, sessionHandler.isAuthenticated {
                         VStack {
                             Text("If this is unexpected, try pulling.")
@@ -82,14 +82,14 @@ struct ListView: View {
                                 }
                             } label: {
                                 HStack {
-#if os(iOS)
-                                    Image(systemSymbol: .arrowDownCircle)
-#endif
+                                    #if os(iOS)
+                                        Image(systemSymbol: .arrowDownCircle)
+                                    #endif
                                     Text("Pull")
                                         .font(.system(.body, design: .monospaced))
-#if os(macOS)
+                                    #if os(macOS)
                                         .padding()
-#endif
+                                    #endif
                                 }
                             }
                             .padding()
@@ -125,7 +125,7 @@ struct ListView: View {
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
                 SettingsView(isLoading: $isLoading)
-                
+
                     .navigationTitle("Settings")
             }
         }
@@ -145,51 +145,50 @@ struct ListView: View {
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-#if os(iOS)
-                Menu {
-                    Button {
-                        isShowingSupportThisAppView = true
-                    } label: {
-                        HStack {
-                            Image(systemSymbol: SFSymbol.person3)
-                            Text("Support this app")
-                                .font(.system(.body, design: .monospaced))
-                        }
-                    }
-                    if Constants.Feature.settingsEnabled {
+                #if os(iOS)
+                    Menu {
                         Button {
-                            isShowingPreferencesView = true
+                            isShowingSupportThisAppView = true
                         } label: {
                             HStack {
-                                Image(systemSymbol: .gearshape)
-                                Text("Preferences")
+                                Image(systemSymbol: SFSymbol.person3)
+                                Text("Support this app")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                    }
-                } label: {
-                    Image(systemSymbol: .gearshape)
-                }
-#endif
-            }
-            
-        }
-        
-        ToolbarItem(placement: .primaryAction) {
-            HStack {
-                if sessionHandler.isAuthenticated {
-                    Button {
-                        isShowingAddModal.toggle()
-                    } label: {
-                        HStack {
-                            Image(systemSymbol: .plusCircle)
-                            Text("Create")
-                                .font(.system(.body, design: .monospaced))
+                        if Constants.Feature.settingsEnabled {
+                            Button {
+                                isShowingPreferencesView = true
+                            } label: {
+                                HStack {
+                                    Image(systemSymbol: .gearshape)
+                                    Text("Preferences")
+                                        .font(.system(.body, design: .monospaced))
+                                }
+                            }
                         }
+                    } label: {
+                        Image(systemSymbol: .gearshape)
                     }
-#if os(macOS)
-                    .frame(minWidth: 100)
-#endif
+                #endif
+            }
+
+            ToolbarItem(placement: .primaryAction) {
+                HStack {
+                    if sessionHandler.isAuthenticated {
+                        Button {
+                            isShowingAddModal.toggle()
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .plusCircle)
+                                Text("Create")
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+                        #if os(macOS)
+                        .frame(minWidth: 100)
+                        #endif
+                    }
                 }
             }
         }

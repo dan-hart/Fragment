@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SupportThisAppView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("Support this project")
