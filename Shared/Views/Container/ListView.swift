@@ -118,9 +118,9 @@ struct ListView: View {
                     }
                 }
             }
-        }
-        .sheet(isPresented: $isShowingSupportThisAppView) {
-            SupportThisAppView()
+                .sheet(isPresented: $isShowingSupportThisAppView) {
+                    SupportThisAppView()
+                }
         }
         .sheet(isPresented: $isShowingPreferencesView) {
             NavigationView {
