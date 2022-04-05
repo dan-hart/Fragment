@@ -170,8 +170,9 @@ struct ListView: View {
                 } label: {
                     Image(systemSymbol: .gearshape)
                 }
-            }
 #endif
+            }
+            
         }
         
         ToolbarItem(placement: .primaryAction) {
