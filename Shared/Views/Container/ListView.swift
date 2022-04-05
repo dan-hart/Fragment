@@ -47,8 +47,6 @@ struct ListView: View {
             .pickerStyle(.segmented)
             .labelsHidden()
 
-            SupportThisAppView(showCancelButton: false)
-
                 .navigationTitle("Gists")
 
             if sessionHandler.gists.isEmpty {
