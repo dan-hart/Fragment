@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SupportThisAppView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    var showCancelButton: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -43,11 +45,13 @@ struct SupportThisAppView: View {
         .padding()
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
+                if showCancelButton {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Cancel")
                         .font(.system(.body, design: .monospaced))
+                }
                 }
             }
         }
