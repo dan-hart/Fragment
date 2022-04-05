@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BuyMeACoffee
 
 struct SupportView: View {
     var body: some View {
