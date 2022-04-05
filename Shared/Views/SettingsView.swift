@@ -39,6 +39,12 @@ struct SettingsView: View {
                         } footer: {
                             Text("Get new Gists from Github or use pull-to-refresh on the list")
                         }
+                        
+                        Section("Support") {
+                            NavigationLink("Support this app") {
+                                SupportThisAppView()
+                            }
+                        }
                     }
                 }
                 .tabItem {
@@ -109,11 +115,6 @@ struct SettingsView: View {
                 .tabItem {
                     Label("Privacy", systemImage: "hand.raised")
                 }
-
-                SupportThisAppView()
-                    .tabItem {
-                        Label("Support this app", systemImage: "person.3")
-                    }
             }
         }
         #if os(iOS)
