@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BuyMeACoffee
 
 @main
 struct FragmentApp: App {
@@ -28,8 +27,6 @@ struct FragmentApp: App {
                         try await sessionHandler.startSession(with: sessionHandler.token)
                         isLoading = false
                     }
-                    
-                    BMCManager.shared.configure(username: Constants.buyMeACoffeeUsername)
                 }
         }
 
