@@ -14,7 +14,9 @@ struct SupportView: View {
                 .font(.system(.title, design: .monospaced))
                 .padding()
             Text("\(Constants.appName) will always be free.")
+                .font(.system(.subheadline, design: .monospaced))
         }
+        .padding()
     }
 }
 
