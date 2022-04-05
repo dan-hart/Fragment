@@ -146,8 +146,8 @@ struct ListView: View {
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
-#if os(iOS)
-            ToolbarItem(placement: .navigationBarLeading) {
+            #if os(iOS)
+                ToolbarItem(placement: .navigationBarLeading) {
                     Menu {
                         Button {
                             isShowingSupportThisAppView = true
@@ -183,8 +183,8 @@ struct ListView: View {
                     } label: {
                         Image(systemSymbol: .gearshape)
                     }
-            }
-#endif
+                }
+            #endif
 
             ToolbarItem(placement: .primaryAction) {
                 HStack {
