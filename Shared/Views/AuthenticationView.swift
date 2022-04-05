@@ -49,8 +49,10 @@ struct AuthenticationView: View {
                             .font(.system(.body, design: .monospaced))
                     }
                 }
-                Spacer()
+                .padding(.bottom)
             }
+            
+            Spacer()
         }
         .redacted(reason: isLoading ? .placeholder : [])
         .padding()
