@@ -48,7 +48,6 @@
 		52BABB3E27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52BABB3F27E7DDB200999F01 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BABB3D27E7DDB200999F01 /* TestApp.swift */; };
 		52C9ECDA27EC1DC900021911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D85BA27E760A60066B147 /* Assets.xcassets */; };
-		52E3296B27FBBE840059F82B /* BuyMeACoffee in Frameworks */ = {isa = PBXBuildFile; productRef = 52E3296A27FBBE840059F82B /* BuyMeACoffee */; };
 		52E3297027FBBEAD0059F82B /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3296F27FBBEAD0059F82B /* SupportView.swift */; };
 		52E3297127FBBEAD0059F82B /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E3296F27FBBEAD0059F82B /* SupportView.swift */; };
 		5A1C6CFB27FB7E4A00EB8D91 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C6CFA27FB7E4A00EB8D91 /* SessionHandler.swift */; };
@@ -152,7 +151,6 @@
 				526D97C527F0C26600BD46CE /* KeychainAccess in Frameworks */,
 				5A4C7E5627F3B600006B3A4A /* CodeEditor in Frameworks */,
 				5AD4DFF527F3AC87003C2C61 /* DHCacheKit in Frameworks */,
-				52E3296B27FBBE840059F82B /* BuyMeACoffee in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +417,6 @@
 				5AD4DFF427F3AC87003C2C61 /* DHCacheKit */,
 				5A4C7E5527F3B600006B3A4A /* CodeEditor */,
 				5A23880827FB47F200480C20 /* SwifterSwift */,
-				52E3296A27FBBE840059F82B /* BuyMeACoffee */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -1189,11 +1186,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */;
 			productName = Highlightr;
-		};
-		52E3296A27FBBE840059F82B /* BuyMeACoffee */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52E3296927FBBE840059F82B /* XCRemoteSwiftPackageReference "buymeacoffee" */;
-			productName = BuyMeACoffee;
 		};
 		5A23880627FB47E300480C20 /* SwifterSwift */ = {
 			isa = XCSwiftPackageProductDependency;
