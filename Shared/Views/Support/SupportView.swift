@@ -12,8 +12,12 @@ struct SupportView: View {
         VStack(alignment: .leading) {
             Text("Support this project")
                 .font(.system(.title, design: .monospaced))
-            Text("\(Constants.appName) will always be free.")
-                .font(.system(.subheadline, design: .monospaced))
+                .padding(.bottom)
+            Text("\(Constants.appName) will always be free and open-source.")
+                .font(.system(.body, design: .monospaced))
+                .padding(.bottom)
+            Text("If you have found this app useful, please consider:")
+                .font(.system(.footnote, design: .monospaced))
         }
         .padding()
     }
