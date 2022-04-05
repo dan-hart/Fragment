@@ -153,22 +153,22 @@ struct ListView: View {
                             isShowingSupportThisAppView = true
                         } label: {
                             HStack {
-                                Image(systemSymbol: SFSymbol.person3)
+                                Image(systemSymbol: SFSymbol.person2Circle)
                                 Text("Support this app")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        
+
                         Button {
                             WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
                         } label: {
                             HStack {
-                                Image(systemSymbol: SFSymbol.person3)
+                                Image(systemSymbol: .dollarsignCircle)
                                 Text("Donate")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        
+
                         if Constants.Feature.settingsEnabled {
                             Button {
                                 isShowingPreferencesView = true
