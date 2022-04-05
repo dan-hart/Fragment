@@ -50,7 +50,7 @@ struct SettingsView: View {
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
-                        .padding()
+                        .padding(.vertical)
                     }
                 }
                 .tabItem {
