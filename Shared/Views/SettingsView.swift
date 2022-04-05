@@ -39,12 +39,18 @@ struct SettingsView: View {
                         } footer: {
                             Text("Get new Gists from Github or use pull-to-refresh on the list")
                         }
+                        .padding(.bottom)
 
-                        Section("Support") {
-                            NavigationLink("Support this app") {
-                                SupportThisAppView(showCancelButton: false)
+                        Button {
+                            WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
+                        } label: {
+                            HStack {
+                                Image(systemSymbol: .dollarsignCircle)
+                                Text("Donate")
+                                    .font(.system(.body, design: .monospaced))
                             }
                         }
+                        .padding()
                     }
                 }
                 .tabItem {
@@ -116,6 +122,11 @@ struct SettingsView: View {
                     Label("Privacy", systemImage: "hand.raised")
                 }
             }
+
+            SupportThisAppView(showCancelButton: false)
+                .tabItem {
+                    Label("Support", systemImage: "people.3")
+                }
         }
         #if os(iOS)
         .toolbar {
