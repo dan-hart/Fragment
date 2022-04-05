@@ -14,6 +14,7 @@ struct AuthenticationView: View {
     @Binding var isLoading: Bool
 
     @State var token: String = ""
+    @State var isShowingSupportThisAppView = false
 
     var body: some View {
         VStack(alignment: .center) {
@@ -51,8 +52,19 @@ struct AuthenticationView: View {
                 }
                 .padding(.bottom)
             }
-            
+            Button {
+                isShowingSupportThisAppView = true
+            } label: {
+                HStack {
+                    Image(systemSymbol: SFSymbol.person3)
+                    Text("Support this app")
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
             Spacer()
+        }
+        .sheet(isPresented: $isShowingSupportThisAppView) {
+            SupportThisAppView()
         }
         .redacted(reason: isLoading ? .placeholder : [])
         .padding()
