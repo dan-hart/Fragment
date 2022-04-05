@@ -109,11 +109,11 @@ struct SettingsView: View {
                 .tabItem {
                     Label("Privacy", systemImage: "hand.raised")
                 }
-                
+
                 SupportThisAppView()
-                .tabItem {
-                    Label("Support this App", systemImage: "person.3")
-                }
+                    .tabItem {
+                        Label("Support this app", systemImage: "person.3")
+                    }
             }
         }
         #if os(iOS)
