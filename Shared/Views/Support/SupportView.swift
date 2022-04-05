@@ -21,7 +21,7 @@ struct SupportView: View {
             Button {
                 WebLauncher.go(to: URL(string: Constants.URL.repositoryOnGitHub.rawValue))
             } label: {
-                Text("Contributing on Github")
+                Text("Contributing on Github ")
             }
             .padding()
             Text("or")
@@ -30,7 +30,7 @@ struct SupportView: View {
             Button {
                 WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
             } label: {
-                Text("Buying Me A Coffee ")
+                Text("Buying Me A Coffee ☕️")
             }
             .padding()
             Text("Thank you,\nDan")
