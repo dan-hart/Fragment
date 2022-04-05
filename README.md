@@ -8,6 +8,6 @@
 [![macOS tests](https://github.com/dan-hart/Fragment/actions/workflows/macOS-test.yml/badge.svg)](https://github.com/dan-hart/Fragment/actions/workflows/macOS-test.yml)
 ### iOS & macOS Code Snippet Manager
 
-<img width="1338" alt="PNG image" src="https://user-images.githubusercontent.com/13913605/159187703-2d976028-79d7-467b-9235-e299c230a298.png">
+![screen shot 2022-04-04 at 18 32 07](https://user-images.githubusercontent.com/13913605/161664604-ead728bc-cac4-4a39-914c-147e1af2399f.png)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/codedbydan)
