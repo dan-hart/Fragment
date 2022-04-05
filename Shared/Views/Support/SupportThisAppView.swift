@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SupportThisAppView: View {
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Support this project")
@@ -35,6 +37,16 @@ struct SupportThisAppView: View {
             .padding()
             Text("Thank you,\nDan")
                 .font(.system(.subheadline, design: .monospaced))
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Done")
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
         }
         .padding()
     }
