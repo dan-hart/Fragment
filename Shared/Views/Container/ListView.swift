@@ -145,6 +145,7 @@ struct ListView: View {
         }
         .searchable(text: $searchText)
         .redacted(reason: isLoading ? .placeholder : [])
+        #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 #if os(iOS)
