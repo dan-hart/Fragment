@@ -52,6 +52,7 @@ struct AuthenticationView: View {
                 }
                 .padding(.bottom)
             }
+            Divider()
             Button {
                 isShowingSupportThisAppView = true
             } label: {
@@ -61,6 +62,7 @@ struct AuthenticationView: View {
                         .font(.system(.body, design: .monospaced))
                 }
             }
+            .padding(.top)
             Spacer()
         }
         .sheet(isPresented: $isShowingSupportThisAppView) {
