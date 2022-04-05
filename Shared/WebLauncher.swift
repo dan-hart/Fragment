@@ -19,8 +19,10 @@ enum WebLauncher {
         }
 
         #if canImport(UIKit)
-            if UIApplication.shared.open(url) {
-                print("default browser was successfully opened")
+            Task {
+                if await UIApplication.shared.open(url) {
+                    print("default browser was successfully opened")
+                }
             }
         #else
             if NSWorkspace.shared.open(url) {
