@@ -26,11 +26,15 @@ struct SupportView: View {
             .padding()
             Text("or")
                 .font(.system(.subheadline, design: .monospaced))
+                .padding(.horizontal)
             Button {
                 WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
             } label: {
-                Text("Buy Me A Coffee")
+                Text("Buying Me A Coffee ")
             }
+            .padding()
+            Text("Thank you,\nDan")
+                .font(.system(.subheadline, design: .monospaced))
         }
         .padding()
     }
