@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SupportThisAppView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    
+
     var showCancelButton: Bool
 
     var body: some View {
@@ -46,12 +46,12 @@ struct SupportThisAppView: View {
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 if showCancelButton {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Cancel")
-                        .font(.system(.body, design: .monospaced))
-                }
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Cancel")
+                            .font(.system(.body, design: .monospaced))
+                    }
                 }
             }
         }
@@ -60,6 +60,6 @@ struct SupportThisAppView: View {
 
 struct SupportView_Previews: PreviewProvider {
     static var previews: some View {
-        SupportThisAppView()
+        SupportThisAppView(showCancelButton: false)
     }
 }

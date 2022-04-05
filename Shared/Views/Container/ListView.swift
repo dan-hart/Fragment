@@ -121,7 +121,7 @@ struct ListView: View {
         }
         .sheet(isPresented: $isShowingSupportThisAppView) {
             NavigationView {
-                SupportThisAppView()
+                SupportThisAppView(showCancelButton: true)
             }
         }
         .sheet(isPresented: $isShowingPreferencesView) {

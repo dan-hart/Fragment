@@ -42,7 +42,7 @@ struct SettingsView: View {
 
                         Section("Support") {
                             NavigationLink("Support this app") {
-                                SupportThisAppView()
+                                SupportThisAppView(showCancelButton: false)
                             }
                         }
                     }

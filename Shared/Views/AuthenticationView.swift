@@ -67,7 +67,7 @@ struct AuthenticationView: View {
         }
         .sheet(isPresented: $isShowingSupportThisAppView) {
             NavigationView {
-                SupportThisAppView()
+                SupportThisAppView(showCancelButton: true)
             }
         }
         .redacted(reason: isLoading ? .placeholder : [])
