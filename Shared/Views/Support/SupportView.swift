@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BuyMeACoffee
 
 struct SupportView: View {
     var body: some View {
@@ -19,11 +20,14 @@ struct SupportView: View {
             Text("If you have found this app useful, please consider:")
                 .font(.system(.subheadline, design: .monospaced))
             Button {
-                
+                WebLauncher.go(to: URL(string: Constants.URL.repositoryOnGitHub.rawValue))
             } label: {
                 Text("Contributing on Github")
             }
             .padding()
+            Text("or")
+                .font(.system(.subheadline, design: .monospaced))
+           
         }
         .padding()
     }

@@ -13,8 +13,10 @@ import Foundation
 // swiftlint:disable line_length
 enum Constants {
     static let appName = "Fragment"
+    static let buyMeACoffeeUsername = "codedbydan"
 
     enum URL: String {
+        case repositoryOnGitHub = "https://github.com/dan-hart/Fragment"
         case githubHowToPersonalAccessToken = "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
     }
 
