@@ -10,7 +10,9 @@ import SwiftUI
 struct SupportView: View {
     var body: some View {
         VStack(alignment: .center) {
-            
+            Text("Support this project")
+                .font(.system(.title, design: .monospaced))
+            Text("")
         }
     }
 }
