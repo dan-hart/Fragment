@@ -20,7 +20,10 @@ struct SupportView: View {
                 .font(.system(.subheadline, design: .monospaced))
             Button {
                 
+            } label: {
+                Text("Contributing on Github")
             }
+            .padding()
         }
         .padding()
     }
