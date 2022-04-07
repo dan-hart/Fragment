@@ -18,6 +18,11 @@ public extension Gist {
     var filename: String {
         "\(files.first?.key ?? "")"
     }
+    
+    /// 
+    var aiPrompt: String {
+        
+    }
 
     /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String? {
