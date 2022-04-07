@@ -19,7 +19,7 @@ public extension Gist {
         "\(files.first?.key ?? "")"
     }
     
-    /// 
+    /// Experimenting with OpenAI...
     var aiPrompt: String {
         
     }
