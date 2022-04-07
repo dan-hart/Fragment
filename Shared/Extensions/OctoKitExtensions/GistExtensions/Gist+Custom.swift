@@ -21,7 +21,7 @@ public extension Gist {
     
     /// Experimenting with OpenAI...
     var aiPrompt: String {
-        "Write a \(fileExtension ?? "") file called \(filename) that \(description)"
+        "Write a \(fileExtension ?? "") file called \(filename) that \(description ?? "")"
     }
 
     /// The extension with no leading `.` of the filename of the first gist
