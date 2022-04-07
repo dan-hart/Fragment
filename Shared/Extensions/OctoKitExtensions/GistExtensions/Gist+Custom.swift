@@ -25,7 +25,7 @@ public extension Gist {
         if filename.isEmpty { return nil }
         return filename.pathExtension
     }
-    
+
     /// Experimenting with OpenAI...
     var aiPrompt: String {
         "Write a \(fileExtension ?? "") file called \(filename) that \(description ?? "")"
