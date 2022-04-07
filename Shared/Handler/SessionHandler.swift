@@ -179,6 +179,9 @@ class SessionHandler: ObservableObject {
 
         switch response {
         case let .success(gists):
+            for gist in gists {
+                print(gist.aiPrompt)
+            }
             return gists
         case .failure:
             throw FragmentError.couldNotFetchData
