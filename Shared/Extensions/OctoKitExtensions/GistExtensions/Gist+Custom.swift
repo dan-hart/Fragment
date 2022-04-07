@@ -18,17 +18,17 @@ public extension Gist {
     var filename: String {
         "\(files.first?.key ?? "")"
     }
-    
-    /// Experimenting with OpenAI...
-    var aiPrompt: String {
-        "Write a \(fileExtension ?? "") file called \(filename) that \(description ?? "")"
-    }
 
     /// The extension with no leading `.` of the filename of the first gist
     var fileExtension: String? {
         let filename = "\(files.first?.key ?? "")"
         if filename.isEmpty { return nil }
         return filename.pathExtension
+    }
+    
+    /// Experimenting with OpenAI...
+    var aiPrompt: String {
+        "Write a \(fileExtension ?? "") file called \(filename) that \(description ?? "")"
     }
 
     // MARK: - Functions
