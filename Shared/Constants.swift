@@ -22,11 +22,9 @@ enum Constants {
     }
 
     enum Feature {
-        // False
+        static var localCache = false
         static var ifNoGistsEnableCreateButton = false
-        static var ifNoGistsEnablePullButton = false
-
-        // True
+        static var ifNoGistsEnablePullButton = true
         static var settingsEnabled = true
     }
 

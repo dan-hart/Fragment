@@ -50,7 +50,7 @@ struct ListView: View {
             .navigationTitle("Gists")
 
             if sessionHandler.gists.isEmpty {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(isLoading ? "Loading..." : "No Gists")
                         .font(.system(.body, design: .monospaced))
 
@@ -73,34 +73,21 @@ struct ListView: View {
                     }
 
                     if Constants.Feature.ifNoGistsEnablePullButton, sessionHandler.isAuthenticated {
-                        VStack {
-                            Text("If this is unexpected, try pulling.")
-                                .padding()
+                        VStack(alignment: .leading) {
                             Button {
                                 sessionHandler.callTask {
                                     try await sessionHandler.refreshGists()
                                 }
                             } label: {
                                 HStack {
-                                    #if os(iOS)
-                                        Image(systemSymbol: .arrowDownCircle)
-                                    #endif
-                                    Text("Pull")
+                                    Image(systemSymbol: .arrowTriangle2CirclepathCircleFill)
+                                    Text("Refresh")
                                         .font(.system(.body, design: .monospaced))
-                                    #if os(macOS)
-                                        .padding()
-                                    #endif
                                 }
                             }
                             .padding()
                         }
                         .font(.system(.footnote, design: .monospaced))
-                        .padding(5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .strokeBorder()
-                                .foregroundColor(.gray)
-                        )
                     }
                 }
             } else {
@@ -155,16 +142,6 @@ struct ListView: View {
                             HStack {
                                 Image(systemSymbol: SFSymbol.person2Circle)
                                 Text("Support this app")
-                                    .font(.system(.body, design: .monospaced))
-                            }
-                        }
-
-                        Button {
-                            WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .dollarsignCircle)
-                                Text("Donate")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }

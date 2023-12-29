@@ -31,7 +31,7 @@ struct SettingsView: View {
                                 }
                             } label: {
                                 HStack {
-                                    Image(systemSymbol: .arrowDownCircle)
+                                    Image(systemSymbol: .arrowTriangle2CirclepathCircleFill)
                                     Text("Refresh")
                                         .font(.system(.body, design: .monospaced))
                                 }
@@ -40,21 +40,6 @@ struct SettingsView: View {
                             Text("Get new Gists from Github or use pull-to-refresh on the list")
                         }
                         .padding(.bottom)
-
-                        Section {
-                            Button {
-                                WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
-                            } label: {
-                                HStack {
-                                    Image(systemSymbol: .dollarsignCircle)
-                                    Text("Donate")
-                                        .font(.system(.body, design: .monospaced))
-                                }
-                            }
-                            .padding(.vertical)
-                        } footer: {
-                            Text("Support this app")
-                        }
                     }
                 }
                 .tabItem {
@@ -115,8 +100,8 @@ struct SettingsView: View {
                 VStack {
                     Form {
                         Section {
-                            Toggle("Disable Local Caching", isOn: .constant(false))
-                                .disabled(true)
+                            Toggle("Disable Local Caching", isOn: .constant(Constants.Feature.localCache))
+                                .disabled(!Constants.Feature.localCache)
                         } footer: {
                             Text("Not implemented yet")
                         }

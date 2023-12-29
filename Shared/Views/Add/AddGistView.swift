@@ -57,8 +57,7 @@ struct AddGistView: View {
         Form {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
                 TextField("File Name", text: $filename)
-                    .onChange(of: filename) { newValue in
-                        let filename: NSString = newValue as NSString
+                    .onChange(of: filename) {
                         let pathExtention = filename.pathExtension
                         if let lang = Language(rawValue: pathExtention) {
                             language = lang
@@ -100,7 +99,9 @@ struct AddGistView: View {
                 }
             }
 
-            getSaveButton()
+            #if os(iOS)
+                getSaveButton()
+            #endif
 
             if error != nil {
                 Section(header: Text("Error").font(.system(.body, design: .monospaced))) {
