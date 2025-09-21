@@ -7,7 +7,6 @@
 
 import CodeEditor
 import OctoKit
-import SwifterSwift
 import SwiftUI
 
 struct AddGistView: View {
@@ -32,7 +31,7 @@ struct AddGistView: View {
     func getSaveButton() -> some View {
         Button {
             let ext = ".\(language.rawValue)"
-            if !$filename.wrappedValue.ends(with: ext) {
+            if !$filename.wrappedValue.hasSuffix(ext) {
                 filename.append(ext)
             }
             Task {
@@ -58,7 +57,7 @@ struct AddGistView: View {
             Section(header: Text("Details").font(.system(.caption, design: .monospaced))) {
                 TextField("File Name", text: $filename)
                     .onChange(of: filename) {
-                        let pathExtention = filename.pathExtension
+                        let pathExtention = (filename as NSString).pathExtension
                         if let lang = Language(rawValue: pathExtention) {
                             language = lang
                         }

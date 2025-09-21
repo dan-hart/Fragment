@@ -73,7 +73,6 @@ struct AuthenticationView: View {
         }
         .redacted(reason: isLoading ? .placeholder : [])
         .padding()
-
         .navigationTitle("Authentication")
     }
 

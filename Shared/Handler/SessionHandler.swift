@@ -7,16 +7,19 @@
 
 import Foundation
 import KeychainAccess
-import OctoKit
+import Network
+@preconcurrency import OctoKit
+@preconcurrency import RequestKit
 import SwiftUI
 
+@MainActor
 class SessionHandler: ObservableObject {
     var keychainKeyIdentifier = "FRAGMENT_GITHUB_API_TOKEN"
 
     // MARK: - Publishable data
 
-    @Published public var isAuthenticated = false
-    @Published public var gists: [Gist] = []
+    @Published var isAuthenticated = false
+    @Published var gists: [Gist] = []
 
     private var configuration = TokenConfiguration()
 
@@ -85,9 +88,8 @@ class SessionHandler: ObservableObject {
         return token
     }
 
-    @MainActor
-    private func authenticate(using token: String?) async throws -> TokenConfiguration {
-        guard let token = token, !token.isEmpty else {
+    private nonisolated func authenticate(using token: String?) async throws -> TokenConfiguration {
+        guard let token, !token.isEmpty else {
             throw FragmentError.nilToken
         }
 
@@ -100,7 +102,9 @@ class SessionHandler: ObservableObject {
 
         switch response {
         case .success:
-            isAuthenticated = true
+            await MainActor.run {
+                isAuthenticated = true
+            }
             return configuration
         case let .failure(error):
             throw error
@@ -109,19 +113,20 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Gist CRU
 
-    func update(
+    nonisolated func update(
         _ identifier: String,
         _ description: String,
         _ filename: String,
         _ content: String
     ) async throws -> Gist {
         try await validate()
+        let config = await MainActor.run { configuration }
 
         let response = await withCheckedContinuation { continuation in
-            Octokit(configuration).patchGistFile(id: identifier,
-                                                 description: description,
-                                                 filename: filename,
-                                                 fileContent: content)
+            Octokit(config).patchGistFile(id: identifier,
+                                          description: description,
+                                          filename: filename,
+                                          fileContent: content)
             { response in
                 continuation.resume(returning: response)
             }
@@ -135,16 +140,17 @@ class SessionHandler: ObservableObject {
         }
     }
 
-    func create(
+    nonisolated func create(
         gist filename: String,
         _ description: String,
         _ content: String,
         _ visibility: Visibility
     ) async throws -> Gist {
         try await validate()
+        let config = await MainActor.run { configuration }
 
         let response = await withCheckedContinuation { continuation in
-            Octokit(configuration).postGistFile(
+            Octokit(config).postGistFile(
                 description: description,
                 filename: filename,
                 fileContent: content,
@@ -168,11 +174,12 @@ class SessionHandler: ObservableObject {
         gists = try await myGists()
     }
 
-    func myGists() async throws -> [Gist] {
+    nonisolated func myGists() async throws -> [Gist] {
         try await validate()
+        let config = await MainActor.run { configuration }
 
         let response = await withCheckedContinuation { continuation in
-            Octokit(configuration).myGists { response in
+            Octokit(config).myGists { response in
                 continuation.resume(returning: response)
             }
         }
@@ -190,11 +197,12 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Profile
 
-    func me() async throws -> User {
+    nonisolated func me() async throws -> User {
         try await validate()
+        let config = await MainActor.run { configuration }
 
         let response = await withCheckedContinuation { continuation in
-            Octokit(configuration).me { response in
+            Octokit(config).me { response in
                 continuation.resume(returning: response)
             }
         }
@@ -209,8 +217,9 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Helpers
 
-    func validate() async throws {
-        if !isAuthenticated { throw FragmentError.notAuthenticated }
+    nonisolated func validate() async throws {
+        let authenticated = await MainActor.run { isAuthenticated }
+        if !authenticated { throw FragmentError.notAuthenticated }
     }
 
     func call(thisAsyncThrowingCode: @escaping () async throws -> Void) async {

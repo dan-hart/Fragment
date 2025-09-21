@@ -17,12 +17,11 @@ struct MainView: View {
             ContainerView(isLoading: $isLoading)
         } else {
             if isLoading {
-                ContainerView(isLoading: $isLoading) // Permanet loading
+                ContainerView(isLoading: $isLoading) // Permanent loading
                     .redacted(reason: .placeholder) //
             } else {
-                NavigationView {
+                NavigationStack {
                     #if os(macOS)
-                        EmptyView()
                         AuthenticationView(isLoading: $isLoading)
                             .padding()
                     #endif

@@ -11,10 +11,10 @@ import OctoKit
 
 extension Gist {
     var text: String {
-        if let file = files.first, let url = file.value.rawURL, let text = try? String(contentsOf: url) {
-            return text
+        if let file = files.first, let url = file.value.rawURL, let text = try? String(contentsOf: url, encoding: .utf8) {
+            text
         } else {
-            return ""
+            ""
         }
     }
 

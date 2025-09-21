@@ -22,14 +22,14 @@ enum Constants {
     }
 
     enum Feature {
-        static var localCache = false
-        static var ifNoGistsEnableCreateButton = false
-        static var ifNoGistsEnablePullButton = true
-        static var settingsEnabled = true
+        static let localCache = false
+        static let ifNoGistsEnableCreateButton = false
+        static let ifNoGistsEnablePullButton = true
+        static let settingsEnabled = true
     }
 
     /// Is the current device running macOS or is it an iPad
-    static func isMacOrPad() -> Bool {
+    @MainActor static func isMacOrPad() -> Bool {
         #if os(macOS)
             return true
         #endif

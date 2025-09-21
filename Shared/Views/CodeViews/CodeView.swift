@@ -5,7 +5,7 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import CodeEditor
+@preconcurrency import CodeEditor
 import Foundation
 import Highlightr
 import OctoKit
@@ -56,10 +56,10 @@ struct CodeView: View {
                             isLoadingParent = true
                             sessionHandler.callTask {
                                 let updatedGist = try await sessionHandler.update(identifier, description, filename, sourceCode)
-                                self.isLoadingParent = false
+                                isLoadingParent = false
                                 await MainActor.run {
-                                    self.sourceCode = updatedGist.text
-                                    self.loadedSourceCode = updatedGist.text
+                                    sourceCode = updatedGist.text
+                                    loadedSourceCode = updatedGist.text
                                 }
                             }
                         } label: {

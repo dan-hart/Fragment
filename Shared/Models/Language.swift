@@ -1,7 +1,7 @@
 import Foundation
 
 // swiftlint:disable identifier_name
-enum Language: String, CaseIterable {
+enum Language: String, CaseIterable, Sendable {
     case abnf
     case accesslog
     case actionscript

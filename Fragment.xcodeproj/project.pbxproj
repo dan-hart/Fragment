@@ -54,8 +54,6 @@
 		5A1C6CFC27FB7E4A00EB8D91 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C6CFA27FB7E4A00EB8D91 /* SessionHandler.swift */; };
 		5A2387FF27FB3B1900480C20 /* FragmentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* FragmentError.swift */; };
 		5A23880027FB3B1900480C20 /* FragmentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2387FE27FB3B1900480C20 /* FragmentError.swift */; };
-		5A23880727FB47E300480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880627FB47E300480C20 /* SwifterSwift */; };
-		5A23880927FB47F200480C20 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A23880827FB47F200480C20 /* SwifterSwift */; };
 		5A23880F27FB4C4E00480C20 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880E27FB4C4E00480C20 /* SettingsView.swift */; };
 		5A23881027FB4C4E00480C20 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23880E27FB4C4E00480C20 /* SettingsView.swift */; };
 		5A23881627FB674C00480C20 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23881527FB674C00480C20 /* ListView.swift */; };
@@ -130,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A23880727FB47E300480C20 /* SwifterSwift in Frameworks */,
 				526D97C827F0C5BE00BD46CE /* Highlightr in Frameworks */,
 				525D860827E762B40066B147 /* OctoKit in Frameworks */,
 				5254DDFF27EF8224005BAC56 /* SFSafeSymbols in Frameworks */,
@@ -144,7 +141,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A23880927FB47F200480C20 /* SwifterSwift in Frameworks */,
 				526D97CA27F0C5C500BD46CE /* Highlightr in Frameworks */,
 				522915C027E789E20087530C /* OctoKit in Frameworks */,
 				5254DE0427EF837A005BAC56 /* SFSafeSymbols in Frameworks */,
@@ -388,7 +384,6 @@
 				526D97C727F0C5BE00BD46CE /* Highlightr */,
 				5AD4DFF227F3AC7A003C2C61 /* DHCacheKit */,
 				5A4C7E5727F3BE78006B3A4A /* CodeEditor */,
-				5A23880627FB47E300480C20 /* SwifterSwift */,
 			);
 			productName = "Fragment (iOS)";
 			productReference = 525D85BF27E760A60066B147 /* Fragment.app */;
@@ -416,7 +411,6 @@
 				526D97C927F0C5C500BD46CE /* Highlightr */,
 				5AD4DFF427F3AC87003C2C61 /* DHCacheKit */,
 				5A4C7E5527F3B600006B3A4A /* CodeEditor */,
-				5A23880827FB47F200480C20 /* SwifterSwift */,
 			);
 			productName = "Fragment (macOS)";
 			productReference = 525D85C527E760A60066B147 /* Fragment.app */;
@@ -500,7 +494,6 @@
 				526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */,
 				5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */,
 				5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */,
-				5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				52E3296927FBBE840059F82B /* XCRemoteSwiftPackageReference "buymeacoffee" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
@@ -832,7 +825,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -842,17 +835,18 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = off;
+				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -864,7 +858,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -874,17 +868,18 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = off;
+				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -899,7 +894,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -911,13 +906,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = off;
+				SWIFT_VERSION = 5.9;
 			};
 			name = Debug;
 		};
@@ -930,7 +926,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -942,13 +938,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.1.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codedbydan.FragmentSnippetManager;
 				PRODUCT_NAME = Fragment;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = off;
+				SWIFT_VERSION = 5.9;
 			};
 			name = Release;
 		};
@@ -957,16 +954,16 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Fragment";
 			};
@@ -977,16 +974,16 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Fragment";
 				VALIDATE_PRODUCT = YES;
@@ -998,16 +995,16 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.9;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Contents/MacOS/Fragment";
 			};
 			name = Debug;
@@ -1017,16 +1014,16 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = WRJ8J85K4Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codedbydan.Fragment-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.9;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fragment.app/Contents/MacOS/Fragment";
 			};
 			name = Release;
@@ -1122,14 +1119,6 @@
 				kind = branch;
 			};
 		};
-		5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZeeZide/CodeEditor";
@@ -1188,16 +1177,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */;
 			productName = Highlightr;
-		};
-		5A23880627FB47E300480C20 /* SwifterSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
-			productName = SwifterSwift;
-		};
-		5A23880827FB47F200480C20 /* SwifterSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5A23880527FB47E300480C20 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
-			productName = SwifterSwift;
 		};
 		5A4C7E5527F3B600006B3A4A /* CodeEditor */ = {
 			isa = XCSwiftPackageProductDependency;
