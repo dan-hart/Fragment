@@ -91,7 +91,7 @@ struct AuthenticationView: View {
                 } label: {
                     HStack {
                         Image(systemSymbol: SFSymbol.person3)
-                        Text("Support this app")
+                        Text("Project resources")
                             .font(.system(.body, design: .monospaced))
                     }
                 }

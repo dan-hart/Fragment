@@ -40,6 +40,7 @@ Use these labels as the default taxonomy for issues and planning:
 ## Repo docs
 
 - [README](README.md): project overview and quick start
+- [Code of conduct](CODE_OF_CONDUCT.md): community expectations
 - [Architecture](docs/architecture.md): app structure and data flow
 - [Testing](docs/testing.md): verification strategy
 - [AI readiness](docs/ai-readiness.md): context for AI-assisted changes

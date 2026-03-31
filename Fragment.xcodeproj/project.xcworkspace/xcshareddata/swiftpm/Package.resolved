@@ -2,15 +2,6 @@
   "originHash" : "9594bf173ed86bf81fa63dfc09eed6d83b0bf7a06bef4e056387d171e6698739",
   "pins" : [
     {
-      "identity" : "buymeacoffee",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dan-hart/buymeacoffee",
-      "state" : {
-        "branch" : "master",
-        "revision" : "850b6346dcdc96fe761a5bf953294d3885ffac7d"
-      }
-    },
-    {
       "identity" : "codeeditor",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ZeeZide/CodeEditor",

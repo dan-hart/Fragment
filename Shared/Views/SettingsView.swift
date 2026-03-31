@@ -125,7 +125,7 @@ struct SettingsView: View {
 
             SupportThisAppView(showCancelButton: false)
                 .tabItem {
-                    Label("Support", systemImage: "person.3")
+                    Label("Resources", systemImage: "info.circle")
                 }
         }
         #if os(iOS)

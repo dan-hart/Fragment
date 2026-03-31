@@ -506,7 +506,6 @@
 				526D97C627F0C5BE00BD46CE /* XCRemoteSwiftPackageReference "Highlightr" */,
 				5AD4DFF127F3AC7A003C2C61 /* XCRemoteSwiftPackageReference "DHCacheKit" */,
 				5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */,
-				52E3296927FBBE840059F82B /* XCRemoteSwiftPackageReference "buymeacoffee" */,
 			);
 			productRefGroup = 525D85C027E760A60066B147 /* Products */;
 			projectDirPath = "";
@@ -1127,14 +1126,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		52E3296927FBBE840059F82B /* XCRemoteSwiftPackageReference "buymeacoffee" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dan-hart/buymeacoffee";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		5A4C7E5427F3B600006B3A4A /* XCRemoteSwiftPackageReference "CodeEditor" */ = {

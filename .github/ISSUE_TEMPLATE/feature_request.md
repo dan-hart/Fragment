@@ -22,5 +22,3 @@ List any alternatives or workarounds you considered.
 ## Additional context
 
 Add screenshots, gists, rough mockups, or any other context here.
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/codedbydan)

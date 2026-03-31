@@ -164,7 +164,7 @@ struct ListView: View {
                         } label: {
                             HStack {
                                 Image(systemSymbol: SFSymbol.person2Circle)
-                                Text("Support this app")
+                                Text("Project resources")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }

@@ -2,8 +2,6 @@
 //  GistServices.swift
 //  Fragment
 //
-//  Created by Codex on 3/30/26.
-//
 
 import Foundation
 @preconcurrency import OctoKit

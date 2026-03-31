@@ -98,7 +98,7 @@ class SessionHandler: ObservableObject {
             gists = []
             gistCollectionStatus = isAuthenticated ? .fresh(nil) : .idle
         } catch {
-            lastRefreshError = error.localizedDescription
+            lastRefreshError = describe(error)
         }
     }
 
@@ -107,8 +107,10 @@ class SessionHandler: ObservableObject {
             .trimmingCharacters(in: .whitespacesAndNewlines),
             !token.isEmpty
         else {
+            isAuthenticated = false
             gists = []
             gistCollectionStatus = .idle
+            lastRefreshError = nil
             return
         }
 
@@ -117,7 +119,6 @@ class SessionHandler: ObservableObject {
             keychain[keychainKeyIdentifier] = token
             isAuthenticated = true
             lastRefreshError = nil
-            try await refreshGists()
         } catch {
             isAuthenticated = false
 
@@ -125,8 +126,11 @@ class SessionHandler: ObservableObject {
                 throw error
             }
 
-            lastRefreshError = error.localizedDescription
+            lastRefreshError = describe(error)
+            return
         }
+
+        try await refreshGists()
     }
 
     // MARK: - Gist CRU
@@ -187,7 +191,7 @@ class SessionHandler: ObservableObject {
                 throw error
             }
 
-            lastRefreshError = error.localizedDescription
+            lastRefreshError = describe(error)
         }
     }
 
@@ -233,15 +237,9 @@ class SessionHandler: ObservableObject {
         do {
             try await thisAsyncThrowingCode()
         } catch {
-            let errorMessage = if let fragmentError = error as? FragmentError {
-                fragmentError.rawValue
-            } else {
-                error.localizedDescription
-            }
-
             alert = Alert(
                 title: Text("Oops!").font(.system(.body, design: .monospaced)),
-                message: Text(errorMessage).font(.system(.caption, design: .monospaced))
+                message: Text(describe(error)).font(.system(.caption, design: .monospaced))
             )
         }
     }
@@ -266,7 +264,7 @@ class SessionHandler: ObservableObject {
 
         gists = snapshot.documents.map { $0.withSource(.cached) }
         gistCollectionStatus = .cached(snapshot.syncedAt)
-        return !snapshot.documents.isEmpty
+        return true
     }
 
     private func persistCache(using status: GistCollectionStatus) throws {
@@ -274,5 +272,13 @@ class SessionHandler: ObservableObject {
         let snapshot = GistCacheSnapshot(syncedAt: Date(), documents: documents)
         try cacheStore.save(snapshot)
         gistCollectionStatus = status
+    }
+
+    private func describe(_ error: Error) -> String {
+        if let fragmentError = error as? FragmentError {
+            fragmentError.rawValue
+        } else {
+            error.localizedDescription
+        }
     }
 }

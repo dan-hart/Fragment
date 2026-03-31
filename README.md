@@ -61,9 +61,10 @@ Start with [docs/architecture.md](docs/architecture.md) for more detail.
 
 `SwifterSwift` is no longer used in this repo.
 
-## Support
+## Community
 
 - [Report bugs](https://github.com/dan-hart/Fragment/issues)
 - [Request features](https://github.com/dan-hart/Fragment/issues)
+- [Contributing](CONTRIBUTING.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
 - [Project roadmap](docs/roadmap.md)
-- [Buy me a coffee](https://www.buymeacoffee.com/codedbydan)
