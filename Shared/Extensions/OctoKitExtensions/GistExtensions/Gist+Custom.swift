@@ -23,7 +23,7 @@ public extension Gist {
     var fileExtension: String? {
         let filename = "\(files.first?.key ?? "")"
         if filename.isEmpty { return nil }
-        return filename.pathExtension
+        return (filename as NSString).pathExtension
     }
 
     /// Experimenting with OpenAI...
@@ -51,13 +51,13 @@ public extension Gist {
     }
 }
 
-extension Gist: Equatable {
+extension Gist: @retroactive Equatable {
     public static func == (lhs: Gist, rhs: Gist) -> Bool {
         lhs.identifier == rhs.identifier
     }
 }
 
-extension Gist: Hashable {
+extension Gist: @retroactive Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
     }

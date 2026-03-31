@@ -9,9 +9,10 @@ import Foundation
 
 enum FragmentError: String, Error {
     case nilToken = "Empty Token"
-    case nilConfiguratioin = "Invalid Configuration"
+    case nilConfiguration = "Invalid Configuration"
     case invalidToken = "Provided Token is invalid"
     case notAuthenticated = "Not Authenticated"
+    case remoteContentChanged = "This gist changed on GitHub after you opened it. Review the latest copy before saving."
 
     // MARK: - Data
 

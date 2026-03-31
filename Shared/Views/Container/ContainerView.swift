@@ -5,7 +5,6 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import OctoKit
 import SFSafeSymbols
 import SwiftUI
 
@@ -26,13 +25,13 @@ struct ContainerView: View {
             #if os(iOS)
                 NavigationView {
                     AddGistView(filename: "", description: "", visibility: .public, content: "") { newGist in
-                        sessionHandler.gists.insert(newGist, at: 0)
+                        sessionHandler.noteCreated(newGist)
                     }
                 }
             #endif
             #if os(macOS)
                 AddGistView(filename: "", description: "", content: "") { newGist in
-                    sessionHandler.gists.insert(newGist, at: 0)
+                    sessionHandler.noteCreated(newGist)
                 }
                 .frame(minWidth: 800, minHeight: 800)
                 .padding()
@@ -44,6 +43,18 @@ struct ContainerView: View {
                     toggleSidebar()
                 } label: {
                     Image(systemSymbol: .sidebarLeading)
+                }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .fragmentCreateGist)) { _ in
+            if sessionHandler.isAuthenticated {
+                isShowingAddModal = true
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .fragmentRefreshGists)) { _ in
+            if sessionHandler.isAuthenticated {
+                sessionHandler.callTask {
+                    try await sessionHandler.refreshGists()
                 }
             }
         }

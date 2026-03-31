@@ -13,23 +13,24 @@ import Foundation
 // swiftlint:disable line_length
 enum Constants {
     static let appName = "Fragment"
-    static let buyMeACoffeeUsername = "codedbydan"
 
     enum URL: String {
         case repositoryOnGitHub = "https://github.com/dan-hart/Fragment"
-        case buyMeACoffee = "https://www.buymeacoffee.com/codedbydan"
+        case repositoryIssues = "https://github.com/dan-hart/Fragment/issues"
+        case contributorGuide = "https://github.com/dan-hart/Fragment/blob/main/CONTRIBUTING.md"
+        case roadmap = "https://github.com/dan-hart/Fragment/blob/main/docs/roadmap.md"
         case githubHowToPersonalAccessToken = "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
     }
 
     enum Feature {
-        static var localCache = false
-        static var ifNoGistsEnableCreateButton = false
-        static var ifNoGistsEnablePullButton = true
-        static var settingsEnabled = true
+        static let localCache = true
+        static let ifNoGistsEnableCreateButton = false
+        static let ifNoGistsEnablePullButton = true
+        static let settingsEnabled = true
     }
 
     /// Is the current device running macOS or is it an iPad
-    static func isMacOrPad() -> Bool {
+    @MainActor static func isMacOrPad() -> Bool {
         #if os(macOS)
             return true
         #endif
@@ -45,3 +46,8 @@ enum Constants {
 }
 
 // swiftlint:enable line_length
+
+extension Notification.Name {
+    static let fragmentCreateGist = Notification.Name("fragment.createGist")
+    static let fragmentRefreshGists = Notification.Name("fragment.refreshGists")
+}

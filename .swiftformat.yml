@@ -1,6 +1,6 @@
 # See: https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
 
---swiftversion 5.0
+--swiftversion 5.9
 
 # format options
 --indent 4

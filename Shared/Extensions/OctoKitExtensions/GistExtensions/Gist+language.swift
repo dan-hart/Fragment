@@ -11,9 +11,9 @@ import OctoKit
 extension Gist {
     var language: Language? {
         if let fileURL = url {
-            return Language(url: fileURL)
+            Language(url: fileURL)
         } else {
-            return nil
+            nil
         }
     }
 }

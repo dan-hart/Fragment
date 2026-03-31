@@ -15,30 +15,39 @@ struct SupportThisAppView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()
-            Text("Support this project")
+            Text("Project Resources")
                 .font(.system(.title, design: .monospaced))
                 .padding(.bottom)
-            Text("\(Constants.appName) will always be free and open-source.")
+            Text("\(Constants.appName) is a free and open source GitHub Gist manager.")
                 .font(.system(.headline, design: .monospaced))
                 .padding(.bottom)
-            Text("If you have found this app useful, please consider:")
+            Text("A few useful places to start:")
                 .font(.system(.subheadline, design: .monospaced))
             Button {
                 WebLauncher.go(to: URL(string: Constants.URL.repositoryOnGitHub.rawValue))
             } label: {
-                Text("Contributing on Github ")
+                Text("View on GitHub")
             }
             .padding()
-            Text("or")
-                .font(.system(.subheadline, design: .monospaced))
-                .padding(.horizontal)
             Button {
-                WebLauncher.go(to: URL(string: Constants.URL.buyMeACoffee.rawValue))
+                WebLauncher.go(to: URL(string: Constants.URL.repositoryIssues.rawValue))
             } label: {
-                Text("☕️ Buying Me A Coffee")
+                Text("Report an Issue")
             }
             .padding()
-            Text("Thank you,\nDan")
+            Button {
+                WebLauncher.go(to: URL(string: Constants.URL.contributorGuide.rawValue))
+            } label: {
+                Text("Read the Contributor Guide")
+            }
+            .padding()
+            Button {
+                WebLauncher.go(to: URL(string: Constants.URL.roadmap.rawValue))
+            } label: {
+                Text("View the Roadmap")
+            }
+            .padding()
+            Text("Thanks for helping improve Fragment.")
                 .font(.system(.subheadline, design: .monospaced))
             Spacer()
         }

@@ -1,22 +1,24 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
+title: "[Feature] "
 labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Problem
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+What user or contributor problem does this solve?
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Proposed solution
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+Describe the change you would like to see.
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/codedbydan)
+## Alternatives considered
+
+List any alternatives or workarounds you considered.
+
+## Additional context
+
+Add screenshots, gists, rough mockups, or any other context here.

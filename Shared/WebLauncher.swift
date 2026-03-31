@@ -14,12 +14,12 @@ import Foundation
 
 enum WebLauncher {
     static func go(to url: URL?) {
-        guard let url = url else {
+        guard let url else {
             return
         }
 
         #if canImport(UIKit)
-            Task {
+            Task { @MainActor in
                 if await UIApplication.shared.open(url) {
                     print("default browser was successfully opened")
                 }

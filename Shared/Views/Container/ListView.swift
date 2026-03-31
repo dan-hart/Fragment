@@ -5,7 +5,6 @@
 //  Created by Dan Hart on 4/4/22.
 //
 
-import OctoKit
 import SFSafeSymbols
 import SwiftUI
 
@@ -21,23 +20,38 @@ struct ListView: View {
     @State var isShowingSupportThisAppView = false
     @State var isShowingPreferencesView = false
 
-    var filteredGists: [Gist] {
+    var filteredGists: [GistDocument] {
         let withVisibility = sessionHandler.gists.filter { gist in
-            let gistVisibility = Visibility(isPublic: gist.publicGist)
-            return gistVisibility == visibility
+            gist.visibility == visibility
         }
 
-        if searchText.isEmpty {
-            return withVisibility
-        } else {
-            return withVisibility.filter { gist in
-                gist.meetsSearchCriteria(text: searchText)
-            }
+        return GistQuery(rawValue: searchText).filter(withVisibility)
+    }
+
+    var filteredBindings: [Binding<GistDocument>] {
+        filteredGists.compactMap(binding(for:))
+    }
+
+    private func binding(for gist: GistDocument) -> Binding<GistDocument>? {
+        guard let index = sessionHandler.gists.firstIndex(where: { $0.id == gist.id }) else {
+            return nil
         }
+
+        return $sessionHandler.gists[index]
     }
 
     var body: some View {
         List {
+            Section {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(sessionHandler.gistCollectionStatus.title)
+                        .font(.system(.headline, design: .monospaced))
+                    Text(sessionHandler.gistCollectionStatus.detail)
+                        .font(.system(.footnote, design: .monospaced))
+                        .foregroundStyle(.secondary)
+                }
+            }
+
             Picker("Visibility", selection: $visibility) {
                 ForEach(Visibility.allCases, id: \.self) { access in
                     Text(access.rawValue)
@@ -46,7 +60,6 @@ struct ListView: View {
             }
             .pickerStyle(.segmented)
             .labelsHidden()
-
             .navigationTitle("Gists")
 
             if sessionHandler.gists.isEmpty {
@@ -90,17 +103,25 @@ struct ListView: View {
                         .font(.system(.footnote, design: .monospaced))
                     }
                 }
+            } else if filteredBindings.isEmpty {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("No matching gists")
+                        .font(.system(.body, design: .monospaced))
+                    Text("Search tips: use text, `ext:swift`, `visibility:public`, or `state:cached`.")
+                        .font(.system(.footnote, design: .monospaced))
+                        .foregroundStyle(.secondary)
+                }
             } else {
                 if !searchText.isEmpty {
                     Text("Results")
                         .font(.system(.body, design: .monospaced))
                 }
-                ForEach(filteredGists, id: \.self) { gist in
+                ForEach(filteredBindings, id: \.wrappedValue.id) { gist in
                     NavigationLink {
-                        CodeView(gist: .constant(gist), isLoadingParent: $isLoading)
-                            .navigationTitle(gist.filename)
+                        CodeView(gist: gist, isLoadingParent: $isLoading)
+                            .navigationTitle(gist.wrappedValue.title)
                     } label: {
-                        GistRow(data: .constant(gist))
+                        GistRow(data: gist)
                             .padding()
                     }
                 }
@@ -119,18 +140,20 @@ struct ListView: View {
             }
         }
         .onAppear {
-            if !isLoading {
+            if sessionHandler.isAuthenticated, sessionHandler.gists.isEmpty, !isLoading {
                 sessionHandler.callTask {
                     try await sessionHandler.refreshGists()
                 }
             }
         }
         .refreshable {
-            sessionHandler.callTask {
-                try await sessionHandler.refreshGists()
+            if sessionHandler.isAuthenticated {
+                sessionHandler.callTask {
+                    try await sessionHandler.refreshGists()
+                }
             }
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, prompt: Text("Search, ext:swift, visibility:public"))
         .redacted(reason: isLoading ? .placeholder : [])
         .toolbar {
             #if os(iOS)
@@ -141,7 +164,7 @@ struct ListView: View {
                         } label: {
                             HStack {
                                 Image(systemSymbol: SFSymbol.person2Circle)
-                                Text("Support this app")
+                                Text("Project resources")
                                     .font(.system(.body, design: .monospaced))
                             }
                         }
@@ -163,22 +186,36 @@ struct ListView: View {
                 }
             #endif
 
-            ToolbarItem(placement: .primaryAction) {
-                HStack {
-                    if sessionHandler.isAuthenticated {
-                        Button {
-                            isShowingAddModal.toggle()
-                        } label: {
-                            HStack {
-                                Image(systemSymbol: .plusCircle)
-                                Text("Create")
-                                    .font(.system(.body, design: .monospaced))
-                            }
+            ToolbarItemGroup(placement: .primaryAction) {
+                if sessionHandler.isAuthenticated {
+                    Button {
+                        sessionHandler.callTask {
+                            try await sessionHandler.refreshGists()
                         }
-                        #if os(macOS)
-                        .frame(minWidth: 100)
-                        #endif
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .arrowTriangle2CirclepathCircleFill)
+                            Text("Refresh")
+                                .font(.system(.body, design: .monospaced))
+                        }
                     }
+                    .keyboardShortcut("r")
+                }
+
+                if sessionHandler.isAuthenticated {
+                    Button {
+                        isShowingAddModal.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemSymbol: .plusCircle)
+                            Text("Create")
+                                .font(.system(.body, design: .monospaced))
+                        }
+                    }
+                    #if os(macOS)
+                    .frame(minWidth: 100)
+                    #endif
+                    .keyboardShortcut("n")
                 }
             }
         }
