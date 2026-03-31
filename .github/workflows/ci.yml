@@ -9,25 +9,117 @@ permissions:
 
 jobs:
   macos:
-    runs-on: macos-latest
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Build macOS
-        run: xcodebuild -scheme macOS -configuration Debug build
+        run: |
+          xcodebuild \
+            -scheme macOS \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
 
       - name: Test macOS
-        run: xcodebuild test -scheme macOS
+        run: |
+          xcodebuild \
+            test \
+            -scheme macOS \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
 
   ios:
-    runs-on: macos-latest
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Select iOS simulator
+        id: ios-simulator
+        run: |
+          destination="$(
+            python3 - <<'PY'
+            import json
+            import re
+            import subprocess
+
+            raw = subprocess.check_output(
+                ["xcrun", "simctl", "list", "devices", "available", "-j"],
+                text=True,
+            )
+            devices_by_runtime = json.loads(raw)["devices"]
+            runtime_pattern = re.compile(r"iOS-(\d+)-(\d+)$")
+            preferred_names = [
+                "iPhone 17 Pro",
+                "iPhone 17",
+                "iPhone 17 Pro Max",
+                "iPhone 17e",
+                "iPhone Air",
+                "iPhone 16 Pro",
+                "iPhone 16",
+            ]
+
+            candidates = []
+            for runtime, devices in devices_by_runtime.items():
+                match = runtime_pattern.search(runtime)
+                if not match:
+                    continue
+
+                major, minor = (int(part) for part in match.groups())
+                for device in devices:
+                    name = device["name"]
+                    if not device.get("isAvailable") or not name.startswith("iPhone"):
+                        continue
+                    candidates.append((major, minor, name))
+
+            if not candidates:
+                raise SystemExit("No available iPhone simulator destinations found.")
+
+            latest_runtime = max((major, minor) for major, minor, _ in candidates)
+            latest_candidates = [candidate for candidate in candidates if candidate[:2] == latest_runtime]
+
+            chosen = None
+            for preferred_name in preferred_names:
+                for candidate in latest_candidates:
+                    if candidate[2] == preferred_name:
+                        chosen = candidate
+                        break
+                if chosen:
+                    break
+
+            if chosen is None:
+                chosen = sorted(latest_candidates, key=lambda candidate: candidate[2])[0]
+
+            major, minor, name = chosen
+            print(f"platform=iOS Simulator,OS={major}.{minor},name={name}")
+            PY
+          )"
+
+          echo "destination=$destination" >> "$GITHUB_OUTPUT"
+          echo "Using simulator destination: $destination"
+
       - name: Build iOS
-        run: xcodebuild -scheme iOS -configuration Debug build -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=latest"
+        run: |
+          xcodebuild \
+            -scheme iOS \
+            -configuration Debug \
+            -destination "${{ steps.ios-simulator.outputs.destination }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
 
       - name: Test iOS
-        run: xcodebuild test -scheme iOS -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=latest"
+        run: |
+          xcodebuild \
+            test \
+            -scheme iOS \
+            -destination "${{ steps.ios-simulator.outputs.destination }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
