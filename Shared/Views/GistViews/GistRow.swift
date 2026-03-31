@@ -5,26 +5,25 @@
 //  Created by Dan Hart on 3/20/22.
 //
 
-import OctoKit
 import SFSafeSymbols
 import SwiftUI
 
 struct GistRow: View {
-    @Binding var data: Gist
+    @Binding var data: GistDocument
 
     var filenameNoExtension: String? {
-        ((data.files.first?.key ?? "") as NSString).deletingPathExtension
+        data.fileNameWithoutExtension
     }
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(filenameNoExtension ?? (data.files.first?.key ?? "Unknown"))
+            Text(filenameNoExtension ?? data.title)
                 .font(.system(.headline, design: .monospaced))
                 .lineLimit(1)
                 .truncationMode(.middle)
             Spacer()
-            if let description = data.description, !description.isEmpty {
-                Text("\(description)")
+            if let description = data.gistDescription, !description.isEmpty {
+                Text(description)
                     .font(.system(.caption, design: .monospaced))
                     .lineLimit(2)
                     .truncationMode(.middle)
@@ -38,8 +37,19 @@ struct GistRow: View {
             }
             Spacer()
             HStack {
-                Visibility(isPublic: data.publicGist).body
+                data.visibility.body
                 Spacer()
+                if data.source == .cached {
+                    Text("cached")
+                        .font(.system(.caption2, design: .monospaced))
+                        .lineLimit(1)
+                        .padding(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder()
+                                .foregroundColor(.orange)
+                        )
+                }
                 if let `extension` = data.fileExtension, !`extension`.isEmpty {
                     Text(`extension`)
                         .font(.system(.footnote, design: .monospaced))

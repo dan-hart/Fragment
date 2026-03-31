@@ -9,7 +9,7 @@ import Foundation
 import SFSafeSymbols
 import SwiftUI
 
-enum Visibility: String, CaseIterable, Sendable {
+enum Visibility: String, CaseIterable, Codable {
     case `public`
     case secret
 

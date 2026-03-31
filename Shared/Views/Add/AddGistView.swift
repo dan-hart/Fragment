@@ -6,7 +6,6 @@
 //
 
 import CodeEditor
-import OctoKit
 import SwiftUI
 
 struct AddGistView: View {
@@ -23,20 +22,16 @@ struct AddGistView: View {
     @State var isAddingData = true
     @State var error: String?
 
-    var didAdd: (Gist) -> Void
+    var didAdd: (GistDocument) -> Void
 
     let clipboard = ClipboardHelper.getText()
 
-    @ViewBuilder
     func getSaveButton() -> some View {
         Button {
-            let ext = ".\(language.rawValue)"
-            if !$filename.wrappedValue.hasSuffix(ext) {
-                filename.append(ext)
-            }
+            let normalizedFilename = normalizedFileName()
             Task {
                 do {
-                    let gist = try await sessionHandler.create(gist: filename, description, content, visibility)
+                    let gist = try await sessionHandler.create(gist: normalizedFilename, description, content, visibility)
                     didAdd(gist)
                     presentationMode.wrappedValue.dismiss()
 
@@ -69,12 +64,18 @@ struct AddGistView: View {
                             .tag(language.rawValue)
                     }
                 }
+                .onChange(of: language) { _ in
+                    syncFileExtension()
+                }
                 TextField("Description", text: $description)
                 Picker("Visibility", selection: $visibility) {
                     ForEach(Visibility.allCases, id: \.self) { access in
                         access.body.tag(access)
                     }
                 }
+                Text("Tip: search later with filters like `ext:\(language.rawValue)` or `visibility:\(visibility.rawValue)`.")
+                    .font(.system(.footnote, design: .monospaced))
+                    .foregroundStyle(.secondary)
             }
             .font(.system(.caption, design: .monospaced))
 
@@ -125,6 +126,31 @@ struct AddGistView: View {
         }
 
         .navigationTitle(isAddingData ? "Add Gist" : "Edit Gist")
+    }
+
+    private func normalizedFileName() -> String {
+        let trimmed = filename.trimmingCharacters(in: .whitespacesAndNewlines)
+        let baseName = trimmed.isEmpty ? "snippet" : trimmed
+        let ext = language.rawValue
+
+        if baseName.hasSuffix(".\(ext)") {
+            return baseName
+        }
+
+        if (baseName as NSString).pathExtension.isEmpty {
+            return "\(baseName).\(ext)"
+        }
+
+        return ((baseName as NSString).deletingPathExtension as String) + ".\(ext)"
+    }
+
+    private func syncFileExtension() {
+        let trimmed = filename.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            return
+        }
+
+        filename = normalizedFileName()
     }
 }
 

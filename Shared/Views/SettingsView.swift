@@ -21,7 +21,12 @@ struct SettingsView: View {
                 VStack {
                     Form {
                         Section("General") {
-                            EmptyView()
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(sessionHandler.gistCollectionStatus.title)
+                                Text(sessionHandler.gistCollectionStatus.detail)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .font(.system(.footnote, design: .monospaced))
                         }
 
                         Section {
@@ -36,6 +41,7 @@ struct SettingsView: View {
                                         .font(.system(.body, design: .monospaced))
                                 }
                             }
+                            .disabled(!sessionHandler.isAuthenticated)
                         } footer: {
                             Text("Get new Gists from Github or use pull-to-refresh on the list")
                         }
@@ -85,12 +91,11 @@ struct SettingsView: View {
                 }
                 .task {
                     isLoading = true
-
-                    sessionHandler.callTask {
-                        let user = try await sessionHandler.me()
-                        name = user.name
+                    var fetchedName: String?
+                    await sessionHandler.call {
+                        fetchedName = try await sessionHandler.me().name
                     }
-
+                    name = fetchedName
                     isLoading = false
                 }
                 .tabItem {
@@ -100,10 +105,16 @@ struct SettingsView: View {
                 VStack {
                     Form {
                         Section {
-                            Toggle("Disable Local Caching", isOn: .constant(Constants.Feature.localCache))
-                                .disabled(!Constants.Feature.localCache)
+                            Text("Cached gist browsing is enabled automatically so Fragment can keep working when GitHub is unavailable.")
+                                .font(.system(.footnote, design: .monospaced))
+                        }
+
+                        Section {
+                            Button("Clear Cached Gists") {
+                                sessionHandler.clearCachedGists()
+                            }
                         } footer: {
-                            Text("Not implemented yet")
+                            Text("This removes the last saved offline gist snapshot from this device.")
                         }
                     }
                 }

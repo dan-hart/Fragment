@@ -7,9 +7,7 @@
 
 import Foundation
 import KeychainAccess
-import Network
 @preconcurrency import OctoKit
-@preconcurrency import RequestKit
 import SwiftUI
 
 @MainActor
@@ -19,9 +17,15 @@ class SessionHandler: ObservableObject {
     // MARK: - Publishable data
 
     @Published var isAuthenticated = false
-    @Published var gists: [Gist] = []
+    @Published var gists: [GistDocument] = []
+    @Published var gistCollectionStatus: GistCollectionStatus = .idle
+    @Published var lastRefreshError: String?
 
     private var configuration = TokenConfiguration()
+
+    private let authenticationService: AuthenticationService
+    private let gistService: GistService
+    private let cacheStore: GistCacheStore
 
     // MARK: - Computed
 
@@ -35,6 +39,10 @@ class SessionHandler: ObservableObject {
 
     var token: String? {
         keychain[keychainKeyIdentifier]
+    }
+
+    var canBrowseGists: Bool {
+        isAuthenticated || !gists.isEmpty
     }
 
     // MARK: - Alerts
@@ -57,7 +65,14 @@ class SessionHandler: ObservableObject {
 
     // MARK: - Initialization
 
-    init() {
+    init(
+        authenticationService: AuthenticationService = .live,
+        gistService: GistService = .live,
+        cacheStore: GistCacheStore = GistCacheStore()
+    ) {
+        self.authenticationService = authenticationService
+        self.gistService = gistService
+        self.cacheStore = cacheStore
         cgFloatFontSize = CGFloat(fontSize)
     }
 
@@ -66,174 +81,168 @@ class SessionHandler: ObservableObject {
     func invalidateSession() {
         keychain[keychainKeyIdentifier] = nil
         isAuthenticated = false
+        gists = []
+        gistCollectionStatus = .idle
+        lastRefreshError = nil
+
+        do {
+            try cacheStore.clear()
+        } catch {
+            lastRefreshError = error.localizedDescription
+        }
+    }
+
+    func clearCachedGists() {
+        do {
+            try cacheStore.clear()
+            gists = []
+            gistCollectionStatus = isAuthenticated ? .fresh(nil) : .idle
+        } catch {
+            lastRefreshError = error.localizedDescription
+        }
     }
 
     func startSession(with optionalToken: String? = nil) async throws {
-        if let token = optionalToken {
-            // Continue existing session
-            configuration = try await authenticate(using: token)
+        guard let token = optionalToken?
+            .trimmingCharacters(in: .whitespacesAndNewlines),
+            !token.isEmpty
+        else {
+            gists = []
+            gistCollectionStatus = .idle
+            return
+        }
+
+        do {
+            configuration = try await authenticationService.validateToken(token)
             keychain[keychainKeyIdentifier] = token
-        } else {
-            // No token. Start a new session by providing one.
-        }
-    }
+            isAuthenticated = true
+            lastRefreshError = nil
+            try await refreshGists()
+        } catch {
+            isAuthenticated = false
 
-    // MARK: - Authentication
-
-    private func getToken() throws -> String {
-        guard let token = keychain[keychainKeyIdentifier] else {
-            throw FragmentError.nilToken
-        }
-
-        return token
-    }
-
-    private nonisolated func authenticate(using token: String?) async throws -> TokenConfiguration {
-        guard let token, !token.isEmpty else {
-            throw FragmentError.nilToken
-        }
-
-        let configuration = TokenConfiguration(token)
-        let response = await withCheckedContinuation { continuation in
-            Octokit(configuration).me { response in
-                continuation.resume(returning: response)
+            if try loadCachedGists() == false {
+                throw error
             }
-        }
 
-        switch response {
-        case .success:
-            await MainActor.run {
-                isAuthenticated = true
-            }
-            return configuration
-        case let .failure(error):
-            throw error
+            lastRefreshError = error.localizedDescription
         }
     }
 
     // MARK: - Gist CRU
 
-    nonisolated func update(
-        _ identifier: String,
-        _ description: String,
-        _ filename: String,
-        _ content: String
-    ) async throws -> Gist {
+    func update(
+        _ gist: GistDocument,
+        _ content: String,
+        allowConflictOverwrite: Bool = false
+    ) async throws -> GistDocument {
         try await validate()
-        let config = await MainActor.run { configuration }
+        let config = configuration
 
-        let response = await withCheckedContinuation { continuation in
-            Octokit(config).patchGistFile(id: identifier,
-                                          description: description,
-                                          filename: filename,
-                                          fileContent: content)
-            { response in
-                continuation.resume(returning: response)
-            }
+        if !allowConflictOverwrite,
+           let latest = try await gistService.fetchMyGist(gist.id, config),
+           GistDiffSummary.conflictExists(remoteContent: latest.content, loadedContent: gist.content)
+        {
+            throw FragmentError.remoteContentChanged
         }
 
-        switch response {
-        case let .success(gist):
-            return gist
-        case let .failure(error):
-            throw error
-        }
+        let updated = try await gistService.updateGist(
+            gist.id,
+            gist.gistDescription ?? "",
+            gist.fileName,
+            content,
+            config
+        )
+
+        replace(document: updated)
+        try persistCache(using: .fresh(Date()))
+        return updated
     }
 
-    nonisolated func create(
+    func create(
         gist filename: String,
         _ description: String,
         _ content: String,
         _ visibility: Visibility
-    ) async throws -> Gist {
+    ) async throws -> GistDocument {
         try await validate()
-        let config = await MainActor.run { configuration }
-
-        let response = await withCheckedContinuation { continuation in
-            Octokit(config).postGistFile(
-                description: description,
-                filename: filename,
-                fileContent: content,
-                publicAccess: visibility == .public ? true : false
-            ) { response in
-                continuation.resume(returning: response)
-            }
-        }
-
-        switch response {
-        case let .success(gist):
-            return gist
-        case let .failure(error):
-            throw error
-        }
+        let config = configuration
+        return try await gistService.createGist(filename, description, content, visibility, config)
     }
 
-    @MainActor
     func refreshGists() async throws {
         try await validate()
-        gists = try await myGists()
+        gistCollectionStatus = .loading
+
+        do {
+            let documents = try await gistService.fetchMyGists(configuration)
+            gists = documents
+            let now = Date()
+            gistCollectionStatus = .fresh(now)
+            lastRefreshError = nil
+            try persistCache(using: .fresh(now))
+        } catch {
+            if try loadCachedGists() == false {
+                gistCollectionStatus = .idle
+                throw error
+            }
+
+            lastRefreshError = error.localizedDescription
+        }
     }
 
-    nonisolated func myGists() async throws -> [Gist] {
-        try await validate()
-        let config = await MainActor.run { configuration }
-
-        let response = await withCheckedContinuation { continuation in
-            Octokit(config).myGists { response in
-                continuation.resume(returning: response)
-            }
-        }
-
-        switch response {
-        case let .success(gists):
-            for gist in gists {
-                print(gist.aiPrompt)
-            }
-            return gists
-        case .failure:
-            throw FragmentError.couldNotFetchData
-        }
+    func noteCreated(_ gist: GistDocument) {
+        gists.insert(gist, at: 0)
+        try? persistCache(using: .fresh(Date()))
     }
 
     // MARK: - Profile
 
-    nonisolated func me() async throws -> User {
+    func me() async throws -> User {
         try await validate()
-        let config = await MainActor.run { configuration }
+        return try await authenticationService.fetchProfile(configuration)
+    }
 
-        let response = await withCheckedContinuation { continuation in
-            Octokit(config).me { response in
-                continuation.resume(returning: response)
-            }
-        }
+    // MARK: - Save Preview
 
-        switch response {
-        case let .success(user):
-            return user
-        case let .failure(error):
-            throw error
-        }
+    func previewSave(for gist: GistDocument, proposedContent: String) async throws -> GistSavePreview {
+        try await validate()
+
+        let summary = GistDiffSummary(original: gist.content, updated: proposedContent)
+        let latest = try await gistService.fetchMyGist(gist.id, configuration)
+        let conflictDetected = latest.map {
+            GistDiffSummary.conflictExists(remoteContent: $0.content, loadedContent: gist.content)
+        } ?? false
+
+        return GistSavePreview(
+            summary: summary,
+            conflictDetected: conflictDetected,
+            latestRemoteUpdate: latest?.updatedAt
+        )
     }
 
     // MARK: - Helpers
 
-    nonisolated func validate() async throws {
-        let authenticated = await MainActor.run { isAuthenticated }
-        if !authenticated { throw FragmentError.notAuthenticated }
+    func validate() async throws {
+        if !isAuthenticated {
+            throw FragmentError.notAuthenticated
+        }
     }
 
     func call(thisAsyncThrowingCode: @escaping () async throws -> Void) async {
         do {
             try await thisAsyncThrowingCode()
         } catch {
-            var errorMessage = ""
-            if error is FragmentError {
-                errorMessage = (error as? FragmentError)?.rawValue ?? "Error"
+            let errorMessage = if let fragmentError = error as? FragmentError {
+                fragmentError.rawValue
             } else {
-                errorMessage = error.localizedDescription
+                error.localizedDescription
             }
 
-            alert = Alert(title: Text("Oops!").font(.system(.body, design: .monospaced)), message: Text(errorMessage).font(.system(.caption, design: .monospaced)))
+            alert = Alert(
+                title: Text("Oops!").font(.system(.body, design: .monospaced)),
+                message: Text(errorMessage).font(.system(.caption, design: .monospaced))
+            )
         }
     }
 
@@ -241,5 +250,29 @@ class SessionHandler: ObservableObject {
         Task {
             await call(thisAsyncThrowingCode: thisAsyncThrowingCode)
         }
+    }
+
+    private func replace(document: GistDocument) {
+        if let index = gists.firstIndex(where: { $0.id == document.id }) {
+            gists[index] = document
+        }
+    }
+
+    @discardableResult
+    private func loadCachedGists() throws -> Bool {
+        guard let snapshot = try cacheStore.load() else {
+            return false
+        }
+
+        gists = snapshot.documents.map { $0.withSource(.cached) }
+        gistCollectionStatus = .cached(snapshot.syncedAt)
+        return !snapshot.documents.isEmpty
+    }
+
+    private func persistCache(using status: GistCollectionStatus) throws {
+        let documents = gists.map { $0.withSource(.fresh) }
+        let snapshot = GistCacheSnapshot(syncedAt: Date(), documents: documents)
+        try cacheStore.save(snapshot)
+        gistCollectionStatus = status
     }
 }

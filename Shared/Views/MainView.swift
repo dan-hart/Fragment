@@ -13,7 +13,7 @@ struct MainView: View {
     @Binding var isLoading: Bool
 
     var body: some View {
-        if sessionHandler.isAuthenticated {
+        if sessionHandler.canBrowseGists {
             ContainerView(isLoading: $isLoading)
         } else {
             if isLoading {
@@ -21,16 +21,8 @@ struct MainView: View {
                     .redacted(reason: .placeholder) //
             } else {
                 NavigationStack {
-                    #if os(macOS)
-                        AuthenticationView(isLoading: $isLoading)
-                            .padding()
-                    #endif
-                    #if os(iOS)
-                        AuthenticationView(isLoading: $isLoading)
-                            .padding()
-                        Text("Enter Github personal access token on the lefthand sidebar")
-                            .font(.system(.body, design: .monospaced))
-                    #endif
+                    AuthenticationView(isLoading: $isLoading)
+                        .padding()
                 }
             }
         }

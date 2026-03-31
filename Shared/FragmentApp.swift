@@ -23,12 +23,35 @@ struct FragmentApp: App {
                 }
                 .onAppear {
                     sessionHandler.callTask {
-                        isLoading = true
+                        await MainActor.run {
+                            isLoading = true
+                        }
+
+                        defer {
+                            Task { @MainActor in
+                                isLoading = false
+                            }
+                        }
+
                         try await sessionHandler.startSession(with: sessionHandler.token)
-                        isLoading = false
                     }
                 }
         }
+        #if os(macOS)
+        .commands {
+            CommandMenu("Fragment") {
+                Button("New Gist") {
+                    NotificationCenter.default.post(name: .fragmentCreateGist, object: nil)
+                }
+                .keyboardShortcut("n")
+
+                Button("Refresh Gists") {
+                    NotificationCenter.default.post(name: .fragmentRefreshGists, object: nil)
+                }
+                .keyboardShortcut("r")
+            }
+        }
+        #endif
 
         #if os(macOS)
             Settings {

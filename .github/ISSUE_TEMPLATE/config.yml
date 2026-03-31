@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Project roadmap
+    url: https://github.com/dan-hart/Fragment/blob/develop/docs/roadmap.md
+    about: See what is already planned before opening a feature request.
+  - name: Contributor guide
+    url: https://github.com/dan-hart/Fragment/blob/develop/CONTRIBUTING.md
+    about: Read the local workflow, verification steps, and issue taxonomy.

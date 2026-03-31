@@ -22,7 +22,7 @@ enum Constants {
     }
 
     enum Feature {
-        static let localCache = false
+        static let localCache = true
         static let ifNoGistsEnableCreateButton = false
         static let ifNoGistsEnablePullButton = true
         static let settingsEnabled = true
@@ -45,3 +45,8 @@ enum Constants {
 }
 
 // swiftlint:enable line_length
+
+extension Notification.Name {
+    static let fragmentCreateGist = Notification.Name("fragment.createGist")
+    static let fragmentRefreshGists = Notification.Name("fragment.refreshGists")
+}
