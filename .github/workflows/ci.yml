@@ -9,25 +9,71 @@ permissions:
 
 jobs:
   macos:
-    runs-on: macos-latest
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Build macOS
-        run: xcodebuild -scheme macOS -configuration Debug build
+        run: |
+          xcodebuild \
+            -scheme macOS \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
 
       - name: Test macOS
-        run: xcodebuild test -scheme macOS
+        run: |
+          xcodebuild \
+            test \
+            -scheme macOS \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
 
   ios:
-    runs-on: macos-latest
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Select iOS simulator
+        id: ios-simulator
+        run: |
+          destination="$(python3 .github/scripts/select_ios_simulator.py)"
+          udid="$(python3 .github/scripts/select_ios_simulator.py --field udid)"
+          echo "destination=$destination" >> "$GITHUB_OUTPUT"
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
+          echo "Using simulator destination: $destination"
+
+      - name: Boot iOS simulator
+        run: |
+          xcrun simctl shutdown "${{ steps.ios-simulator.outputs.udid }}" || true
+          xcrun simctl boot "${{ steps.ios-simulator.outputs.udid }}"
+          xcrun simctl bootstatus "${{ steps.ios-simulator.outputs.udid }}" -b
+          xcrun simctl uninstall "${{ steps.ios-simulator.outputs.udid }}" com.codedbydan.FragmentSnippetManager || true
+
       - name: Build iOS
-        run: xcodebuild -scheme iOS -configuration Debug build -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=latest"
+        run: |
+          xcodebuild \
+            -scheme iOS \
+            -configuration Debug \
+            -destination "${{ steps.ios-simulator.outputs.destination }}" \
+            -destination-timeout 180 \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
 
       - name: Test iOS
-        run: xcodebuild test -scheme iOS -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=latest"
+        run: |
+          xcodebuild \
+            test \
+            -scheme iOS \
+            -destination "${{ steps.ios-simulator.outputs.destination }}" \
+            -destination-timeout 180 \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""

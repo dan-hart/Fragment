@@ -9,13 +9,26 @@ permissions:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Build macOS
-        run: xcodebuild -scheme macOS -configuration Debug build
+        run: |
+          xcodebuild \
+            -scheme macOS \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
 
       - name: Test macOS
-        run: xcodebuild test -scheme macOS
+        run: |
+          xcodebuild \
+            test \
+            -scheme macOS \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
